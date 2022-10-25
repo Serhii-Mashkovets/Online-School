@@ -1,10 +1,10 @@
 package onlineSchool.models;
 
-public class modelsStudents {
+public class ModelsStudents {
     public String studentLastName;
     public String studentName;
 
-public modelsStudents (String studentName, String studentLastName) {
+public ModelsStudents(String studentName, String studentLastName) {
     this.studentName = studentName;
    this.studentLastName = studentLastName;
 }

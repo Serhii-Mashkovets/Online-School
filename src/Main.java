@@ -1,31 +1,31 @@
-import onlineSchool.models.modelsLessons;
-import onlineSchool.models.modelsStudents;
+import onlineSchool.models.ModelsLessons;
+import onlineSchool.models.ModelsStudents;
 
 
 public class Main {
     public static void main(String[] args) {
-    modelsLessons newLessonOne = new modelsLessons();
+    ModelsLessons newLessonOne = new ModelsLessons();
     newLessonOne.lessonThemeOne = "Теорія ймовірності";
     System.out.println("Перша тема заняття: " + newLessonOne.lessonThemeOne);
 
-    modelsLessons newLessonTwo = new modelsLessons();
+    ModelsLessons newLessonTwo = new ModelsLessons();
     newLessonTwo.lessonThemeTwo = "Теорія математичної статистики";
     System.out.println("Друга тема заняття: " + newLessonTwo.lessonThemeTwo);
 
-    modelsLessons newLessonThree = new modelsLessons();
+    ModelsLessons newLessonThree = new ModelsLessons();
     newLessonThree.lessonThemeThree = "Алан Тьюрінг. Машина Енігма. Тести Тьюрінга";
     System.out.println("Третя тема заняття: " + newLessonThree.lessonThemeThree);
 
-    System.out.println("Виведемо лічильник. Він дорівнює " + modelsLessons.counter);
+    System.out.println("Виведемо лічильник. Він дорівнює " + ModelsLessons.counter);
 
     // "Пограємось" з modelsStudets класом
-        modelsStudents fullNameOne = new modelsStudents("Тарас", "Шевченко");
+        ModelsStudents fullNameOne = new ModelsStudents("Тарас", "Шевченко");
         System.out.println("Перший студент: " + fullNameOne.studentName + " " + fullNameOne.studentLastName);
 
-        modelsStudents fullNameTwo = new modelsStudents(" Іван ", "Франко");
+        ModelsStudents fullNameTwo = new ModelsStudents(" Іван ", "Франко");
         System.out.println("Другий студент: " + fullNameTwo.studentName + " " + fullNameTwo.studentLastName);
 
-        modelsStudents fullNameThree = new modelsStudents("Олена", "Бджілка");
+        ModelsStudents fullNameThree = new ModelsStudents("Олена", "Бджілка");
         System.out.println("Третій студент: " + fullNameThree.studentName + " " + fullNameThree.studentLastName);
 
         fullNameThree.setStudentAge(-1);

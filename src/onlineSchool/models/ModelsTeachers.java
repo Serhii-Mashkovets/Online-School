@@ -1,5 +1,5 @@
 package onlineSchool.models;
 
-public class modelsTeachers {
+public class ModelsTeachers {
     private int id;
 }
