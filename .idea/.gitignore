@@ -7,11 +7,11 @@
 /dataSources/
 /dataSources.local.xml
 .idea
-target
+target/
 build
-output
-release
-debug
+output/
+release/
+debug/
 *.log
 *~
 thumbs.db
