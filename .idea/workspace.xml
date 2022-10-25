@@ -29,6 +29,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\finep\IdeaProjects\onlineSchool\src" />
       <recent name="C:\Users\finep\IdeaProjects\onlineSchool\src\onlineSchool" />
     </key>
   </component>
@@ -40,8 +41,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666696359647</updated>
-      <workItem from="1666696364335" duration="4291000" />
+      <workItem from="1666696364335" duration="4467000" />
     </task>
+    <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
+      <created>1666701114188</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666701114188</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -57,5 +66,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push" />
+    <option name="LAST_COMMIT_MESSAGE" value="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push" />
   </component>
 </project>
