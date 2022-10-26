@@ -1,5 +1,5 @@
 package onlineSchool.services;
 
-public class ServicesLessons {
+public class Lecture {
     private int id;
 }

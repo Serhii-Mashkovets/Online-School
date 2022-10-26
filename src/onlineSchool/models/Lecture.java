@@ -1,6 +1,6 @@
 package onlineSchool.models;
 
-public class ModelsLessons {
+public class Lecture {
     public String lessonThemeOne;
     public String lessonThemeTwo;
     public String lessonThemeThree;
@@ -21,9 +21,11 @@ public class ModelsLessons {
     }
 
 public static int counter = 0;
-    public ModelsLessons() {
+    public Lecture() {
         counter++;
     }
+
+
 
     }
 
