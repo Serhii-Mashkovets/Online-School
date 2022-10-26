@@ -25,7 +25,6 @@ public class Main {
 
     System.out.println("Виведемо лічильник для класу Lecture. Він дорівнює " + Lecture.counter);
 
-    // "Пограємось" з modelsStudets класом
         Students fullNameOne = new Students("Тарас", "Шевченко");
         System.out.println("Перший студент: " + fullNameOne.studentName + " " + fullNameOne.studentLastName);
 
