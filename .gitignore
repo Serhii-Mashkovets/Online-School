@@ -39,7 +39,7 @@ thumbs.db
 *.iml
 *.ipr
 *.iws
-out/
+out/production/onlineSchool
 .idea_modules/
 atlassian-ide-plugin.xml
 .idea/replstate.xml
