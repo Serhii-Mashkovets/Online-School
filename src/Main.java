@@ -28,7 +28,7 @@ public class Main {
     System.out.printf ("%s %n", "Четверта тема заняття: " + newLessonFour.lessonThemeFour + ".");
 
     Lecture newLessonFive = new Lecture();
-    newLessonFive.lessonThemeFive = "Коофіцієн кореляції Кендела";
+    newLessonFive.lessonThemeFive = "Комп'ютерні числові симуляції";
     System.out.printf ("%s %n", "П'ята тема заняття: " + newLessonFive.lessonThemeFive + ".");
 
     System.out.println("Виведемо лічильник для класу Lecture. Він дорівнює " + Lecture.counter);

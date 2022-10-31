@@ -4,9 +4,7 @@ public class Lecture {
     public String lessonThemeOne;
     public String lessonThemeTwo;
     public String lessonThemeThree;
-
     public String lessonThemeFour;
-
     public String lessonThemeFive;
 
     private int id;
