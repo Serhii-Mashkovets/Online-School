@@ -5,6 +5,8 @@ public class Lecture {
     public String lessonThemeTwo;
     public String lessonThemeThree;
 
+    public String lessonThemeFive;
+
     private int id;
 
     private int lessonTime = 120;

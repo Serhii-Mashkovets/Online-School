@@ -23,6 +23,10 @@ public class Main {
     newLessonThree.lessonThemeThree = "Алан Тьюрінг. Машина Енігма. Тести Тьюрінга";
     System.out.println("Третя тема заняття: " + newLessonThree.lessonThemeThree);
 
+    Lecture newLessonFive = new Lecture();
+    newLessonFive.lessonThemeFive = "Комп'ютерні числові симуляції";
+    System.out.printf ("%s %n", "П'ята тема заняття: " + newLessonFive.lessonThemeFive + ".");
+
     System.out.println("Виведемо лічильник для класу Lecture. Він дорівнює " + Lecture.counter);
 
         Students fullNameOne = new Students("Тарас", "Шевченко");
