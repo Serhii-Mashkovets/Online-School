@@ -23,6 +23,10 @@ public class Main {
     newLessonThree.lessonThemeThree = "Алан Тьюрінг. Машина Енігма. Тести Тьюрінга";
     System.out.println("Третя тема заняття: " + newLessonThree.lessonThemeThree);
 
+    Lecture newLessonFour = new Lecture();
+    newLessonFour.lessonThemeFour = "Коофіцієнт кореляції Пірсона";
+    System.out.printf ("%s %n", "Четверта тема заняття: " + newLessonFour.lessonThemeFour + ".");
+
     Lecture newLessonFive = new Lecture();
     newLessonFive.lessonThemeFive = "Комп'ютерні числові симуляції";
     System.out.printf ("%s %n", "П'ята тема заняття: " + newLessonFive.lessonThemeFive + ".");
