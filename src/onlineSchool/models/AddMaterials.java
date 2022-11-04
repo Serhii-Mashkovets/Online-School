@@ -8,4 +8,5 @@ public class AddMaterials {
         this.bookTwo = bookTwo;
     }
 
+    public int id;
 }

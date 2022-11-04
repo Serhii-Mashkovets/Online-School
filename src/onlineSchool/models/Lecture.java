@@ -7,8 +7,6 @@ public class Lecture {
     public String lessonThemeFour;
     public String lessonThemeFive;
 
-    private int id;
-
     private int lessonTime = 120;
 
 
@@ -22,12 +20,16 @@ public class Lecture {
         this.lessonTime = lessonTime;
     }
 
+
+
+
 public static int counter = 0;
     public Lecture() {
         counter++;
     }
 
 
+    public int id;
 
     }
 

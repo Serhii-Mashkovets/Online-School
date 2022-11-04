@@ -18,4 +18,6 @@ public class HomeWork {
     }
     public static int counterNew = 0;
     public HomeWork () { counterNew++;}
+
+    public int id;
 }
