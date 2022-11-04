@@ -16,7 +16,7 @@ private int studentAge;
 
         return studentAge;
     }
-// Зробимо так, щоб вік студента не міг бути менше нуля
+// let`s make that the age of the student could not be smaller than zero
     public void setStudentAge (int studentAge) {
         if (studentAge <= 0) {
             studentAge = 0;

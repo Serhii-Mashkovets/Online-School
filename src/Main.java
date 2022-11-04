@@ -11,6 +11,8 @@ public class Main {
         veryNewCourse.courseName = "Математична логіка";
         System.out.println("Назва курсу, котрий ми будемо вивчати: " + veryNewCourse.courseName + ".");
 
+        System.out.println("Аудиторія для заняття: " + veryNewCourse.CLASSROOM_FOR_LESSONS);
+
     Lecture newLessonOne = new Lecture();
     newLessonOne.lessonThemeOne = "Теорія ймовірності";
     System.out.println("Перша тема заняття: " + newLessonOne.lessonThemeOne);
@@ -68,7 +70,8 @@ public class Main {
 
 
         System.out.println("Для вивчення курсу можна ознайомитись з наступними додатковими матеріалами: ");
-        AddMaterials firstAdd = new AddMaterials("Probability Theory and Mathematical Statistics, за авторством Розанова Ю.А.", "Mathematical logic за авторством Алана Т.");
+        AddMaterials firstAdd = new AddMaterials("Probability Theory and Mathematical Statistics, за авторством Розанова Ю.А.",
+                "Mathematical logic за авторством Алана Т.");
         System.out.println(firstAdd.bookOne);
         System.out.println(firstAdd.bookTwo);
 

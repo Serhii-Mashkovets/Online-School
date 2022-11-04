@@ -7,29 +7,17 @@ public class Lecture {
     public String lessonThemeFour;
     public String lessonThemeFive;
 
-    private int lessonTime = 120;
-
-
-    public final int CLASSROOM_FOR_LESSONS = 12;
-
-    public int getLessonTime() {
-        return lessonTime;
-    }
-
-    public void setLessonTime(int lessonTime) {
-        this.lessonTime = lessonTime;
-    }
-
-
-
-
 public static int counter = 0;
     public Lecture() {
         counter++;
     }
 
+    private int id;
 
-    public int id;
+   // topic 6
+
+   public int idCourse;
+
 
     }
 
