@@ -4,15 +4,10 @@
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Students.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Teachers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Teachers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/AddMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/AddMaterial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/HomeWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/HomeWork.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +71,10 @@
       <workItem from="1667460919471" duration="1151000" />
       <workItem from="1667469452169" duration="650000" />
       <workItem from="1667573409349" duration="53000" />
-      <workItem from="1667581228934" duration="5869000" />
+      <workItem from="1667581228934" duration="6024000" />
+      <workItem from="1667640609175" duration="2376000" />
+      <workItem from="1667679444456" duration="62000" />
+      <workItem from="1667841229439" duration="5295000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>

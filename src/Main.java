@@ -7,12 +7,37 @@ import onlineSchool.models.Course;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         Course veryNewCourse = new Course ();
         veryNewCourse.courseName = "Математична логіка";
         System.out.println("Назва курсу, котрий ми будемо вивчати: " + veryNewCourse.courseName + ".");
-
         System.out.println("Аудиторія для заняття: " + veryNewCourse.CLASSROOM_FOR_LESSONS);
+        */
 
+        // topic 6 experimental resolve
+        Course courseOne = new Course();
+        courseOne.fullCourse("Математична логіка ЕВМ", 1);
+        System.out.println("Назва курсу: " + courseOne.courseNameOne + "\n" +
+                "Виведемо значення id: " + courseOne.id + ".");
+
+        Lecture lectureOne = new Lecture("Основи двійкового коду",
+                "Олег Скрипка", "Двійкове кодування", courseOne.countId());
+        Lecture lectureTwo = new Lecture("Вивчення основ Assembly",
+                "Олег Винник","Ease Assembly", courseOne.countId());
+        Lecture lectureThree = new Lecture("Процедурне програмування",
+                "Святослав Вакарчук","Інформатика 7 клас", courseOne.countId());
+        Lecture lectureFour = new Lecture("Принцип об'єкто-орієнтованості в програмуванні",
+                "Олександр Пономарьов","Інформатика 8 клас", courseOne.countId());
+        Lecture lectureFive = new Lecture("Інкапсуляція, Поліморфізм, Наслідування",
+                "Олексій Завгородній","Інформатика 9 клас", courseOne.countId());
+        Lecture lectureSix = new Lecture ("Фреймворки",
+                "Олексій Потапенко","Інформатика 10 клас", courseOne.countId());
+
+        System.out.println(lectureSix.countId());
+        System.out.println(Lecture.lectureCounter);
+
+
+   /*
     Lecture newLessonOne = new Lecture();
     newLessonOne.lessonThemeOne = "Теорія ймовірності";
     System.out.println("Перша тема заняття: " + newLessonOne.lessonThemeOne);
@@ -34,6 +59,7 @@ public class Main {
     System.out.printf ("%s %n", "П'ята тема заняття: " + newLessonFive.lessonThemeFive + ".");
 
     System.out.println("Виведемо лічильник для класу Lecture. Він дорівнює " + Lecture.counter);
+    */
 
         Students fullNameOne = new Students("Тарас", "Шевченко");
         System.out.println("Перший студент: " + fullNameOne.studentName + " " + fullNameOne.studentLastName);
@@ -71,7 +97,7 @@ public class Main {
 
         System.out.println("Для вивчення курсу можна ознайомитись з наступними додатковими матеріалами: ");
         AddMaterials firstAdd = new AddMaterials("Probability Theory and Mathematical Statistics, за авторством Розанова Ю.А.",
-                "Mathematical logic за авторством Алана Т.");
+                "Mathematical logic за авторством Алана Тьюрінга.");
         System.out.println(firstAdd.bookOne);
         System.out.println(firstAdd.bookTwo);
 
