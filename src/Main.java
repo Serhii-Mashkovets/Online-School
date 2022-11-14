@@ -1,18 +1,9 @@
 import onlineSchool.models.*;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        Course veryNewCourse = new Course ();
-        veryNewCourse.courseName = "Математична логіка";
-        System.out.println("Назва курсу, котрий ми будемо вивчати: " + veryNewCourse.courseName + ".");
-        System.out.println("Аудиторія для заняття: " + veryNewCourse.CLASSROOM_FOR_LESSONS);
-        */
-
         // topic 7
         fullCourseP();
         lectureFromConsole();
