@@ -9,7 +9,8 @@ public class Main {
         lectureFromConsole();
 
 
-    /* Lecture newLessonOne = new Lecture();
+        //Maybe it will be usefull later
+         /* Lecture newLessonOne = new Lecture();
     newLessonOne.lessonThemeOne = "Теорія ймовірності";
     System.out.println("Перша тема заняття: " + newLessonOne.lessonThemeOne);
 
@@ -31,8 +32,8 @@ public class Main {
 
     System.out.println("Виведемо лічильник для класу Lecture. Він дорівнює " + Lecture.counter);
     */
-
-    /*
+        //Maybe it will be usefull later
+        /*
         fullNameThree.setStudentAge(-1);
         System.out.println("Олені Бджілці " + fullNameThree.getStudentAge() + " років");
 
@@ -240,15 +241,15 @@ public class Main {
             System.out.println("Id лекції: " + Course.id);
             Lecture lecture1234 = new Lecture(lectureThemeOne1, lectureTeacherName1, lectureMainBook1, Course.id);
             System.out.printf("%s", "Назва лекції " + lectureThemeOne1 +
-                    " Ім'я викладача " + lectureTeacherName1 +
-                    " Книга для навчання " + lectureMainBook1 +
-                    " id " + Course.id);
+                    "\n" + " Ім'я викладача " + lectureTeacherName1 +
+                    "\n" + " Книга для навчання " + lectureMainBook1 +
+                    "\n" + " id " + Course.id);
             Course.id++;
 
             String result1 = "Назва лекції " + lectureThemeOne +
                     " Ім'я викладача " + lectureTeacherName +
                     " Книга для навчання " + lectureMainBook;
-            System.out.println("id:" + Course.id);
+            System.out.println(" id:" + Course.id);
             return result1;
         } else if (toBeOrNotToBe == 2) {
             System.out.println("Ще одну лекцію не буде створено!");
