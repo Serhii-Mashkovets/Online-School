@@ -46,8 +46,7 @@ public class Main {
                 "\n" + "13 " + lectureFour.lectureTopic +
                 "\n" + "14 " + lectureFive.lectureTopic +
                 "\n" + "15 " + lectureSix.lectureTopic);
-        Scanner sc1 = new Scanner(System.in);
-        int numberOfTheLecture = sc1.nextInt();
+        int numberOfTheLecture = sc.nextInt();
         System.out.println("Ви ввели: " + numberOfTheLecture);
 
         switch (numberOfTheLecture) {
@@ -74,20 +73,16 @@ public class Main {
                 "\n" + "20 " + fullNameOne.studentName + " " + fullNameOne.studentLastName +
                 "\n" + "21 " + fullNameTwo.studentName + " " + fullNameTwo.studentLastName +
                 "\n" + "22 " + fullNameThree.studentName + " " + fullNameThree.studentLastName);
-        Scanner sc2 = new Scanner(System.in);
-        int numberOfTheStudent = sc2.nextInt();
+        int numberOfTheStudent = sc.nextInt();
         System.out.println("Ви ввели: " + numberOfTheStudent);
 
         switch (numberOfTheStudent) {
-            case 20 ->
-                    System.out.println("Відвідувати курс буде: " + fullNameOne.studentName
-                            + " " + fullNameOne.studentLastName);
-            case 21 ->
-                    System.out.println("Відвідувати курс буде: " + fullNameTwo.studentName + " "
-                            + fullNameTwo.studentLastName);
-            case 22 ->
-                    System.out.println("Відвідувати курс буде: " + fullNameThree.studentName + " "
-                            + fullNameThree.studentLastName);
+            case 20 -> System.out.println("Відвідувати курс буде: " + fullNameOne.studentName
+                    + " " + fullNameOne.studentLastName);
+            case 21 -> System.out.println("Відвідувати курс буде: " + fullNameTwo.studentName + " "
+                    + fullNameTwo.studentLastName);
+            case 22 -> System.out.println("Відвідувати курс буде: " + fullNameThree.studentName + " "
+                    + fullNameThree.studentLastName);
             default -> System.out.println("Такого студента не знайдено!");
         }
 
@@ -100,79 +95,64 @@ public class Main {
                 "\n" + "30 " + teacherOne.teacherName + " " + teacherOne.teacherSecondName +
                 "\n" + "31 " + teacherTwo.teacherName + " " + teacherTwo.teacherSecondName +
                 "\n" + "32 " + teacherThree.teacherName + " " + teacherThree.teacherSecondName);
-        Scanner sc3 = new Scanner(System.in);
-        int numberOfTheTeacher = sc3.nextInt();
+        int numberOfTheTeacher = sc.nextInt();
         System.out.println("Ви ввели: " + numberOfTheTeacher);
 
         switch (numberOfTheTeacher) {
-            case 30 ->
-                    System.out.println("Викладати буде: " + teacherOne.teacherName +
-                            " " + teacherOne.teacherSecondName);
-            case 31 ->
-                    System.out.println("Викладати буде: " + teacherTwo.teacherName +
-                            " " + teacherTwo.teacherSecondName);
-            case 32 ->
-                    System.out.println("Викладати буде: " + teacherThree.teacherName +
-                            " " + teacherThree.teacherSecondName);
+            case 30 -> System.out.println("Викладати буде: " + teacherOne.teacherName +
+                    " " + teacherOne.teacherSecondName);
+            case 31 -> System.out.println("Викладати буде: " + teacherTwo.teacherName +
+                    " " + teacherTwo.teacherSecondName);
+            case 32 -> System.out.println("Викладати буде: " + teacherThree.teacherName +
+                    " " + teacherThree.teacherSecondName);
             default -> System.out.println("Такого викладача не знайдено!");
         }
         System.out.println("Вітаю! Ваш курс складено.");
 
+
         // to create a new lecture and don`t abort this program
         System.out.println("Введіть тему лекції: ");
-        Scanner sc123 = new Scanner(System.in);
-        String lectureThemeOne = sc123.nextLine();
-        System.out.println("Тема лекції: " + lectureThemeOne);
+        Scanner sc2 = new Scanner(System.in);
+        String lectureThemeOne6 = sc2.nextLine();
+        System.out.println("Тема лекції: " + lectureThemeOne6);
 
         System.out.println("Введіть ім'я викладача лекції: ");
-        Scanner sc1234 = new Scanner(System.in);
-        String lectureTeacherName = sc1234.nextLine();
+        String lectureTeacherName = sc2.nextLine();
         System.out.println("Ім'я викладача: " + lectureTeacherName);
 
         System.out.println("Введіть книгу для вивчення теми: ");
-        Scanner sc12345 = new Scanner(System.in);
-        String lectureMainBook = sc12345.nextLine();
+        String lectureMainBook = sc2.nextLine();
         System.out.println("Книга: " + lectureMainBook);
 
         System.out.println("Введіть id: ");
-        Scanner sc123456 = new Scanner(System.in);
-        Course.id = sc123456.nextInt();
+        Course.id = sc.nextInt();
         System.out.println("Id лекції: " + Course.id);
-        Lecture lecture123 = new Lecture(lectureThemeOne, lectureTeacherName, lectureMainBook, Course.id);
+        Lecture lecture123 = new Lecture(lectureThemeOne6, lectureTeacherName, lectureMainBook, Course.id);
         Course.id++;
-        System.out.printf("%s", "Назва лекції " + lectureThemeOne +
+        System.out.printf("%s", "Назва лекції " + lectureThemeOne6 +
                 " Ім'я викладача " + lectureTeacherName +
                 " Книга для навчання " + lectureMainBook +
                 " id " + Course.id);
 
-        String result = "Назва лекції " + lectureThemeOne +
-                " Ім'я викладача " + lectureTeacherName +
-                " Книга для навчання " + lectureMainBook;
-
         System.out.println("\n" + "Бажаєте створити ще одну лекцію?");
         System.out.println("1 Так" + "\n" + "2 Ні ");
-        Scanner sc1234567 = new Scanner(System.in);
-        int toBeOrNotToBe = sc1234567.nextInt();
+        int toBeOrNotToBe = sc.nextInt();
 
         if (toBeOrNotToBe == 1) {
             System.out.println("Введіть тему лекції: ");
-            Scanner sc987 = new Scanner(System.in);
-            String lectureThemeOne1 = sc987.nextLine();
+            String lectureThemeOne1 = sc2.nextLine();
             System.out.println("Тема лекції: " + lectureThemeOne1);
 
             System.out.println("Введіть ім'я викладача лекції: ");
-            Scanner sc9876 = new Scanner(System.in);
-            String lectureTeacherName1 = sc9876.nextLine();
+            String lectureTeacherName1 = sc2.nextLine();
             System.out.println("Ім'я викладача: " + lectureTeacherName1);
 
             System.out.println("Введіть книгу для вивчення теми: ");
-            Scanner sc98765 = new Scanner(System.in);
-            String lectureMainBook1 = sc98765.nextLine();
+            String lectureMainBook1 = sc2.nextLine();
             System.out.println("Книга: " + lectureMainBook1);
 
             System.out.println("Введіть id: ");
-            Scanner sc987654 = new Scanner(System.in);
-            Course.id = sc987654.nextInt();
+            Course.id = sc.nextInt();
             System.out.println("Id лекції: " + Course.id);
             Lecture lecture1234 = new Lecture(lectureThemeOne1, lectureTeacherName1, lectureMainBook1, Course.id);
             System.out.printf("%s", "Назва лекції " + lectureThemeOne1 +
@@ -181,9 +161,6 @@ public class Main {
                     "\n" + " id " + Course.id);
             Course.id++;
 
-            String result1 = "Назва лекції " + lectureThemeOne +
-                    " Ім'я викладача " + lectureTeacherName +
-                    " Книга для навчання " + lectureMainBook;
             System.out.println(" id:" + Course.id);
         } else if (toBeOrNotToBe == 2) {
             System.out.println("Ще одну лекцію не буде створено!");
@@ -193,9 +170,7 @@ public class Main {
             System.out.println("id:" + Course.id);
         }
 
-        sc123.close();
-        sc1234.close();
-        sc12345.close();
-        sc123456.close();
+        sc.close();
+        sc2.close();
     }
 }
