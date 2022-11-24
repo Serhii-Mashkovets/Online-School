@@ -1,74 +1,10 @@
 import onlineSchool.models.*;
-import java.util.Scanner;
 
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         // topic 7
-        fullCourseP();
-        lectureFromConsole();
-
-
-        //Maybe it will be usefull later
-         /* Lecture newLessonOne = new Lecture();
-    newLessonOne.lessonThemeOne = "Теорія ймовірності";
-    System.out.println("Перша тема заняття: " + newLessonOne.lessonThemeOne);
-
-    Lecture newLessonTwo = new Lecture();
-    newLessonTwo.lessonThemeTwo = "Теорія математичної статистики";
-    System.out.println("Друга тема заняття: " + newLessonTwo.lessonThemeTwo);
-
-    Lecture newLessonThree = new Lecture();
-    newLessonThree.lessonThemeThree = "Алан Тьюрінг. Машина Енігма. Тести Тьюрінга";
-    System.out.println("Третя тема заняття: " + newLessonThree.lessonThemeThree);
-
-    Lecture newLessonFour = new Lecture();
-    newLessonFour.lessonThemeFour = "Коофіцієнт кореляції Пірсона";
-    System.out.printf ("%s %n", "Четверта тема заняття: " + newLessonFour.lessonThemeFour + ".");
-
-    Lecture newLessonFive = new Lecture();
-    newLessonFive.lessonThemeFive = "Комп'ютерні числові симуляції";
-    System.out.printf ("%s %n", "П'ята тема заняття: " + newLessonFive.lessonThemeFive + ".");
-
-    System.out.println("Виведемо лічильник для класу Lecture. Він дорівнює " + Lecture.counter);
-    */
-        //Maybe it will be usefull later
-        /*
-        fullNameThree.setStudentAge(-1);
-        System.out.println("Олені Бджілці " + fullNameThree.getStudentAge() + " років");
-
-        fullNameTwo.setStudentAge(23);
-        System.out.println("Івану Франку " + fullNameTwo.getStudentAge() + " роки");
-
-        fullNameOne.setStudentAge(70);
-        System.out.println("Тарасу Шевченку " + fullNameOne.getStudentAge() + " років");
-
-        System.out.println ("Виконати наступні домашні завдання: ");
-       HomeWork lectureHomeWork = new HomeWork();
-        lectureHomeWork.homeWorkOne();
-        System.out.println(lectureHomeWork.homeWorkOne());
-
-       HomeWork lectureHomeWorkTwo = new HomeWork();
-        lectureHomeWorkTwo.homeWorkTwo();
-        System.out.println( lectureHomeWorkTwo.homeWorkTwo());
-
-        HomeWork lectureHomeWorkThree = new HomeWork ();
-        lectureHomeWorkThree.homeWorkThree();
-        System.out.println(lectureHomeWorkThree.homeWorkThree());
-
-        System.out.println("Виведемо лічильник для класу HomeWork. Він дорівнює " + HomeWork.counterNew + ".");
-
-
-        System.out.println("Для вивчення курсу можна ознайомитись з наступними додатковими матеріалами: ");
-        AddMaterials firstAdd = new AddMaterials("Probability Theory and Mathematical Statistics, за авторством Розанова Ю.А.",
-                "Mathematical logic за авторством Алана Тьюрінга.");
-        System.out.println(firstAdd.bookOne);
-        System.out.println(firstAdd.bookTwo);  */
-
-    }
-
-    public static void fullCourseP() {
-        // to pick a course
         Course courseOne = new Course();
         courseOne.fullCourse("Математична логіка ЕВМ", 1);
 
@@ -103,9 +39,6 @@ public class Main {
         Lecture lectureSix = new Lecture("Фреймворки",
                 "Олексій Потапенко", "Інформатика 10 клас", courseOne.countId());
 
-        //        System.out.println(lectureSix.countId());
-        //        System.out.println(Lecture.lectureCounter);
-
         System.out.println("Оберіть необхідну лекцію: " +
                 "\n" + "10 " + lectureOne.lectureTopic +
                 "\n" + "11 " + lectureTwo.lectureTopic +
@@ -116,7 +49,6 @@ public class Main {
         Scanner sc1 = new Scanner(System.in);
         int numberOfTheLecture = sc1.nextInt();
         System.out.println("Ви ввели: " + numberOfTheLecture);
-
 
         switch (numberOfTheLecture) {
             case 10 -> System.out.println("Ви обрали лекцію: " + lectureOne.lectureTopic);
@@ -148,14 +80,16 @@ public class Main {
 
         switch (numberOfTheStudent) {
             case 20 ->
-                    System.out.println("Відвідувати курс буде: " + fullNameOne.studentName + " " + fullNameOne.studentLastName);
+                    System.out.println("Відвідувати курс буде: " + fullNameOne.studentName
+                            + " " + fullNameOne.studentLastName);
             case 21 ->
-                    System.out.println("Відвідувати курс буде: " + fullNameTwo.studentName + " " + fullNameTwo.studentLastName);
+                    System.out.println("Відвідувати курс буде: " + fullNameTwo.studentName + " "
+                            + fullNameTwo.studentLastName);
             case 22 ->
-                    System.out.println("Відвідувати курс буде: " + fullNameThree.studentName + " " + fullNameThree.studentLastName);
+                    System.out.println("Відвідувати курс буде: " + fullNameThree.studentName + " "
+                            + fullNameThree.studentLastName);
             default -> System.out.println("Такого студента не знайдено!");
         }
-
 
         // to pick teacher
         Teachers teacherOne = new Teachers("Альберт", "Енштейн");
@@ -172,18 +106,19 @@ public class Main {
 
         switch (numberOfTheTeacher) {
             case 30 ->
-                    System.out.println("Викладати буде: " + teacherOne.teacherName + " " + teacherOne.teacherSecondName);
+                    System.out.println("Викладати буде: " + teacherOne.teacherName +
+                            " " + teacherOne.teacherSecondName);
             case 31 ->
-                    System.out.println("Викладати буде: " + teacherTwo.teacherName + " " + teacherTwo.teacherSecondName);
+                    System.out.println("Викладати буде: " + teacherTwo.teacherName +
+                            " " + teacherTwo.teacherSecondName);
             case 32 ->
-                    System.out.println("Викладати буде: " + teacherThree.teacherName + " " + teacherThree.teacherSecondName);
+                    System.out.println("Викладати буде: " + teacherThree.teacherName +
+                            " " + teacherThree.teacherSecondName);
             default -> System.out.println("Такого викладача не знайдено!");
         }
-
         System.out.println("Вітаю! Ваш курс складено.");
-    }
 
-    public static String lectureFromConsole() {
+        // to create a new lecture and don`t abort this program
         System.out.println("Введіть тему лекції: ");
         Scanner sc123 = new Scanner(System.in);
         String lectureThemeOne = sc123.nextLine();
@@ -250,11 +185,9 @@ public class Main {
                     " Ім'я викладача " + lectureTeacherName +
                     " Книга для навчання " + lectureMainBook;
             System.out.println(" id:" + Course.id);
-            return result1;
         } else if (toBeOrNotToBe == 2) {
             System.out.println("Ще одну лекцію не буде створено!");
             System.out.println("id:" + Course.id);
-            return null;
         } else {
             System.out.println("Такого числа не знайдено!");
             System.out.println("id:" + Course.id);
@@ -264,7 +197,5 @@ public class Main {
         sc1234.close();
         sc12345.close();
         sc123456.close();
-
-        return result;
     }
 }
