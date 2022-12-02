@@ -138,17 +138,16 @@ public class Main {
             String lectureMainBook = sc2.nextLine();
             System.out.println("Книга: " + lectureMainBook);
 
-            int lectureCount = 0;
-            System.out.println("Id лекції: " + Course.id);
+
             Lecture lecture123 = new Lecture(lectureThemeOne6, lectureTeacherName, lectureMainBook, Course.id);
             Course.id++;
             System.out.printf("%s", "Назва лекції " + lectureThemeOne6 +
                     " Ім'я викладача " + lectureTeacherName +
                     " Книга для навчання " + lectureMainBook +
-                    " id " + Course.id + " Номер лекції " + lectureCount + "\n");
-            lectureCount++;
+                    " id " + Course.id + " Номер лекції " + "\n");
 
-            if (lectureCount > 8 || Course.id > 8) System.exit(0);
+
+            if (Course.id > 8) System.exit(0);
 
             try {
                 System.out.println("Бажаєте завершити роботу: введіть `exit` " + "\n" +

@@ -24,6 +24,6 @@ public class Course {
         this.id = id;
         counterOfCourse++;
     }
-    public int countId () { return id; }
+    public static int countId () { return id; }
 }
 

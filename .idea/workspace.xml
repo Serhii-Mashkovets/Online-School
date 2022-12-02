@@ -4,6 +4,7 @@
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,9 @@
       <workItem from="1668699976305" duration="1146000" />
       <workItem from="1669287817134" duration="628000" />
       <workItem from="1669288673214" duration="1143000" />
-      <workItem from="1669877617707" duration="4038000" />
+      <workItem from="1669877617707" duration="4622000" />
+      <workItem from="1669883318811" duration="51000" />
+      <workItem from="1669982623945" duration="333000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>
