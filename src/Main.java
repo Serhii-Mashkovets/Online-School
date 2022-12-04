@@ -1,11 +1,17 @@
 import onlineSchool.models.*;
+import onlineSchool.repository.LectureRepository;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // topic 8
 
+        // topic 9
+        LectureRepository lectureRepository = new LectureRepository();
+        initData(lectureRepository);
+
+        // topic 8
         while (true) {
             Scanner sc = new Scanner(System.in);
 
@@ -164,5 +170,21 @@ public class Main {
             sc.close();
             sc2.close();
         }
+    }
+
+    // topic 9
+    public static void initData(LectureRepository abcAbc) {
+        Course course = new Course();
+        Lecture lecture = new Lecture("I", "II", "III", course.id);
+        Lecture lecture2 = new Lecture("IV", "V", "VI", course.id);
+        Lecture lecture3 = new Lecture("VII", "VIII", "IX", course.id);
+    }
+
+    public static void showArray(Lecture[] a) {
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i] + " " + Lecture.id);
+            System.out.println(Arrays.toString(a));
+        }
+
     }
 }
