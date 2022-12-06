@@ -2,20 +2,28 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Students;
 
-public class StudentsRepository {
+public class StudentsRepository extends SuperPuperRepository{
     private final int INIT_CAPACITY = 5;
     private Students[] studentsArray;
 
     public StudentsRepository() {
-        this.studentsArray = new Students[INIT_CAPACITY];
+        this.studentsArray = new Students[getINIT_CAPACITY()];
     }
 
     public StudentsRepository(int inputCapacity) {
         if (inputCapacity < 1) {
             System.out.println("Wrong argument, creating standart capacity array");
-            this.studentsArray = new Students[INIT_CAPACITY];
+            this.studentsArray = new Students[getINIT_CAPACITY()];
         } else {
             this.studentsArray = new Students[inputCapacity];
         }
+    }
+
+    public int getINIT_CAPACITY() {
+        return INIT_CAPACITY;
+    }
+
+    public Students[] getStudentsArray() {
+        return studentsArray;
     }
 }

@@ -24,15 +24,15 @@ public class Main {
             int numberOfTheCourse = 0;
             do {
                 System.out.println("Оберіть, будь ласка, курс: " +
-                        "\n" + "1 " + courseOne.courseNameOne +
-                        "\n" + "2 " + courseTwo.courseNameOne);
+                        "\n" + "1 " + courseOne.getCourseNameOne() +
+                        "\n" + "2 " + courseTwo.getCourseNameOne());
                 numberOfTheCourse = sc.nextInt();
                 System.out.println("Ви ввели: " + numberOfTheCourse);
             } while (numberOfTheCourse < 1 || numberOfTheCourse > 2);
 
             switch (numberOfTheCourse) {
-                case 1 -> System.out.println("Ви обрали курс: " + courseOne.courseNameOne);
-                case 2 -> System.out.println("Ви обрали курс: " + courseTwo.courseNameOne);
+                case 1 -> System.out.println("Ви обрали курс: " + courseOne.getCourseNameOne());
+                case 2 -> System.out.println("Ви обрали курс: " + courseTwo.getCourseNameOne());
                 default -> System.out.println("Такого курсу не існує!");
             }
 
@@ -53,53 +53,53 @@ public class Main {
             int numberOfTheLecture = 0;
             do {
                 System.out.println("Оберіть необхідну лекцію: " +
-                        "\n" + "10 " + lectureOne.lectureTopic +
-                        "\n" + "11 " + lectureTwo.lectureTopic +
-                        "\n" + "12 " + lectureThree.lectureTopic +
-                        "\n" + "13 " + lectureFour.lectureTopic +
-                        "\n" + "14 " + lectureFive.lectureTopic +
-                        "\n" + "15 " + lectureSix.lectureTopic);
+                        "\n" + "10 " + lectureOne.getLectureTopic() +
+                        "\n" + "11 " + lectureTwo.getLectureTopic() +
+                        "\n" + "12 " + lectureThree.getLectureTopic() +
+                        "\n" + "13 " + lectureFour.getLectureTopic() +
+                        "\n" + "14 " + lectureFive.getLectureTopic() +
+                        "\n" + "15 " + lectureSix.getLectureTopic());
                 numberOfTheLecture = sc.nextInt();
                 System.out.println("Ви ввели: " + numberOfTheLecture);
             } while (numberOfTheLecture < 10 || numberOfTheLecture > 15);
 
             switch (numberOfTheLecture) {
-                case 10 -> System.out.println("Ви обрали лекцію: " + lectureOne.lectureTopic);
-                case 11 -> System.out.println("Ви обрали лекцію: " + lectureTwo.lectureTopic);
-                case 12 -> System.out.println("Ви обрали лекцію: " + lectureThree.lectureTopic);
-                case 13 -> System.out.println("Ви обрали лекцію: " + lectureFour.lectureTopic);
-                case 14 -> System.out.println("Ви обрали лекцію: " + lectureFive.lectureTopic);
-                case 15 -> System.out.println("Ви обрали лекцію: " + lectureSix.lectureTopic);
+                case 10 -> System.out.println("Ви обрали лекцію: " + lectureOne.getLectureTopic());
+                case 11 -> System.out.println("Ви обрали лекцію: " + lectureTwo.getLectureTopic());
+                case 12 -> System.out.println("Ви обрали лекцію: " + lectureThree.getLectureTopic());
+                case 13 -> System.out.println("Ви обрали лекцію: " + lectureFour.getLectureTopic());
+                case 14 -> System.out.println("Ви обрали лекцію: " + lectureFive.getLectureTopic());
+                case 15 -> System.out.println("Ви обрали лекцію: " + lectureSix.getLectureTopic());
                 default -> System.out.println("Такої лекції не існує!");
             }
 
             // to pick student
             Students fullNameOne = new Students("Тарас", "Шевченко");
-            System.out.println("Перший студент: " + fullNameOne.studentName + " " + fullNameOne.studentLastName);
+            System.out.println("Перший студент: " + fullNameOne.getStudentName() + " " + fullNameOne.getStudentLastName());
 
             Students fullNameTwo = new Students(" Іван ", "Франко");
-            System.out.println("Другий студент: " + fullNameTwo.studentName + " " + fullNameTwo.studentLastName);
+            System.out.println("Другий студент: " + fullNameTwo.getStudentName() + " " + fullNameTwo.getStudentLastName());
 
             Students fullNameThree = new Students("Олена", "Бджілка");
-            System.out.println("Третій студент: " + fullNameThree.studentName + " " + fullNameThree.studentLastName);
+            System.out.println("Третій студент: " + fullNameThree.getStudentName() + " " + fullNameThree.getStudentLastName());
 
             int numberOfTheStudent = 0;
             do {
                 System.out.println("Оберіть студента, котрий відвідає курс: " +
-                        "\n" + "20 " + fullNameOne.studentName + " " + fullNameOne.studentLastName +
-                        "\n" + "21 " + fullNameTwo.studentName + " " + fullNameTwo.studentLastName +
-                        "\n" + "22 " + fullNameThree.studentName + " " + fullNameThree.studentLastName);
+                        "\n" + "20 " + fullNameOne.getStudentName() + " " + fullNameOne.getStudentLastName() +
+                        "\n" + "21 " + fullNameTwo.getStudentName() + " " + fullNameTwo.getStudentLastName() +
+                        "\n" + "22 " + fullNameThree.getStudentName() + " " + fullNameThree.getStudentLastName());
                 numberOfTheStudent = sc.nextInt();
                 System.out.println("Ви ввели: " + numberOfTheStudent);
             } while (numberOfTheStudent < 20 || numberOfTheStudent > 22);
 
             switch (numberOfTheStudent) {
-                case 20 -> System.out.println("Відвідувати курс буде: " + fullNameOne.studentName
-                        + " " + fullNameOne.studentLastName);
-                case 21 -> System.out.println("Відвідувати курс буде: " + fullNameTwo.studentName + " "
-                        + fullNameTwo.studentLastName);
-                case 22 -> System.out.println("Відвідувати курс буде: " + fullNameThree.studentName + " "
-                        + fullNameThree.studentLastName);
+                case 20 -> System.out.println("Відвідувати курс буде: " + fullNameOne.getStudentName()
+                        + " " + fullNameOne.getStudentLastName());
+                case 21 -> System.out.println("Відвідувати курс буде: " + fullNameTwo.getStudentName() + " "
+                        + fullNameTwo.getStudentLastName());
+                case 22 -> System.out.println("Відвідувати курс буде: " + fullNameThree.getStudentName() + " "
+                        + fullNameThree.getStudentLastName());
                 default -> System.out.println("Такого студента не знайдено!");
             }
 
@@ -111,20 +111,20 @@ public class Main {
             int numberOfTheTeacher = 0;
             do {
                 System.out.println("Оберіть викладача для курсу: " +
-                        "\n" + "30 " + teacherOne.teacherName + " " + teacherOne.teacherSecondName +
-                        "\n" + "31 " + teacherTwo.teacherName + " " + teacherTwo.teacherSecondName +
-                        "\n" + "32 " + teacherThree.teacherName + " " + teacherThree.teacherSecondName);
+                        "\n" + "30 " + teacherOne.getTeacherName() + " " + teacherOne.getTeacherSecondName() +
+                        "\n" + "31 " + teacherTwo.getTeacherName() + " " + teacherTwo.getTeacherSecondName() +
+                        "\n" + "32 " + teacherThree.getTeacherName() + " " + teacherThree.getTeacherSecondName());
                 numberOfTheTeacher = sc.nextInt();
                 System.out.println("Ви ввели: " + numberOfTheTeacher);
             } while (numberOfTheTeacher < 30 || numberOfTheTeacher > 32);
 
             switch (numberOfTheTeacher) {
-                case 30 -> System.out.println("Викладати буде: " + teacherOne.teacherName +
-                        " " + teacherOne.teacherSecondName);
-                case 31 -> System.out.println("Викладати буде: " + teacherTwo.teacherName +
-                        " " + teacherTwo.teacherSecondName);
-                case 32 -> System.out.println("Викладати буде: " + teacherThree.teacherName +
-                        " " + teacherThree.teacherSecondName);
+                case 30 -> System.out.println("Викладати буде: " + teacherOne.getTeacherName() +
+                        " " + teacherOne.getTeacherSecondName());
+                case 31 -> System.out.println("Викладати буде: " + teacherTwo.getTeacherName() +
+                        " " + teacherTwo.getTeacherSecondName());
+                case 32 -> System.out.println("Викладати буде: " + teacherThree.getTeacherName() +
+                        " " + teacherThree.getTeacherSecondName());
                 default -> System.out.println("Такого викладача не знайдено!");
             }
             System.out.println("Вітаю! Ваш курс складено.");
@@ -145,15 +145,15 @@ public class Main {
             System.out.println("Книга: " + lectureMainBook);
 
 
-            Lecture lecture123 = new Lecture(lectureThemeOne6, lectureTeacherName, lectureMainBook, Course.id);
-            Course.id++;
+            Lecture lecture123 = new Lecture(lectureThemeOne6, lectureTeacherName, lectureMainBook, Course.getId());
+            Course.setId(Course.getId() + 1);
             System.out.printf("%s", "Назва лекції " + lectureThemeOne6 +
                     " Ім'я викладача " + lectureTeacherName +
                     " Книга для навчання " + lectureMainBook +
-                    " id " + Course.id + " Номер лекції " + "\n");
+                    " id " + Course.getId() + " Номер лекції " + Course.getId() + "\n");
 
 
-            if (Course.id > 8) System.exit(0);
+            if (Course.getId() > 8) System.exit(0);
 
             try {
                 System.out.println("Бажаєте завершити роботу: введіть `exit` " + "\n" +
@@ -173,16 +173,16 @@ public class Main {
     }
 
     // topic 9
-    public static void initData(LectureRepository abcAbc) {
+    private static void initData(LectureRepository abcAbc) {
         Course course = new Course();
-        Lecture lecture = new Lecture("I", "II", "III", course.id);
-        Lecture lecture2 = new Lecture("IV", "V", "VI", course.id);
-        Lecture lecture3 = new Lecture("VII", "VIII", "IX", course.id);
+        Lecture lecture = new Lecture("I", "II", "III", course.getId());
+        Lecture lecture2 = new Lecture("IV", "V", "VI", course.getId());
+        Lecture lecture3 = new Lecture("VII", "VIII", "IX", course.getId());
     }
 
-    public static void showArray(Lecture[] a) {
+    private static void showArray(Lecture[] a) {
         for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i] + " " + Lecture.id);
+            System.out.println(a[i] + " " + Lecture.getId());
             System.out.println(Arrays.toString(a));
         }
 

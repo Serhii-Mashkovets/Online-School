@@ -2,20 +2,32 @@ package onlineSchool.repository;
 
 import onlineSchool.models.AddMaterials;
 
-public class AddMaterialsRepository {
+public class AddMaterialsRepository extends SuperPuperRepository{
     private final int INIT_CAPACITY = 5;
     private AddMaterials[] addMaterialsArray;
 
     public AddMaterialsRepository() {
-        this.addMaterialsArray = new AddMaterials[INIT_CAPACITY];
+        this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);
     }
 
     public AddMaterialsRepository(int inputCapacity) {
         if (inputCapacity < 1) {
             System.out.println("Wrong argument, creating standart capacity array");
-            this.addMaterialsArray = new AddMaterials[INIT_CAPACITY];
+            this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);
         } else {
-            this.addMaterialsArray = new AddMaterials[inputCapacity];
+            this.setAddMaterialsArray(new AddMaterials[inputCapacity]);
         }
+    }
+
+    public int getINIT_CAPACITY() {
+        return INIT_CAPACITY;
+    }
+
+    public AddMaterials[] getAddMaterialsArray() {
+        return addMaterialsArray;
+    }
+
+    public void setAddMaterialsArray(AddMaterials[] addMaterialsArray) {
+        this.addMaterialsArray = addMaterialsArray;
     }
 }
