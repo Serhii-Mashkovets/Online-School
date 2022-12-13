@@ -7,10 +7,12 @@ public class HomeWorkRepository extends SuperPuperRepository{
     private HomeWork[] homeWOrkArray;
 
     public HomeWorkRepository() {
+        super(1);
         this.homeWOrkArray = new HomeWork[getINIT_CAPACITY()];
     }
 
     public HomeWorkRepository(int inputCapacity) {
+        super(1);
         if (inputCapacity < 1) {
             System.out.println("Wrong argument, creating standart capacity array");
             this.homeWOrkArray = new HomeWork[getINIT_CAPACITY()];

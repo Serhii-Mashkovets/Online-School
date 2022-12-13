@@ -2,15 +2,38 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
 
-public class LectureRepository extends SuperPuperRepository{
+public class LectureRepository extends SuperPuperRepository {
+
+    @Override
+    public void add(Lecture object) {
+        lectureArray[0] = object;
+    }
+
+    @Override
+    SuperPuperRepository[] getAll(SuperPuperRepository[] myArray) {
+        return super.getAll(myArray);
+    }
+
+    @Override
+    public void getByld() {
+        super.getByld();
+    }
+
+    @Override
+    public void deleteByld() {
+        super.deleteByld();
+    }
+
     private final int INIT_CAPACITY = 5;
     private Lecture[] lectureArray;
 
     public LectureRepository() {
+        super(1);
         this.lectureArray = new Lecture[getINIT_CAPACITY()];
     }
 
     public LectureRepository(int inputCapacity) {
+        super(1);
         if (inputCapacity < 1) {
             System.out.println("Wrong argument, creating standart capacity array");
             this.lectureArray = new Lecture[getINIT_CAPACITY()];
@@ -19,7 +42,7 @@ public class LectureRepository extends SuperPuperRepository{
         }
     }
 
-    public void add(Lecture lecture) {
+    public void addOne(Lecture lecture) {
         boolean lastElementIsZero;
         do {
             if (getLectureArray()[getINIT_CAPACITY() - 1] == null) {
