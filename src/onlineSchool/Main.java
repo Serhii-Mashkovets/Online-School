@@ -1,5 +1,6 @@
+package onlineSchool;
+
 import onlineSchool.models.*;
-import onlineSchool.repository.LectureRepository;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -7,8 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        LectureRepository lectureRepository = new LectureRepository();
-        initData(lectureRepository);
+        initData();
 
         while (true) {
             Scanner sc = new Scanner(System.in);
@@ -28,9 +28,10 @@ public class Main {
                 System.out.println("Ви ввели: " + numberOfTheCourse);
             } while (numberOfTheCourse < 1 || numberOfTheCourse > 2);
 
+            String courseChoise = "Ви обрали курс: ";
             switch (numberOfTheCourse) {
-                case 1 -> System.out.println("Ви обрали курс: " + courseOne.getCourseNameOne());
-                case 2 -> System.out.println("Ви обрали курс: " + courseTwo.getCourseNameOne());
+                case 1 -> System.out.println(courseChoise + courseOne.getCourseNameOne());
+                case 2 -> System.out.println(courseChoise + courseTwo.getCourseNameOne());
                 default -> System.out.println("Такого курсу не існує!");
             }
 
@@ -60,13 +61,14 @@ public class Main {
                 System.out.println("Ви ввели: " + numberOfTheLecture);
             } while (numberOfTheLecture < 10 || numberOfTheLecture > 15);
 
+            String lectureChoise = "Ви обрали лекцію: ";
             switch (numberOfTheLecture) {
-                case 10 -> System.out.println("Ви обрали лекцію: " + lectureOne.getLectureTopic());
-                case 11 -> System.out.println("Ви обрали лекцію: " + lectureTwo.getLectureTopic());
-                case 12 -> System.out.println("Ви обрали лекцію: " + lectureThree.getLectureTopic());
-                case 13 -> System.out.println("Ви обрали лекцію: " + lectureFour.getLectureTopic());
-                case 14 -> System.out.println("Ви обрали лекцію: " + lectureFive.getLectureTopic());
-                case 15 -> System.out.println("Ви обрали лекцію: " + lectureSix.getLectureTopic());
+                case 10 -> System.out.println(lectureChoise + lectureOne.getLectureTopic());
+                case 11 -> System.out.println(lectureChoise + lectureTwo.getLectureTopic());
+                case 12 -> System.out.println(lectureChoise + lectureThree.getLectureTopic());
+                case 13 -> System.out.println(lectureChoise + lectureFour.getLectureTopic());
+                case 14 -> System.out.println(lectureChoise + lectureFive.getLectureTopic());
+                case 15 -> System.out.println(lectureChoise + lectureSix.getLectureTopic());
                 default -> System.out.println("Такої лекції не існує!");
             }
 
@@ -89,12 +91,13 @@ public class Main {
                 System.out.println("Ви ввели: " + numberOfTheStudent);
             } while (numberOfTheStudent < 20 || numberOfTheStudent > 22);
 
+            String studentChoise = "Відвідувати курс буде: ";
             switch (numberOfTheStudent) {
-                case 20 -> System.out.println("Відвідувати курс буде: " + fullNameOne.getStudentName()
+                case 20 -> System.out.println(studentChoise + fullNameOne.getStudentName()
                         + " " + fullNameOne.getStudentLastName());
-                case 21 -> System.out.println("Відвідувати курс буде: " + fullNameTwo.getStudentName() + " "
+                case 21 -> System.out.println(studentChoise + fullNameTwo.getStudentName() + " "
                         + fullNameTwo.getStudentLastName());
-                case 22 -> System.out.println("Відвідувати курс буде: " + fullNameThree.getStudentName() + " "
+                case 22 -> System.out.println(studentChoise + fullNameThree.getStudentName() + " "
                         + fullNameThree.getStudentLastName());
                 default -> System.out.println("Такого студента не знайдено!");
             }
@@ -113,12 +116,13 @@ public class Main {
                 System.out.println("Ви ввели: " + numberOfTheTeacher);
             } while (numberOfTheTeacher < 30 || numberOfTheTeacher > 32);
 
+            String teacherChoise = "Викладати буде: ";
             switch (numberOfTheTeacher) {
-                case 30 -> System.out.println("Викладати буде: " + teacherOne.getTeacherName() +
+                case 30 -> System.out.println(teacherChoise + teacherOne.getTeacherName() +
                         " " + teacherOne.getTeacherSecondName());
-                case 31 -> System.out.println("Викладати буде: " + teacherTwo.getTeacherName() +
+                case 31 -> System.out.println(teacherChoise + teacherTwo.getTeacherName() +
                         " " + teacherTwo.getTeacherSecondName());
-                case 32 -> System.out.println("Викладати буде: " + teacherThree.getTeacherName() +
+                case 32 -> System.out.println(teacherChoise + teacherThree.getTeacherName() +
                         " " + teacherThree.getTeacherSecondName());
                 default -> System.out.println("Такого викладача не знайдено!");
             }
@@ -137,38 +141,28 @@ public class Main {
             String lectureMainBook = sc2.nextLine();
             System.out.println("Книга: " + lectureMainBook);
 
-
-            Lecture lecture123 = new Lecture(lectureThemeOne6, lectureTeacherName, lectureMainBook, Course.getId());
             Course.setId(Course.getId() + 1);
             System.out.printf("%s", "Назва лекції " + lectureThemeOne6 +
                     " Ім'я викладача " + lectureTeacherName +
                     " Книга для навчання " + lectureMainBook +
                     " id " + Course.getId() + " Номер лекції " + Course.getId() + "\n");
 
-
             if (Course.getId() > 8) System.exit(0);
 
-            try {
-                System.out.println("Бажаєте завершити роботу: введіть `exit` " + "\n" +
-                        "Якщо бажаєте продовжити, то введіть будь-який символ або строку");
-                String exitButton = sc2.nextLine();
-                if ("exit".equals(exitButton)) {
-                    System.exit(0);
-                } else continue;
-            } catch (Exception ei) {
-                String ex = String.valueOf(ei);
-                System.out.println("The problem is " + ex);
+            System.out.println("Бажаєте завершити роботу: введіть `exit` " + "\n" +
+                    "Якщо бажаєте продовжити, то введіть будь-який символ або строку");
+            String exitButton = sc2.nextLine();
+            if ("exit".equals(exitButton)) {
+                System.exit(0);
             }
 
             sc.close();
             sc2.close();
         }
-
-
     }
 
-    // topic 9
-    private static void initData(LectureRepository abcAbc) {
+
+    private static void initData() {
         Course course = new Course();
         Lecture lecture = new Lecture("I", "II", "III", course.getId());
         Lecture lecture2 = new Lecture("IV", "V", "VI", course.getId());

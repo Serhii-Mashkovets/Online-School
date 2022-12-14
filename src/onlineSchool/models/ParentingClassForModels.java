@@ -1,8 +1,6 @@
 package onlineSchool.models;
 
-import java.util.Scanner;
-
-public class SuperPuperModels {
+public class ParentingClassForModels {
     private static int id;
 
     public static int getId() {
@@ -10,7 +8,7 @@ public class SuperPuperModels {
     }
 
     public static void setId(int id) {
-        SuperPuperModels.id = id;
+        ParentingClassForModels.id = id;
     }
 
 }

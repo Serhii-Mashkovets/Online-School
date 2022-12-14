@@ -1,6 +1,6 @@
 package onlineSchool.models;
 
-public class AddMaterials extends SuperPuperModels{
+public class AddMaterials extends ParentingClassForModels {
     private String bookOne;
     private String bookTwo;
 

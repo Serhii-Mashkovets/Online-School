@@ -2,8 +2,8 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Teachers;
 
-public class TeachersRepository extends SuperPuperRepository{
-    private final int INIT_CAPACITY = 5;
+public class TeachersRepository extends ParentingClassForRepositories {
+    private static final int INIT_CAPACITY = 5;
     private Teachers[] teacherArray;
 
     public TeachersRepository() {

@@ -2,9 +2,9 @@ package onlineSchool.repository;
 
 import onlineSchool.models.AddMaterials;
 
-public class AddMaterialsRepository extends SuperPuperRepository{
+public class AddMaterialsRepository extends ParentingClassForRepositories {
 
-    private final int INIT_CAPACITY = 5;
+    private static final int INIT_CAPACITY = 5;
     private AddMaterials[] addMaterialsArray;
 
     public AddMaterialsRepository() {

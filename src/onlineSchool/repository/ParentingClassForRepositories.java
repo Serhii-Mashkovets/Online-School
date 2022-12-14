@@ -2,16 +2,16 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
 
-public class SuperPuperRepository {
+public class ParentingClassForRepositories {
 
     private Lecture[] myArray;
 
-    SuperPuperRepository[] getAll(SuperPuperRepository[] myArray) {
+    ParentingClassForRepositories[] getAll(ParentingClassForRepositories[] myArray) {
         return myArray;
     }
 
     public void add(Lecture object) {
-        getMyArray()[0] = object;
+
     }
 
     public void getByld() {
@@ -26,7 +26,7 @@ public class SuperPuperRepository {
 
     private int counter;
 
-    public SuperPuperRepository(int id) {
+    public ParentingClassForRepositories(int id) {
         this.id = id;
     }
 

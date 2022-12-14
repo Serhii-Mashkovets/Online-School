@@ -2,8 +2,8 @@ package onlineSchool.repository;
 
 import onlineSchool.models.HomeWork;
 
-public class HomeWorkRepository extends SuperPuperRepository{
-    private final int INIT_CAPACITY = 5;
+public class HomeWorkRepository extends ParentingClassForRepositories {
+    private static final int INIT_CAPACITY = 5;
     private HomeWork[] homeWOrkArray;
 
     public HomeWorkRepository() {

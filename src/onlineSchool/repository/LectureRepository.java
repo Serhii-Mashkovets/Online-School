@@ -2,7 +2,7 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
 
-public class LectureRepository extends SuperPuperRepository {
+public class LectureRepository extends ParentingClassForRepositories {
 
     @Override
     public void add(Lecture object) {
@@ -10,7 +10,7 @@ public class LectureRepository extends SuperPuperRepository {
     }
 
     @Override
-    SuperPuperRepository[] getAll(SuperPuperRepository[] myArray) {
+    ParentingClassForRepositories[] getAll(ParentingClassForRepositories[] myArray) {
         return super.getAll(myArray);
     }
 
@@ -24,7 +24,7 @@ public class LectureRepository extends SuperPuperRepository {
         super.deleteByld();
     }
 
-    private final int INIT_CAPACITY = 5;
+    private static int INIT_CAPACITY = 5;
     private Lecture[] lectureArray;
 
     public LectureRepository() {

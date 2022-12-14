@@ -1,6 +1,6 @@
 package onlineSchool.models;
 
-public class Students extends SuperPuperModels{
+public class Students extends ParentingClassForModels {
     private String studentLastName;
     private String studentName;
 

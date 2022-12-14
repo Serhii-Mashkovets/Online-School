@@ -1,6 +1,6 @@
 package onlineSchool.models;
 
-public class HomeWork extends SuperPuperModels{
+public class HomeWork extends ParentingClassForModels {
     public static int getCounterNew() {
         return counterNew;
     }
@@ -22,8 +22,7 @@ public class HomeWork extends SuperPuperModels{
     }
 
     public String homeWorkThree() {
-        String firstPartThree = "Написати програму на Java, котра пройде тест Тьюрінга;";
-        return firstPartThree;
+        return "Написати програму на Java, котра пройде тест Тьюрінга;";
     }
 
     private static int counterNew = 0;
