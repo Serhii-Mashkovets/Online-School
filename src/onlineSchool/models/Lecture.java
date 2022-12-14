@@ -1,6 +1,12 @@
 package onlineSchool.models;
 
+import onlineSchool.Role;
+
 public class Lecture extends ParentingClassForModels {
+    private static int personID;
+
+    Role teacher = Role.TEACHER;
+
     private String lessonThemeOne;
     private String lessonThemeTwo;
     private String lessonThemeThree;
@@ -12,7 +18,6 @@ public class Lecture extends ParentingClassForModels {
         setCounter(getCounter() + 1);
     }
 
-    // topic 6
     private static int id;
     private String lectureTopic;
     private String teacherName;
@@ -50,6 +55,10 @@ public class Lecture extends ParentingClassForModels {
 
     public static void setCourseLectureId(int courseLectureId) {
         Lecture.courseLectureId = courseLectureId;
+    }
+
+    public static int getPersonID() {
+        return personID;
     }
 
     public int countId() {

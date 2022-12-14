@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +15,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -91,7 +92,8 @@
       <workItem from="1670397143797" duration="3171000" />
       <workItem from="1670942768508" duration="9188000" />
       <workItem from="1671027539776" duration="5184000" />
-      <workItem from="1671034369875" duration="3647000" />
+      <workItem from="1671034369875" duration="3745000" />
+      <workItem from="1671044409348" duration="2162000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>
