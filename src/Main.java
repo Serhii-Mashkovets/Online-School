@@ -7,11 +7,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        // topic 9
         LectureRepository lectureRepository = new LectureRepository();
         initData(lectureRepository);
 
-        // topic 8
         while (true) {
             Scanner sc = new Scanner(System.in);
 
@@ -36,7 +34,6 @@ public class Main {
                 default -> System.out.println("Такого курсу не існує!");
             }
 
-            // to pick a lecture
             Lecture lectureOne = new Lecture("Основи двійкового коду",
                     "Олег Скрипка", "Двійкове кодування", courseOne.countId());
             Lecture lectureTwo = new Lecture("Вивчення основ Assembly",
@@ -73,7 +70,6 @@ public class Main {
                 default -> System.out.println("Такої лекції не існує!");
             }
 
-            // to pick student
             Students fullNameOne = new Students("Тарас", "Шевченко");
             System.out.println("Перший студент: " + fullNameOne.getStudentName() + " " + fullNameOne.getStudentLastName());
 
@@ -103,7 +99,6 @@ public class Main {
                 default -> System.out.println("Такого студента не знайдено!");
             }
 
-            // to pick teacher
             Teachers teacherOne = new Teachers("Альберт", "Енштейн");
             Teachers teacherTwo = new Teachers("Річард", "Докінз");
             Teachers teacherThree = new Teachers("Фермі", "Енріко");
@@ -129,8 +124,6 @@ public class Main {
             }
             System.out.println("Вітаю! Ваш курс складено.");
 
-
-            // to create a new lecture
             System.out.println("Введіть тему лекції: ");
             Scanner sc2 = new Scanner(System.in);
             String lectureThemeOne6 = sc2.nextLine();
