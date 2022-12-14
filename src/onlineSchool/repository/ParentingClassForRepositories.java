@@ -2,24 +2,37 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
 
+import java.util.Scanner;
+
 public class ParentingClassForRepositories {
 
-    private Lecture[] myArray;
+    private String[] myArray;
 
     ParentingClassForRepositories[] getAll(ParentingClassForRepositories[] myArray) {
         return myArray;
     }
 
-    public void add(Lecture object) {
+    public void add(Lecture lecture) {
+        for (int i = 0; i < myArray.length; i++) {
+            myArray[i] = String.valueOf(lecture);
+        }
+    }
+
+    public void getByld(int id) {
+        for (int i = 0; i < myArray.length; i++) {
+            if (i == id) {
+                System.out.println(myArray[i]);
+            }
+        }
 
     }
 
-    public void getByld() {
-        System.out.println(getMyArray()[0]);
-    }
-
-    public void deleteByld() {
-        getMyArray()[0] = null;
+    public void deleteByld(int id) {
+        for (int i = 0; i < myArray.length; i++) {
+            if (i == id) {
+                myArray[i] = null;
+            }
+        }
     }
 
     private int id;
@@ -46,11 +59,11 @@ public class ParentingClassForRepositories {
         this.counter = counter;
     }
 
-    public Lecture[] getMyArray() {
+    public String[] getMyArray() {
         return myArray;
     }
 
-    public void setMyArray(Lecture[] myArray) {
+    public void setMyArray(String[] myArray) {
         this.myArray = myArray;
     }
 }

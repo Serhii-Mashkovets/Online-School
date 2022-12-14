@@ -5,8 +5,8 @@ import onlineSchool.models.Lecture;
 public class LectureRepository extends ParentingClassForRepositories {
 
     @Override
-    public void add(Lecture object) {
-        lectureArray[0] = object;
+    public void add(Lecture lecture) {
+        super.add(lecture);
     }
 
     @Override
@@ -15,13 +15,13 @@ public class LectureRepository extends ParentingClassForRepositories {
     }
 
     @Override
-    public void getByld() {
-        super.getByld();
+    public void getByld(int id) {
+        super.getByld(id);
     }
 
     @Override
-    public void deleteByld() {
-        super.deleteByld();
+    public void deleteByld(int id) {
+        super.deleteByld(id);
     }
 
     private static int INIT_CAPACITY = 5;

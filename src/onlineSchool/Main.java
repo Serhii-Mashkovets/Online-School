@@ -1,6 +1,7 @@
 package onlineSchool;
 
 import onlineSchool.models.*;
+import onlineSchool.repository.ParentingClassForRepositories;
 
 import java.util.Arrays;
 import java.util.Scanner;

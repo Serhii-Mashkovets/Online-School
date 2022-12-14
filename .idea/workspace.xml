@@ -3,21 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Students.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/SuperPuperModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/ParentingClassForModels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Teachers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Teachers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/SuperPuperRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +90,8 @@
       <workItem from="1670354135782" duration="5212000" />
       <workItem from="1670397143797" duration="3171000" />
       <workItem from="1670942768508" duration="9188000" />
-      <workItem from="1671027539776" duration="4880000" />
+      <workItem from="1671027539776" duration="5184000" />
+      <workItem from="1671034369875" duration="3647000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>
