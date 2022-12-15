@@ -8,6 +8,8 @@ public class ParentingClassForRepositories {
 
     private String[] myArray;
 
+    private int arrayLength;
+
     ParentingClassForRepositories[] getAll(ParentingClassForRepositories[] myArray) {
         return myArray;
     }
@@ -28,9 +30,12 @@ public class ParentingClassForRepositories {
     }
 
     public void deleteByld(int id) {
+        arrayLength = myArray.length;;
         for (int i = 0; i < myArray.length; i++) {
             if (i == id) {
-                myArray[i] = null;
+              int num =  Integer.parseInt(myArray[i]);
+                num = arrayLength - 1;
+                arrayLength = arrayLength - 2;
             }
         }
     }
@@ -65,5 +70,13 @@ public class ParentingClassForRepositories {
 
     public void setMyArray(String[] myArray) {
         this.myArray = myArray;
+    }
+
+    public int getArrayLength() {
+        return arrayLength;
+    }
+
+    public void setArrayLength(int arrayLength) {
+        this.arrayLength = arrayLength;
     }
 }
