@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +93,8 @@
       <workItem from="1671027539776" duration="5184000" />
       <workItem from="1671034369875" duration="3745000" />
       <workItem from="1671044409348" duration="2990000" />
-      <workItem from="1671128643189" duration="304000" />
+      <workItem from="1671128643189" duration="783000" />
+      <workItem from="1671896906530" duration="293000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>

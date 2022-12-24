@@ -1,7 +1,6 @@
 package onlineSchool;
 
 import onlineSchool.models.*;
-import onlineSchool.repository.ParentingClassForRepositories;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class Main {
             Course courseTwo = new Course();
             courseTwo.fullCourse("Недвійкова логіка ЕВМ", 1);
 
-            int numberOfTheCourse = 0;
+            int numberOfTheCourse;
             do {
                 System.out.println("Оберіть, будь ласка, курс: " +
                         "\n" + "1 " + courseOne.getCourseNameOne() +
@@ -37,19 +36,19 @@ public class Main {
             }
 
             Lecture lectureOne = new Lecture("Основи двійкового коду",
-                    "Олег Скрипка", "Двійкове кодування", courseOne.countId());
+                    "Олег Скрипка", "Двійкове кодування", Course.countId());
             Lecture lectureTwo = new Lecture("Вивчення основ Assembly",
-                    "Олег Винник", "Ease Assembly", courseOne.countId());
+                    "Олег Винник", "Ease Assembly", Course.countId());
             Lecture lectureThree = new Lecture("Процедурне програмування",
-                    "Святослав Вакарчук", "Інформатика 7 клас", courseOne.countId());
+                    "Святослав Вакарчук", "Інформатика 7 клас", Course.countId());
             Lecture lectureFour = new Lecture("Принцип об'єкто-орієнтованості в програмуванні",
-                    "Олександр Пономарьов", "Інформатика 8 клас", courseOne.countId());
+                    "Олександр Пономарьов", "Інформатика 8 клас", Course.countId());
             Lecture lectureFive = new Lecture("Інкапсуляція, Поліморфізм, Наслідування",
-                    "Олексій Завгородній", "Інформатика 9 клас", courseOne.countId());
+                    "Олексій Завгородній", "Інформатика 9 клас", Course.countId());
             Lecture lectureSix = new Lecture("Фреймворки",
-                    "Олексій Потапенко", "Інформатика 10 клас", courseOne.countId());
+                    "Олексій Потапенко", "Інформатика 10 клас", Course.countId());
 
-            int numberOfTheLecture = 0;
+            int numberOfTheLecture;
             do {
                 System.out.println("Оберіть необхідну лекцію: " +
                         "\n" + "10 " + lectureOne.getLectureTopic() +
@@ -82,7 +81,7 @@ public class Main {
             Students fullNameThree = new Students("Олена", "Бджілка");
             System.out.println("Третій студент: " + fullNameThree.getStudentName() + " " + fullNameThree.getStudentLastName());
 
-            int numberOfTheStudent = 0;
+            int numberOfTheStudent;
             do {
                 System.out.println("Оберіть студента, котрий відвідає курс: " +
                         "\n" + "20 " + fullNameOne.getStudentName() + " " + fullNameOne.getStudentLastName() +
@@ -107,7 +106,7 @@ public class Main {
             Teachers teacherTwo = new Teachers("Річард", "Докінз");
             Teachers teacherThree = new Teachers("Фермі", "Енріко");
 
-            int numberOfTheTeacher = 0;
+            int numberOfTheTeacher;
             do {
                 System.out.println("Оберіть викладача для курсу: " +
                         "\n" + "30 " + teacherOne.getTeacherName() + " " + teacherOne.getTeacherSecondName() +
@@ -165,14 +164,14 @@ public class Main {
 
     private static void initData() {
         Course course = new Course();
-        Lecture lecture = new Lecture("I", "II", "III", course.getId());
-        Lecture lecture2 = new Lecture("IV", "V", "VI", course.getId());
-        Lecture lecture3 = new Lecture("VII", "VIII", "IX", course.getId());
+        Lecture lecture = new Lecture("I", "II", "III", Course.getId());
+        Lecture lecture2 = new Lecture("IV", "V", "VI", Course.getId());
+        Lecture lecture3 = new Lecture("VII", "VIII", "IX", Course.getId());
     }
 
     private static void showArray(Lecture[] a) {
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i] + " " + Lecture.getId());
+        for (Lecture lecture : a) {
+            System.out.println(lecture + " " + Lecture.getId());
             System.out.println(Arrays.toString(a));
         }
 

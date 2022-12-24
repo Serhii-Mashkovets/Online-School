@@ -2,8 +2,6 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
 
-import java.util.Scanner;
-
 public class ParentingClassForRepositories {
 
     private String[] myArray;
@@ -30,10 +28,10 @@ public class ParentingClassForRepositories {
     }
 
     public void deleteByld(int id) {
-        arrayLength = myArray.length;;
+        arrayLength = myArray.length;
         for (int i = 0; i < myArray.length; i++) {
             if (i == id) {
-              int num =  Integer.parseInt(myArray[i]);
+                int num = Integer.parseInt(myArray[i]);
                 num = arrayLength - 1;
                 arrayLength = arrayLength - 2;
             }
