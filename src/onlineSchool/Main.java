@@ -149,8 +149,9 @@ public class Main {
 
             if (Course.getId() > 8) System.exit(0);
 
-            System.out.println("Бажаєте завершити роботу: введіть `exit` " + "\n" +
-                    "Якщо бажаєте продовжити, то введіть будь-який символ або строку");
+            System.out.println("""
+                    Бажаєте завершити роботу: введіть `exit`
+                    Якщо бажаєте продовжити, то введіть будь-який символ або строку""");
             String exitButton = sc2.nextLine();
             if ("exit".equals(exitButton)) {
                 System.exit(0);
