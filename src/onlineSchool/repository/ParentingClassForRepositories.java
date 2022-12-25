@@ -6,7 +6,7 @@ public class ParentingClassForRepositories {
 
     private String[] myArray;
 
-    private int arrayLength;
+    private int arrayLength = 5;
 
     ParentingClassForRepositories[] getAll(ParentingClassForRepositories[] myArray) {
         return myArray;
