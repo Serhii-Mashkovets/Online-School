@@ -2,11 +2,12 @@ package onlineSchool.models;
 
 public class Course extends ParentingClassForModels {
     private String courseName;
+
     public static final int CLASSROOM_FOR_LESSONS = 12;
     private int lessonTime;
 
-    public static int getId() {
-        return id;
+    public int getCourseId() {
+        return this.id;
     }
 
     public static int getCounterOfCourse() {
@@ -15,10 +16,6 @@ public class Course extends ParentingClassForModels {
 
     public static void setCounterOfCourse(int counterOfCourse) {
         Course.counterOfCourse = counterOfCourse;
-    }
-
-    public static void setId(int id) {
-        Course.id = id;
     }
 
     public int getLessonTime() {
@@ -32,7 +29,7 @@ public class Course extends ParentingClassForModels {
         this.lessonTime = lessonTime;
     }
 
-    private static int id;
+    private int id;
     private String courseNameOne;
     private static int counterOfCourse;
 
@@ -62,5 +59,6 @@ public class Course extends ParentingClassForModels {
     public void setCourseNameOne(String courseNameOne) {
         this.courseNameOne = courseNameOne;
     }
+
 }
 

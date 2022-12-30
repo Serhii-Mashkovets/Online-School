@@ -3,70 +3,26 @@ package onlineSchool.repository;
 import onlineSchool.models.Lecture;
 
 public class LectureRepository extends ParentingClassForRepositories {
-
-    @Override
-    public void add(Lecture lecture) {
-        super.add(lecture);
-    }
-
-    @Override
-    ParentingClassForRepositories[] getAll(ParentingClassForRepositories[] myArray) {
-        return super.getAll(myArray);
-    }
-
-    @Override
-    public void getByld(int id) {
-        super.getByld(id);
-    }
-
-    @Override
-    public void deleteByld(int id) {
-        super.deleteByld(id);
-    }
-
-    private static int INIT_CAPACITY = 5;
-    private Lecture[] lectureArray;
-
-    public LectureRepository() {
-        super(1);
-        this.lectureArray = new Lecture[getINIT_CAPACITY()];
-    }
-
-    public LectureRepository(int inputCapacity) {
-        super(1);
-        if (inputCapacity < 1) {
-            System.out.println("Wrong argument, creating standart capacity array");
-            this.lectureArray = new Lecture[getINIT_CAPACITY()];
-        } else {
-            this.lectureArray = new Lecture[inputCapacity];
+    private Lecture[] lectures = new Lecture[0];
+    private int lastIndex = -1;
+    public void addLecture(Lecture lecture) {
+        Lecture[] newLectures = new Lecture[3 * lectures.length / 2 + 1];
+        for (int i = 0; i < lectures.length; i++) {
+            newLectures[i] = lectures[i];
         }
+        lastIndex++;
+        newLectures[lastIndex] = lecture;
+        this.lectures = newLectures;
     }
-
-    public void addOne(Lecture lecture) {
-        boolean lastElementIsZero;
-        do {
-            if (getLectureArray()[getINIT_CAPACITY() - 1] == null) {
-                System.out.println("Array is filled");
-                lastElementIsZero = true;
-            } else {
-                lastElementIsZero = false;
-                System.out.println("Array is not filled");
+    public Lecture getLecture(int lectureId) {
+        for (int i = 0; i <= lastIndex; i++) {
+            if (lectures[i].getLectureId() == lectureId) {
+                return lectures[i];
             }
-        } while (lastElementIsZero != true);
+        }
+        return null;
     }
-
-    private void increaseCapacity() {
-        int newCapacity = (getINIT_CAPACITY() * 3) / 2 + 1;
-        Lecture[] tmp = new Lecture[newCapacity];
-        System.arraycopy(getLectureArray(), 0, tmp, 0, getINIT_CAPACITY());
-        lectureArray = tmp;
-    }
-
-    public int getINIT_CAPACITY() {
-        return INIT_CAPACITY;
-    }
-
-    public Lecture[] getLectureArray() {
-        return lectureArray;
+    public Lecture[] getAllLectures() {
+        return this.lectures;
     }
 }

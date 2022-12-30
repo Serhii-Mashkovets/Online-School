@@ -1,6 +1,8 @@
 package onlineSchool;
 
 import onlineSchool.models.*;
+import onlineSchool.repository.CourseRepository;
+import onlineSchool.repository.LectureRepository;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -51,24 +53,24 @@ public class Main {
             int numberOfTheLecture;
             do {
                 System.out.println("Оберіть необхідну лекцію: " +
-                        "\n" + "10 " + lectureOne.getLectureTopic() +
-                        "\n" + "11 " + lectureTwo.getLectureTopic() +
-                        "\n" + "12 " + lectureThree.getLectureTopic() +
-                        "\n" + "13 " + lectureFour.getLectureTopic() +
-                        "\n" + "14 " + lectureFive.getLectureTopic() +
-                        "\n" + "15 " + lectureSix.getLectureTopic());
+                        "\n" + "10 " + lectureOne.getLectureName() +
+                        "\n" + "11 " + lectureTwo.getLectureName() +
+                        "\n" + "12 " + lectureThree.getLectureName() +
+                        "\n" + "13 " + lectureFour.getLectureName() +
+                        "\n" + "14 " + lectureFive.getLectureName() +
+                        "\n" + "15 " + lectureSix.getLectureName());
                 numberOfTheLecture = sc.nextInt();
                 System.out.println("Ви ввели: " + numberOfTheLecture);
             } while (numberOfTheLecture < 10 || numberOfTheLecture > 15);
 
             String lectureChoise = "Ви обрали лекцію: ";
             switch (numberOfTheLecture) {
-                case 10 -> System.out.println(lectureChoise + lectureOne.getLectureTopic());
-                case 11 -> System.out.println(lectureChoise + lectureTwo.getLectureTopic());
-                case 12 -> System.out.println(lectureChoise + lectureThree.getLectureTopic());
-                case 13 -> System.out.println(lectureChoise + lectureFour.getLectureTopic());
-                case 14 -> System.out.println(lectureChoise + lectureFive.getLectureTopic());
-                case 15 -> System.out.println(lectureChoise + lectureSix.getLectureTopic());
+                case 10 -> System.out.println(lectureChoise + lectureOne.getLectureName());
+                case 11 -> System.out.println(lectureChoise + lectureTwo.getLectureName());
+                case 12 -> System.out.println(lectureChoise + lectureThree.getLectureName());
+                case 13 -> System.out.println(lectureChoise + lectureFour.getLectureName());
+                case 14 -> System.out.println(lectureChoise + lectureFive.getLectureName());
+                case 15 -> System.out.println(lectureChoise + lectureSix.getLectureName());
                 default -> System.out.println("Такої лекції не існує!");
             }
 
@@ -164,17 +166,18 @@ public class Main {
 
 
     private static void initData() {
-        Course course = new Course();
-        Lecture lecture = new Lecture("I", "II", "III", Course.getId());
-        Lecture lecture2 = new Lecture("IV", "V", "VI", Course.getId());
-        Lecture lecture3 = new Lecture("VII", "VIII", "IX", Course.getId());
+        CourseRepository courseRep = new CourseRepository();
+        Course courseO = new Course();
+        courseO.fullCourse("Булева логіка в математиці", 1);
+        courseRep.addCourse(courseO);
+
+        LectureRepository lecRep = new LectureRepository();
+        LectureRepository lecRep1 = new LectureRepository();
+        LectureRepository lecRep2 = new LectureRepository();
+        lecRep.addLecture(new Lecture("", "", "", 1));
+        lecRep1.addLecture(new Lecture("", "", "", 1));
+        lecRep2.addLecture(new Lecture("", "", "", 1));
+
     }
 
-    private static void showArray(Lecture[] a) {
-        for (Lecture lecture : a) {
-            System.out.println(lecture + " " + Lecture.getId());
-            System.out.println(Arrays.toString(a));
-        }
-
-    }
 }

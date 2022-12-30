@@ -8,12 +8,10 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
     private AddMaterials[] addMaterialsArray;
 
     public AddMaterialsRepository() {
-        super(1);
         this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);
     }
 
     public AddMaterialsRepository(int inputCapacity) {
-        super(1);
         if (inputCapacity < 1) {
             System.out.println("Wrong argument, creating standart capacity array");
             this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);

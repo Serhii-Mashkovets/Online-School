@@ -4,11 +4,15 @@ import onlineSchool.enums.Role;
 
 public class Person extends ParentingClassForModels {
 
+    private String firstName;
+
+    private String lastName;
+
     private String role;
 
     private static int courseId;
 
-    private int personID;
+    private final int personID;
 
     private String lectureName1;
 
@@ -32,6 +36,10 @@ public class Person extends ParentingClassForModels {
 
     public static int getCourseId() {
         return courseId;
+    }
+
+    public static void setCourseId(int courseId) {
+        Person.courseId = courseId;
     }
 
     public String getRole() {
@@ -64,5 +72,21 @@ public class Person extends ParentingClassForModels {
 
     public void setLectureName1(String lectureName1) {
         this.lectureName1 = lectureName1;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

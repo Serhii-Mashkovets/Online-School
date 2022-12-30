@@ -7,12 +7,10 @@ public class StudentsRepository extends ParentingClassForRepositories {
     private Students[] studentsArray;
 
     public StudentsRepository() {
-        super(1);
         this.studentsArray = new Students[getINIT_CAPACITY()];
     }
 
     public StudentsRepository(int inputCapacity) {
-        super(1);
         if (inputCapacity < 1) {
             System.out.println("Wrong argument, creating standart capacity array");
             this.studentsArray = new Students[getINIT_CAPACITY()];

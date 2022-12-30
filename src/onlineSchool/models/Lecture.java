@@ -1,14 +1,19 @@
 package onlineSchool.models;
 
-import onlineSchool.models.Person;
-
 public class Lecture extends ParentingClassForModels {
     private static int personID;
 
-    public void addANewLecture(String lectureTopic, String teacherName, int personID, Person person) {
-        this.lectureTopic = lectureTopic;
+    private String description;
+
+    public int getLectureId() {
+        return this.id;
+    }
+
+    public void addANewLecture(String lectureTopic, String description, String teacherName, int personID, Person person) {
+        this.lectureName = lectureTopic;
         this.teacherName = teacherName;
         this.personID = personID;
+        this.description = description;
     }
 
     private String lessonThemeOne;
@@ -22,15 +27,15 @@ public class Lecture extends ParentingClassForModels {
         setCounter(getCounter() + 1);
     }
 
-    private static int id;
-    private String lectureTopic;
+    private int id;
+    private String lectureName;
     private String teacherName;
     private String mainBookToLearning;
     private static int lectureCounter;
     private static int courseLectureId;
 
     public Lecture(String lectureTopic, String teacherName, String mainBookToLearning, int courseLectureId) {
-        this.setLectureTopic(lectureTopic);
+        this.setLectureName(lectureTopic);
         this.setTeacherName(teacherName);
         this.setMainBookToLearning(mainBookToLearning);
         this.setCourseLectureId(courseLectureId);
@@ -113,12 +118,12 @@ public class Lecture extends ParentingClassForModels {
         this.lessonThemeFive = lessonThemeFive;
     }
 
-    public String getLectureTopic() {
-        return lectureTopic;
+    public String getLectureName() {
+        return lectureName;
     }
 
-    public void setLectureTopic(String lectureTopic) {
-        this.lectureTopic = lectureTopic;
+    public void setLectureName(String lectureName) {
+        this.lectureName = lectureName;
     }
 
     public String getTeacherName() {
@@ -135,6 +140,14 @@ public class Lecture extends ParentingClassForModels {
 
     public void setMainBookToLearning(String mainBookToLearning) {
         this.mainBookToLearning = mainBookToLearning;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 

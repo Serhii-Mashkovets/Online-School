@@ -1,80 +1,31 @@
 package onlineSchool.repository;
 
-import onlineSchool.models.Lecture;
+import onlineSchool.models.School;
 
 public class ParentingClassForRepositories {
+    private School[] mySchoolArray = new School[0];
+    private int mySchoolArrayIndex = -1;
 
-    private String[] myArray;
-
-    private int arrayLength = 5;
-
-    ParentingClassForRepositories[] getAll(ParentingClassForRepositories[] myArray) {
-        return myArray;
-    }
-
-    public void add(Lecture lecture) {
-        for (int i = 0; i < myArray.length; i++) {
-            myArray[i] = String.valueOf(lecture);
+    public void addMySchoolArray(School mySchoolArrays) {
+        School[] newMySchoolsArray = new School[(3 * mySchoolArray.length) / 2 + 1];
+        for (int i = 0; i < mySchoolArray.length; i++) {
+            newMySchoolsArray[i] = mySchoolArray[i];
         }
+        mySchoolArrayIndex++;
+        newMySchoolsArray[mySchoolArrayIndex] = mySchoolArrays;
+        this.mySchoolArray = newMySchoolsArray;
     }
 
-    public void getByld(int id) {
-        for (int i = 0; i < myArray.length; i++) {
-            if (i == id) {
-                System.out.println(myArray[i]);
+    public School getMySchoolArray(int schoolId) {
+        for (int i = 0; i <= mySchoolArrayIndex; i++) {
+            if (mySchoolArray[i].getSchoolId() == schoolId) {
+                return mySchoolArray[i];
             }
         }
-
+        return null;
     }
 
-    public void deleteByld(int id) {
-        arrayLength = myArray.length;
-        for (int i = 0; i < myArray.length; i++) {
-            if (i == id) {
-                int num = Integer.parseInt(myArray[i]);
-                num = arrayLength - 1;
-                arrayLength = arrayLength - 2;
-            }
-        }
-    }
-
-    private int id;
-
-    private int counter;
-
-    public ParentingClassForRepositories(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getCounter() {
-        return counter;
-    }
-
-    public void setCounter(int counter) {
-        this.counter = counter;
-    }
-
-    public String[] getMyArray() {
-        return myArray;
-    }
-
-    public void setMyArray(String[] myArray) {
-        this.myArray = myArray;
-    }
-
-    public int getArrayLength() {
-        return arrayLength;
-    }
-
-    public void setArrayLength(int arrayLength) {
-        this.arrayLength = arrayLength;
+    public School[] getAllMySchoolsArrays() {
+        return this.mySchoolArray;
     }
 }
