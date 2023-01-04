@@ -1,7 +1,7 @@
 package onlineSchool.models;
 
 public class Lecture extends ParentingClassForModels {
-    private static int personID;
+    private static Person personID;
 
     private String description;
 
@@ -9,7 +9,7 @@ public class Lecture extends ParentingClassForModels {
         return this.id;
     }
 
-    public void addANewLecture(String lectureTopic, String description, String teacherName, int personID, Person person) {
+    public void addANewLecture(String lectureTopic, String description, String teacherName, Person personID, Enum Role) {
         this.lectureName = lectureTopic;
         this.teacherName = teacherName;
         this.personID = personID;
@@ -34,12 +34,13 @@ public class Lecture extends ParentingClassForModels {
     private static int lectureCounter;
     private static int courseLectureId;
 
-    public Lecture(String lectureTopic, String teacherName, String mainBookToLearning, int courseLectureId) {
+    public Lecture(String lectureTopic, String teacherName, String mainBookToLearning, int courseLectureId, Enum Role) {
         this.setLectureName(lectureTopic);
         this.setTeacherName(teacherName);
         this.setMainBookToLearning(mainBookToLearning);
         this.setCourseLectureId(courseLectureId);
         setLectureCounter(getLectureCounter() + 1);
+        System.out.println(lectureTopic);
     }
 
     public static int getCounter() {
@@ -67,10 +68,10 @@ public class Lecture extends ParentingClassForModels {
     }
 
     public static int getPersonID() {
-        return personID;
+        return personID.getPersonID();
     }
 
-    public static void setPersonID(int personID) {
+    public static void setPersonID(Person personID) {
         Lecture.personID = personID;
     }
 

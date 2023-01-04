@@ -25,6 +25,7 @@ public class Person extends ParentingClassForModels {
 
     public Person(String role, String firstPersoneName, String lastPersonName,
                   int personID, Role role1, String phone1, String email1) {
+        super();
         super.setFirstPersoneName(firstPersoneName);
         super.setLastPersonName(lastPersonName);
         this.role = role;

@@ -1,8 +1,28 @@
 package onlineSchool.repository;
 
+import onlineSchool.models.ParentingClassForModels;
 import onlineSchool.models.School;
 
+import java.util.Arrays;
+
 public class ParentingClassForRepositories {
+
+    private ParentingClassForModels[] prntNewArr;
+
+    public void add(ParentingClassForModels prntMdls, ParentingClassForModels[] prntArr) {
+        for (int i = 0; i < prntArr.length; i++) {
+            if (prntArr[i] == null) {
+                prntArr[i] = prntMdls;
+                break;
+            }
+        }
+        prntNewArr = prntArr;
+    }
+
+    public ParentingClassForModels[] getAll() {
+        return prntNewArr;
+    }
+
     private School[] mySchoolArray = new School[0];
     private int mySchoolArrayIndex = -1;
 
@@ -27,5 +47,12 @@ public class ParentingClassForRepositories {
 
     public School[] getAllMySchoolsArrays() {
         return this.mySchoolArray;
+    }
+
+    @Override
+    public String toString() {
+        return "ParentingClassForRepositories{" +
+                "mySchoolArray=" + Arrays.toString(mySchoolArray) +
+                '}';
     }
 }

@@ -2,19 +2,22 @@ package onlineSchool.models;
 
 public class ParentingClassForModels {
 
+    public int length;
+
+    public ParentingClassForModels() {
+        this.id1 = id1;
+    }
+
     private String firstPersoneName;
 
     private String lastPersonName;
 
-    private static int id;
+    private static int id1;
 
-    public static int getId() {
-        return id;
+    public static int getId1() {
+        return id1;
     }
 
-    public static void setId(int id) {
-        ParentingClassForModels.id = id;
-    }
 
     public String getFirstPersoneName() {
         return firstPersoneName;
@@ -30,5 +33,8 @@ public class ParentingClassForModels {
 
     public void setLastPersonName(String lastPersonName) {
         this.lastPersonName = lastPersonName;
+    }
+
+    public static void setId(int id) {
     }
 }

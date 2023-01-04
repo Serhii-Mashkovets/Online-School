@@ -6,6 +6,10 @@ public class Course extends ParentingClassForModels {
     public static final int CLASSROOM_FOR_LESSONS = 12;
     private int lessonTime;
 
+    public Course(int id) {
+        super();
+    }
+
     public int getCourseId() {
         return this.id;
     }
@@ -40,7 +44,7 @@ public class Course extends ParentingClassForModels {
     }
 
     public static int countId() {
-        return getId();
+        return getId1();
     }
 
     public String getCourseName() {
