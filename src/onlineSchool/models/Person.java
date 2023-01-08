@@ -4,35 +4,54 @@ import onlineSchool.enums.Role;
 
 public class Person extends ParentingClassForModels {
 
+    private static int counterOfStudents;
+    private static int studentID;
+    private static int counterOfTeachers;
+    private static int teacherID;
     private String firstName;
 
     private String lastName;
 
-    private String role;
-
     private static int courseId;
 
-    private final int personID;
+    private int personID;
 
     private String lectureName1;
 
-    private final Role role1;
+    private Role role1;
 
-    private final String phone1;
+    private String phone1;
 
-    private final String email1;
+    private String email1;
 
 
-    public Person(String role, String firstPersoneName, String lastPersonName,
+    public Person(String fname, String lname,
                   int personID, Role role1, String phone1, String email1) {
-        super();
-        super.setFirstPersoneName(firstPersoneName);
-        super.setLastPersonName(lastPersonName);
-        this.role = role;
+        this.setFirstName(fname);
+        this.setLastName(lname);
         this.personID = personID;
         this.role1 = role1;
         this.phone1 = phone1;
         this.email1 = email1;
+        if (this.role1 == Role.STUDENT) {
+            ++counterOfStudents;
+            studentID = super.getId1();
+        } else {
+            ++counterOfTeachers;
+            teacherID = super.getId1();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", personID=" + personID +
+                ", role1=" + role1 +
+                ", phone1='" + phone1 + '\'' +
+                ", email1='" + email1 + '\'' +
+                '}';
     }
 
     public static int getCourseId() {
@@ -41,14 +60,6 @@ public class Person extends ParentingClassForModels {
 
     public static void setCourseId(int courseId) {
         Person.courseId = courseId;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public int getPersonID() {

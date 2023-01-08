@@ -8,6 +8,10 @@ public class ParentingClassForModels {
         this.id1 = id1;
     }
 
+    public String fullPerson(String firstPersoneName, String lastPersonName) {
+        return firstPersoneName + lastPersonName;
+    }
+
     private String firstPersoneName;
 
     private String lastPersonName;

@@ -1,12 +1,13 @@
 package onlineSchool;
 
-import onlineSchool.models.*;
-import onlineSchool.repository.CourseRepository;
-import onlineSchool.repository.LectureRepository;
+import onlineSchool.enums.Role;
+import onlineSchool.models.HomeWork;
+import onlineSchool.models.Lecture;
+import onlineSchool.models.Person;
+import onlineSchool.services.CourseService;
+import onlineSchool.services.LectureService;
 
 import java.util.Scanner;
-
-import static onlineSchool.enums.Role.TEACHER;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,26 +18,25 @@ public class Main {
 
 
     private static void initData() {
-        CourseRepository courseRep = new CourseRepository();
-        Course courseO = new Course(1);
-        courseO.fullCourse("Булева логіка в математиці", 1);
-        courseRep.addCourse(courseO);
+        CourseService course = new CourseService();
+        course.createNewCourse("", 1, new Lecture("  ", "  ", new HomeWork()),
+                new Person("", " ", 1, Role.TEACHER, "", ""),
+                new Person("", " ", 1, Role.STUDENT, "", ""));
 
-        LectureRepository lecRep = new LectureRepository();
-        LectureRepository lecRep1 = new LectureRepository();
-        LectureRepository lecRep2 = new LectureRepository();
-        lecRep.addLecture(new Lecture("Лекція 1", "2", "3", 1, TEACHER));
-        lecRep1.addLecture(new Lecture("Лекція 2", "5", "6", 2, TEACHER));
-        lecRep2.addLecture(new Lecture("Лекція 3", "8", "9", 3, TEACHER));
+        LectureService lec = new LectureService();
+        LectureService lec1 = new LectureService();
+        LectureService lec2 = new LectureService();
+        lec.createNewLecture("Name One", "Discription One", new HomeWork());
+        lec2.createNewLecture("Name two", "Disription two", new HomeWork());
+        lec1.createNewLecture("", "", new HomeWork());
         Scanner sc = new Scanner(System.in);
         System.out.println("Оберіть від 1 до 3 номер лекції, з якою бажаєте працювати: ");
         int nm = sc.nextInt();
         switch (nm) {
-            case 1 -> System.out.println(lecRep);
-            case 2 -> System.out.println(lecRep1);
-            case 3 -> System.out.println(lecRep2);
+            case 1 -> System.out.println(lec);
+            case 2 -> System.out.println(lec1);
+            case 3 -> System.out.println(lec2);
         }
         sc.close();
     }
-
 }

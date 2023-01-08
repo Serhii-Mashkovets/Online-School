@@ -1,7 +1,6 @@
 package onlineSchool.models;
 
 public class Lecture extends ParentingClassForModels {
-    private static Person personID;
 
     private String description;
 
@@ -9,11 +8,16 @@ public class Lecture extends ParentingClassForModels {
         return this.id;
     }
 
-    public void addANewLecture(String lectureTopic, String description, String teacherName, Person personID, Enum Role) {
+    @Override
+    public String fullPerson(String firstPersoneName, String lastPersonName) {
+        return super.fullPerson(firstPersoneName, lastPersonName);
+    }
+
+    public void Lecture(String lectureTopic, String description, String teacherName, Person person, Enum Role) {
         this.lectureName = lectureTopic;
         this.teacherName = teacherName;
-        this.personID = personID;
         this.description = description;
+        person.fullPerson("", "");
     }
 
     private String lessonThemeOne;
@@ -23,7 +27,23 @@ public class Lecture extends ParentingClassForModels {
     private String lessonThemeFive;
     private static int counter = 0;
 
-    public Lecture() {
+    @Override
+    public String toString() {
+        return "Lecture{" +
+                "description='" + description + '\'' +
+                ", lessonThemeOne='" + lessonThemeOne + '\'' +
+                ", lessonThemeTwo='" + lessonThemeTwo + '\'' +
+                ", lessonThemeThree='" + lessonThemeThree + '\'' +
+                ", lessonThemeFour='" + lessonThemeFour + '\'' +
+                ", lessonThemeFive='" + lessonThemeFive + '\'' +
+                ", id=" + id +
+                ", lectureName='" + lectureName + '\'' +
+                ", teacherName='" + teacherName + '\'' +
+                ", mainBookToLearning='" + mainBookToLearning + '\'' +
+                '}';
+    }
+
+    public Lecture(String name, String discription, HomeWork homeWork) {
         setCounter(getCounter() + 1);
     }
 
@@ -34,9 +54,10 @@ public class Lecture extends ParentingClassForModels {
     private static int lectureCounter;
     private static int courseLectureId;
 
-    public Lecture(String lectureTopic, String teacherName, String mainBookToLearning, int courseLectureId, Enum Role) {
+    public Lecture(String lectureTopic, String description, String mainBookToLearning, int courseLectureId,
+                   Person person, Enum Role) {
         this.setLectureName(lectureTopic);
-        this.setTeacherName(teacherName);
+        this.description = description;
         this.setMainBookToLearning(mainBookToLearning);
         this.setCourseLectureId(courseLectureId);
         setLectureCounter(getLectureCounter() + 1);
@@ -65,14 +86,6 @@ public class Lecture extends ParentingClassForModels {
 
     public static void setCourseLectureId(int courseLectureId) {
         Lecture.courseLectureId = courseLectureId;
-    }
-
-    public static int getPersonID() {
-        return personID.getPersonID();
-    }
-
-    public static void setPersonID(Person personID) {
-        Lecture.personID = personID;
     }
 
     public int countId() {

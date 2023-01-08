@@ -6,7 +6,7 @@ public class Course extends ParentingClassForModels {
     public static final int CLASSROOM_FOR_LESSONS = 12;
     private int lessonTime;
 
-    public Course(int id) {
+    public Course(String courseName, int id, Lecture lectureName, Person teacherOne, Person studentOne) {
         super();
     }
 
@@ -31,6 +31,16 @@ public class Course extends ParentingClassForModels {
             lessonTime = 0;
         }
         this.lessonTime = lessonTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", lessonTime=" + lessonTime +
+                ", id=" + id +
+                ", courseNameOne='" + courseNameOne + '\'' +
+                '}';
     }
 
     private int id;
