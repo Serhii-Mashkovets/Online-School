@@ -1,20 +1,25 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.Course;
+import onlineSchool.models.Lecture;
 
 public class CourseRepository extends ParentingClassForRepositories {
     private Course[] courses = new Course[0];
     private int lastIndex = -1;
-    public Object addCourse(Course course) {
-        Course[] newCourses = new Course[3 * courses.length / 2 + 1];
-        for (int i = 0; i < courses.length; i++) {
-            newCourses[i] = courses[i];
+    private static final int INIT_CAPACITY = 5;
+    private Course[] courseArray;
+
+    public void addCourse(Course course) {
+        if (courses[courses.length - 1] != null) {
+            Course[] newCourse = courses;
+            newCourse = new Course[3 * courses.length / 2 + 1];
+            System.arraycopy(newCourse, 0, courses, 0, newCourse.length);
+            super.add(course, courses);
+        } else {
+            super.add(course, courses);
         }
-        lastIndex++;
-        newCourses[lastIndex] = course;
-        this.courses = newCourses;
-        return newCourses;
     }
+
     public Course getCourse(int courseId) {
         for (int i = 0; i <= lastIndex; i++) {
             if (courses[i].getCourseId() == courseId) {
@@ -23,12 +28,6 @@ public class CourseRepository extends ParentingClassForRepositories {
         }
         return null;
     }
-    public Course[] getAllCourses() {
-        return this.courses;
-    }
-
-    private static final int INIT_CAPACITY = 5;
-    private Course[] courseArray;
 
     public CourseRepository() {
         this.courseArray = new Course[getINIT_CAPACITY()];
@@ -41,6 +40,10 @@ public class CourseRepository extends ParentingClassForRepositories {
         } else {
             this.courseArray = new Course[inputCapacity];
         }
+    }
+
+    public Course[] getAllCourses() {
+        return this.courses;
     }
 
     public int getINIT_CAPACITY() {

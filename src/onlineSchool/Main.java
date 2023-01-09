@@ -1,6 +1,6 @@
 package onlineSchool;
 
-import onlineSchool.enums.Role;
+import onlineSchool.models.Role;
 import onlineSchool.models.HomeWork;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.Person;

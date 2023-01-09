@@ -6,7 +6,6 @@ import onlineSchool.models.Lecture;
 import java.util.Arrays;
 
 public class LectureRepository extends ParentingClassForRepositories {
-    // two experimental variants of hw10
     private static int size = 5;
     private int number;
     private static Lecture[] lectureArray;
@@ -25,6 +24,7 @@ public class LectureRepository extends ParentingClassForRepositories {
             super.add(lecture, lectureArray);
         }
     }
+
     public Lecture[] getLectures() {
         return (Lecture[]) super.getAll();
     }
@@ -36,13 +36,6 @@ public class LectureRepository extends ParentingClassForRepositories {
     public void deleteByld(int number) {
         this.number = number;
         lectureArray[number - 1] = null;
-    }
-
-    @Override
-    public String toString() {
-        return "LectureRepository{" +
-                "lectures=" + Arrays.toString(lectures) +
-                '}';
     }
 
     // don`t know what variant is better
@@ -57,6 +50,13 @@ public class LectureRepository extends ParentingClassForRepositories {
         lastIndex++;
         newLectures[lastIndex] = lecture;
         this.lectures = newLectures;
+    }
+
+    @Override
+    public String toString() {
+        return "LectureRepository{" +
+                "lectures=" + Arrays.toString(lectures) +
+                '}';
     }
 
     public Lecture getLecture(int lectureId) {

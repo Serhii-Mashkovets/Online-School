@@ -6,8 +6,9 @@ import onlineSchool.models.School;
 import java.util.Arrays;
 
 public class ParentingClassForRepositories {
-
     private ParentingClassForModels[] prntNewArr;
+    private School[] mySchoolArray = new School[0];
+    private int mySchoolArrayIndex = -1;
 
     public void add(ParentingClassForModels prntMdls, ParentingClassForModels[] prntArr) {
         for (int i = 0; i < prntArr.length; i++) {
@@ -23,8 +24,6 @@ public class ParentingClassForRepositories {
         return prntNewArr;
     }
 
-    private School[] mySchoolArray = new School[0];
-    private int mySchoolArrayIndex = -1;
 
     public void addMySchoolArray(School mySchoolArrays) {
         School[] newMySchoolsArray = new School[(3 * mySchoolArray.length) / 2 + 1];
@@ -45,14 +44,15 @@ public class ParentingClassForRepositories {
         return null;
     }
 
-    public School[] getAllMySchoolsArrays() {
-        return this.mySchoolArray;
-    }
-
     @Override
     public String toString() {
         return "ParentingClassForRepositories{" +
                 "mySchoolArray=" + Arrays.toString(mySchoolArray) +
                 '}';
     }
+
+    public School[] getAllMySchoolsArrays() {
+        return this.mySchoolArray;
+    }
+
 }

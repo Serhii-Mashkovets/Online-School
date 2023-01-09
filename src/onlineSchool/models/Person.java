@@ -1,44 +1,33 @@
 package onlineSchool.models;
 
-import onlineSchool.enums.Role;
-
 public class Person extends ParentingClassForModels {
-
     private static int counterOfStudents;
     private static int studentID;
     private static int counterOfTeachers;
     private static int teacherID;
     private String firstName;
-
     private String lastName;
-
     private static int courseId;
-
     private int personID;
-
-    private String lectureName1;
-
-    private Role role1;
-
-    private String phone1;
-
-    private String email1;
-
+    private String lectureName;
+    private Role role;
+    private String phone;
+    private String email;
 
     public Person(String fname, String lname,
-                  int personID, Role role1, String phone1, String email1) {
+                  int personID, Role role1, String phone1, String email) {
         this.setFirstName(fname);
         this.setLastName(lname);
         this.personID = personID;
-        this.role1 = role1;
-        this.phone1 = phone1;
-        this.email1 = email1;
-        if (this.role1 == Role.STUDENT) {
+        this.role = role;
+        this.phone = phone;
+        this.email = email;
+        if (this.role == Role.STUDENT) {
             ++counterOfStudents;
-            studentID = super.getId1();
+            studentID = super.getId();
         } else {
             ++counterOfTeachers;
-            teacherID = super.getId1();
+            teacherID = super.getId();
         }
     }
 
@@ -48,9 +37,9 @@ public class Person extends ParentingClassForModels {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", personID=" + personID +
-                ", role1=" + role1 +
-                ", phone1='" + phone1 + '\'' +
-                ", email1='" + email1 + '\'' +
+                ", role1=" + role +
+                ", phone1='" + phone + '\'' +
+                ", email1='" + email + '\'' +
                 '}';
     }
 
@@ -66,24 +55,24 @@ public class Person extends ParentingClassForModels {
         return personID;
     }
 
-    public Role getRole1() {
-        return role1;
+    public Role getRole() {
+        return role;
     }
 
-    public String getPhone1() {
-        return phone1;
+    public String getPhone() {
+        return phone;
     }
 
-    public String getEmail1() {
-        return email1;
+    public String getEmail() {
+        return email;
     }
 
-    public String getLectureName1() {
-        return lectureName1;
+    public String getLectureName() {
+        return lectureName;
     }
 
-    public void setLectureName1(String lectureName1) {
-        this.lectureName1 = lectureName1;
+    public void setLectureName(String lectureName) {
+        this.lectureName = lectureName;
     }
 
     public String getFirstName() {

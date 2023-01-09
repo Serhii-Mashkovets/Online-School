@@ -3,7 +3,6 @@ package onlineSchool.repository;
 import onlineSchool.models.AddMaterials;
 
 public class AddMaterialsRepository extends ParentingClassForRepositories {
-
     private static final int INIT_CAPACITY = 5;
     private AddMaterials[] addMaterialsArray;
 

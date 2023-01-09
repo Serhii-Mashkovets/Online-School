@@ -5,18 +5,18 @@ import onlineSchool.models.Lecture;
 import onlineSchool.repository.LectureRepository;
 
 public class LectureService {
+    private int id;
+    private LectureRepository lectureRepository;
 
     public Lecture createNewLecture(String name, String discription, HomeWork homeWork) {
         if (name == null || name.equals("") || name.equals("empty")) {
-            throw new NullPointerException("Lecture name can not be empty");
+            throw new IllegalArgumentException("Lecture name can not be empty");
         }
         if (discription == null || discription.equals("") || discription.equalsIgnoreCase("empty")) {
-            throw new NullPointerException("Discription to a Lecture can not be empty");
+            throw new IllegalArgumentException("Discription to a Lecture can not be empty");
         }
         return new Lecture(name, discription, homeWork);
     }
-
-    private LectureRepository lectureRepository;
 
     public LectureService() {
     }
@@ -38,5 +38,11 @@ public class LectureService {
         }
     }
 
-    private int id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

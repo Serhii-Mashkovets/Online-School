@@ -9,8 +9,6 @@ public class Teachers extends ParentingClassForModels {
         this.setTeacherSecondName(teacherSecondName);
     }
 
-    private int id;
-
     public String getTeacherName() {
         return teacherName;
     }
@@ -26,5 +24,4 @@ public class Teachers extends ParentingClassForModels {
     public void setTeacherSecondName(String teacherSecondName) {
         this.teacherSecondName = teacherSecondName;
     }
-
 }

@@ -1,16 +1,17 @@
 package onlineSchool.models;
 
 public class Lecture extends ParentingClassForModels {
-
+    private int id;
+    private String lectureName;
+    private String teacherName;
+    private String mainBookToLearning;
+    private static int lectureCounter;
+    private static int courseLectureId;
     private String description;
+    private static int counter = 0;
 
     public int getLectureId() {
         return this.id;
-    }
-
-    @Override
-    public String fullPerson(String firstPersoneName, String lastPersonName) {
-        return super.fullPerson(firstPersoneName, lastPersonName);
     }
 
     public void Lecture(String lectureTopic, String description, String teacherName, Person person, Enum Role) {
@@ -20,39 +21,14 @@ public class Lecture extends ParentingClassForModels {
         person.fullPerson("", "");
     }
 
-    private String lessonThemeOne;
-    private String lessonThemeTwo;
-    private String lessonThemeThree;
-    private String lessonThemeFour;
-    private String lessonThemeFive;
-    private static int counter = 0;
-
     @Override
-    public String toString() {
-        return "Lecture{" +
-                "description='" + description + '\'' +
-                ", lessonThemeOne='" + lessonThemeOne + '\'' +
-                ", lessonThemeTwo='" + lessonThemeTwo + '\'' +
-                ", lessonThemeThree='" + lessonThemeThree + '\'' +
-                ", lessonThemeFour='" + lessonThemeFour + '\'' +
-                ", lessonThemeFive='" + lessonThemeFive + '\'' +
-                ", id=" + id +
-                ", lectureName='" + lectureName + '\'' +
-                ", teacherName='" + teacherName + '\'' +
-                ", mainBookToLearning='" + mainBookToLearning + '\'' +
-                '}';
+    public String fullPerson(String firstPersoneName, String lastPersonName) {
+        return super.fullPerson(firstPersoneName, lastPersonName);
     }
 
     public Lecture(String name, String discription, HomeWork homeWork) {
         setCounter(getCounter() + 1);
     }
-
-    private int id;
-    private String lectureName;
-    private String teacherName;
-    private String mainBookToLearning;
-    private static int lectureCounter;
-    private static int courseLectureId;
 
     public Lecture(String lectureTopic, String description, String mainBookToLearning, int courseLectureId,
                    Person person, Enum Role) {
@@ -62,6 +38,21 @@ public class Lecture extends ParentingClassForModels {
         this.setCourseLectureId(courseLectureId);
         setLectureCounter(getLectureCounter() + 1);
         System.out.println(lectureTopic);
+    }
+
+    @Override
+    public String toString() {
+        return "Lecture{" +
+                "description='" + description + '\'' +
+                ", id=" + id +
+                ", lectureName='" + lectureName + '\'' +
+                ", teacherName='" + teacherName + '\'' +
+                ", mainBookToLearning='" + mainBookToLearning + '\'' +
+                '}';
+    }
+
+    public int countId() {
+        return this.getCourseLectureId();
     }
 
     public static int getCounter() {
@@ -86,50 +77,6 @@ public class Lecture extends ParentingClassForModels {
 
     public static void setCourseLectureId(int courseLectureId) {
         Lecture.courseLectureId = courseLectureId;
-    }
-
-    public int countId() {
-        return this.getCourseLectureId();
-    }
-
-    public String getLessonThemeOne() {
-        return lessonThemeOne;
-    }
-
-    public void setLessonThemeOne(String lessonThemeOne) {
-        this.lessonThemeOne = lessonThemeOne;
-    }
-
-    public String getLessonThemeTwo() {
-        return lessonThemeTwo;
-    }
-
-    public void setLessonThemeTwo(String lessonThemeTwo) {
-        this.lessonThemeTwo = lessonThemeTwo;
-    }
-
-    public String getLessonThemeThree() {
-        return lessonThemeThree;
-    }
-
-    public void setLessonThemeThree(String lessonThemeThree) {
-        this.lessonThemeThree = lessonThemeThree;
-    }
-
-    public String getLessonThemeFour() {
-        return lessonThemeFour;
-    }
-
-    public void setLessonThemeFour(String lessonThemeFour) {
-        this.lessonThemeFour = lessonThemeFour;
-    }
-
-    public String getLessonThemeFive() {
-        return lessonThemeFive;
-    }
-
-    public void setLessonThemeFive(String lessonThemeFive) {
-        this.lessonThemeFive = lessonThemeFive;
     }
 
     public String getLectureName() {

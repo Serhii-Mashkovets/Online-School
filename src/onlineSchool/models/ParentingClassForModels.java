@@ -1,27 +1,25 @@
 package onlineSchool.models;
 
 public class ParentingClassForModels {
+    private String firstPersoneName;
+    private String lastPersonName;
+    private static int id;
 
-    public int length;
-
-    public ParentingClassForModels() {
-        this.id1 = id1;
+    private ParentingClassForModels() {
+        this.id = id;
     }
 
     public String fullPerson(String firstPersoneName, String lastPersonName) {
         return firstPersoneName + lastPersonName;
     }
 
-    private String firstPersoneName;
-
-    private String lastPersonName;
-
-    private static int id1;
-
-    public static int getId1() {
-        return id1;
+    public static int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFirstPersoneName() {
         return firstPersoneName;
@@ -39,6 +37,4 @@ public class ParentingClassForModels {
         this.lastPersonName = lastPersonName;
     }
 
-    public static void setId(int id) {
-    }
 }

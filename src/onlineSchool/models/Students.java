@@ -3,13 +3,14 @@ package onlineSchool.models;
 public class Students extends ParentingClassForModels {
     private String studentLastName;
     private String studentName;
+    private int studentAge;
+
+    private int id;
 
     public Students(String studentName, String studentLastName) {
         this.setStudentName(studentName);
         this.setStudentLastName(studentLastName);
     }
-
-    private int studentAge;
 
     public int getStudentAge() {
         return studentAge;
@@ -22,8 +23,6 @@ public class Students extends ParentingClassForModels {
         } else
             this.studentAge = studentAge;
     }
-
-    private int id;
 
     public String getStudentLastName() {
         return studentLastName;
