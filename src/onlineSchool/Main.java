@@ -36,6 +36,7 @@ public class Main {
             case 1 -> System.out.println(lec);
             case 2 -> System.out.println(lec1);
             case 3 -> System.out.println(lec2);
+            default -> throw new IllegalArgumentException();
         }
         sc.close();
     }

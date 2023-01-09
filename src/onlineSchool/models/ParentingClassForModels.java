@@ -5,7 +5,7 @@ public class ParentingClassForModels {
     private String lastPersonName;
     private static int id;
 
-    private ParentingClassForModels() {
+    public ParentingClassForModels() {
         this.id = id;
     }
 
