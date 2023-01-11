@@ -1,15 +1,15 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
+import onlineSchool.models.ParentingClassForModels;
 
 
 import java.util.Arrays;
 
 public class LectureRepository extends ParentingClassForRepositories {
-    private static int size;
+    private static int sizeMatter;
     private int number;
-    private static Lecture[] lectureArray = new Lecture[size];
-
+    private static Lecture[] lectureArray = new Lecture[sizeMatter];
     private static GeneralizationClass<Lecture> lectureGeneralizationService =
             new GeneralizationClass<>(lectureArray);
 
@@ -18,23 +18,30 @@ public class LectureRepository extends ParentingClassForRepositories {
         return lectureGeneralizationService.size();
     }
 
+    public Lecture get (int index) {
+        return lectureGeneralizationService.get(index);
+    }
+    public Lecture [] getAll () {
+        return lectureGeneralizationService.getElements();
+    }
+
     @Override
     public boolean isEmpty() {
         return lectureGeneralizationService.isEmpty();
     }
 
     @Override
-    public void add(Lecture lecture) {
-        if (getAll()[size - 1] != null) addLecture();
-        lectureGeneralizationService.add(lecture);
+    public void add(ParentingClassForModels model) {
+        if (getAll()[sizeMatter - 1] != null) addLecture();
+        lectureGeneralizationService.add((Lecture) model);
     }
 
     @Override
-    public void add(int index, Lecture lecture) {
-        if (getAll()[size - 1] != null) {
+    public void add(int index, ParentingClassForModels model) {
+        if (getAll()[sizeMatter - 1] != null) {
             addLecture();
         }
-        lectureGeneralizationService.add(index, lecture);
+        lectureGeneralizationService.add(index, (Lecture) model);
     }
 
     @Override
@@ -43,7 +50,7 @@ public class LectureRepository extends ParentingClassForRepositories {
     }
 
     public LectureRepository() {
-        this.lectureArray = new Lecture[size];
+        this.lectureArray = new Lecture[sizeMatter];
     }
 
 
@@ -76,9 +83,10 @@ public class LectureRepository extends ParentingClassForRepositories {
     private int lastIndex = -1;
 
     public void addLecture() {
-        size = size * 3 / 2 - 1;
-        Lecture[] newLectures = new Lecture[size];
-        System.arraycopy(lectureArray, 0, newLectures, 0, size);
+        sizeMatter = sizeMatter * 3 / 2 - 1;
+        Lecture[] newLectures = new Lecture[sizeMatter];
+        System.arraycopy(lectureArray, 0, newLectures, 0, sizeMatter);
+        lectureGeneralizationService.setElements(newLectures);
         }
 
     @Override

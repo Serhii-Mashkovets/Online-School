@@ -24,15 +24,15 @@ public class CourseRepository extends ParentingClassForRepositories {
     }
 
     @Override
-    public void add(Course course) {
+    public void add(ParentingClassForModels model) {
         if (getAll()[INIT_CAPACITY - 1] != null) addCourse();
-        courseGeneralizationClass.add(course);
+        courseGeneralizationClass.add((Course) model);
     }
 
     @Override
-    public void add(int index, Course course) {
+    public void add(int index, ParentingClassForModels model) {
         if (getAll()[INIT_CAPACITY - 1] != null) addCourse();
-        courseGeneralizationClass.add(index, course);
+        courseGeneralizationClass.add(index, (Course) model);
     }
 
     @Override

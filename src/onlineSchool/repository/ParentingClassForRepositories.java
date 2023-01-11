@@ -1,16 +1,17 @@
 package onlineSchool.repository;
 
+import onlineSchool.models.Lecture;
 import onlineSchool.models.ParentingClassForModels;
 import onlineSchool.models.School;
 
 import java.util.Arrays;
 
-public class ParentingClassForRepositories {
+public abstract class ParentingClassForRepositories {
     private static int capacity = 5;
     private static ParentingClassForModels[] pCfRarray = new ParentingClassForModels[capacity];
     private static GeneralizationClass<ParentingClassForModels> parModSrvice = new GeneralizationClass<>(pCfRarray);
 
-    public ParentingClassForModels[] getAllArray() {
+    public ParentingClassForModels[] getAll() {
         return parModSrvice.getElements();
     }
 
@@ -53,10 +54,6 @@ public class ParentingClassForRepositories {
             }
         }
         prntNewArr = prntArr;
-    }
-
-    public ParentingClassForModels[] getAll() {
-        return prntNewArr;
     }
 
 
