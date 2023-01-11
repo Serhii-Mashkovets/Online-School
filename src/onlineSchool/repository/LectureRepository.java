@@ -6,15 +6,48 @@ import onlineSchool.models.Lecture;
 import java.util.Arrays;
 
 public class LectureRepository extends ParentingClassForRepositories {
-    private static int size = 5;
+    private static int size;
     private int number;
-    private static Lecture[] lectureArray;
+    private static Lecture[] lectureArray = new Lecture[size];
+
+    private static GeneralizationClass<Lecture> lectureGeneralizationService =
+            new GeneralizationClass<>(lectureArray);
+
+    @Override
+    public long size() {
+        return lectureGeneralizationService.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return lectureGeneralizationService.isEmpty();
+    }
+
+    @Override
+    public void add(Lecture lecture) {
+        if (getAll()[size - 1] != null) addLecture();
+        lectureGeneralizationService.add(lecture);
+    }
+
+    @Override
+    public void add(int index, Lecture lecture) {
+        if (getAll()[size - 1] != null) {
+            addLecture();
+        }
+        lectureGeneralizationService.add(index, lecture);
+    }
+
+    @Override
+    public void remove(int index) {
+        lectureGeneralizationService.remove(index);
+    }
 
     public LectureRepository() {
         this.lectureArray = new Lecture[size];
     }
 
-    public void add(Lecture lecture) {
+
+    public void addLecture (Lecture lecture) {
         if (lectureArray[lectureArray.length - 1] != null) {
             Lecture[] myArrayTemp = lectureArray;
             lectureArray = new Lecture[lectureArray.length * 3 / 2 + 1];
@@ -42,15 +75,11 @@ public class LectureRepository extends ParentingClassForRepositories {
     private Lecture[] lectures = new Lecture[0];
     private int lastIndex = -1;
 
-    public void addLecture(Lecture lecture) {
-        Lecture[] newLectures = new Lecture[3 * lectures.length / 2 + 1];
-        for (int i = 0; i < lectures.length; i++) {
-            newLectures[i] = lectures[i];
+    public void addLecture() {
+        size = size * 3 / 2 - 1;
+        Lecture[] newLectures = new Lecture[size];
+        System.arraycopy(lectureArray, 0, newLectures, 0, size);
         }
-        lastIndex++;
-        newLectures[lastIndex] = lecture;
-        this.lectures = newLectures;
-    }
 
     @Override
     public String toString() {

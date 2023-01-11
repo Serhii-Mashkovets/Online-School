@@ -6,6 +6,41 @@ import onlineSchool.models.School;
 import java.util.Arrays;
 
 public class ParentingClassForRepositories {
+    private static int capacity = 5;
+    private static ParentingClassForModels[] pCfRarray = new ParentingClassForModels[capacity];
+    private static GeneralizationClass<ParentingClassForModels> parModSrvice = new GeneralizationClass<>(pCfRarray);
+
+    public ParentingClassForModels[] getAllArray() {
+        return parModSrvice.getElements();
+    }
+
+    public long size() {
+        return parModSrvice.size();
+    }
+
+    public boolean isEmpty() {
+        return parModSrvice.isEmpty();
+    }
+
+    public ParentingClassForModels get(int index) {
+        return parModSrvice.get(index);
+    }
+
+    public void add(ParentingClassForModels pcfmod) {
+        if (getAll()[capacity - 1] != null) addMyArray();
+        parModSrvice.add(pcfmod);
+    }
+
+    public void add(int index, ParentingClassForModels pcfmod) {
+        if (getAll()[capacity - 1] != null) addMyArray();
+        parModSrvice.add(index, pcfmod);
+    }
+
+    public void remove(int index) {
+        parModSrvice.remove(index);
+    }
+
+
     private ParentingClassForModels[] prntNewArr;
     private School[] mySchoolArray = new School[0];
     private int mySchoolArrayIndex = -1;
@@ -25,14 +60,11 @@ public class ParentingClassForRepositories {
     }
 
 
-    public void addMySchoolArray(School mySchoolArrays) {
-        School[] newMySchoolsArray = new School[(3 * mySchoolArray.length) / 2 + 1];
-        for (int i = 0; i < mySchoolArray.length; i++) {
-            newMySchoolsArray[i] = mySchoolArray[i];
-        }
-        mySchoolArrayIndex++;
-        newMySchoolsArray[mySchoolArrayIndex] = mySchoolArrays;
-        this.mySchoolArray = newMySchoolsArray;
+    public void addMyArray() {
+        capacity = (capacity * 3) / 2 + 1;
+        ParentingClassForModels[] parentingArray = new ParentingClassForModels[capacity];
+        System.arraycopy(getAll(), 0, parentingArray, 0, capacity);
+        parentingArray = getAll();
     }
 
     public School getMySchoolArray(int schoolId) {
