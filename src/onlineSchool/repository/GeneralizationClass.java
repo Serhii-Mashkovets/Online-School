@@ -1,5 +1,6 @@
 package onlineSchool.repository;
 
+import onlineSchool.models.Course;
 import onlineSchool.models.ParentingClassForModels;
 
 public class GeneralizationClass<E extends ParentingClassForModels> {
@@ -7,6 +8,9 @@ public class GeneralizationClass<E extends ParentingClassForModels> {
 
     public GeneralizationClass(E[] elements) {
         this.elements = elements;
+    }
+
+    public GeneralizationClass(Course[] courseArray) {
     }
 
     public long size() {

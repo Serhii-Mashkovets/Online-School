@@ -1,10 +1,10 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.Course;
-import onlineSchool.models.Lecture;
+
 import onlineSchool.models.ParentingClassForModels;
 
-public class CourseRepository extends ParentingClassForRepositories {
+public class CourseRepository implements CourseRepoInterface {
     private Course[] courses = new Course[0];
     private int lastIndex = -1;
     private static final int INIT_CAPACITY = 5;

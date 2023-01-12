@@ -6,7 +6,7 @@ import onlineSchool.models.ParentingClassForModels;
 
 import java.util.Arrays;
 
-public class LectureRepository extends ParentingClassForRepositories {
+public class LectureRepository implements LectureRepoInterface {
     private static int sizeMatter;
     private static Lecture[] lectureArray = new Lecture[sizeMatter];
     private static GeneralizationClass<Lecture> lectureGeneralizationService =
@@ -59,14 +59,7 @@ public class LectureRepository extends ParentingClassForRepositories {
             Lecture[] myArrayTemp = lectureArray;
             lectureArray = new Lecture[lectureArray.length * 3 / 2 + 1];
             System.arraycopy(myArrayTemp, 0, lectureArray, 0, myArrayTemp.length);
-            super.add(lecture);
-        } else {
-            super.add(lecture);
         }
-    }
-
-    public Lecture[] getLectures() {
-        return (Lecture[]) super.getAll();
     }
 
     public Lecture[] getByld(int number) {

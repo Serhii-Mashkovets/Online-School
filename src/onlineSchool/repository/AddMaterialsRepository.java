@@ -2,13 +2,9 @@ package onlineSchool.repository;
 
 import onlineSchool.models.AddMaterials;
 
-public class AddMaterialsRepository extends ParentingClassForRepositories {
+public class AddMaterialsRepository implements AddMaterialsInterface {
     private static final int INIT_CAPACITY = 5;
     private AddMaterials[] addMaterialsArray;
-
-    public AddMaterialsRepository() {
-        this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);
-    }
 
     public AddMaterialsRepository(int inputCapacity) {
         if (inputCapacity < 1) {
@@ -18,7 +14,6 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
             this.setAddMaterialsArray(new AddMaterials[inputCapacity]);
         }
     }
-
     public int getINIT_CAPACITY() {
         return INIT_CAPACITY;
     }
@@ -29,5 +24,15 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
 
     public void setAddMaterialsArray(AddMaterials[] addMaterialsArray) {
         this.addMaterialsArray = addMaterialsArray;
+    }
+
+    @Override
+    public void AddMaterialsInterface(int inputCapacity) {
+        if (inputCapacity < 1) {
+            System.out.println("Wrong argument, creating standart capacity array");
+            this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);
+        } else {
+            this.setAddMaterialsArray(new AddMaterials[inputCapacity]);
+        }
     }
 }

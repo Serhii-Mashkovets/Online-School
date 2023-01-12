@@ -1,7 +1,8 @@
 package onlineSchool.models;
 
 public class Lecture extends ParentingClassForModels {
-    private int id;
+    private HomeWork [] homeWorks;
+    private static int id;
     private String lectureName;
     private String teacherName;
     private String mainBookToLearning;
@@ -10,14 +11,20 @@ public class Lecture extends ParentingClassForModels {
     private String description;
     private static int counter = 0;
 
-    public int getLectureId() {
-        return this.id;
+    public static int getId() {
+        return id;
     }
 
-    public void Lecture(String lectureTopic, String description, String teacherName, Person person, Enum Role) {
+    public int getLectureId() {
+        return this.getId();
+    }
+
+    public void Lecture(String lectureTopic, String description, String teacherName, Person person, Enum Role,
+                        HomeWork [] homeWorks) {
         this.lectureName = lectureTopic;
         this.teacherName = teacherName;
         this.description = description;
+        this.setHomeWorks(homeWorks);
         person.fullPerson("", "");
     }
 
@@ -26,7 +33,7 @@ public class Lecture extends ParentingClassForModels {
         return super.fullPerson(firstPersoneName, lastPersonName);
     }
 
-    public Lecture(String name, String discription, HomeWork homeWork) {
+    public Lecture(String name, String discription, HomeWork [] homeWorks) {
         setCounter(getCounter() + 1);
     }
 
@@ -44,10 +51,11 @@ public class Lecture extends ParentingClassForModels {
     public String toString() {
         return "Lecture{" +
                 "description='" + description + '\'' +
-                ", id=" + id +
+                ", id=" + getId() +
                 ", lectureName='" + lectureName + '\'' +
                 ", teacherName='" + teacherName + '\'' +
                 ", mainBookToLearning='" + mainBookToLearning + '\'' +
+                ", homework ='" + homeWorks +
                 '}';
     }
 
@@ -109,6 +117,14 @@ public class Lecture extends ParentingClassForModels {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public HomeWork[] getHomeWorks() {
+        return homeWorks;
+    }
+
+    public void setHomeWorks(HomeWork[] homeWorks) {
+        this.homeWorks = homeWorks;
     }
 }
 

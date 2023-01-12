@@ -19,16 +19,17 @@ public class Main {
 
     private static void initData() {
         CourseService course = new CourseService();
-        course.createNewCourse("", 1, new Lecture("  ", "  ", new HomeWork()),
+        course.createNewCourse("", 1, new Lecture("  ", "  ",
+                        new HomeWork[]{new HomeWork()}),
                 new Person("", " ", 1, Role.TEACHER, "", ""),
                 new Person("", " ", 1, Role.STUDENT, "", ""));
 
         LectureService lec = new LectureService();
         LectureService lec1 = new LectureService();
         LectureService lec2 = new LectureService();
-        lec.createNewLecture("Name One", "Discription One", new HomeWork());
-        lec2.createNewLecture("Name two", "Disription two", new HomeWork());
-        lec1.createNewLecture("Name three", "Description three", new HomeWork());
+        lec.createNewLecture("Name One", "Discription One", new HomeWork[]{new HomeWork()});
+        lec2.createNewLecture("Name two", "Disription two", new HomeWork[]{new HomeWork()});
+        lec1.createNewLecture("Name three", "Description three", new HomeWork[]{new HomeWork()});
         Scanner sc = new Scanner(System.in);
         System.out.println("Оберіть від 1 до 3 номер лекції, з якою бажаєте працювати: ");
         int nm = sc.nextInt();

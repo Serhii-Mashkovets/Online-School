@@ -1,6 +1,6 @@
 package onlineSchool.models;
 
-public class ParentingClassForModels {
+public abstract class ParentingClassForModels {
     private String firstPersoneName;
     private String lastPersonName;
     private static int id;

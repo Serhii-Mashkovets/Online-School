@@ -8,14 +8,14 @@ public class LectureService {
     private int id;
     private LectureRepository lectureRepository;
 
-    public Lecture createNewLecture(String name, String discription, HomeWork homeWork) {
+    public Lecture createNewLecture(String name, String discription, HomeWork [] homeWorks) {
         if (name == null || name.equals("") || name.equals("empty")) {
             throw new IllegalArgumentException("Lecture name can not be empty");
         }
         if (discription == null || discription.equals("") || discription.equalsIgnoreCase("empty")) {
             throw new IllegalArgumentException("Discription to a Lecture can not be empty");
         }
-        return new Lecture(name, discription, homeWork);
+        return new Lecture(name, discription, homeWorks);
     }
 
     public LectureService() {

@@ -2,7 +2,7 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Teachers;
 
-public class TeachersRepository extends ParentingClassForRepositories {
+public class TeachersRepository implements TeachersRepoInterface {
     private static final int INIT_CAPACITY = 5;
     private Teachers[] teacherArray;
 
