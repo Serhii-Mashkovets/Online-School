@@ -42,12 +42,10 @@ public class CourseRepository extends ParentingClassForRepositories {
 
     public void addCourse() {
         if (courses[courses.length - 1] != null) {
-            Course[] newCourse = courses;
-            newCourse = new Course[3 * courses.length / 2 + 1];
+            Course[] newCourse = new Course[3 * courses.length / 2 + 1];
             System.arraycopy(newCourse, 0, courses, 0, newCourse.length);
-
         }
-        }
+    }
 
     public Course getCourse(int courseId) {
         for (int i = 0; i <= lastIndex; i++) {
@@ -58,9 +56,10 @@ public class CourseRepository extends ParentingClassForRepositories {
         return null;
     }
 
-    public Course [] getAll () {
+    public Course[] getAll() {
         return courseGeneralizationClass.getElements();
     }
+
     public CourseRepository() {
         this.courseArray = new Course[getINIT_CAPACITY()];
     }

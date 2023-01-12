@@ -41,20 +41,8 @@ public abstract class ParentingClassForRepositories {
         parModSrvice.remove(index);
     }
 
-
-    private ParentingClassForModels[] prntNewArr;
     private School[] mySchoolArray = new School[0];
     private int mySchoolArrayIndex = -1;
-
-    public void add(ParentingClassForModels prntMdls, ParentingClassForModels[] prntArr) {
-        for (int i = 0; i < prntArr.length; i++) {
-            if (prntArr[i] == null) {
-                prntArr[i] = prntMdls;
-                break;
-            }
-        }
-        prntNewArr = prntArr;
-    }
 
 
     public void addMyArray() {

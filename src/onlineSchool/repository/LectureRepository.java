@@ -8,7 +8,6 @@ import java.util.Arrays;
 
 public class LectureRepository extends ParentingClassForRepositories {
     private static int sizeMatter;
-    private int number;
     private static Lecture[] lectureArray = new Lecture[sizeMatter];
     private static GeneralizationClass<Lecture> lectureGeneralizationService =
             new GeneralizationClass<>(lectureArray);
@@ -18,10 +17,11 @@ public class LectureRepository extends ParentingClassForRepositories {
         return lectureGeneralizationService.size();
     }
 
-    public Lecture get (int index) {
+    public Lecture get(int index) {
         return lectureGeneralizationService.get(index);
     }
-    public Lecture [] getAll () {
+
+    public Lecture[] getAll() {
         return lectureGeneralizationService.getElements();
     }
 
@@ -54,14 +54,14 @@ public class LectureRepository extends ParentingClassForRepositories {
     }
 
 
-    public void addLecture (Lecture lecture) {
+    public void addLecture(Lecture lecture) {
         if (lectureArray[lectureArray.length - 1] != null) {
             Lecture[] myArrayTemp = lectureArray;
             lectureArray = new Lecture[lectureArray.length * 3 / 2 + 1];
             System.arraycopy(myArrayTemp, 0, lectureArray, 0, myArrayTemp.length);
-            super.add(lecture, lectureArray);
+            super.add(lecture);
         } else {
-            super.add(lecture, lectureArray);
+            super.add(lecture);
         }
     }
 
@@ -73,11 +73,6 @@ public class LectureRepository extends ParentingClassForRepositories {
         return new Lecture[]{lectureArray[number - 1]};
     }
 
-    public void deleteByld(int number) {
-        this.number = number;
-        lectureArray[number - 1] = null;
-    }
-
     // don`t know what variant is better
     private Lecture[] lectures = new Lecture[0];
     private int lastIndex = -1;
@@ -87,7 +82,7 @@ public class LectureRepository extends ParentingClassForRepositories {
         Lecture[] newLectures = new Lecture[sizeMatter];
         System.arraycopy(lectureArray, 0, newLectures, 0, sizeMatter);
         lectureGeneralizationService.setElements(newLectures);
-        }
+    }
 
     @Override
     public String toString() {
