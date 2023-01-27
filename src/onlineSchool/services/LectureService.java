@@ -1,5 +1,6 @@
 package onlineSchool.services;
 
+import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.models.HomeWork;
 import onlineSchool.models.Lecture;
 import onlineSchool.repository.LectureRepository;
@@ -8,12 +9,20 @@ public class LectureService {
     private int id;
     private LectureRepository lectureRepository;
 
-    public Lecture createNewLecture(String name, String discription, HomeWork [] homeWorks) {
+    public Lecture createNewLecture(String name, String discription, HomeWork[] homeWorks) {
         if (name == null || name.equals("") || name.equals("empty")) {
-            throw new IllegalArgumentException("Lecture name can not be empty");
+            try {
+                throw new ValidationExceptions("Lecture name can not be empty");
+            } catch (ValidationExceptions e) {
+                throw new RuntimeException(e);
+            }
         }
         if (discription == null || discription.equals("") || discription.equalsIgnoreCase("empty")) {
-            throw new IllegalArgumentException("Discription to a Lecture can not be empty");
+            try {
+                throw new ValidationExceptions("Discription to a Lecture can not be empty");
+            } catch (ValidationExceptions e) {
+                throw new RuntimeException(e);
+            }
         }
         return new Lecture(name, discription, homeWorks);
     }

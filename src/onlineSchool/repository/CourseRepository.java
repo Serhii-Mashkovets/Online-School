@@ -1,6 +1,7 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.Course;
+import onlineSchool.exceptions.EntityNotFoundException;
 
 import onlineSchool.models.ParentingClassForModels;
 
@@ -47,13 +48,13 @@ public class CourseRepository implements CourseRepoInterface {
         }
     }
 
-    public Course getCourse(int courseId) {
+    public Course getCourse(int courseId) throws EntityNotFoundException {
         for (int i = 0; i <= lastIndex; i++) {
             if (courses[i].getCourseId() == courseId) {
                 return courses[i];
             }
         }
-        return null;
+        throw new EntityNotFoundException("Не існує курсу з даним айді.");
     }
 
     public Course[] getAll() {

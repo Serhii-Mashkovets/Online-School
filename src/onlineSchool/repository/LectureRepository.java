@@ -1,5 +1,6 @@
 package onlineSchool.repository;
 
+import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.ParentingClassForModels;
 
@@ -84,13 +85,13 @@ public class LectureRepository implements LectureRepoInterface {
                 '}';
     }
 
-    public Lecture getLecture(int lectureId) {
+    public Lecture getLecture(int lectureId) throws EntityNotFoundException {
         for (int i = 0; i <= lastIndex; i++) {
             if (lectures[i].getLectureId() == lectureId) {
                 return lectures[i];
             }
         }
-        return null;
+        throw new EntityNotFoundException("Не існує лекції з даним айді.");
     }
 
     public Lecture[] getAllLectures() {

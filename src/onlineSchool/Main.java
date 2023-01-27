@@ -33,11 +33,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Оберіть від 1 до 3 номер лекції, з якою бажаєте працювати: ");
         int nm = sc.nextInt();
+        try {
         switch (nm) {
             case 1 -> System.out.println(lec);
             case 2 -> System.out.println(lec1);
             case 3 -> System.out.println(lec2);
             default -> throw new IllegalArgumentException();
+        }
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException(e);
         }
         sc.close();
     }

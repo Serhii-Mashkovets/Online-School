@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepoInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepoInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepoInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepoInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepoInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/exceptions/EntityNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/exceptions/ValidationExceptions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/ParentingClassForModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/ParentingClassForModels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/GeneralizationClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/GeneralizationClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/LectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/LectureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/CourseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -126,7 +113,9 @@
       <workItem from="1673348845389" duration="16945000" />
       <workItem from="1673453072198" duration="3345000" />
       <workItem from="1673519451872" duration="496000" />
-      <workItem from="1673521772016" duration="9039000" />
+      <workItem from="1673521772016" duration="9172000" />
+      <workItem from="1673618455139" duration="686000" />
+      <workItem from="1674812097882" duration="3797000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>
