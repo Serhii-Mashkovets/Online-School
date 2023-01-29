@@ -3,11 +3,33 @@ package onlineSchool.repository;
 import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.ParentingClassForModels;
+import onlineSchool.services.SimpleIterator;
 
 
 import java.util.Arrays;
 
 public class LectureRepository implements LectureRepoInterface {
+    @Override
+    public void findAll() throws EntityNotFoundException {
+        System.out.println("Повна інформація про лекцію:");
+        SimpleIterator<Lecture> iterator = iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            Lecture lecture = (Lecture) iterator.next();
+            if (lecture == null) {
+                i++;
+                continue;
+            }
+            System.out.println(lecture);
+        }
+        if (i == size()) System.out.println("Відсутні значення.");
+    }
+
+    @Override
+    public SimpleIterator<Lecture> iterator() {
+        return null;
+    }
+
     private static int sizeMatter;
     private static Lecture[] lectureArray = new Lecture[sizeMatter];
     private static GeneralizationClass<Lecture> lectureGeneralizationService =

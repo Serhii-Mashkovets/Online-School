@@ -4,8 +4,24 @@ import onlineSchool.models.Course;
 import onlineSchool.exceptions.EntityNotFoundException;
 
 import onlineSchool.models.ParentingClassForModels;
+import onlineSchool.services.SimpleIterator;
 
-public class CourseRepository implements CourseRepoInterface {
+public abstract class CourseRepository implements CourseRepoInterface {
+    public void findAll() throws EntityNotFoundException {
+        System.out.println("Повна інформація про курс:");
+        SimpleIterator<Course> iterator = iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            Course course = (Course) iterator.next();
+            if (course == null) {
+                i++;
+                continue;
+            }
+            System.out.println(course);
+        }
+        if (i == size()) System.out.println("Відсутні значення.");
+    }
+
     private Course[] courses = new Course[0];
     private int lastIndex = -1;
     private static final int INIT_CAPACITY = 5;

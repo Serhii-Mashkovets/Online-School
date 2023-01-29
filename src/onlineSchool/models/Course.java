@@ -9,9 +9,9 @@ public class Course extends  ParentingClassForModels{
     private int lessonTime;
     private String courseNameOne;
     private static int counterOfCourse;
-    private static int id;
+    private static Integer id;
 
-    public Course(String courseName, int id, Lecture lectureName, Person teacherOne, Person studentOne) {
+    public Course(String courseName, Integer id, Lecture lectureName, Person teacherOne, Person studentOne) {
         this.courseName = courseName;
         this.id = id;
         this.setLectureName(lectureName);
@@ -19,7 +19,7 @@ public class Course extends  ParentingClassForModels{
         this.setStudentOne(studentOne);
     }
 
-    public void fullCourse(String courseNameOne, int id) {
+    public void fullCourse(String courseNameOne, Integer id) {
         this.setCourseNameOne(courseNameOne);
         this.setId(id);
         setCounterOfCourse(getCounterOfCourse() + 1);
@@ -78,11 +78,11 @@ public class Course extends  ParentingClassForModels{
         Course.counterOfCourse = counterOfCourse;
     }
 
-    public static int getId() {
+    public static Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

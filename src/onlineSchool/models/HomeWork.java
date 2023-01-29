@@ -3,7 +3,7 @@ package onlineSchool.models;
 public class HomeWork extends ParentingClassForModels {
     private int numberOfHW;
     private static int counterNew = 0;
-    private static int id;
+    private static Integer id;
     private int lectureId;
     private String task;
 
@@ -40,12 +40,12 @@ public class HomeWork extends ParentingClassForModels {
         this.numberOfHW = numberOfHW;
     }
 
-    public static int getId() {
+    public static Integer getId() {
         return id;
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

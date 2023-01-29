@@ -5,7 +5,7 @@ public class Students extends ParentingClassForModels {
     private String studentName;
     private int studentAge;
 
-    private int id;
+    private Integer id;
 
     public Students(String studentName, String studentLastName) {
         this.setStudentName(studentName);

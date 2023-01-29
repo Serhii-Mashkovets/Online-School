@@ -2,7 +2,7 @@ package onlineSchool.models;
 
 public class Lecture extends ParentingClassForModels {
     private HomeWork [] homeWorks;
-    private static int id;
+    private static Integer id;
     private String lectureName;
     private String teacherName;
     private String mainBookToLearning;
@@ -11,11 +11,11 @@ public class Lecture extends ParentingClassForModels {
     private String description;
     private static int counter = 0;
 
-    public static int getId() {
+    public static Integer getId() {
         return id;
     }
 
-    public int getLectureId() {
+    public Integer getLectureId() {
         return this.getId();
     }
 

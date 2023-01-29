@@ -3,7 +3,7 @@ package onlineSchool.models;
 public abstract class ParentingClassForModels {
     private String firstPersoneName;
     private String lastPersonName;
-    private static int id;
+    private static Integer id;
 
     public ParentingClassForModels() {
         this.id = id;
@@ -13,11 +13,11 @@ public abstract class ParentingClassForModels {
         return firstPersoneName + lastPersonName;
     }
 
-    public static int getId() {
-        return id;
+    public static Integer getId() {
+        return id = 0;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
