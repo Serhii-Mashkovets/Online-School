@@ -10,9 +10,6 @@ public class GeneralizationClass<E extends ParentingClassForModels> {
         this.elements = elements;
     }
 
-    public GeneralizationClass(Course[] courseArray) {
-    }
-
     public long size() {
         return elements.length;
     }

@@ -14,14 +14,14 @@ public class LectureService {
             try {
                 throw new ValidationExceptions("Lecture name can not be empty");
             } catch (ValidationExceptions e) {
-                throw new RuntimeException(e);
+                System.out.println(String.valueOf(e));
             }
         }
         if (discription == null || discription.equals("") || discription.equalsIgnoreCase("empty")) {
             try {
                 throw new ValidationExceptions("Discription to a Lecture can not be empty");
             } catch (ValidationExceptions e) {
-                throw new RuntimeException(e);
+                System.out.println(String.valueOf(e));
             }
         }
         return new Lecture(name, discription, homeWorks);

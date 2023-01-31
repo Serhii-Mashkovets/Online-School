@@ -11,14 +11,14 @@ public class CourseService {
             try {
                 throw new ValidationExceptions("classroom for lesson can not be less then 1");
             } catch (ValidationExceptions e) {
-                throw new RuntimeException(e);
+                System.out.println(String.valueOf(e));
             }
         }
         if (courseName == null || courseName.equals("empty") || courseName.equals(" ")) {
             try {
                 throw new ValidationExceptions("Course name can not be empty");
             } catch (ValidationExceptions e) {
-                throw new RuntimeException(e);
+                System.out.println(String.valueOf(e));
             }
         }
         return new Course(courseName, classroomForLesson, lectureName, teacherOne, StudentOne);

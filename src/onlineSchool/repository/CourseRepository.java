@@ -27,7 +27,7 @@ public abstract class CourseRepository implements CourseRepoInterface {
     private static final int INIT_CAPACITY = 5;
     private static Course[] courseArray = new Course[INIT_CAPACITY];
 
-    private static GeneralizationClass<Course> courseGeneralizationClass =
+    private GeneralizationClass<Course> courseGeneralizationClass =
             new GeneralizationClass<>(courseArray);
 
     @Override
@@ -77,7 +77,7 @@ public abstract class CourseRepository implements CourseRepoInterface {
         return courseGeneralizationClass.getElements();
     }
 
-    public CourseRepository() {
+    protected CourseRepository() {
         this.courseArray = new Course[getINIT_CAPACITY()];
     }
 
