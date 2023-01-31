@@ -1,29 +1,53 @@
 package onlineSchool.repository;
 
+import onlineSchool.models.ParentingClassForModels;
 import onlineSchool.models.Teachers;
 
-public class TeachersRepository implements TeachersRepoInterface {
-    private static final int INIT_CAPACITY = 5;
-    private Teachers[] teacherArray;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TeachersRepository extends ParentingClassForRepositories{
+    private List<Teachers> teacherArray;
 
     public TeachersRepository() {
-        this.teacherArray = new Teachers[getINIT_CAPACITY()];
+       teacherArray = new ArrayList<>();
     }
 
-    public TeachersRepository(int inputCapacity) {
-        if (inputCapacity < 1) {
-            System.out.println("Wrong argument, creating standart capacity array");
-            this.teacherArray = new Teachers[getINIT_CAPACITY()];
-        } else {
-            this.teacherArray = new Teachers[inputCapacity];
-        }
+    @Override
+    public long size() {
+        return teacherArray.size();
     }
 
-    public int getINIT_CAPACITY() {
-        return INIT_CAPACITY;
+    @Override
+    public boolean isEmpty() {
+        return teacherArray.isEmpty();
     }
 
-    public Teachers[] getTeacherArray() {
+    @Override
+    public ParentingClassForModels get(int index) {
+        return teacherArray.get(index);
+    }
+
+    @Override
+    public void add(ParentingClassForModels element) {
+        teacherArray.add((Teachers) element);
+    }
+
+    @Override
+    public void add(int index, ParentingClassForModels element) {
+        teacherArray.add(index,(Teachers) element);
+    }
+
+    @Override
+    public void remove(int index) {
+        teacherArray.remove(index);
+    }
+
+    public List<Teachers> getTeacherArray() {
         return teacherArray;
+    }
+
+    public void setTeacherArray(List<Teachers> teacherArray) {
+        this.teacherArray = teacherArray;
     }
 }

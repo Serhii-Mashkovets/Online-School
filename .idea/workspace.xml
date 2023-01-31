@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/models/ResourseType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepoInterface.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/GeneralizationClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/GeneralizationClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/GeneralizationClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/LectureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/StudentsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/TeachersRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -113,7 +127,8 @@
       <workItem from="1673618455139" duration="686000" />
       <workItem from="1674812097882" duration="4353000" />
       <workItem from="1674983013763" duration="7981000" />
-      <workItem from="1675155180195" duration="661000" />
+      <workItem from="1675155180195" duration="1452000" />
+      <workItem from="1675172030373" duration="5988000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>

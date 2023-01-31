@@ -1,28 +1,55 @@
 package onlineSchool.models;
 
 public class AddMaterials extends ParentingClassForModels {
-    private String bookOne;
-    private String bookTwo;
+  private static Integer id;
+  private String name;
+  private int lectureId;
+  private ResourseType resourseType;
 
-
-    public AddMaterials(String bookOne, String bookTwo) {
-        this.setBookOne(bookOne);
-        this.setBookTwo(bookTwo);
+    public AddMaterials(String name, int lectureId, ResourseType resourseType) {
+        this.name = name;
+        this.lectureId = lectureId;
+        this.resourseType = resourseType;
     }
 
-    public String getBookOne() {
-        return bookOne;
+    @Override
+    public String toString() {
+        return "AddMaterials{" +
+                "name='" + getName() + '\'' +
+                ", lectureId=" + lectureId +
+                ", resourseType=" + resourseType +
+                '}';
     }
 
-    public void setBookOne(String bookOne) {
-        this.bookOne = bookOne;
+    public static Integer getId() {
+        return id;
     }
 
-    public String getBookTwo() {
-        return bookTwo;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setBookTwo(String bookTwo) {
-        this.bookTwo = bookTwo;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getLectureId() {
+        return lectureId;
+    }
+
+    public void setLectureId(int lectureId) {
+        this.lectureId = lectureId;
+    }
+
+    public ResourseType getResourseType() {
+        return resourseType;
+    }
+
+    public void setResourseType(ResourseType resourseType) {
+        this.resourseType = resourseType;
     }
 }

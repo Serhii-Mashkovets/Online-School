@@ -1,38 +1,52 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.AddMaterials;
+import onlineSchool.models.ParentingClassForModels;
 
-public class AddMaterialsRepository implements AddMaterialsInterface {
-    private static final int INIT_CAPACITY = 5;
-    private AddMaterials[] addMaterialsArray;
+import java.util.ArrayList;
+import java.util.List;
 
-    public AddMaterialsRepository(int inputCapacity) {
-        if (inputCapacity < 1) {
-            System.out.println("Wrong argument, creating standart capacity array");
-            this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);
-        } else {
-            this.setAddMaterialsArray(new AddMaterials[inputCapacity]);
-        }
-    }
-    public int getINIT_CAPACITY() {
-        return INIT_CAPACITY;
-    }
-
-    public AddMaterials[] getAddMaterialsArray() {
-        return addMaterialsArray;
-    }
-
-    public void setAddMaterialsArray(AddMaterials[] addMaterialsArray) {
-        this.addMaterialsArray = addMaterialsArray;
+public class AddMaterialsRepository extends ParentingClassForRepositories {
+    private List<AddMaterials> addMaterialsArray;
+    private AddMaterialsRepository () {
+        addMaterialsArray = new ArrayList<>();
     }
 
     @Override
-    public void AddMaterialsInterface(int inputCapacity) {
-        if (inputCapacity < 1) {
-            System.out.println("Wrong argument, creating standart capacity array");
-            this.setAddMaterialsArray(new AddMaterials[getINIT_CAPACITY()]);
-        } else {
-            this.setAddMaterialsArray(new AddMaterials[inputCapacity]);
-        }
+    public long size() {
+        return getAddMaterialsArray().size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return getAddMaterialsArray().isEmpty();
+    }
+
+    @Override
+    public ParentingClassForModels get(int index) {
+        return getAddMaterialsArray().get(index);
+    }
+
+    @Override
+    public void add(ParentingClassForModels element) {
+        getAddMaterialsArray().add((AddMaterials) element);
+    }
+
+    @Override
+    public void add(int index, ParentingClassForModels element) {
+        getAddMaterialsArray().add(index, (AddMaterials) element);
+    }
+
+    @Override
+    public void remove(int index) {
+        getAddMaterialsArray().remove(index);
+    }
+
+    public List<AddMaterials> getAddMaterialsArray() {
+        return addMaterialsArray;
+    }
+
+    public void setAddMaterialsArray(List<AddMaterials> addMaterialsArray) {
+        this.addMaterialsArray = addMaterialsArray;
     }
 }

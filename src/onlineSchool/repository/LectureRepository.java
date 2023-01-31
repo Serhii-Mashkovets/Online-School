@@ -1,122 +1,53 @@
 package onlineSchool.repository;
 
-import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.ParentingClassForModels;
-import onlineSchool.services.SimpleIterator;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.Arrays;
+public class LectureRepository extends ParentingClassForRepositories {
+    private static List<Lecture> lectureArray;
 
-public class LectureRepository implements LectureRepoInterface {
-    @Override
-    public void findAll() throws EntityNotFoundException {
-        System.out.println("Повна інформація про лекцію:");
-        SimpleIterator<Lecture> iterator = iterator();
-        int i = 0;
-        while (iterator.hasNext()) {
-            Lecture lecture = (Lecture) iterator.next();
-            if (lecture == null) {
-                i++;
-                continue;
-            }
-            System.out.println(lecture);
-        }
-        if (i == size()) System.out.println("Відсутні значення.");
+    public LectureRepository() {
+        lectureArray = new ArrayList<>();
     }
-
-    @Override
-    public SimpleIterator<Lecture> iterator() {
-        return null;
-    }
-
-    private static int sizeMatter;
-    private static Lecture[] lectureArray = new Lecture[sizeMatter];
-    private static GeneralizationClass<Lecture> lectureGeneralizationService =
-            new GeneralizationClass<>(lectureArray);
 
     @Override
     public long size() {
-        return lectureGeneralizationService.size();
-    }
-
-    public Lecture get(int index) {
-        return lectureGeneralizationService.get(index);
-    }
-
-    public Lecture[] getAll() {
-        return lectureGeneralizationService.getElements();
+        return lectureArray.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return lectureGeneralizationService.isEmpty();
+        return lectureArray.isEmpty();
     }
 
     @Override
-    public void add(ParentingClassForModels model) {
-        if (getAll()[sizeMatter - 1] != null) addLecture();
-        lectureGeneralizationService.add((Lecture) model);
+    public ParentingClassForModels get(int index) {
+        return lectureArray.get(index);
     }
 
     @Override
-    public void add(int index, ParentingClassForModels model) {
-        if (getAll()[sizeMatter - 1] != null) {
-            addLecture();
-        }
-        lectureGeneralizationService.add(index, (Lecture) model);
+    public void add(ParentingClassForModels element) {
+        lectureArray.add((Lecture) element);
+    }
+
+    @Override
+    public void add(int index, ParentingClassForModels element) {
+        lectureArray.add(index, (Lecture) element);
     }
 
     @Override
     public void remove(int index) {
-        lectureGeneralizationService.remove(index);
+        lectureArray.remove(index);
     }
 
-    public LectureRepository() {
-        this.lectureArray = new Lecture[sizeMatter];
+    public static List<Lecture> getLectureArray() {
+        return lectureArray;
     }
 
-
-    public void addLecture(Lecture lecture) {
-        if (lectureArray[lectureArray.length - 1] != null) {
-            Lecture[] myArrayTemp = lectureArray;
-            lectureArray = new Lecture[lectureArray.length * 3 / 2 + 1];
-            System.arraycopy(myArrayTemp, 0, lectureArray, 0, myArrayTemp.length);
-        }
-    }
-
-    public Lecture[] getByld(int number) {
-        return new Lecture[]{lectureArray[number - 1]};
-    }
-
-    // don`t know what variant is better
-    private Lecture[] lectures = new Lecture[0];
-    private int lastIndex = -1;
-
-    public void addLecture() {
-        sizeMatter = sizeMatter * 3 / 2 - 1;
-        Lecture[] newLectures = new Lecture[sizeMatter];
-        System.arraycopy(lectureArray, 0, newLectures, 0, sizeMatter);
-        lectureGeneralizationService.setElements(newLectures);
-    }
-
-    @Override
-    public String toString() {
-        return "LectureRepository{" +
-                "lectures=" + Arrays.toString(lectures) +
-                '}';
-    }
-
-    public Lecture getLecture(int lectureId) throws EntityNotFoundException {
-        for (int i = 0; i <= lastIndex; i++) {
-            if (lectures[i].getLectureId() == lectureId) {
-                return lectures[i];
-            }
-        }
-        throw new EntityNotFoundException("Не існує лекції з даним айді.");
-    }
-
-    public Lecture[] getAllLectures() {
-        return this.lectures;
+    public static void setLectureArray(List<Lecture> lectureArray) {
+        LectureRepository.lectureArray = lectureArray;
     }
 }
