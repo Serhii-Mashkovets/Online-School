@@ -7,7 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeWorkRepository extends ParentingClassForRepositories {
+    private static HomeWorkRepository newExample;
     private static List<HomeWork> homeWOrkArray;
+
+    public static HomeWorkRepository getNewExample() {
+        if (newExample == null) {
+            newExample = new HomeWorkRepository();
+        }
+        return newExample;
+    }
 
     public HomeWorkRepository() {
         setHomeWOrkArray(new ArrayList<>());

@@ -5,7 +5,13 @@ import onlineSchool.models.ParentingClassForModels;
 
 import java.util.List;
 
-public abstract class ParentingClassForRepositories <E extends ParentingClassForModels> {
+public class ParentingClassForRepositories <E extends ParentingClassForModels> {
+    private  static  ParentingClassForRepositories newExample;
+    public static ParentingClassForRepositories getNewExample () {
+        if (newExample == null) {
+            newExample = new ParentingClassForRepositories();
+        } return newExample;
+    }
     private List<E> elements;
 
     public long size() {

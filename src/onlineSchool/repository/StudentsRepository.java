@@ -7,10 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentsRepository extends ParentingClassForRepositories {
+    private static StudentsRepository newExample;
     private static List<Students> studentsArray;
 
     public StudentsRepository() {
         studentsArray = new ArrayList<>();
+    }
+
+    public static StudentsRepository getNewExample() {
+        if (newExample == null) {
+            newExample = new StudentsRepository();
+        }
+        return newExample;
     }
 
     @Override
@@ -35,7 +43,7 @@ public class StudentsRepository extends ParentingClassForRepositories {
 
     @Override
     public void add(int index, ParentingClassForModels element) {
-        studentsArray.add(index,(Students) element);
+        studentsArray.add(index, (Students) element);
     }
 
     @Override

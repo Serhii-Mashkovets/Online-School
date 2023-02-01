@@ -1,7 +1,9 @@
 package onlineSchool.models;
 
+import java.util.List;
+
 public class Lecture extends ParentingClassForModels {
-    private HomeWork [] homeWorks;
+    private List<HomeWork> homeWorks;
     private static Integer id;
     private String lectureName;
     private String teacherName;
@@ -20,7 +22,7 @@ public class Lecture extends ParentingClassForModels {
     }
 
     public void Lecture(String lectureTopic, String description, String teacherName, Person person, Enum Role,
-                        HomeWork [] homeWorks) {
+                        List<HomeWork> homeWorks) {
         this.lectureName = lectureTopic;
         this.teacherName = teacherName;
         this.description = description;
@@ -33,8 +35,11 @@ public class Lecture extends ParentingClassForModels {
         return super.fullPerson(firstPersoneName, lastPersonName);
     }
 
-    public Lecture(String name, String discription, HomeWork [] homeWorks) {
-        setCounter(getCounter() + 1);
+    public Lecture(String lectureName, String discription) {
+
+        this.lectureName = lectureName;
+        this.description = discription;
+        this.setHomeWorks(homeWorks);
     }
 
     public Lecture(String lectureTopic, String description, String mainBookToLearning, int courseLectureId,
@@ -119,11 +124,11 @@ public class Lecture extends ParentingClassForModels {
         this.description = description;
     }
 
-    public HomeWork[] getHomeWorks() {
+    public List<HomeWork> getHomeWorks() {
         return homeWorks;
     }
 
-    public void setHomeWorks(HomeWork[] homeWorks) {
+    public void setHomeWorks(List<HomeWork> homeWorks) {
         this.homeWorks = homeWorks;
     }
 }

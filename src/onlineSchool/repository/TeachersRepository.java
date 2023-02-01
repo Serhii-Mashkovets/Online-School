@@ -6,11 +6,19 @@ import onlineSchool.models.Teachers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeachersRepository extends ParentingClassForRepositories{
+public class TeachersRepository extends ParentingClassForRepositories {
+    private static TeachersRepository newExample;
     private List<Teachers> teacherArray;
 
     public TeachersRepository() {
-       teacherArray = new ArrayList<>();
+        teacherArray = new ArrayList<>();
+    }
+
+    public static TeachersRepository getNewExample() {
+        if (newExample == null) {
+            newExample = new TeachersRepository();
+        }
+        return newExample;
     }
 
     @Override
@@ -35,7 +43,7 @@ public class TeachersRepository extends ParentingClassForRepositories{
 
     @Override
     public void add(int index, ParentingClassForModels element) {
-        teacherArray.add(index,(Teachers) element);
+        teacherArray.add(index, (Teachers) element);
     }
 
     @Override

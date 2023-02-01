@@ -1,9 +1,9 @@
 package onlineSchool.models;
 
-public class Course extends  ParentingClassForModels{
-    private Person studentOne;
-    private Person teacherOne;
+public class Course extends ParentingClassForModels {
     private Lecture lectureName;
+    private Teachers teacherOne;
+    private Students studentsOne;
     private String courseName;
 
     private int lessonTime;
@@ -11,13 +11,14 @@ public class Course extends  ParentingClassForModels{
     private static int counterOfCourse;
     private static Integer id;
 
-    public Course(String courseName, Integer id, Lecture lectureName, Person teacherOne, Person studentOne) {
+    public Course(String courseName, Integer id, Lecture lectureName, Teachers teacherOne, Students studentOne) {
         this.courseName = courseName;
         this.id = id;
         this.setLectureName(lectureName);
         this.setTeacherOne(teacherOne);
         this.setStudentOne(studentOne);
     }
+
 
     public void fullCourse(String courseNameOne, Integer id) {
         this.setCourseNameOne(courseNameOne);
@@ -86,28 +87,21 @@ public class Course extends  ParentingClassForModels{
         this.id = id;
     }
 
-    public Person getStudentOne() {
-        return studentOne;
-    }
-
-    public void setStudentOne(Person studentOne) {
-        this.studentOne = studentOne;
-    }
-
-    public Person getTeacherOne() {
-        return teacherOne;
-    }
-
-    public void setTeacherOne(Person teacherOne) {
-        this.teacherOne = teacherOne;
-    }
-
     public Lecture getLectureName() {
         return lectureName;
     }
 
     public void setLectureName(Lecture lectureName) {
         this.lectureName = lectureName;
+    }
+
+    public void setTeacherOne(Teachers teacherOne) {
+        this.teacherOne = teacherOne;
+    }
+
+
+    private void setStudentOne(Students studentOne) {
+        this.studentsOne = studentOne;
     }
 }
 

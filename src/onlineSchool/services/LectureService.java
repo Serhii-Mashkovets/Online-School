@@ -1,16 +1,15 @@
 package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
-import onlineSchool.models.HomeWork;
 import onlineSchool.models.Lecture;
-import onlineSchool.repository.LectureRepository;
+
+import java.util.Scanner;
 
 public class LectureService {
-    private int id;
-    private LectureRepository lectureRepository;
+    private Integer id;
 
-    public Lecture createNewLecture(String name, String discription, HomeWork[] homeWorks) {
-        if (name == null || name.equals("") || name.equals("empty")) {
+    public Lecture createNewLecture(String lectureName, String discription) {
+        if (lectureName == null || lectureName.equals("") || lectureName.equals("empty")) {
             try {
                 throw new ValidationExceptions("Lecture name can not be empty");
             } catch (ValidationExceptions e) {
@@ -24,27 +23,17 @@ public class LectureService {
                 System.out.println(String.valueOf(e));
             }
         }
-        return new Lecture(name, discription, homeWorks);
+        return new Lecture(lectureName, discription);
     }
 
-    public LectureService() {
-    }
+    public static Lecture createNewLectureByUsers() {
+        System.out.println("Створіть нову лекцію: ");
+        Scanner sc = new Scanner(System.in);
+        String lectureName = sc.nextLine();
+        String discription = sc.nextLine();
+        sc.close();
+        return new Lecture(lectureName, discription);
 
-    public void printLectureIds() {
-        Lecture[] lectures;
-        lectures = lectureRepository.getAllLectures();
-
-        for (int i = 0; i < lectures.length; i++) {
-            Lecture lecture = lectures[i];
-            if (lecture == null) {
-                break;
-            }
-
-            if (i > 0) {
-                System.out.print(" ");
-            }
-            System.out.print(lecture.getLectureId());
-        }
     }
 
     public int getId() {

@@ -4,13 +4,22 @@ import onlineSchool.models.AddMaterials;
 import onlineSchool.models.ParentingClassForModels;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AddMaterialsRepository extends ParentingClassForRepositories {
+    private static AddMaterialsRepository newExample;
     private List<AddMaterials> addMaterialsArray;
     private AddMaterialsRepository () {
         addMaterialsArray = new ArrayList<>();
     }
+
+    public static AddMaterialsRepository getNewExample () {
+        if (newExample == null) {
+            newExample = new AddMaterialsRepository();
+        } return newExample;
+    }
+
 
     @Override
     public long size() {
@@ -42,6 +51,13 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
         getAddMaterialsArray().remove(index);
     }
 
+    public void showAllelementsAddMat () {
+        Iterator<AddMaterials> iterator = addMaterialsArray.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
     public List<AddMaterials> getAddMaterialsArray() {
         return addMaterialsArray;
     }
@@ -49,4 +65,5 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
     public void setAddMaterialsArray(List<AddMaterials> addMaterialsArray) {
         this.addMaterialsArray = addMaterialsArray;
     }
+
 }
