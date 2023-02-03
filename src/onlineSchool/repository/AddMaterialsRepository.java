@@ -58,6 +58,11 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
         }
     }
 
+    @Override
+    public List getElements() {
+        return addMaterialsArray;
+    }
+
     public List<AddMaterials> getAddMaterialsArray() {
         return addMaterialsArray;
     }

@@ -29,10 +29,13 @@ public class TeachersService {
     }
 
     public static Teachers createNewTeacherByUsers() {
-        System.out.println("Вкажіть виклада кусу: ");
+        System.out.println("""
+                Вкажіть виклада кусу
+                Введіть ім'я та прізвище
+                """);
         Scanner sc = new Scanner(System.in);
-        String teacherName = sc.nextLine();
-        String teacherSecondName = sc.nextLine();
+        String teacherName = sc.next();
+        String teacherSecondName = sc.next();
         sc.close();
         return new Teachers(teacherName, teacherSecondName);
 

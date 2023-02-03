@@ -1,9 +1,12 @@
 package onlineSchool;
 
+import onlineSchool.repository.AddMaterialsRepository;
+import onlineSchool.repository.CourseRepository;
 import onlineSchool.services.AddMaterialService;
 import onlineSchool.services.CourseService;
 import onlineSchool.services.LectureService;
 
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +14,8 @@ public class Main {
 
         CourseService course = new CourseService();
         course.createNewCourseByUsers();
+        CourseRepository courseRepository = CourseRepository.getNewExample();
+        Collections.sort(courseRepository.getElements());
         System.out.println(course);
 
         LectureService lec = new LectureService();
@@ -34,6 +39,8 @@ public class Main {
         }
         sc.close();
         AddMaterialService addMaterialService = new AddMaterialService();
+        AddMaterialsRepository addMaterialsRepository = AddMaterialsRepository.getNewExample();
+        Collections.sort(addMaterialsRepository.getElements());
         addMaterialService.createNewAddMaterial();
         addMaterialService.showAllAddmat();
     }

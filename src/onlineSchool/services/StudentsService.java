@@ -29,7 +29,10 @@ public class StudentsService {
     }
 
     public static Students createNewStudentByUsers() {
-        System.out.println("Вкажіть студента кусу: ");
+        System.out.println("""
+        Вкажіть студента кусу
+        Введіть ім'я та прізвище
+        """);
         Scanner sc = new Scanner(System.in);
         String studentName = sc.nextLine();
         String studentLastName = sc.nextLine();

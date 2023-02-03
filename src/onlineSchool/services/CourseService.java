@@ -13,7 +13,7 @@ public class CourseService {
     }
 
     public Course createNewCourseByUsers() {
-        System.out.println("Створіть новий курс: ");
+        System.out.println("Створіть новий курс");
         LectureRepository lectureRepository = LectureRepository.getNewExample();
         TeachersRepository teachersRepository = TeachersRepository.getNewExample();
         StudentsRepository studentsRepository = StudentsRepository.getNewExample();

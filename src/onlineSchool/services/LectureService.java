@@ -27,7 +27,10 @@ public class LectureService {
     }
 
     public static Lecture createNewLectureByUsers() {
-        System.out.println("Створіть нову лекцію: ");
+        System.out.println("""
+        Створіть нову лекцію
+        Введіть назву та опис
+        """);
         Scanner sc = new Scanner(System.in);
         String lectureName = sc.nextLine();
         String discription = sc.nextLine();

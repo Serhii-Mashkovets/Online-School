@@ -53,7 +53,12 @@ public class CourseRepository extends ParentingClassForRepositories {
         getCourseList().remove(index);
     }
 
-    public static List<Course> getCourseList() {
+    @Override
+    public List getElements() {
+        return courseList;
+    }
+
+    public List<Course> getCourseList() {
         return courseList;
     }
 

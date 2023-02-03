@@ -19,7 +19,6 @@ public class Course extends ParentingClassForModels {
         this.setStudentOne(studentOne);
     }
 
-
     public void fullCourse(String courseNameOne, Integer id) {
         this.setCourseNameOne(courseNameOne);
         this.setId(id);
