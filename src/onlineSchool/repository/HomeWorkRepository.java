@@ -1,14 +1,13 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.HomeWork;
-import onlineSchool.models.ParentingClassForModels;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class HomeWorkRepository extends ParentingClassForRepositories {
     private static HomeWorkRepository newExample;
-    private static List<HomeWork> homeWOrkArray;
+    private static Map<Integer, List<HomeWork>> homeworks;
 
     public static HomeWorkRepository getNewExample() {
         if (newExample == null) {
@@ -17,45 +16,37 @@ public class HomeWorkRepository extends ParentingClassForRepositories {
         return newExample;
     }
 
-    public HomeWorkRepository() {
-        setHomeWOrkArray(new ArrayList<>());
+    public static Map<Integer, List<HomeWork>> getHomeworks() {
+        return homeworks;
     }
 
     @Override
     public long size() {
-        return getHomeWOrkArray().size();
+        return getHomeworks().size();
     }
 
     @Override
     public boolean isEmpty() {
-        return getHomeWOrkArray().isEmpty();
+        return getHomeworks().isEmpty();
     }
 
-    @Override
-    public ParentingClassForModels get(int index) {
-        return getHomeWOrkArray().get(index);
+    public void addNew(int lectureID, List<HomeWork> homeWOrkArray) {
+        getHomeworks().put(lectureID, homeWOrkArray);
     }
 
-    @Override
-    public void add(ParentingClassForModels element) {
-        getHomeWOrkArray().add((HomeWork) element);
+    public void removeNew(int lectureID) {
+        getHomeworks().remove(lectureID);
     }
 
-    @Override
-    public void add(int index, ParentingClassForModels element) {
-        getHomeWOrkArray().add(index, (HomeWork) element);
+    public Map<Integer, List<HomeWork>> getAllNew() {
+        return getHomeworks();
     }
 
-    @Override
-    public void remove(int index) {
-        getHomeWOrkArray().remove(index);
+    public List<HomeWork> getNew(int lectureID) {
+        return getHomeworks().get(lectureID);
     }
 
-    public static List<HomeWork> getHomeWOrkArray() {
-        return homeWOrkArray;
-    }
-
-    public static void setHomeWOrkArray(List<HomeWork> homeWOrkArray) {
-        HomeWorkRepository.homeWOrkArray = homeWOrkArray;
+    public static void setHomeworks(Map<Integer, List<HomeWork>> homeworks) {
+        HomeWorkRepository.homeworks = homeworks;
     }
 }

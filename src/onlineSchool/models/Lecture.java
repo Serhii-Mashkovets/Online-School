@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Lecture extends ParentingClassForModels {
     private List<HomeWork> homeWorks;
-    private static Integer id;
+    private static Integer lectureID;
     private String lectureName;
     private String teacherName;
     private String mainBookToLearning;
@@ -14,7 +14,7 @@ public class Lecture extends ParentingClassForModels {
     private static int counter = 0;
 
     public static Integer getId() {
-        return id;
+        return lectureID;
     }
 
     public Integer getLectureId() {

@@ -1,74 +1,61 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.AddMaterials;
-import onlineSchool.models.ParentingClassForModels;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddMaterialsRepository extends ParentingClassForRepositories {
     private static AddMaterialsRepository newExample;
-    private List<AddMaterials> addMaterialsArray;
-    private AddMaterialsRepository () {
-        addMaterialsArray = new ArrayList<>();
+    private static Map<Integer, List<AddMaterials>> addMaterials;
+
+    private AddMaterialsRepository() {
+        setAddMaterials(new HashMap<>());
     }
 
-    public static AddMaterialsRepository getNewExample () {
+    public static AddMaterialsRepository getNewExample() {
         if (newExample == null) {
             newExample = new AddMaterialsRepository();
-        } return newExample;
+        }
+        return newExample;
     }
-
 
     @Override
     public long size() {
-        return getAddMaterialsArray().size();
+        return addMaterials.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return getAddMaterialsArray().isEmpty();
+        return addMaterials.isEmpty();
     }
 
-    @Override
-    public ParentingClassForModels get(int index) {
-        return getAddMaterialsArray().get(index);
+
+    public void addNew(int lectureID, List<AddMaterials> addMaterialsArray) {
+        getAddMaterials().put(lectureID, addMaterialsArray);
     }
 
-    @Override
-    public void add(ParentingClassForModels element) {
-        getAddMaterialsArray().add((AddMaterials) element);
+    public void removeNew(int lectureID) {
+        addMaterials.remove(lectureID);
     }
 
-    @Override
-    public void add(int index, ParentingClassForModels element) {
-        getAddMaterialsArray().add(index, (AddMaterials) element);
+    public Map<Integer, List<AddMaterials>> getAllNew() {
+        return addMaterials;
     }
 
-    @Override
-    public void remove(int index) {
-        getAddMaterialsArray().remove(index);
+    public List<AddMaterials> getNew(int lectureID) {
+        return getAddMaterials().get(lectureID);
+
+
     }
 
-    public void showAllelementsAddMat () {
-        Iterator<AddMaterials> iterator = addMaterialsArray.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
+    public static Map<Integer, List<AddMaterials>> getAddMaterials() {
+        return addMaterials;
     }
 
-    @Override
-    public List getElements() {
-        return addMaterialsArray;
-    }
-
-    public List<AddMaterials> getAddMaterialsArray() {
-        return addMaterialsArray;
-    }
-
-    public void setAddMaterialsArray(List<AddMaterials> addMaterialsArray) {
-        this.addMaterialsArray = addMaterialsArray;
+    public static void setAddMaterials(Map<Integer, List<AddMaterials>> addMaterials) {
+        AddMaterialsRepository.addMaterials = addMaterials;
     }
 
 }
