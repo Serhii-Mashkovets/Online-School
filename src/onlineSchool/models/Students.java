@@ -39,6 +39,11 @@ public class Students extends ParentingClassForModels {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
+
+    @Override
+    public int getNew() {
+        return 0;
+    }
 }
 
 

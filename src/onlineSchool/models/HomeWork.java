@@ -49,6 +49,11 @@ public class HomeWork extends ParentingClassForModels {
         this.id = id;
     }
 
+    @Override
+    public int getNew() {
+        return 0;
+    }
+
     public int getLectureId() {
         return lectureId;
     }

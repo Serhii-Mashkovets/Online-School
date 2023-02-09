@@ -1,7 +1,9 @@
 package onlineSchool.repository;
 
+import onlineSchool.models.AddMaterials;
 import onlineSchool.models.HomeWork;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +42,47 @@ public class HomeWorkRepository extends ParentingClassForRepositories {
 
     public Map<Integer, List<HomeWork>> getAllNew() {
         return getHomeworks();
+    }
+
+    public void showAllelementsHomeWorks() {
+        if (isEmpty()) System.out.println("""
+                Виведемо всі елементи домашнього завдання на екран:
+                Жодного елементу не знайдено!
+                """);
+        for (List<HomeWork> list : homeworks.values()) {
+            if (list == null) continue;
+            for (HomeWork homeWork : list) {
+                if (homeWork == null) continue;
+                System.out.println("Виведемо всі елементи домашнього завдання на екран: " + homeworks);
+            }
+        }
+    }
+
+    public HomeWork getNewElement(int ID) {
+        for (List<HomeWork> list : homeworks.values()) {
+            if (list == null) continue;
+            for (HomeWork homeWork : list) {
+                if (homeWork == null) continue;
+                if (homeWork.getNew() == ID) {
+                    System.out.println("Виведемо всі елементи домашнього завдання на екран: " + homeworks);
+                    return homeWork;
+                }
+            }
+        }
+        return null;
+    }
+
+    public List<HomeWork> addNewElements() {
+        List<HomeWork> newHomeWork = new ArrayList<>();
+        for (List<HomeWork> list : homeworks.values()) {
+            if (list == null) continue;
+            for (HomeWork homeWork : list) {
+                if (homeWork == null) continue;
+                newHomeWork.add(homeWork);
+            }
+        }
+        System.out.println("Виведемо всі елементи домашнього завдання на екран: " + newHomeWork);
+        return newHomeWork;
     }
 
     public List<HomeWork> getNew(int lectureID) {

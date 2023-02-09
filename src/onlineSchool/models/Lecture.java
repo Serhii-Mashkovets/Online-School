@@ -17,6 +17,11 @@ public class Lecture extends ParentingClassForModels {
         return lectureID;
     }
 
+    @Override
+    public int getNew() {
+        return 0;
+    }
+
     public Integer getLectureId() {
         return this.getId();
     }

@@ -37,4 +37,5 @@ public abstract class ParentingClassForModels {
         this.lastPersonName = lastPersonName;
     }
 
+    public abstract int getNew();
 }

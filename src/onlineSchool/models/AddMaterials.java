@@ -1,10 +1,10 @@
 package onlineSchool.models;
 
 public class AddMaterials extends ParentingClassForModels {
-  private static Integer id;
-  private String name;
-  private int lectureId;
-  private ResourseType resourseType;
+    private static Integer id;
+    private String name;
+    private int lectureId;
+    private ResourseType resourseType;
 
     public AddMaterials(String name, int lectureId, ResourseType resourseType) {
         this.name = name;
@@ -23,6 +23,11 @@ public class AddMaterials extends ParentingClassForModels {
 
     public static Integer getId() {
         return id;
+    }
+
+    @Override
+    public int getNew() {
+        return 0;
     }
 
     public void setId(int id) {

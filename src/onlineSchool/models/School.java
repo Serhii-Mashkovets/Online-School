@@ -14,4 +14,9 @@ public class School extends ParentingClassForModels {
     public int getSchoolId() {
         return this.id;
     }
+
+    @Override
+    public int getNew() {
+        return 0;
+    }
 }

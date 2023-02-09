@@ -1,9 +1,12 @@
 package onlineSchool;
 
+import onlineSchool.models.HomeWork;
 import onlineSchool.repository.AddMaterialsRepository;
 import onlineSchool.repository.CourseRepository;
+import onlineSchool.repository.HomeWorkRepository;
 import onlineSchool.services.AddMaterialService;
 import onlineSchool.services.CourseService;
+import onlineSchool.services.HomeWorkService;
 import onlineSchool.services.LectureService;
 
 import java.util.Collections;
@@ -43,5 +46,10 @@ public class Main {
         Collections.sort(addMaterialsRepository.getElements());
         addMaterialService.createNewAddMaterial();
         addMaterialService.showAllAddmat();
+
+        HomeWorkService homeWorkService = new HomeWorkService();
+        HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
+        Collections.sort(homeWorkRepository.getElements());
+
     }
 }

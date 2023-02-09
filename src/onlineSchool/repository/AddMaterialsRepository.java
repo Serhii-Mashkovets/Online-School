@@ -2,6 +2,7 @@ package onlineSchool.repository;
 
 import onlineSchool.models.AddMaterials;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,8 +47,47 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
 
     public List<AddMaterials> getNew(int lectureID) {
         return getAddMaterials().get(lectureID);
+    }
 
+    public void showAllelementsAddMat() {
+        if (isEmpty()) System.out.println("""
+                Виведемо всі елементи додаткових матеріалів на екран:
+                Жодного елементу не знайдено!
+                """);
+        for (List<AddMaterials> list : addMaterials.values()) {
+            if (list == null) continue;
+            for (AddMaterials additionalMaterial : list) {
+                if (additionalMaterial == null) continue;
+                System.out.println("Виведемо всі елементи додаткових матеріалів на екран: " + addMaterials);
+            }
+        }
+    }
 
+    public AddMaterials getNewElement(int ID) {
+        for (List<AddMaterials> list : addMaterials.values()) {
+            if (list == null) continue;
+            for (AddMaterials addMaterial : list) {
+                if (addMaterial == null) continue;
+                if (addMaterial.getNew() == ID) {
+                    System.out.println("Виведемо всі елементи додаткових матеріалів на екран: " + addMaterial);
+                    return addMaterial;
+                }
+            }
+        }
+        return null;
+    }
+
+    public List<AddMaterials> addNewElements() {
+        List<AddMaterials> newAddMat = new ArrayList<>();
+        for (List<AddMaterials> list : addMaterials.values()) {
+            if (list == null) continue;
+            for (AddMaterials addMaterial : list) {
+                if (addMaterial == null) continue;
+                newAddMat.add(addMaterial);
+            }
+        }
+        System.out.println("Виведемо всі елементи додаткових матеріалів на екран: " + newAddMat);
+        return newAddMat;
     }
 
     public static Map<Integer, List<AddMaterials>> getAddMaterials() {

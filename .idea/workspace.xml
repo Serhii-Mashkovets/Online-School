@@ -3,9 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/AddMaterials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/HomeWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Lecture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/ParentingClassForModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/ParentingClassForModels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/School.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/School.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Students.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Teachers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Teachers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/AddMaterialsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/HomeWorkRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/AddMaterialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/AddMaterialService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/HomeWorkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/HomeWorkService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +129,9 @@
       <workItem from="1675172030373" duration="6267000" />
       <workItem from="1675240337899" duration="12781000" />
       <workItem from="1675413670002" duration="6221000" />
-      <workItem from="1675770447936" duration="4741000" />
+      <workItem from="1675770447936" duration="5538000" />
+      <workItem from="1675877254307" duration="1231000" />
+      <workItem from="1675947363732" duration="7791000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>

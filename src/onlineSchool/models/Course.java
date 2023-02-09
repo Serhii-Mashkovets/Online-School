@@ -86,6 +86,11 @@ public class Course extends ParentingClassForModels {
         this.id = id;
     }
 
+    @Override
+    public int getNew() {
+        return 0;
+    }
+
     public Lecture getLectureName() {
         return lectureName;
     }

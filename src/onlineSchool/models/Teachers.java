@@ -24,4 +24,9 @@ public class Teachers extends ParentingClassForModels {
     public void setTeacherSecondName(String teacherSecondName) {
         this.teacherSecondName = teacherSecondName;
     }
+
+    @Override
+    public int getNew() {
+        return 0;
+    }
 }

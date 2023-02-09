@@ -90,4 +90,9 @@ public class Person extends ParentingClassForModels {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    @Override
+    public int getNew() {
+        return 0;
+    }
 }

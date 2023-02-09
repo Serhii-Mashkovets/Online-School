@@ -4,6 +4,7 @@ import onlineSchool.models.ResourseType;
 import onlineSchool.models.AddMaterials;
 import onlineSchool.repository.AddMaterialsRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class AddMaterialService {
@@ -35,6 +36,29 @@ public class AddMaterialService {
     }
 
     AddMaterialsRepository addMaterialsRepository = AddMaterialsRepository.getNewExample();
+
+    public void showAllNewAddMatList(List<AddMaterials> list) {
+        System.out.println("""
+                Повна інформація про: 
+                Додаткові матеріали
+                """);
+        for (AddMaterials addMaterial : list) {
+            if (addMaterial == null) continue;
+            System.out.println("Додаткові матеріали: " + addMaterial.getName() + ", ID = " + addMaterial.getId());
+        }
+    }
+
+    public void findAllNewAddMatList(List<AddMaterials> list) {
+        System.out.println("""
+                "Знайти повну інформацію про: 
+                Додаткові матеріали
+                """);
+        if (addMaterialsRepository.isEmpty()) System.out.println("Жодного елементу не знайдено!");
+        for (AddMaterials addMaterial : list) {
+            if (addMaterial == null) continue;
+            System.out.println(addMaterial);
+        }
+    }
 
     public void showAllAddmat() {
         addMaterialsRepository.showAllelementsAddMat();
