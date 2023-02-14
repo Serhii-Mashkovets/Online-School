@@ -2,10 +2,7 @@ package onlineSchool.models;
 
 public class Course extends ParentingClassForModels {
     private Lecture lectureName;
-    private Teachers teacherOne;
-    private Students studentsOne;
     private String courseName;
-
     private int lessonTime;
     private String courseNameOne;
     private static int counterOfCourse;
@@ -15,8 +12,6 @@ public class Course extends ParentingClassForModels {
         this.courseName = courseName;
         this.id = id;
         this.setLectureName(lectureName);
-        this.setTeacherOne(teacherOne);
-        this.setStudentOne(studentOne);
     }
 
     public void fullCourse(String courseNameOne, Integer id) {
@@ -99,13 +94,5 @@ public class Course extends ParentingClassForModels {
         this.lectureName = lectureName;
     }
 
-    public void setTeacherOne(Teachers teacherOne) {
-        this.teacherOne = teacherOne;
-    }
-
-
-    private void setStudentOne(Students studentOne) {
-        this.studentsOne = studentOne;
-    }
 }
 

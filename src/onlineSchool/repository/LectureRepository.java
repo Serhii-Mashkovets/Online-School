@@ -1,12 +1,11 @@
 package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
-import onlineSchool.models.ParentingClassForModels;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LectureRepository extends ParentingClassForRepositories {
+public class LectureRepository extends ParentingClassForRepositories<Lecture> {
     private static LectureRepository newExample;
     private static List<Lecture> lectureArray;
 
@@ -32,17 +31,17 @@ public class LectureRepository extends ParentingClassForRepositories {
     }
 
     @Override
-    public ParentingClassForModels get(int index) {
+    public Lecture get(int index) {
         return lectureArray.get(index);
     }
 
     @Override
-    public void add(ParentingClassForModels element) {
+    public void add(Lecture element) {
         lectureArray.add((Lecture) element);
     }
 
     @Override
-    public void add(int index, ParentingClassForModels element) {
+    public void add(int index, Lecture element) {
         lectureArray.add(index, (Lecture) element);
     }
 

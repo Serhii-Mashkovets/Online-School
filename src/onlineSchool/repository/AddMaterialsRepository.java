@@ -1,11 +1,10 @@
 package onlineSchool.repository;
 
+import onlineSchool.comparator.AddMaterialsComparator;
 import onlineSchool.models.AddMaterials;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
 
 public class AddMaterialsRepository extends ParentingClassForRepositories {
     private static AddMaterialsRepository newExample;
@@ -39,10 +38,6 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
 
     public void removeNew(int lectureID) {
         addMaterials.remove(lectureID);
-    }
-
-    public Map<Integer, List<AddMaterials>> getAllNew() {
-        return addMaterials;
     }
 
     public List<AddMaterials> getNew(int lectureID) {
@@ -88,6 +83,12 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
         }
         System.out.println("Виведемо всі елементи додаткових матеріалів на екран: " + newAddMat);
         return newAddMat;
+    }
+    public static List<AddMaterials> sortAddMatt() {
+        List<AddMaterials> addToSort =
+                new ArrayList<>((Collection) AddMaterialsRepository.getNewExample().getAddMaterials());
+addToSort.sort(new AddMaterialsComparator());
+return addToSort;
     }
 
     public static Map<Integer, List<AddMaterials>> getAddMaterials() {

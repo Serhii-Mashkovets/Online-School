@@ -3,6 +3,7 @@ package onlineSchool.services;
 import onlineSchool.models.ResourseType;
 import onlineSchool.models.AddMaterials;
 import onlineSchool.repository.AddMaterialsRepository;
+import onlineSchool.comparator.AddMaterialsComparator;
 
 import java.util.List;
 import java.util.Scanner;
@@ -63,6 +64,12 @@ public class AddMaterialService {
     public void showAllAddmat() {
         addMaterialsRepository.showAllelementsAddMat();
     }
+
+    public AddMaterialsRepository sortAddMat () {
+            AddMaterialsRepository addMaterialsRepository1 = AddMaterialsRepository.getNewExample();
+            addMaterialsRepository1.sortAddMatt();
+            return addMaterialsRepository1;
+        }
 
     public Integer getId() {
         return id;

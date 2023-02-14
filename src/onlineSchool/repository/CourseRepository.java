@@ -34,16 +34,14 @@ public class CourseRepository extends ParentingClassForRepositories {
     }
 
     @Override
-    public ParentingClassForModels get(int index) {
+    public Course get(int index) {
         return getCourseList().get(index);
     }
 
-    @Override
     public void add(ParentingClassForModels element) {
         getCourseList().add((Course) element);
     }
 
-    @Override
     public void add(int index, ParentingClassForModels element) {
         getCourseList().add(index, (Course) element);
     }

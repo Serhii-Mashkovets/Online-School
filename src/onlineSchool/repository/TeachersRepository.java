@@ -31,17 +31,15 @@ public class TeachersRepository extends ParentingClassForRepositories {
         return teacherArray.isEmpty();
     }
 
-    @Override
-    public ParentingClassForModels get(int index) {
+
+    public Teachers get(int index) {
         return teacherArray.get(index);
     }
 
-    @Override
     public void add(ParentingClassForModels element) {
         teacherArray.add((Teachers) element);
     }
 
-    @Override
     public void add(int index, ParentingClassForModels element) {
         teacherArray.add(index, (Teachers) element);
     }

@@ -31,10 +31,11 @@ public class StudentsService {
     public static Students createNewStudentByUsers() {
         System.out.println("""
         Вкажіть студента кусу
-        Введіть ім'я та прізвище
-        """);
+        Введіть ім'я та прізвище""");
         Scanner sc = new Scanner(System.in);
+        System.out.println("Ім'я ");
         String studentName = sc.nextLine();
+        System.out.println("Прізвище: ");
         String studentLastName = sc.nextLine();
         sc.close();
         return new Students(studentName, studentLastName);

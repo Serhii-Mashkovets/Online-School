@@ -32,16 +32,14 @@ public class StudentsRepository extends ParentingClassForRepositories {
     }
 
     @Override
-    public ParentingClassForModels get(int index) {
+    public Students get(int index) {
         return studentsArray.get(index);
     }
 
-    @Override
     public void add(ParentingClassForModels element) {
         studentsArray.add((Students) element);
     }
 
-    @Override
     public void add(int index, ParentingClassForModels element) {
         studentsArray.add(index, (Students) element);
     }

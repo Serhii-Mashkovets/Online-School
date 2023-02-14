@@ -32,16 +32,8 @@ public class HomeWorkRepository extends ParentingClassForRepositories {
         return getHomeworks().isEmpty();
     }
 
-    public void addNew(int lectureID, List<HomeWork> homeWOrkArray) {
-        getHomeworks().put(lectureID, homeWOrkArray);
-    }
-
     public void removeNew(int lectureID) {
         getHomeworks().remove(lectureID);
-    }
-
-    public Map<Integer, List<HomeWork>> getAllNew() {
-        return getHomeworks();
     }
 
     public void showAllelementsHomeWorks() {
@@ -83,10 +75,6 @@ public class HomeWorkRepository extends ParentingClassForRepositories {
         }
         System.out.println("Виведемо всі елементи домашнього завдання на екран: " + newHomeWork);
         return newHomeWork;
-    }
-
-    public List<HomeWork> getNew(int lectureID) {
-        return getHomeworks().get(lectureID);
     }
 
     public static void setHomeworks(Map<Integer, List<HomeWork>> homeworks) {

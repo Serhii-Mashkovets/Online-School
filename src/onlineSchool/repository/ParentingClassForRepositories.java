@@ -1,18 +1,18 @@
 package onlineSchool.repository;
 
-import onlineSchool.models.ParentingClassForModels;
 
+import onlineSchool.models.ParentingClassForModels;
 
 import java.util.List;
 
-public class ParentingClassForRepositories <E extends ParentingClassForModels> {
+public class ParentingClassForRepositories <ParentingClassForModels> {
     private  static  ParentingClassForRepositories newExample;
     public static ParentingClassForRepositories getNewExample () {
         if (newExample == null) {
             newExample = new ParentingClassForRepositories();
         } return newExample;
     }
-    private List<E> elements;
+    private List<ParentingClassForModels> elements;
 
     public long size() {
         return getElements().size();
@@ -22,16 +22,16 @@ public class ParentingClassForRepositories <E extends ParentingClassForModels> {
        return getElements().isEmpty();
     }
 
-    public E get(int index) {
+    public ParentingClassForModels get(int index) {
         return getElements().get(index - 1);
     }
 
 
-    public void add(E element) {
+    public void add(ParentingClassForModels element) {
         getElements().add(element);
     }
 
-    public void add(int index, E element) {
+    public void add(int index, ParentingClassForModels element) {
         getElements().add(index, element);
     }
 
@@ -39,11 +39,11 @@ public class ParentingClassForRepositories <E extends ParentingClassForModels> {
         getElements().remove(index);
     }
 
-    public List<E> getElements() {
+    public List<ParentingClassForModels> getElements() {
         return elements;
     }
 
-    public void setElements(List<E> elements) {
+    public void setElements(List<ParentingClassForModels> elements) {
         this.elements = elements;
     }
 }

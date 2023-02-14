@@ -1,10 +1,6 @@
 package onlineSchool.models;
 
 public class Person extends ParentingClassForModels {
-    private static int counterOfStudents;
-    private static int studentID;
-    private static int counterOfTeachers;
-    private static int teacherID;
     private String firstName;
     private String lastName;
     private static int courseId;
@@ -22,13 +18,6 @@ public class Person extends ParentingClassForModels {
         this.role = role;
         this.phone = phone;
         this.email = email;
-        if (this.role == Role.STUDENT) {
-            ++counterOfStudents;
-            studentID = super.getId();
-        } else {
-            ++counterOfTeachers;
-            teacherID = super.getId();
-        }
     }
 
     @Override

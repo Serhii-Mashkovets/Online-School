@@ -5,8 +5,8 @@ public class Teachers extends ParentingClassForModels {
     private String teacherSecondName;
 
     public Teachers(String teacherName, String teacherSecondName) {
-        this.setTeacherName(teacherName);
-        this.setTeacherSecondName(teacherSecondName);
+        this.teacherName=teacherName;
+        this.teacherSecondName = teacherSecondName;
     }
 
     public String getTeacherName() {

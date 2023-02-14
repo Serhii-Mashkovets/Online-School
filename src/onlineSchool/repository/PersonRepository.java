@@ -31,16 +31,14 @@ public class PersonRepository extends ParentingClassForRepositories{
     }
 
     @Override
-    public ParentingClassForModels get(int index) {
+    public Person get(int index) {
         return personArray.get(index);
     }
 
-    @Override
     public void add(ParentingClassForModels element) {
         personArray.add((Person) element);
     }
 
-    @Override
     public void add(int index, ParentingClassForModels element) {
         personArray.add(index,(Person) element);
     }

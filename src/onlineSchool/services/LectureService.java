@@ -29,10 +29,11 @@ public class LectureService {
     public static Lecture createNewLectureByUsers() {
         System.out.println("""
         Створіть нову лекцію
-        Введіть назву та опис
-        """);
+        Введіть назву та опис""");
         Scanner sc = new Scanner(System.in);
+        System.out.println("Назва: ");
         String lectureName = sc.nextLine();
+        System.out.println("Опис: ");
         String discription = sc.nextLine();
         sc.close();
         return new Lecture(lectureName, discription);

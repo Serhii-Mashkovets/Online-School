@@ -1,7 +1,6 @@
 package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
-import onlineSchool.models.Lecture;
 import onlineSchool.models.Teachers;
 
 import java.util.Scanner;
@@ -9,7 +8,7 @@ import java.util.Scanner;
 public class TeachersService {
     private Integer id;
 
-    public Lecture createNewTeacher(String teacherName, String teacherSecondName) {
+    public Teachers createNewTeacher(String teacherName, String teacherSecondName) {
         if (teacherName == null || teacherName.equals("") || teacherName.equals("empty")) {
             try {
                 throw new ValidationExceptions("Name can not be empty");
@@ -25,20 +24,25 @@ public class TeachersService {
                 System.out.println(String.valueOf(e));
             }
         }
-        return new Lecture(teacherName, teacherSecondName);
+        return new Teachers(teacherName, teacherSecondName);
     }
 
     public static Teachers createNewTeacherByUsers() {
-        System.out.println("""
-                Вкажіть виклада кусу
-                Введіть ім'я та прізвище
-                """);
-        Scanner sc = new Scanner(System.in);
-        String teacherName = sc.next();
-        String teacherSecondName = sc.next();
-        sc.close();
-        return new Teachers(teacherName, teacherSecondName);
-
+        try {
+            System.out.println("""
+                    Вкажіть виклада кусу
+                    Введіть ім'я та прізвище""");
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Ім'я: ");
+            String teacherName = sc.nextLine();
+            System.out.println("Прізвище:  ");
+            String teacherSecondName = sc.nextLine();
+            sc.close();
+            return new Teachers(teacherName, teacherSecondName);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
     }
 
     public int getId() {
