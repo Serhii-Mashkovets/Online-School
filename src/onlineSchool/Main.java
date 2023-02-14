@@ -1,8 +1,6 @@
 package onlineSchool;
 
-import onlineSchool.repository.AddMaterialsRepository;
 import onlineSchool.repository.CourseRepository;
-import onlineSchool.repository.HomeWorkRepository;
 import onlineSchool.services.AddMaterialService;
 import onlineSchool.services.CourseService;
 import onlineSchool.services.HomeWorkService;
@@ -34,7 +32,6 @@ public class Main {
                 try {
                     if (addmatCrt == 1) {
                         AddMaterialService addMaterialService = new AddMaterialService();
-                        AddMaterialsRepository addMaterialsRepository = AddMaterialsRepository.getNewExample();
                         addMaterialService.createNewAddMaterial();
                         System.out.println("""
                                 Бажаєте відсортувати додаткові матеріали до курсу?
@@ -79,7 +76,7 @@ public class Main {
                 if (hw == 1) {
                     try {
                         HomeWorkService homeWorkService = new HomeWorkService();
-                        HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
+                        homeWorkService.createHw();
                     } catch (IllegalArgumentException e) {
                         System.err.println(e.getMessage());
                     }

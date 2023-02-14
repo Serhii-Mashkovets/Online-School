@@ -9,6 +9,10 @@ import java.util.List;
 public class HomeWorkService {
     HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
 
+    public HomeWork createHw () {
+        return new HomeWork();
+    }
+
     public void showAllNewHomeWorkList(List<HomeWork> list) {
         System.out.println("""
                 Повна інформація про: 

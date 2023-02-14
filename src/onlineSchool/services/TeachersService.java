@@ -29,16 +29,18 @@ public class TeachersService {
 
     public static Teachers createNewTeacherByUsers() {
         try {
+            Scanner sc2 = new Scanner(System.in);
             System.out.println("""
                     Вкажіть виклада кусу
                     Введіть ім'я та прізвище""");
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Ім'я: ");
-            String teacherName = sc.nextLine();
-            System.out.println("Прізвище:  ");
-            String teacherSecondName = sc.nextLine();
-            sc.close();
-            return new Teachers(teacherName, teacherSecondName);
+            System.out.println("Ім'я:");
+            if (sc2.hasNextLine()) {
+                String teacherName = sc2.nextLine();
+                System.out.println("Прізвище:");
+                String teacherSecondName = sc2.next();
+                sc2.close();
+                return new Teachers(teacherName, teacherSecondName);
+            }
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

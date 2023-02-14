@@ -36,11 +36,11 @@ public class StudentsRepository extends ParentingClassForRepositories {
         return studentsArray.get(index);
     }
 
-    public void add(ParentingClassForModels element) {
+    public void add(Students element) {
         studentsArray.add((Students) element);
     }
 
-    public void add(int index, ParentingClassForModels element) {
+    public void add(int index, Students element) {
         studentsArray.add(index, (Students) element);
     }
 

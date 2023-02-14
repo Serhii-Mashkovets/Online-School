@@ -44,7 +44,6 @@ public class Lecture extends ParentingClassForModels {
 
         this.lectureName = lectureName;
         this.description = discription;
-        this.setHomeWorks(homeWorks);
     }
 
     public Lecture(String lectureTopic, String description, String mainBookToLearning, int courseLectureId,
