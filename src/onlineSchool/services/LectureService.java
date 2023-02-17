@@ -1,11 +1,13 @@
 package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
+import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Lecture;
 
 import java.util.Scanner;
 
 public class LectureService {
+    private static LoggingRepository logRep = new LoggingRepository(LectureService.class.getName());
     private Integer id;
 
     public Lecture createNewLecture(String lectureName, String discription) {
@@ -20,6 +22,7 @@ public class LectureService {
             try {
                 throw new ValidationExceptions("Discription to a Lecture can not be empty");
             } catch (ValidationExceptions e) {
+                logRep.warningLog("Помилка валідації: ", e);
                 System.out.println(String.valueOf(e));
             }
         }
@@ -27,6 +30,7 @@ public class LectureService {
     }
 
     public static Lecture createNewLectureByUsers() {
+        logRep.debugLog("Створення лекції");
         System.out.println("""
         Створіть нову лекцію
         Введіть назву та опис""");

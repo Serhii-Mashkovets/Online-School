@@ -1,5 +1,6 @@
 package onlineSchool;
 
+import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.services.AddMaterialService;
 import onlineSchool.services.CourseService;
@@ -9,13 +10,17 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
+    private static LoggingRepository logRep = new LoggingRepository(Main.class.getName());
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         System.out.println("""
                 Бажаєте створити новий курс?
                 Введіть 1, якщо так
                 Введіть 2, якщо ні""");
         int crtOfCourse = sc.nextInt();
+        logRep.debugLog("Створення курсу в Мейні");
         try {
             if (crtOfCourse == 1) {
                 CourseService course = new CourseService();
@@ -23,6 +28,7 @@ public class Main {
                 CourseRepository courseRepository = CourseRepository.getNewExample();
                 Collections.sort(courseRepository.getElements());
                 System.out.println(course);
+                logRep.debugLog("Закінчення створення курсу в Мейні");
 
                 System.out.println("""
                         Бажаєте вказати додаткові матеріали до курсу?
@@ -30,6 +36,7 @@ public class Main {
                         Введіть 2 якщо бажаєте завершити роботу""");
                 int addmatCrt = sc.nextInt();
                 try {
+                    logRep.debugLog("Створення додаткових матеріалів в мейні");
                     if (addmatCrt == 1) {
                         AddMaterialService addMaterialService = new AddMaterialService();
                         addMaterialService.createNewAddMaterial();
@@ -45,6 +52,7 @@ public class Main {
                                 System.exit(0);
                             }
                         } catch (IllegalArgumentException e) {
+                            logRep.warningLog("Помилка невірного аргументу додаткових матеріалів в мейні: ", e);
                             System.err.println(e.getMessage());
                         }
                         System.out.println("""
@@ -57,6 +65,7 @@ public class Main {
                                 addMaterialService.showAllAddmat();
                                 System.out.println(addMaterialService);
                             } catch (IllegalArgumentException e) {
+                                logRep.warningLog("Помилка невірного аргументу додаткових матеріалів в мейні: ", e);
                                 System.err.println(e.getMessage());
                             }
                         } else if (showAddMat == 2) {
@@ -66,6 +75,7 @@ public class Main {
                         System.exit(0);
                     }
                 } catch (IllegalArgumentException e) {
+                    logRep.warningLog("Помилка невірного аргументу додаткових матеріалів в мейні: ", e);
                     System.err.println(e.getMessage());
                 }
                 System.out.println("""
@@ -73,11 +83,13 @@ public class Main {
                         Введіть 1, якщо так
                         Введіть 2, якщо ні""");
                 int hw = sc.nextInt();
+                logRep.debugLog("Створення домашніх завдань в мейні");
                 if (hw == 1) {
                     try {
                         HomeWorkService homeWorkService = new HomeWorkService();
                         homeWorkService.createHw();
                     } catch (IllegalArgumentException e) {
+                        logRep.warningLog("Помилка невірного аргументу домашніх завдань в мейні: ", e);
                         System.err.println(e.getMessage());
                     }
                 } else if (hw == 2) System.exit(0);
@@ -88,5 +100,6 @@ public class Main {
         }
 
         sc.close();
+        logRep.debugLog("Програма закінчила роботу!");
     }
 }

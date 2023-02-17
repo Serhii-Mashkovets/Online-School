@@ -1,5 +1,6 @@
 package onlineSchool.services;
 
+import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.ResourseType;
 import onlineSchool.models.AddMaterials;
 import onlineSchool.repository.AddMaterialsRepository;
@@ -9,9 +10,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddMaterialService {
+    private static LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
     private Integer id;
 
     public AddMaterials createNewAddMaterial() {
+        logRep.debugLog("Створення додаткових матеріалів");
         Scanner sc = new Scanner(System.in);
         int type;
         ResourseType resourseType = null;

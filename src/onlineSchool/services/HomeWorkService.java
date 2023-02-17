@@ -1,15 +1,18 @@
 package onlineSchool.services;
 
-import onlineSchool.models.AddMaterials;
+import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.HomeWork;
 import onlineSchool.repository.HomeWorkRepository;
 
 import java.util.List;
 
 public class HomeWorkService {
+
+    private static LoggingRepository logRep = new LoggingRepository(HomeWorkService.class.getName());
     HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
 
     public HomeWork createHw () {
+        logRep.debugLog("Створення домашньої роботи");
         return new HomeWork();
     }
 

@@ -1,12 +1,15 @@
 package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
+import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Students;
 
 
 import java.util.Scanner;
 
 public class StudentsService {
+
+    private static LoggingRepository logRep = new LoggingRepository(StudentsService.class.getName());
     private Integer id;
 
     public Students createNewStudent(String studentName, String studentLastName) {
@@ -29,6 +32,7 @@ public class StudentsService {
     }
 
     public static Students createNewStudentByUsers() {
+        logRep.debugLog("Створення студента");
         Scanner sc2 = new Scanner(System.in);
         System.out.println("""
                 Вкажіть студента кусу

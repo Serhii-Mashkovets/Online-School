@@ -1,11 +1,13 @@
 package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
+import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Teachers;
 
 import java.util.Scanner;
 
 public class TeachersService {
+    private static LoggingRepository logRep = new LoggingRepository(TeachersService.class.getName());
     private Integer id;
 
     public Teachers createNewTeacher(String teacherName, String teacherSecondName) {
@@ -21,13 +23,15 @@ public class TeachersService {
             try {
                 throw new ValidationExceptions("Second name can not be empty");
             } catch (ValidationExceptions e) {
-                System.out.println(String.valueOf(e));
+                logRep.warningLog("Помилка валідації: ", e);
+                System.err.println(String.valueOf(e));
             }
         }
         return new Teachers(teacherName, teacherSecondName);
     }
 
     public static Teachers createNewTeacherByUsers() {
+        logRep.debugLog("Створення студента");
         try {
             Scanner sc2 = new Scanner(System.in);
             System.out.println("""
@@ -42,6 +46,7 @@ public class TeachersService {
                 return new Teachers(teacherName, teacherSecondName);
             }
         } catch (Exception e) {
+            logRep.warningLog("Помилка: ",e);
             System.err.println(e.getMessage());
         }
         return null;

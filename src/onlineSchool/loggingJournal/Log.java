@@ -7,9 +7,9 @@ public class Log {
     private String message;
     private LocalDateTime date;
     private String stacktrace;
-    private  LevelOfLogging level;
+    private LevelOfLogging level;
 
-    public Log(String name, String message, LocalDateTime date, LevelOfLogging level) {
+    public Log(String name, LevelOfLogging level, String message) {
         this.name = name;
         this.message = message;
         this.date = LocalDateTime.now();
