@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LogFunctions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/controlWork/ControlWork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/controlWork/StudentThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LogReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onlineSchool.iml" beforeDir="false" afterPath="$PROJECT_DIR$/onlineSchool.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Logging registration journal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Logging registration journal.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/AddMaterialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/AddMaterialService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/HomeWorkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/HomeWorkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/LectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/LectureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/StudentsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/StudentsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/TeachersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/TeachersService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +53,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/finep/IdeaProjects/onlineSchool/src/onlineSchool/controlWork",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\finep\IdeaProjects\onlineSchool\src\onlineSchool\controlWork" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\finep\IdeaProjects\onlineSchool" />
       <recent name="C:\Users\finep\IdeaProjects\onlineSchool\src" />
@@ -143,7 +144,10 @@
       <workItem from="1676368842012" duration="13057000" />
       <workItem from="1676401689597" duration="3771000" />
       <workItem from="1676566246039" duration="3846000" />
-      <workItem from="1676627154228" duration="10884000" />
+      <workItem from="1676627154228" duration="13195000" />
+      <workItem from="1676654207705" duration="486000" />
+      <workItem from="1676890781094" duration="6008000" />
+      <workItem from="1676919877539" duration="3027000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>

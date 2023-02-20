@@ -10,9 +10,9 @@ public class CourseService {
 
     private static LoggingRepository logRep = new LoggingRepository(CourseService.class.getName());
 
-    public Course createNewCourse(String courseName, Integer id,
+    public Course createNewCourse(String courseName,
                                   Lecture lectureName, Teachers teacherOne, Students studentOne) {
-        return new Course(courseName, id, lectureName, teacherOne, studentOne);
+        return new Course(courseName, lectureName, teacherOne, studentOne);
     }
 
     public Course createNewCourseByUsers() {
@@ -37,7 +37,7 @@ public class CourseService {
         studentsRepository.add(student);
         logRep.debugLog("Студент доданий");
         sc.close();
-        return new Course(courseName, Course.countId(), lecture, teacher, student);
+        return new Course(courseName, lecture, teacher, student);
     }
 
     CourseRepository courseRepository = CourseRepository.getNewExample();

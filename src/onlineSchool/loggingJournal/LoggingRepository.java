@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class LoggingRepository extends LogParenting{
+public class LoggingRepository extends LogParenting {
     private String desription;
     List<Log> log = new ArrayList<>();
 

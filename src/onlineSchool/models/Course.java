@@ -8,7 +8,7 @@ public class Course extends ParentingClassForModels {
     private static int counterOfCourse;
     private static Integer id;
 
-    public Course(String courseName, Integer id, Lecture lectureName, Teachers teacherOne, Students studentOne) {
+    public Course(String courseName, Lecture lectureName, Teachers teacherOne, Students studentOne) {
         this.courseName = courseName;
         this.id = id;
         this.setLectureName(lectureName);
