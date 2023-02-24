@@ -46,3 +46,85 @@ Log{name='onlineSchool.Main', message='Початок контрольної р�
 Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T21:55:52.541517500, level=INFO}
 Log{name='onlineSchool.Main', message='Початок контрольної роботи в мейні', date=2023-02-20T21:59:22.436022400, level=INFO}
 Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T21:59:34.496402100, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T22:58:47.683429100, level=INFO}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-02-20T22:58:55.523650700, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Створення нового курсу', date=2023-02-20T22:58:55.539217600, level=DEBUG}
+Log{name='onlineSchool.services.LectureService', message='Створення лекції', date=2023-02-20T22:59:00.481186500, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція створена', date=2023-02-20T22:59:07.546322100, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція додана', date=2023-02-20T22:59:07.546322100, level=DEBUG}
+Log{name='onlineSchool.services.TeachersService', message='Створення студента', date=2023-02-20T22:59:07.561888300, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач створений', date=2023-02-20T22:59:07.561888300, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач доданий', date=2023-02-20T22:59:07.561888300, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Створення студента', date=2023-02-20T22:59:07.561888300, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент створений', date=2023-02-20T22:59:07.561888300, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент доданий', date=2023-02-20T22:59:07.561888300, level=DEBUG}
+Log{name='onlineSchool.Main', message='Закінчення створення курсу в Мейні', date=2023-02-20T22:59:07.561888300, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:07:40.401752800, level=INFO}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-02-20T23:07:49.018670100, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Створення нового курсу', date=2023-02-20T23:07:49.023664400, level=DEBUG}
+Log{name='onlineSchool.services.LectureService', message='Створення лекції', date=2023-02-20T23:07:54.109655400, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція створена', date=2023-02-20T23:08:07.557653100, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція додана', date=2023-02-20T23:08:07.558671400, level=DEBUG}
+Log{name='onlineSchool.services.TeachersService', message='Створення студента', date=2023-02-20T23:08:07.560648900, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач створений', date=2023-02-20T23:08:07.561648100, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач доданий', date=2023-02-20T23:08:07.562648, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Створення студента', date=2023-02-20T23:08:07.563647, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент створений', date=2023-02-20T23:08:07.564646400, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент доданий', date=2023-02-20T23:08:07.565649500, level=DEBUG}
+Log{name='onlineSchool.Main', message='Закінчення створення курсу в Мейні', date=2023-02-20T23:08:07.567646200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:11:38.832107500, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:12:04.324362500, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:12:41.902897800, level=INFO}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-02-20T23:12:53.040594, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Створення нового курсу', date=2023-02-20T23:12:53.044591700, level=DEBUG}
+Log{name='onlineSchool.services.LectureService', message='Створення лекції', date=2023-02-20T23:12:58.140710400, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція створена', date=2023-02-20T23:13:01.667036500, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція додана', date=2023-02-20T23:13:01.668034600, level=DEBUG}
+Log{name='onlineSchool.services.TeachersService', message='Створення студента', date=2023-02-20T23:13:01.672030700, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач створений', date=2023-02-20T23:13:01.673031, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач доданий', date=2023-02-20T23:13:01.673031, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Створення студента', date=2023-02-20T23:13:01.675030, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент створений', date=2023-02-20T23:13:01.676030, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент доданий', date=2023-02-20T23:13:01.679027900, level=DEBUG}
+Log{name='onlineSchool.Main', message='Закінчення створення курсу в Мейні', date=2023-02-20T23:13:01.681046800, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:16:15.377095500, level=INFO}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-02-20T23:16:16.865933500, level=DEBUG}
+Log{name='onlineSchool.Main', message='Програма закінчила роботу!', date=2023-02-20T23:16:16.866934, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:16:28.772570, level=INFO}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-02-20T23:16:29.590983200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Програма закінчила роботу!', date=2023-02-20T23:16:29.590983200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:16:40.677409500, level=INFO}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-02-20T23:16:42.199450200, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Створення нового курсу', date=2023-02-20T23:16:42.204450900, level=DEBUG}
+Log{name='onlineSchool.services.LectureService', message='Створення лекції', date=2023-02-20T23:16:43.987586100, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція створена', date=2023-02-20T23:16:46.714829700, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція додана', date=2023-02-20T23:16:46.715825500, level=DEBUG}
+Log{name='onlineSchool.services.TeachersService', message='Створення студента', date=2023-02-20T23:16:46.717824600, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач створений', date=2023-02-20T23:16:46.719823900, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач доданий', date=2023-02-20T23:16:46.719823900, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Створення студента', date=2023-02-20T23:16:46.721822600, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент створений', date=2023-02-20T23:16:46.722822, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент доданий', date=2023-02-20T23:16:46.722822, level=DEBUG}
+Log{name='onlineSchool.Main', message='Закінчення створення курсу в Мейні', date=2023-02-20T23:16:46.724820600, level=DEBUG}
+Log{name='onlineSchool.Main', message='Створення додаткових матеріалів в мейні', date=2023-02-20T23:16:46.725820, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:18:19.426299600, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-20T23:18:42.714722600, level=INFO}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-02-20T23:18:46.036455900, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Створення нового курсу', date=2023-02-20T23:18:46.041452200, level=DEBUG}
+Log{name='onlineSchool.services.LectureService', message='Створення лекції', date=2023-02-20T23:18:48.192398400, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція створена', date=2023-02-20T23:18:51.699514500, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Лекція додана', date=2023-02-20T23:18:51.700520100, level=DEBUG}
+Log{name='onlineSchool.services.TeachersService', message='Створення студента', date=2023-02-20T23:18:51.702514900, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач створений', date=2023-02-20T23:18:51.703511900, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Викладач доданий', date=2023-02-20T23:18:51.704511400, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Створення студента', date=2023-02-20T23:18:51.705510700, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент створений', date=2023-02-20T23:18:51.707509700, level=DEBUG}
+Log{name='onlineSchool.services.CourseService', message='Студент доданий', date=2023-02-20T23:18:51.708509700, level=DEBUG}
+Log{name='onlineSchool.Main', message='Закінчення створення курсу в Мейні', date=2023-02-20T23:18:51.710320700, level=DEBUG}
+Log{name='onlineSchool.Main', message='Створення додаткових матеріалів в мейні', date=2023-02-20T23:18:51.711323700, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок контрольної роботи в мейні', date=2023-02-24T12:34:57.777496500, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-24T12:35:09.851334600, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-02-24T13:49:54.222369100, level=INFO}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. " +
+                    "Вихід із LevelWatcher через перерване виключення.', date=2023-02-24T13:50:00.574208900, stacktrace='[java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1638), java.base/java.util.concurrent.LinkedBlockingDeque.takeFirst(LinkedBlockingDeque.java:485), java.base/java.util.concurrent.LinkedBlockingDeque.take(LinkedBlockingDeque.java:673), java.base/sun.nio.fs.AbstractWatchService.take(AbstractWatchService.java:118), watcherlvl(LevelWatcher.java:16), onlineSchool.loggingJournal.LevelWatcher.run(LevelWatcher.java:31), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-02-24T13:59:10.077722, level=INFO}

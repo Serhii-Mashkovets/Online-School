@@ -6,11 +6,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LoggingRepository extends LogParenting {
-    private String desription;
-    List<Log> log = new ArrayList<>();
+    private static String description;
+
+    private static int levelValue;
+    static List<Log> log = new ArrayList<>();
 
     public LoggingRepository(String description) {
+
         this.setDesription(description);
+        levelValue = LoggingService.readLevelConfig().getIntValue();
     }
 
     public boolean add(Log logg) {
@@ -26,41 +30,53 @@ public class LoggingRepository extends LogParenting {
         return log.get(num);
     }
 
-    public Log errorLog(String message, Throwable ex) {
-        Log errorLog = new Log(desription, LevelOfLogging.ERROR, message);
+    public void errorLog(String message, Throwable ex) {
+        if (!isAvailableForLogging(LevelOfLogging.ERROR)) return;
+        Log errorLog = new Log(description, LevelOfLogging.ERROR, message);
         errorLog.setStacktrace(Arrays.toString(ex.getStackTrace()));
         log.add(errorLog);
         LoggingService.logToWrite(errorLog);
-        return errorLog;
     }
 
-    public Log warningLog(String message, Throwable ex) {
-        Log wrngLog = new Log(desription, LevelOfLogging.WARNING, message);
+    public static void warningLog(String message, Throwable ex) {
+        if (!isAvailableForLogging(LevelOfLogging.WARNING)) return;
+        Log wrngLog = new Log(description, LevelOfLogging.WARNING, message);
         wrngLog.setStacktrace(Arrays.toString(ex.getStackTrace()));
         log.add(wrngLog);
         LoggingService.logToWrite(wrngLog);
-        return wrngLog;
     }
 
-    public Log infoLog(String message) {
-        Log informationLog = new Log(desription, LevelOfLogging.INFO, message);
+    public void infoLog(String message) {
+        if (!isAvailableForLogging(LevelOfLogging.INFO)) return;
+        Log informationLog = new Log(description, LevelOfLogging.INFO, message);
         log.add(informationLog);
         LoggingService.logToWrite(informationLog);
-        return informationLog;
     }
 
-    public Log debugLog(String message) {
-        Log debugLog = new Log(desription, LevelOfLogging.DEBUG, message);
+    public static void debugLog(String message) {
+        if (!isAvailableForLogging(LevelOfLogging.DEBUG)) return;
+        Log debugLog = new Log(description, LevelOfLogging.DEBUG, message);
         log.add(debugLog);
         LoggingService.logToWrite(debugLog);
-        return debugLog;
+    }
+
+    public static boolean isAvailableForLogging(LevelOfLogging level) {
+        return level.getIntValue() >= levelValue;
     }
 
     public String getDesription() {
-        return desription;
+        return description;
     }
 
     public void setDesription(String desription) {
-        this.desription = desription;
+        this.description = desription;
+    }
+
+    public static int getLevelValue() {
+        return levelValue;
+    }
+
+    public static void setLevelValue(int levelValue) {
+        LoggingRepository.levelValue = levelValue;
     }
 }

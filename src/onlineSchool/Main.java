@@ -1,8 +1,7 @@
 package onlineSchool;
 
 import onlineSchool.controlWork.StudentThread;
-import onlineSchool.loggingJournal.LogReader;
-import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.loggingJournal.*;
 import onlineSchool.models.Students;
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.services.AddMaterialService;
@@ -17,6 +16,11 @@ public class Main {
     private static LoggingRepository logRep = new LoggingRepository(Main.class.getName());
 
     public static void main(String[] args) {
+        logRep.infoLog("Початок роботи в мейні");
+        LoggingService.writeLevelConfig(LevelOfLogging.INFO.INFO);
+        Thread levelWatcher = new Thread(new LevelWatcher(), "LevelWatcher");
+        levelWatcher.start();
+        LoggingRepository.debugLog("Початок роботи перед контрольною роботою та створенням курсу");
 
         Scanner sc = new Scanner(System.in);
         System.out.println("""
@@ -28,7 +32,7 @@ public class Main {
             logRep.infoLog("Початок контрольної роботи в мейні");
             controlWork();
             try {
-                Thread.sleep(3);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 logRep.errorLog("Сталась помилка ", e);
                 throw new RuntimeException(e);
@@ -44,7 +48,13 @@ public class Main {
                 Бажаєте створити новий курс?
                 Введіть 1, якщо так
                 Введіть 2, якщо ні""");
-        int crtOfCourse = sc.nextInt();
+        int crtOfCourse = 0;
+
+        if (sc.hasNext()) {
+            System.out.println(sc.next());
+            crtOfCourse = sc.nextInt();
+        }
+
         logRep.debugLog("Створення курсу в Мейні");
         try {
             if (crtOfCourse == 1) {
@@ -59,7 +69,12 @@ public class Main {
                         Бажаєте вказати додаткові матеріали до курсу?
                         Введіть 1, якщо так
                         Введіть 2 якщо бажаєте завершити роботу""");
-                int addmatCrt = sc.nextInt();
+
+                int addmatCrt = 0;
+                if (sc.hasNext()) {
+                    sc.next();
+                    addmatCrt = sc.nextInt();
+                }
                 try {
                     logRep.debugLog("Створення додаткових матеріалів в мейні");
                     if (addmatCrt == 1) {
@@ -123,6 +138,8 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
         }
+
+        levelWatcher.interrupt();
 
         logRep.debugLog("Програма закінчила роботу!");
         System.out.println("""

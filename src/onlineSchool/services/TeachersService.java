@@ -40,7 +40,7 @@ public class TeachersService {
             System.out.println("Ім'я:");
             if (sc2.hasNextLine()) {
                 String teacherName = sc2.nextLine();
-                System.out.println("Прізвище:");
+                System.out.println("Прізвище: ");
                 String teacherSecondName = sc2.next();
                 sc2.close();
                 return new Teachers(teacherName, teacherSecondName);

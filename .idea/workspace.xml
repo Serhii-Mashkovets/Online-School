@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/controlWork/ControlWork.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/controlWork/StudentThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LogReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LevelWatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LevelOfLogging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LevelOfLogging.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Logging registration journal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Logging registration journal.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/models/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/TeachersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/TeachersService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,20 +42,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/finep/IdeaProjects/onlineSchool/src/onlineSchool/controlWork",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/finep/IdeaProjects/onlineSchool/src/onlineSchool/controlWork&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\finep\IdeaProjects\onlineSchool\src\onlineSchool\controlWork" />
@@ -147,7 +145,9 @@
       <workItem from="1676627154228" duration="13195000" />
       <workItem from="1676654207705" duration="486000" />
       <workItem from="1676890781094" duration="6008000" />
-      <workItem from="1676919877539" duration="3027000" />
+      <workItem from="1676919877539" duration="3416000" />
+      <workItem from="1676926462987" duration="1629000" />
+      <workItem from="1677232762451" duration="5918000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>
