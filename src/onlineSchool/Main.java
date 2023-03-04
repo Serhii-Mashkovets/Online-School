@@ -1,6 +1,8 @@
 package onlineSchool;
 
 import onlineSchool.controlWork.StudentThread;
+import onlineSchool.ipChecker.Client;
+import onlineSchool.ipChecker.Server;
 import onlineSchool.loggingJournal.*;
 import onlineSchool.models.Students;
 import onlineSchool.repository.CourseRepository;
@@ -17,7 +19,7 @@ public class Main {
 
     public static void main(String[] args) {
         logRep.infoLog("Початок роботи в мейні");
-        LoggingService.writeLevelConfig(LevelOfLogging.INFO.INFO);
+        LoggingService.writeLevelConfig(LevelOfLogging.OFF);
         Thread levelWatcher = new Thread(new LevelWatcher(), "LevelWatcher");
         levelWatcher.start();
         LoggingRepository.debugLog("Початок роботи перед контрольною роботою та створенням курсу");
@@ -42,6 +44,29 @@ public class Main {
         } else if (choiceCW == 2) {
             System.out.println("Контрольна робота проведена не буде");
             logRep.infoLog("Кінець роботи в блоці Контрольна робота в мейні");
+        }
+
+
+        System.out.println("""
+                Бажаєте увійти на сервер?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int choiseServer = sc.nextInt();
+        if (choiseServer == 1) {
+            logRep.infoLog("Початок роботи з сервером та перевірки айпі в мейні");
+            Thread server = new Thread(new Server(), "Сервер");
+            server.start();
+            try {
+                Thread.sleep(1000);
+                Thread client = new Thread(new Client(), "Клієнт");
+                client.start();
+                server.join();
+            } catch (InterruptedException e) {
+                logRep.errorLog("Помилка переривання: ", e);
+                throw new RuntimeException(e);
+            }
+        } else if (choiseServer == 2) {
+            logRep.debugLog("Кінець роботи в блоці сервер в мейні");
         }
 
         System.out.println("""

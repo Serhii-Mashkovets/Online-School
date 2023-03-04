@@ -39,7 +39,7 @@ public class LoggingService {
         try (BufferedReader br = Files.newBufferedReader(path)) {
             String lvl = br.readLine();
             if (lvl.startsWith("Рівень = "))
-                level = LevelOfLogging.valueOf(lvl.substring(8));
+                level = LevelOfLogging.valueOf(lvl.substring(12));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

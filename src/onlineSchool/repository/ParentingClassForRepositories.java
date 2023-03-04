@@ -1,8 +1,6 @@
 package onlineSchool.repository;
 
 
-import onlineSchool.models.ParentingClassForModels;
-
 import java.util.List;
 
 public class ParentingClassForRepositories <ParentingClassForModels> {

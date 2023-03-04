@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ac9882-3f52-4eba-8d98-40c1da4828f6" name="Changes" comment="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
-      <change afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LevelWatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/ipChecker/BlackList.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/ipChecker/BlackListChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/ipChecker/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onlineSchool/ipChecker/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LevelOfLogging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LevelOfLogging.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Logging registration journal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/Logging registration journal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/loggingJournal/LoggingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineSchool/services/TeachersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/services/TeachersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineSchool/repository/ParentingClassForRepositories.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +147,9 @@
       <workItem from="1676890781094" duration="6008000" />
       <workItem from="1676919877539" duration="3416000" />
       <workItem from="1676926462987" duration="1629000" />
-      <workItem from="1677232762451" duration="5918000" />
+      <workItem from="1677232762451" duration="6290000" />
+      <workItem from="1677489112059" duration="397000" />
+      <workItem from="1677936518447" duration="7085000" />
     </task>
     <task id="LOCAL-00001" summary="git add .&#10;git commit -m &quot;new commit&quot;&#10;git push">
       <created>1666701114188</created>
@@ -183,6 +185,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.NoSuchElementException" package="java.util" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
