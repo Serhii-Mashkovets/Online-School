@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    private static LoggingRepository logRep = new LoggingRepository(Main.class.getName());
+    private static final LoggingRepository logRep = new LoggingRepository(Main.class.getName());
 
     public static void main(String[] args) {
         logRep.infoLog("Початок роботи в мейні");
@@ -24,7 +24,7 @@ public class Main {
         levelWatcher.start();
         LoggingRepository.debugLog("Початок роботи перед контрольною роботою та створенням курсу");
 
-        Scanner sc = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in);
         System.out.println("""
                 Бажаєте провести контрольну роботу?
                 Введіть 1, якщо так
@@ -164,7 +164,7 @@ public class Main {
             System.err.println(e.getMessage());
         }
 
-        levelWatcher.interrupt();
+       levelWatcher.interrupt();
 
         logRep.debugLog("Програма закінчила роботу!");
         System.out.println("""
