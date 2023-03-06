@@ -1,17 +1,45 @@
 package onlineSchool.services;
 
 import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.models.Lecture;
 import onlineSchool.models.ResourseType;
 import onlineSchool.models.AddMaterials;
 import onlineSchool.repository.AddMaterialsRepository;
-import onlineSchool.comparator.AddMaterialsComparator;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class AddMaterialService {
     private static LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
     private Integer id;
+
+
+
+
+    public Map<Lecture, List<AddMaterials>> getAddMaterialsGroupedByLecture() {
+        return AddMaterialsRepository.getAll().stream()
+                .collect(Collectors.groupingBy(AddMaterials::getLecture));
+    }
+
+
+    Consumer<Map<Integer, List<AddMaterials>>> fullInfo = integerListMap ->
+            integerListMap.forEach((key, value) -> {
+                System.out.printf("Айді лекції = " + key + '\n');
+                for (AddMaterials additionalMaterial : value) {
+                    if (additionalMaterial == null) continue;
+                    System.out.println(additionalMaterial);
+                }
+            });
+
+    public void printGroupedByLectures(Map<Integer, List<AddMaterials>> AddmaterialsMap){
+        fullInfo.accept(AddmaterialsMap);
+    }
+
+
+
 
     public AddMaterials createNewAddMaterial() {
         logRep.debugLog("Створення додаткових матеріалів");

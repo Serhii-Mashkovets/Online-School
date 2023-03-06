@@ -2,9 +2,11 @@ package onlineSchool.models;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Lecture extends ParentingClassForModels implements Serializable {
+    private LocalDate date;
     @Serial
     private static final long serialazibleNumID = Long.MAX_VALUE;
     private List<HomeWork> homeWorks;
@@ -16,12 +18,6 @@ public class Lecture extends ParentingClassForModels implements Serializable {
     private static int courseLectureId;
     private String description;
     private static int counter = 0;
-
-    public static Integer getId() {
-        return getLectureID();
-    }
-
-
 
 
     @Override
@@ -142,6 +138,7 @@ public class Lecture extends ParentingClassForModels implements Serializable {
     public void setHomeWorks(List<HomeWork> homeWorks) {
         this.homeWorks = homeWorks;
     }
+
     public static long getSerialazibleNumID() {
         return serialazibleNumID;
     }
@@ -152,6 +149,19 @@ public class Lecture extends ParentingClassForModels implements Serializable {
 
     public static void setLectureID(int lectureID) {
         Lecture.lectureID = lectureID;
+    }
+
+    public static Integer getId() {
+        return getLectureID();
+    }
+
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
 

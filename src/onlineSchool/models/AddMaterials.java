@@ -13,6 +13,8 @@ public class AddMaterials extends ParentingClassForModels implements Serializabl
     private int lectureId;
     private ResourseType resourseType;
 
+    private Lecture lecture;
+
     public AddMaterials(String name, int lectureId, ResourseType resourseType) {
         this.name = name;
         this.lectureId = lectureId;
@@ -69,4 +71,11 @@ public class AddMaterials extends ParentingClassForModels implements Serializabl
         return serialazibleNumID;
     }
 
+    public Lecture getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(Lecture lecture) {
+        this.lecture = lecture;
+    }
 }

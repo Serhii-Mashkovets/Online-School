@@ -123,6 +123,11 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
         return newAddMat;
     }
 
+    public static List<AddMaterials> getAll() {
+        return (List<AddMaterials>) addMaterials;
+    }
+
+
     public static List<AddMaterials> sortAddMatt() {
         List<AddMaterials> addToSort =
                 new ArrayList<>((Collection) AddMaterialsRepository.getNewExample().getAddMaterials());
