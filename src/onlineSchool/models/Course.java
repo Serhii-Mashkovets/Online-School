@@ -1,6 +1,11 @@
 package onlineSchool.models;
 
-public class Course extends ParentingClassForModels {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Course extends ParentingClassForModels implements Serializable {
+    @Serial
+    private static final long serialazibleNumID = Long.MAX_VALUE;
     private Lecture lectureName;
     private String courseName;
     private int lessonTime;
@@ -13,6 +18,8 @@ public class Course extends ParentingClassForModels {
         this.id = id;
         this.setLectureName(lectureName);
     }
+
+
 
     public void fullCourse(String courseNameOne, Integer id) {
         this.setCourseNameOne(courseNameOne);
@@ -94,5 +101,8 @@ public class Course extends ParentingClassForModels {
         this.lectureName = lectureName;
     }
 
+    public static long getSerialazibleNumID() {
+        return serialazibleNumID;
+    }
 }
 

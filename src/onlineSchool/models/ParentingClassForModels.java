@@ -1,6 +1,10 @@
 package onlineSchool.models;
 
-public abstract class ParentingClassForModels {
+import java.io.Serializable;
+
+public abstract class ParentingClassForModels implements Serializable {
+
+    private static final long serialazibleNumID = Long.MAX_VALUE;
     private String firstPersoneName;
     private String lastPersonName;
     private static Integer id;
@@ -8,6 +12,8 @@ public abstract class ParentingClassForModels {
     public ParentingClassForModels() {
         this.id = id;
     }
+
+
 
     public String fullPerson(String firstPersoneName, String lastPersonName) {
         return firstPersoneName + lastPersonName;
@@ -38,4 +44,7 @@ public abstract class ParentingClassForModels {
     }
 
     public abstract int getNew();
+    public static long getSerialazibleNumID() {
+        return serialazibleNumID;
+    }
 }

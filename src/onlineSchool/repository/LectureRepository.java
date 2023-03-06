@@ -1,5 +1,6 @@
 package onlineSchool.repository;
 
+import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.models.Lecture;
 
 import java.util.ArrayList;
@@ -15,6 +16,18 @@ public class LectureRepository extends ParentingClassForRepositories<Lecture> {
         }
         return newExample;
     }
+
+
+    public List<Lecture> usingCourseId(int courseID) throws EntityNotFoundException {
+        List<Lecture> lecturesOfCourse = new ArrayList<>();
+        for (Lecture lecture : lectureArray) {
+            if (lecture == null) continue;
+            if (lecture.getCourseLectureId() == courseID) lecturesOfCourse.add(lecture);
+        }
+        if (lecturesOfCourse.isEmpty()) throw new EntityNotFoundException("Не існує лекції з даним айді");
+        else return lecturesOfCourse;
+    }
+
 
     public LectureRepository() {
         lectureArray = new ArrayList<>();

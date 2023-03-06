@@ -6,6 +6,7 @@ import onlineSchool.ipChecker.Server;
 import onlineSchool.loggingJournal.*;
 import onlineSchool.models.Students;
 import onlineSchool.repository.CourseRepository;
+import onlineSchool.serialization.SerializationForCourse;
 import onlineSchool.services.AddMaterialService;
 import onlineSchool.services.CourseService;
 import onlineSchool.services.HomeWorkService;
@@ -24,7 +25,7 @@ public class Main {
         levelWatcher.start();
         LoggingRepository.debugLog("Початок роботи перед контрольною роботою та створенням курсу");
 
-       Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("""
                 Бажаєте провести контрольну роботу?
                 Введіть 1, якщо так
@@ -84,7 +85,7 @@ public class Main {
         try {
             if (crtOfCourse == 1) {
                 CourseService course = new CourseService();
-                course.createNewCourseByUsers();
+                SerializationForCourse.serializeFile(course.createNewCourseByUsers());
                 CourseRepository courseRepository = CourseRepository.getNewExample();
                 Collections.sort(courseRepository.getElements());
                 System.out.println(course);
@@ -164,7 +165,7 @@ public class Main {
             System.err.println(e.getMessage());
         }
 
-       levelWatcher.interrupt();
+        levelWatcher.interrupt();
 
         logRep.debugLog("Програма закінчила роботу!");
         System.out.println("""
@@ -180,7 +181,7 @@ public class Main {
     }
 
     public static void controlWork() {
-        // Створюємо масив студентів
+
         Students[] students = new Students[10];
         students[0] = new Students("Ernest", "Heminguey");
         students[1] = new Students("Erih Maria", "Remark");
@@ -195,34 +196,34 @@ public class Main {
 
         int[] tasks = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        // Створюємо масив для збереження завдання для кожного студента
+
         int[] studentTasks = new int[students.length];
 
-        // Перемішуємо завдання
+
         shuffleArray(tasks);
 
-        // Перебираємо студентів і розподіляємо завдання
+
         for (int i = 0; i < students.length; i++) {
             studentTasks[i] = tasks[i];
             System.out.println(students[i].getStudentName() + " " + students[i].getStudentLastName() +
                     " отримав завдання " + studentTasks[i]);
         }
 
-        // Запускаємо студентів
+
         StudentThread[] threads = new StudentThread[students.length];
         for (int i = 0; i < students.length; i++) {
             threads[i] = new StudentThread(students[i], studentTasks[i]);
             threads[i].start();
         }
 
-        // Чекаємо 12 секунд
+
         try {
             Thread.sleep(12000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        // Перевіряємо, хто закінчив першим, другим і т.д.
+
         StudentThread[] finishedThreads = new StudentThread[students.length];
         System.arraycopy(threads, 0, finishedThreads, 0, threads.length);
         for (int i = 0; i < finishedThreads.length - 1; i++) {
@@ -240,7 +241,7 @@ public class Main {
                     + finishedThreads[i].getExecutionTime() + " секунд");
         }
 
-        // Перевіряємо, хто не встиг виконати завдання вчасно
+
         for (int i = 0; i < threads.length; i++) {
             if (!threads[i].isFinished()) {
                 System.out.println(threads[i].fullName() + " не встиг виконати завдання вчасно");

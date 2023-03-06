@@ -1,5 +1,7 @@
 package onlineSchool.models;
 
-public enum ResourseType {
+import java.io.Serializable;
+
+public enum ResourseType implements Serializable {
     URL, VIDEO, BOOK
 }

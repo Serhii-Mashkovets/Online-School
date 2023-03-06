@@ -1,6 +1,8 @@
 package onlineSchool.models;
 
-public class School extends ParentingClassForModels {
+import java.io.Serializable;
+
+public class School extends ParentingClassForModels implements Serializable {
     private static Integer id;
     private String name;
     public static int schoolCounter;

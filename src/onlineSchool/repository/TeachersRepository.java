@@ -1,5 +1,6 @@
 package onlineSchool.repository;
 
+import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.models.ParentingClassForModels;
 import onlineSchool.models.Teachers;
 
@@ -19,6 +20,17 @@ public class TeachersRepository extends ParentingClassForRepositories {
             newExample = new TeachersRepository();
         }
         return newExample;
+    }
+
+
+    public List<Teachers> usingTeachersByCourseId(int courseId) throws EntityNotFoundException {
+        List<Teachers> teachersOfCourse = new ArrayList<>();
+        for (Teachers teachers : teacherArray) {
+            if (teachers == null) continue;
+            if (teachers.getCourseId() == courseId) teachersOfCourse.add(teachers);
+        }
+        if (teachersOfCourse.isEmpty()) throw new EntityNotFoundException("Не існує викладача з таким айді");
+        else return teachersOfCourse;
     }
 
     @Override

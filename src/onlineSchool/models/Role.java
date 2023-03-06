@@ -1,6 +1,8 @@
 package onlineSchool.models;
 
-public enum Role {
+import java.io.Serializable;
+
+public enum Role implements Serializable {
     STUDENT, TEACHER;
 
     public Role EnumRoleName() {

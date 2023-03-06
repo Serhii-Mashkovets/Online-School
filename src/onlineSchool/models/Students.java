@@ -1,16 +1,25 @@
 package onlineSchool.models;
 
-public class Students extends ParentingClassForModels {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Students extends ParentingClassForModels implements Serializable {
+    @Serial
+    private static final long serialazibleNumID = Long.MAX_VALUE;
     private String studentLastName;
     private String studentName;
     private int studentAge;
 
     private Integer id;
 
+    private int courseId;
+
     public Students(String studentName, String studentLastName) {
         this.setStudentName(studentName);
         this.setStudentLastName(studentLastName);
     }
+
+
 
     public int getStudentAge() {
         return studentAge;
@@ -42,6 +51,18 @@ public class Students extends ParentingClassForModels {
     @Override
     public int getNew() {
         return 0;
+    }
+
+    public static long getSerialazibleNumID() {
+        return serialazibleNumID;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }
 

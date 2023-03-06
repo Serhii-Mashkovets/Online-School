@@ -1,10 +1,14 @@
 package onlineSchool.models;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
-public class Lecture extends ParentingClassForModels {
+public class Lecture extends ParentingClassForModels implements Serializable {
+    @Serial
+    private static final long serialazibleNumID = Long.MAX_VALUE;
     private List<HomeWork> homeWorks;
-    private static Integer lectureID;
+    private static int lectureID;
     private String lectureName;
     private String teacherName;
     private String mainBookToLearning;
@@ -14,8 +18,11 @@ public class Lecture extends ParentingClassForModels {
     private static int counter = 0;
 
     public static Integer getId() {
-        return lectureID;
+        return getLectureID();
     }
+
+
+
 
     @Override
     public int getNew() {
@@ -134,6 +141,17 @@ public class Lecture extends ParentingClassForModels {
 
     public void setHomeWorks(List<HomeWork> homeWorks) {
         this.homeWorks = homeWorks;
+    }
+    public static long getSerialazibleNumID() {
+        return serialazibleNumID;
+    }
+
+    public static int getLectureID() {
+        return lectureID;
+    }
+
+    public static void setLectureID(int lectureID) {
+        Lecture.lectureID = lectureID;
     }
 }
 

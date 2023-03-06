@@ -1,11 +1,18 @@
 package onlineSchool.models;
 
-public class HomeWork extends ParentingClassForModels {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class HomeWork extends ParentingClassForModels implements Serializable {
+    @Serial
+    private static final long serialazibleNumID = Long.MAX_VALUE;
     private int numberOfHW;
     private static int counterNew = 0;
     private static Integer id;
     private int lectureId;
     private String task;
+
+
 
     public String HomeWork(int numberOfHW) {
         return "The number of home work is: " + numberOfHW;
@@ -68,5 +75,8 @@ public class HomeWork extends ParentingClassForModels {
 
     public void setTask(String task) {
         this.task = task;
+    }
+    public static long getSerialazibleNumID() {
+        return serialazibleNumID;
     }
 }

@@ -1,13 +1,16 @@
 package onlineSchool.repository;
 
-import onlineSchool.models.AddMaterials;
+import onlineSchool.exceptions.EntityNotFoundException;
+import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.HomeWork;
+import onlineSchool.models.Lecture;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class HomeWorkRepository extends ParentingClassForRepositories {
+    private static final LoggingRepository logRep = new LoggingRepository(AddMaterialsRepository.class.getName());
     private static HomeWorkRepository newExample;
     private static Map<Integer, List<HomeWork>> homeworks;
 
@@ -17,6 +20,36 @@ public class HomeWorkRepository extends ParentingClassForRepositories {
         }
         return newExample;
     }
+
+
+    public List<HomeWork> usingHomeWorkWithLectureId(int lectureId) throws EntityNotFoundException {
+        List<HomeWork> homeWorksOfLecture = new ArrayList<>();
+        for (List<HomeWork> list : homeworks.values()) {
+            if (list == null) continue;
+            for (HomeWork homework : list) {
+                if (homework == null) continue;
+                if (homework.getLectureId() == lectureId) homeWorksOfLecture.add(homework);
+            }
+        }
+        if (homeWorksOfLecture.isEmpty()) throw new EntityNotFoundException("Такої домашньої роботи не існує");
+        else return homeWorksOfLecture;
+    }
+
+    public List<HomeWork> usingHomeWorkWithCourseId(int courseId) throws EntityNotFoundException {
+        List<HomeWork> homeworksOfCourse = new ArrayList<>();
+        for (Lecture lecture : LectureRepository.getNewExample().usingCourseId(courseId)) {
+            if (lecture == null) continue;
+            try {
+                List<HomeWork> homeworksOfThisLecture = usingHomeWorkWithLectureId(Lecture.getId());
+                homeworksOfCourse.addAll(homeworksOfThisLecture);
+            } catch (EntityNotFoundException e) {
+                logRep.warningLog("Не існує домашньої роботи з таким айді.", e);
+            }
+        }
+        if (homeworksOfCourse.isEmpty()) throw new EntityNotFoundException("Не існує домашньої роботи з таким айді.");
+        else return homeworksOfCourse;
+    }
+
 
     public static Map<Integer, List<HomeWork>> getHomeworks() {
         return homeworks;

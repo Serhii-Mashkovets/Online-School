@@ -10,6 +10,11 @@ public class CourseService {
 
     private static LoggingRepository logRep = new LoggingRepository(CourseService.class.getName());
 
+    AddMaterialsRepository addMaterialsRepository = AddMaterialsRepository.getNewExample();
+    HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
+    LectureRepository lectureRepository = LectureRepository.getNewExample();
+    StudentsRepository studentsRepository = StudentsRepository.getNewExample();
+    TeachersRepository teachersRepository = TeachersRepository.getNewExample();
     public Course createNewCourse(String courseName,
                                   Lecture lectureName, Teachers teacherOne, Students studentOne) {
         return new Course(courseName, lectureName, teacherOne, studentOne);

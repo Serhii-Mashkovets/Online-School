@@ -1,6 +1,13 @@
 package onlineSchool.models;
 
-public class AddMaterials extends ParentingClassForModels {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class AddMaterials extends ParentingClassForModels implements Serializable {
+
+    @Serial
+
+    private static final long serialazibleNumID = Long.MAX_VALUE;
     private static Integer id;
     private String name;
     private int lectureId;
@@ -11,6 +18,7 @@ public class AddMaterials extends ParentingClassForModels {
         this.lectureId = lectureId;
         this.resourseType = resourseType;
     }
+
 
     @Override
     public String toString() {
@@ -57,4 +65,8 @@ public class AddMaterials extends ParentingClassForModels {
     public void setResourseType(ResourseType resourseType) {
         this.resourseType = resourseType;
     }
+    public static long getSerialazibleNumID() {
+        return serialazibleNumID;
+    }
+
 }
