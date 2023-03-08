@@ -30,10 +30,10 @@ public class AddMaterialsRepository extends ParentingClassForRepositories {
 
     public List<AddMaterials> usingAddwithCourseId(int courseID) throws EntityNotFoundException {
         List<AddMaterials> addMaterialsOfCourse = new ArrayList<>();
-        for (Lecture lecture : LectureRepository.getNewExample().usingCourseId(courseID)) {
+        for (Optional<Lecture> lecture : LectureRepository.getNewExample().usingCourseId(courseID)) {
             if (lecture == null) continue;
             try {
-                List<AddMaterials> ofLecture = usingAddwithLectureId(lecture.getId());
+                List<AddMaterials> ofLecture = usingAddwithLectureId(lecture.get().getLectureId());
                 addMaterialsOfCourse.addAll(ofLecture);
             } catch (EntityNotFoundException e) {
                 logRep.warningLog("Не існує додаткових матеріалів з таким айді.", e);

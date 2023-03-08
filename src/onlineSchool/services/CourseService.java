@@ -4,6 +4,7 @@ import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.*;
 import onlineSchool.repository.*;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class CourseService {
@@ -15,8 +16,9 @@ public class CourseService {
     LectureRepository lectureRepository = LectureRepository.getNewExample();
     StudentsRepository studentsRepository = StudentsRepository.getNewExample();
     TeachersRepository teachersRepository = TeachersRepository.getNewExample();
+
     public Course createNewCourse(String courseName,
-                                  Lecture lectureName, Teachers teacherOne, Students studentOne) {
+                                  Optional<Lecture> lectureName, Optional<Teachers> teacherOne, Optional<Students> studentOne) {
         return new Course(courseName, lectureName, teacherOne, studentOne);
     }
 
@@ -29,15 +31,15 @@ public class CourseService {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введіть назву курсу: ");
         String courseName = sc.nextLine();
-        Lecture lecture = LectureService.createNewLectureByUsers();
+        Optional<Lecture> lecture = LectureService.createNewLectureByUsers();
         logRep.debugLog("Лекція створена");
         lectureRepository.add(lecture);
         logRep.debugLog("Лекція додана");
-        Teachers teacher = TeachersService.createNewTeacherByUsers();
+        Optional<Teachers> teacher = TeachersService.createNewTeacherByUsers();
         logRep.debugLog("Викладач створений");
         teachersRepository.add(teacher);
         logRep.debugLog("Викладач доданий");
-        Students student = StudentsService.createNewStudentByUsers();
+        Optional<Students> student = StudentsService.createNewStudentByUsers();
         logRep.debugLog("Студент створений");
         studentsRepository.add(student);
         logRep.debugLog("Студент доданий");

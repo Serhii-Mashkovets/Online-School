@@ -4,6 +4,7 @@ import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Teachers;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class TeachersService {
@@ -30,7 +31,7 @@ public class TeachersService {
         return new Teachers(teacherName, teacherSecondName);
     }
 
-    public static Teachers createNewTeacherByUsers() {
+    public static Optional<Teachers> createNewTeacherByUsers() {
         logRep.debugLog("Створення студента");
         try {
             Scanner sc2 = new Scanner(System.in);
@@ -43,10 +44,10 @@ public class TeachersService {
                 System.out.println("Прізвище: ");
                 String teacherSecondName = sc2.next();
                 sc2.close();
-                return new Teachers(teacherName, teacherSecondName);
+                return Optional.ofNullable(new Teachers(teacherName, teacherSecondName));
             }
         } catch (Exception e) {
-            logRep.warningLog("Помилка: ",e);
+            logRep.warningLog("Помилка: ", e);
             System.err.println(e.getMessage());
         }
         return null;

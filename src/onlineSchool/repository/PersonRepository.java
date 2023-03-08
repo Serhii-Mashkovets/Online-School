@@ -1,12 +1,14 @@
 package onlineSchool.repository;
 
+import onlineSchool.models.Lecture;
 import onlineSchool.models.ParentingClassForModels;
 import onlineSchool.models.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class PersonRepository extends ParentingClassForRepositories{
+public class PersonRepository extends ParentingClassForRepositories {
     private static PersonRepository newExample;
     private static List<Person> personArray;
 
@@ -16,6 +18,7 @@ public class PersonRepository extends ParentingClassForRepositories{
         }
         return newExample;
     }
+
     public PersonRepository() {
         personArray = new ArrayList<>();
     }
@@ -31,8 +34,8 @@ public class PersonRepository extends ParentingClassForRepositories{
     }
 
     @Override
-    public Person get(int index) {
-        return personArray.get(index);
+    public Optional<Person> get(int index) {
+        return Optional.ofNullable(personArray.get(index));
     }
 
     public void add(ParentingClassForModels element) {
@@ -40,7 +43,7 @@ public class PersonRepository extends ParentingClassForRepositories{
     }
 
     public void add(int index, ParentingClassForModels element) {
-        personArray.add(index,(Person) element);
+        personArray.add(index, (Person) element);
     }
 
     @Override

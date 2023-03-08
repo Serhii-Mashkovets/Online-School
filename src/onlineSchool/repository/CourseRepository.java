@@ -2,10 +2,12 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Course;
 
+import onlineSchool.models.Lecture;
 import onlineSchool.models.ParentingClassForModels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CourseRepository extends ParentingClassForRepositories {
     private static CourseRepository newExample;
@@ -34,8 +36,8 @@ public class CourseRepository extends ParentingClassForRepositories {
     }
 
     @Override
-    public Course get(int index) {
-        return getCourseList().get(index);
+    public Optional<Course> get(int index) {
+        return Optional.ofNullable(getCourseList().get(index));
     }
 
     public void add(ParentingClassForModels element) {

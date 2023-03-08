@@ -8,6 +8,7 @@ import onlineSchool.models.Lecture;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class HomeWorkRepository extends ParentingClassForRepositories {
     private static final LoggingRepository logRep = new LoggingRepository(AddMaterialsRepository.class.getName());
@@ -37,7 +38,7 @@ public class HomeWorkRepository extends ParentingClassForRepositories {
 
     public List<HomeWork> usingHomeWorkWithCourseId(int courseId) throws EntityNotFoundException {
         List<HomeWork> homeworksOfCourse = new ArrayList<>();
-        for (Lecture lecture : LectureRepository.getNewExample().usingCourseId(courseId)) {
+        for (Optional<Lecture> lecture : LectureRepository.getNewExample().usingCourseId(courseId)) {
             if (lecture == null) continue;
             try {
                 List<HomeWork> homeworksOfThisLecture = usingHomeWorkWithLectureId(Lecture.getId());

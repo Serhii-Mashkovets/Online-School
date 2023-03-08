@@ -2,6 +2,7 @@ package onlineSchool.models;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Optional;
 
 public class Students extends ParentingClassForModels implements Serializable {
     @Serial
@@ -12,13 +13,12 @@ public class Students extends ParentingClassForModels implements Serializable {
 
     private Integer id;
 
-    private int courseId;
+    private Optional<Integer> courseId;
 
     public Students(String studentName, String studentLastName) {
         this.setStudentName(studentName);
         this.setStudentLastName(studentLastName);
     }
-
 
 
     public int getStudentAge() {
@@ -57,12 +57,12 @@ public class Students extends ParentingClassForModels implements Serializable {
         return serialazibleNumID;
     }
 
-    public int getCourseId() {
+    public Optional<Integer> getCourseId() {
         return courseId;
     }
 
     public void setCourseId(int courseId) {
-        this.courseId = courseId;
+        this.courseId = Optional.of(courseId);
     }
 }
 

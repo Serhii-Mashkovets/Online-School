@@ -5,6 +5,7 @@ import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Students;
 
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class StudentsService {
@@ -31,7 +32,7 @@ public class StudentsService {
         return new Students(studentName, studentLastName);
     }
 
-    public static Students createNewStudentByUsers() {
+    public static Optional<Students> createNewStudentByUsers() {
         logRep.debugLog("Створення студента");
         Scanner sc2 = new Scanner(System.in);
         System.out.println("""
@@ -43,7 +44,7 @@ public class StudentsService {
             System.out.println("Прізвище: ");
             String studentLastName = sc2.next();
             sc2.close();
-            return new Students(studentName, studentLastName);
+            return Optional.ofNullable(new Students(studentName, studentLastName));
         }
         return null;
     }

@@ -4,6 +4,7 @@ import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Lecture;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class LectureService {
@@ -29,20 +30,21 @@ public class LectureService {
         return new Lecture(lectureName, discription);
     }
 
-    public static Lecture createNewLectureByUsers() {
+
+    public static Optional<Lecture> createNewLectureByUsers() {
         logRep.debugLog("Створення лекції");
         System.out.println("""
-        Створіть нову лекцію
-        Введіть назву та опис""");
+                Створіть нову лекцію
+                Введіть назву та опис""");
         Scanner sc = new Scanner(System.in);
         System.out.println("Назва: ");
         String lectureName = sc.nextLine();
         System.out.println("Опис: ");
         String discription = sc.nextLine();
         sc.close();
-        return new Lecture(lectureName, discription);
-
+        return Optional.ofNullable(new Lecture(lectureName, discription));
     }
+
 
     public int getId() {
         return id;

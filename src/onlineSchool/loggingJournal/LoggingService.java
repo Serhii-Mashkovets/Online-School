@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class LoggingService {
@@ -35,7 +36,7 @@ public class LoggingService {
 
     public static LevelOfLogging readLevelConfig() {
         Path path = Path.of("src/onlineSchool/loggingJournal/config.txt");
-        LevelOfLogging level = LevelOfLogging.OFF;
+        LevelOfLogging level = LevelOfLogging.DEBUG;
         try (BufferedReader br = Files.newBufferedReader(path)) {
             String lvl = br.readLine();
             if (lvl.startsWith("Рівень = "))
@@ -44,6 +45,20 @@ public class LoggingService {
             System.out.println(e.getMessage());
         }
         return level;
+    }
+
+
+
+
+    public static void readMessageFromFile () {
+        System.out.println("Виведемо строки з файлу , де містяться повідомлення");
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get(FILELOG))) {
+            reader.lines()
+                    .filter(line -> line.contains("message"))
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

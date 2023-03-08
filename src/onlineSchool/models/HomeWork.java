@@ -13,7 +13,6 @@ public class HomeWork extends ParentingClassForModels implements Serializable {
     private String task;
 
 
-
     public String HomeWork(int numberOfHW) {
         return "The number of home work is: " + numberOfHW;
     }
@@ -76,6 +75,7 @@ public class HomeWork extends ParentingClassForModels implements Serializable {
     public void setTask(String task) {
         this.task = task;
     }
+
     public static long getSerialazibleNumID() {
         return serialazibleNumID;
     }

@@ -1,15 +1,21 @@
 package onlineSchool.repository;
 
 
-import java.util.List;
+import onlineSchool.models.Lecture;
 
-public class ParentingClassForRepositories <ParentingClassForModels> {
-    private  static  ParentingClassForRepositories newExample;
-    public static ParentingClassForRepositories getNewExample () {
+import java.util.List;
+import java.util.Optional;
+
+public class ParentingClassForRepositories<ParentingClassForModels> {
+    private static ParentingClassForRepositories newExample;
+
+    public static ParentingClassForRepositories getNewExample() {
         if (newExample == null) {
             newExample = new ParentingClassForRepositories();
-        } return newExample;
+        }
+        return newExample;
     }
+
     private List<ParentingClassForModels> elements;
 
     public long size() {
@@ -17,11 +23,11 @@ public class ParentingClassForRepositories <ParentingClassForModels> {
     }
 
     public boolean isEmpty() {
-       return getElements().isEmpty();
+        return getElements().isEmpty();
     }
 
-    public ParentingClassForModels get(int index) {
-        return getElements().get(index - 1);
+    public Optional<ParentingClassForModels> get(int index) {
+        return (Optional<ParentingClassForModels>) getElements().get(index - 1);
     }
 
 

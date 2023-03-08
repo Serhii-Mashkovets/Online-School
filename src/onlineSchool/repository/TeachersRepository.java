@@ -1,18 +1,19 @@
 package onlineSchool.repository;
 
 import onlineSchool.exceptions.EntityNotFoundException;
-import onlineSchool.models.ParentingClassForModels;
+import onlineSchool.models.Lecture;
 import onlineSchool.models.Teachers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TeachersRepository extends ParentingClassForRepositories {
     private static TeachersRepository newExample;
-    private List<Teachers> teacherArray;
+    private List<Optional<Teachers>> teacherArray;
 
     public TeachersRepository() {
-        teacherArray = new ArrayList<>();
+        teacherArray = new ArrayList<Optional<Teachers>>();
     }
 
     public static TeachersRepository getNewExample() {
@@ -23,15 +24,17 @@ public class TeachersRepository extends ParentingClassForRepositories {
     }
 
 
-    public List<Teachers> usingTeachersByCourseId(int courseId) throws EntityNotFoundException {
-        List<Teachers> teachersOfCourse = new ArrayList<>();
-        for (Teachers teachers : teacherArray) {
-            if (teachers == null) continue;
-            if (teachers.getCourseId() == courseId) teachersOfCourse.add(teachers);
+    public List<Optional<Teachers>> usingTeachersByCourseId(int courseId) throws EntityNotFoundException {
+        List<Optional<Teachers>> teachersOfCourse = new ArrayList<>();
+        for (Optional<Teachers> teacher : teacherArray) {
+            if (teacher == null) continue;
+            Optional<Teachers> optionalTeacher = teacher.map(t -> t.getCourseId() == courseId ? t : null);
+            if (optionalTeacher.isPresent()) teachersOfCourse.add(optionalTeacher);
         }
         if (teachersOfCourse.isEmpty()) throw new EntityNotFoundException("Не існує викладача з таким айді");
         else return teachersOfCourse;
     }
+
 
     @Override
     public long size() {
@@ -44,16 +47,16 @@ public class TeachersRepository extends ParentingClassForRepositories {
     }
 
 
-    public Teachers get(int index) {
-        return teacherArray.get(index);
+    public Optional<Optional<Teachers>> get(int index) {
+        return Optional.ofNullable(teacherArray.get(index));
     }
 
-    public void add(Teachers element) {
-        teacherArray.add((Teachers) element);
+    public void add(Optional<Teachers> element) {
+        teacherArray.add(element);
     }
 
     public void add(int index, Teachers element) {
-        teacherArray.add(index, (Teachers) element);
+        teacherArray.add(index, Optional.ofNullable((Teachers) element));
     }
 
     @Override
@@ -61,11 +64,11 @@ public class TeachersRepository extends ParentingClassForRepositories {
         teacherArray.remove(index);
     }
 
-    public List<Teachers> getTeacherArray() {
+    public List<Optional<Teachers>> getTeacherArray() {
         return teacherArray;
     }
 
-    public void setTeacherArray(List<Teachers> teacherArray) {
+    public void setTeacherArray(List<Optional<Teachers>> teacherArray) {
         this.teacherArray = teacherArray;
     }
 }

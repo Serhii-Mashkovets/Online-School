@@ -5,15 +5,14 @@ import onlineSchool.ipChecker.Client;
 import onlineSchool.ipChecker.Server;
 import onlineSchool.loggingJournal.*;
 import onlineSchool.models.Students;
+import onlineSchool.models.Teachers;
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.serialization.SerializationForCourse;
 import onlineSchool.services.AddMaterialService;
 import onlineSchool.services.CourseService;
 import onlineSchool.services.HomeWorkService;
 
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     private static final LoggingRepository logRep = new LoggingRepository(Main.class.getName());
@@ -23,9 +22,26 @@ public class Main {
         LoggingService.writeLevelConfig(LevelOfLogging.OFF);
         Thread levelWatcher = new Thread(new LevelWatcher(), "LevelWatcher");
         levelWatcher.start();
-        LoggingRepository.debugLog("Початок роботи перед контрольною роботою та створенням курсу");
 
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("""
+                Бажаєте вивести прізвища викладачів до англійської літери N?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int choiseTN = sc.nextInt();
+        if (choiseTN == 1) {
+            logRep.infoLog("Початок порівняння прізвищ викладачів в мейні");
+            teachersLastnameBeforeN((ArrayList<Teachers>) teachersList());
+        } else if (choiseTN == 2) {
+            System.out.println("Порівняння проведено не буде");
+            logRep.infoLog("Кінець роботи в блоці порівняння прізвищ в мейні");
+        }
+
+        System.out.println("Виведемо в мейні всі строки з файлу, що містять повідомлення: ");
+        LoggingService.readMessageFromFile();
+
+        LoggingRepository.debugLog("Початок роботи перед контрольною роботою та створенням курсу");
         System.out.println("""
                 Бажаєте провести контрольну роботу?
                 Введіть 1, якщо так
@@ -75,11 +91,6 @@ public class Main {
                 Введіть 1, якщо так
                 Введіть 2, якщо ні""");
         int crtOfCourse = 0;
-
-        if (sc.hasNext()) {
-            System.out.println(sc.next());
-            crtOfCourse = sc.nextInt();
-        }
 
         logRep.debugLog("Створення курсу в Мейні");
         try {
@@ -261,5 +272,22 @@ public class Main {
             arr[index] = arr[i];
             arr[i] = temp;
         }
+    }
+
+    public static List<Teachers> teachersList() {
+        ArrayList<Teachers> teacherListExample = new ArrayList<>();
+        teacherListExample.add(new Teachers("Bob", "Dilan"));
+        teacherListExample.add(new Teachers("Naruto", "Uzumaki"));
+        teacherListExample.add(new Teachers("Stepan", "Giga"));
+        teacherListExample.add(new Teachers("Mikola", "Gogol"));
+        teacherListExample.add(new Teachers("John", "Doe"));
+        teacherListExample.add(new Teachers("Almera", "Nissan"));
+        return teacherListExample;
+    }
+
+    public static void teachersLastnameBeforeN(ArrayList<Teachers> teachersList) {
+        teachersList.stream()
+                .filter(t -> t.getTeacherSecondName().charAt(0) < 'N')
+                .forEach(t -> System.out.println(t.getTeacherSecondName()));
     }
 }

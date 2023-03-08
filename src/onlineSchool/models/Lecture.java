@@ -4,6 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public class Lecture extends ParentingClassForModels implements Serializable {
     private LocalDate date;
@@ -15,7 +16,7 @@ public class Lecture extends ParentingClassForModels implements Serializable {
     private String teacherName;
     private String mainBookToLearning;
     private static int lectureCounter;
-    private static int courseLectureId;
+    private static Optional<Integer> courseLectureId;
     private String description;
     private static int counter = 0;
 
@@ -71,7 +72,7 @@ public class Lecture extends ParentingClassForModels implements Serializable {
                 '}';
     }
 
-    public int countId() {
+    public Optional<Integer> countId() {
         return this.getCourseLectureId();
     }
 
@@ -91,12 +92,12 @@ public class Lecture extends ParentingClassForModels implements Serializable {
         Lecture.lectureCounter = lectureCounter;
     }
 
-    public static int getCourseLectureId() {
+    public static Optional<Integer> getCourseLectureId() {
         return courseLectureId;
     }
 
     public static void setCourseLectureId(int courseLectureId) {
-        Lecture.courseLectureId = courseLectureId;
+        Lecture.courseLectureId = Optional.of(courseLectureId);
     }
 
     public String getLectureName() {
