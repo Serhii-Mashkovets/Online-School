@@ -18,6 +18,10 @@ public class LectureRepository extends ParentingClassForRepositories<Lecture> {
         return newExample;
     }
 
+    public static List<Optional<Lecture>> getAll() {
+        return lectureArray;
+    }
+
 
     public List<Optional<Lecture>> usingCourseId(int courseID) throws EntityNotFoundException {
         List<Optional<Lecture>> lecturesOfCourse = new ArrayList<>();

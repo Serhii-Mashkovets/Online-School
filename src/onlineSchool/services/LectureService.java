@@ -2,10 +2,13 @@ package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.models.AddMaterials;
 import onlineSchool.models.Lecture;
+import onlineSchool.repository.AddMaterialsRepository;
+import onlineSchool.repository.LectureRepository;
 
-import java.util.Optional;
-import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class LectureService {
     private static LoggingRepository logRep = new LoggingRepository(LectureService.class.getName());
@@ -45,6 +48,22 @@ public class LectureService {
         return Optional.ofNullable(new Lecture(lectureName, discription));
     }
 
+
+    public static Lecture getMaxLecture(List<Lecture> lectures) {
+        return lectures.stream()
+                .max(Comparator.comparingInt(lecture -> lecture.getAddMaterials().size()))
+                .orElseThrow(() -> new IllegalStateException("Лекції не знайдено"));
+    }
+
+
+    public static Lecture getTheEarliestLecture(List<Lecture> lectures) {
+        Lecture earliestLecture = lectures.stream()
+                .min(Comparator.comparing(Lecture::getCreatedAt))
+                .orElseThrow(() -> new IllegalStateException("Лекції не знайдено"));
+
+        System.out.println("Лекція, котра була створена найраніше: " + earliestLecture.getCreatedAt());
+        return earliestLecture;
+    }
 
     public int getId() {
         return id;

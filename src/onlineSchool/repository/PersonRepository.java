@@ -23,6 +23,10 @@ public class PersonRepository extends ParentingClassForRepositories {
         personArray = new ArrayList<>();
     }
 
+    public static List<Person> getAllPersons() {
+        return  personArray;
+    }
+
     @Override
     public long size() {
         return personArray.size();

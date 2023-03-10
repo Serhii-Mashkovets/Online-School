@@ -16,13 +16,11 @@ public class Person extends ParentingClassForModels implements Serializable {
     private String email;
 
     public Person(String fname, String lname,
-                  int personID, Role role1, String phone1, String email) {
+                   String phone, String email) {
         this.setFirstName(fname);
         this.setLastName(lname);
-        this.personID = personID;
-        this.role = role;
         this.phone = phone;
-        this.email = email;
+        this.setEmail(email);
     }
 
 
@@ -35,7 +33,7 @@ public class Person extends ParentingClassForModels implements Serializable {
                 ", personID=" + personID +
                 ", role1=" + role +
                 ", phone1='" + phone + '\'' +
-                ", email1='" + email + '\'' +
+                ", email1='" + getEmail() + '\'' +
                 '}';
     }
 
@@ -94,5 +92,9 @@ public class Person extends ParentingClassForModels implements Serializable {
 
     public static long getSerialazibleNumID() {
         return serialazibleNumID;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

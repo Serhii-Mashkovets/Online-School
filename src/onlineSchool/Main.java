@@ -1,29 +1,76 @@
 package onlineSchool;
 
 import onlineSchool.controlWork.StudentThread;
+import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.ipChecker.Client;
 import onlineSchool.ipChecker.Server;
 import onlineSchool.loggingJournal.*;
-import onlineSchool.models.Students;
-import onlineSchool.models.Teachers;
+import onlineSchool.models.*;
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.serialization.SerializationForCourse;
-import onlineSchool.services.AddMaterialService;
-import onlineSchool.services.CourseService;
-import onlineSchool.services.HomeWorkService;
+import onlineSchool.services.*;
+
+import java.io.File;
+import java.io.IOException;
 
 import java.util.*;
 
 public class Main {
     private static final LoggingRepository logRep = new LoggingRepository(Main.class.getName());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DuplicateEmailException {
         logRep.infoLog("Початок роботи в мейні");
         LoggingService.writeLevelConfig(LevelOfLogging.OFF);
         Thread levelWatcher = new Thread(new LevelWatcher(), "LevelWatcher");
         levelWatcher.start();
 
         Scanner sc = new Scanner(System.in);
+
+
+        System.out.println("""
+                Бажаєте створити нову персону?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int newPersonchoise = sc.nextInt();
+        if (newPersonchoise == 1) {
+            logRep.infoLog("Початок створення персони в мейні");
+            Optional<Person> personService = PersonService.createNewPersonByUsers();
+        } else if (newPersonchoise == 2) {
+            System.out.println("Переходимо до наступного етапу");
+            logRep.infoLog("Кінець роботи в блоці створення персони в мейні");
+        }
+
+
+        System.out.println("""
+                Бажаєте вивести на екран лекцію, котра створена раніше за всіх, та з найбільшою кількістю додаткових матеріалів?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int lectureChoise = sc.nextInt();
+        if (lectureChoise == 1) {
+            logRep.infoLog("Початок роботи в блоці виведення лекції на екран ," +
+                    " котра створена раніше всіх та з найбільшою кількістю додаткових матеріалів в мейні");
+            Lecture lectureService = LectureService.getMaxLecture(lecturesList());
+            Lecture lectureService1 = LectureService.getTheEarliestLecture(lecturesList());
+            System.out.println(lectureService);
+        } else if (lectureChoise == 2) {
+            logRep.infoLog("Закінчення роботи в блоці виведення лекції на екран ," +
+                    " котра створена раніше всіх та з найбільшою кількістю додаткових матеріалів в мейні");
+            System.out.println("Виведення лекції проведено не буде");
+        }
+
+        System.out.println("""
+                Бажаєте вивести кількість логів з рівнем INFO починаючи з середини файлу
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int logInfoChoise = sc.nextInt();
+        if (logInfoChoise == 1) {
+            logRep.infoLog("Початок роботи в блоці виведення логів з рівнем інфо з середини файлу в мейні");
+            File logFile = new File("src/onlineSchool/loggingJournal/Logging registration journal.txt");
+            resultCountOfLogJournal(logFile);
+        } else if (logInfoChoise == 2) {
+            System.out.println("Виведення кількості логів проведено не буде");
+            logRep.infoLog("Кінець роботи в блоці виведення логів з рівнем інфо з середини файлу в мейні");
+        }
 
         System.out.println("""
                 Бажаєте вивести прізвища викладачів до англійської літери N?
@@ -289,5 +336,34 @@ public class Main {
         teachersList.stream()
                 .filter(t -> t.getTeacherSecondName().charAt(0) < 'N')
                 .forEach(t -> System.out.println(t.getTeacherSecondName()));
+    }
+
+
+    public static void resultCountOfLogJournal(File logFile) {
+        try {
+            long infoCount = LoggingService.countLogs(logFile);
+            System.out.println("Кількість логів INFO з середини файлу: " + infoCount);
+        } catch (IOException e) {
+            System.err.println("Помилка читання файлу логування: " + e.getMessage());
+        }
+    }
+
+    public static List<Lecture> lecturesList() {
+        Person person = new Person("", "", "", "");
+
+        ArrayList<AddMaterials> addMatForLectures = new ArrayList<>();
+        addMatForLectures.add(new AddMaterials("1", 3, ResourseType.URL));
+        addMatForLectures.add(new AddMaterials("2", 2, ResourseType.VIDEO));
+        addMatForLectures.add(new AddMaterials("3", 1, ResourseType.BOOK));
+        addMatForLectures.add(new AddMaterials("5", 5, ResourseType.URL));
+
+        ArrayList<HomeWork> homeWorkForLectures = new ArrayList<>();
+        homeWorkForLectures.add(new HomeWork());
+        homeWorkForLectures.add(new HomeWork());
+
+        ArrayList<Lecture> lectureArrayList = new ArrayList<>();
+        lectureArrayList.add(new Lecture("", "", person, addMatForLectures, homeWorkForLectures));
+        lectureArrayList.add(new Lecture("1", "2", person, addMatForLectures, homeWorkForLectures));
+        return lectureArrayList;
     }
 }

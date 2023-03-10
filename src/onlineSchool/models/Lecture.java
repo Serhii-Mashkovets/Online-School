@@ -3,6 +3,7 @@ package onlineSchool.models;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,30 +14,42 @@ public class Lecture extends ParentingClassForModels implements Serializable {
     private List<HomeWork> homeWorks;
     private static int lectureID;
     private String lectureName;
-    private String teacherName;
+    private static String teacherName;
     private String mainBookToLearning;
     private static int lectureCounter;
     private static Optional<Integer> courseLectureId;
     private String description;
     private static int counter = 0;
 
+    private static LocalDateTime dateTimeLecture;
+
+    private List<AddMaterials> addMaterials;
+
+    private Person person;
+
+
+    public Lecture(String lectureTopic, String description,
+                   Person person, List<AddMaterials> addMaterials,
+                   List<HomeWork> homeWorks) {
+        this.lectureName = lectureTopic;
+        this.description = description;
+        this.setPerson(person);
+        this.setHomeWorks(homeWorks);
+        this.setAddMaterials(addMaterials);
+        this.setDateTimeLecture(LocalDateTime.now());
+    }
+
 
     @Override
-    public int getNew() {
-        return 0;
-    }
-
-    public Integer getLectureId() {
-        return this.getId();
-    }
-
-    public void Lecture(String lectureTopic, String description, String teacherName, Person person, Enum Role,
-                        List<HomeWork> homeWorks) {
-        this.lectureName = lectureTopic;
-        this.teacherName = teacherName;
-        this.description = description;
-        this.setHomeWorks(homeWorks);
-        person.fullPerson("", "");
+    public String toString() {
+        return "Lecture{" +
+                "homeWorks=" + homeWorks +
+                ", lectureName='" + lectureName + '\'' +
+                ", teacherName='" + teacherName + '\'' +
+                ", description='" + description + '\'' +
+                ", dateTimeLecture=" + getDateTimeLecture() +
+                ", addMaterials=" + getAddMaterials() +
+                '}';
     }
 
     @Override
@@ -50,26 +63,8 @@ public class Lecture extends ParentingClassForModels implements Serializable {
         this.description = discription;
     }
 
-    public Lecture(String lectureTopic, String description, String mainBookToLearning, int courseLectureId,
-                   Person person, Enum Role) {
-        this.setLectureName(lectureTopic);
-        this.description = description;
-        this.setMainBookToLearning(mainBookToLearning);
-        this.setCourseLectureId(courseLectureId);
-        setLectureCounter(getLectureCounter() + 1);
-        System.out.println(lectureTopic);
-    }
-
-    @Override
-    public String toString() {
-        return "Lecture{" +
-                "description='" + description + '\'' +
-                ", id=" + getId() +
-                ", lectureName='" + lectureName + '\'' +
-                ", teacherName='" + teacherName + '\'' +
-                ", mainBookToLearning='" + mainBookToLearning + '\'' +
-                ", homework ='" + homeWorks +
-                '}';
+    public LocalDateTime getCreatedAt() {
+        return dateTimeLecture;
     }
 
     public Optional<Integer> countId() {
@@ -163,6 +158,44 @@ public class Lecture extends ParentingClassForModels implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public static LocalDateTime getDateTimeLecture(Optional<Lecture> t) {
+        return getDateTimeLecture();
+    }
+
+    public void setDateTimeLecture(LocalDateTime dateTimeLecture) {
+        this.dateTimeLecture = dateTimeLecture;
+    }
+
+    @Override
+    public int getNew() {
+        return 0;
+    }
+
+    public Integer getLectureId() {
+        return this.getId();
+    }
+
+
+    public List<AddMaterials> getAddMaterials() {
+        return addMaterials;
+    }
+
+    public void setAddMaterials(List<AddMaterials> addMaterials) {
+        this.addMaterials = addMaterials;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public static LocalDateTime getDateTimeLecture() {
+        return dateTimeLecture;
     }
 }
 

@@ -67,6 +67,7 @@ public class AddMaterials extends ParentingClassForModels implements Serializabl
     public void setResourseType(ResourseType resourseType) {
         this.resourseType = resourseType;
     }
+
     public static long getSerialazibleNumID() {
         return serialazibleNumID;
     }

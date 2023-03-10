@@ -1,4 +1,66 @@
 package onlineSchool.services;
 
+import onlineSchool.exceptions.DuplicateEmailException;
+import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.models.Person;
+import onlineSchool.repository.PersonRepository;
+
+
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
+
 public class PersonService {
+
+
+    private static LoggingRepository logRep = new LoggingRepository(StudentsService.class.getName());
+
+    private int personId;
+
+
+    public static boolean isEmailDuplicate(String email) throws DuplicateEmailException {
+        List<Person> persons = PersonRepository.getAllPersons();
+
+        boolean isDuplicate = persons.stream()
+                .map(Person::getEmail)
+                .anyMatch(email::equals);
+
+        if (isDuplicate) {
+            throw new DuplicateEmailException("Email вже існує: " + email);
+        }
+
+        return false;
+    }
+
+
+    public static Optional<Person> createNewPersonByUsers() throws DuplicateEmailException {
+        logRep.debugLog("Створення персони в персон PersonService");
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("""
+                Вкажіть персону курсу
+                Введіть ім'я та прізвище""");
+        System.out.println("Ім'я: ");
+        if (sc2.hasNextLine()) {
+            String personName = sc2.next();
+            System.out.println("Прізвище: ");
+            String personLastName = sc2.next();
+            System.out.println("Введіть телефон: ");
+            String personPhone = sc2.next();
+            System.out.println("Введіть емейл: ");
+            String personEmail = sc2.next();
+            System.out.println("Перевіримо емейл на наявність дублікату");
+            isEmailDuplicate(personEmail);
+            sc2.close();
+            return Optional.of(new Person(personName, personLastName, personPhone, personEmail));
+        }
+        return Optional.empty();
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
 }

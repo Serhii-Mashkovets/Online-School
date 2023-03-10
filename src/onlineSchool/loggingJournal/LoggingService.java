@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 
 public class LoggingService {
@@ -58,6 +59,20 @@ public class LoggingService {
                     .forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+
+
+
+    public static long countLogs(File logFile) throws IOException {
+        Path path = logFile.toPath();
+        long totalLines = Files.lines(path).count();
+
+        long skippedLines = totalLines / 2;
+
+        try (Stream<String> lines = Files.lines(path).skip(skippedLines)) {
+            return lines.filter(line -> line.contains("INFO")).count();
         }
     }
 
