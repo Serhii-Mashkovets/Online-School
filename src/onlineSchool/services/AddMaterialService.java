@@ -5,6 +5,7 @@ import onlineSchool.models.Lecture;
 import onlineSchool.models.ResourseType;
 import onlineSchool.models.AddMaterials;
 import onlineSchool.repository.AddMaterialsRepository;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,17 @@ public class AddMaterialService {
     private static LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
     private Integer id;
 
+
+
+    public static void groupAddMatByLectures (@NotNull List <AddMaterials> materials, List <Lecture> lecture) {
+        Map<Integer, List<AddMaterials>> materialsByLecture = materials.stream()
+                .collect(Collectors.groupingBy(AddMaterials::getLectureId));
+
+        materialsByLecture.forEach((getLectureId, materialList) -> {
+            System.out.println(lecture + ":");
+            materialList.forEach(material -> System.out.println("\t" + material.getName()));
+        });
+    }
 
 
 

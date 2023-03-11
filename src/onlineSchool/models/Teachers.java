@@ -19,6 +19,14 @@ public class Teachers extends ParentingClassForModels implements Serializable {
         this.teacherSecondName = teacherSecondName;
     }
 
+    @Override
+    public String toString() {
+        return "Teachers{" +
+                "teacherName='" + teacherName + '\'' +
+                ", teacherSecondName='" + teacherSecondName + '\'' +
+                '}';
+    }
+
     public String getTeacherName() {
         return teacherName;
     }

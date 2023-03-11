@@ -7,8 +7,10 @@ import onlineSchool.repository.PersonRepository;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class PersonService {
 
@@ -54,6 +56,14 @@ public class PersonService {
             return Optional.of(new Person(personName, personLastName, personPhone, personEmail));
         }
         return Optional.empty();
+    }
+
+
+    public static void mapWithEmailAndName(List<Person> persons) {
+        Map<String, String> emailToNameMap = persons.stream()
+                .collect(Collectors.toMap(Person::getEmail, person -> person.getFirstName() + " " + person.getLastName()));
+
+        emailToNameMap.forEach((email, name) -> System.out.println(email + " -> " + name));
     }
 
     public int getPersonId() {

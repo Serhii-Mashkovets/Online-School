@@ -9,11 +9,15 @@ import onlineSchool.models.*;
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.serialization.SerializationForCourse;
 import onlineSchool.services.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
     private static final LoggingRepository logRep = new LoggingRepository(Main.class.getName());
@@ -26,6 +30,66 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("""
+                Бажаєте згрупувати лекції за викладачем?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int techerLectureChoise = sc.nextInt();
+        if (techerLectureChoise == 1) {
+            logRep.infoLog("Початок роботи в блоці сортування лекцій за викладачем в мейні");
+            LectureService.groupedLecturesByTeacher(lecturesListWithTeachers());
+        } else if (techerLectureChoise == 2) {
+            System.out.println("Переходимо до наступного етапу");
+            logRep.infoLog("Кінець роботи в блоці сортування лекцій за викладачем в мейні");
+        }
+
+        System.out.println("""
+                Бажаєте згрупувати додаткові матеріали за лекціями?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int addMatChoise = sc.nextInt();
+        if (addMatChoise == 1) {
+            logRep.infoLog("Початок роботи в блоці сортування додаткових матеріаліз за лекціями в мейні");
+            AddMaterialService.groupAddMatByLectures(addMatList(), lecturesListWithTeachers());
+        } else if (addMatChoise == 2) {
+            System.out.println("Переходимо до наступного етапу");
+            logRep.infoLog("Кінець роботи в блоці сортування додаткових матеріаліз за лекціями в мейні");
+        }
+
+        System.out.println("""
+                Бажаєте створити Map, де key = email, a values = Ім'я та прізвище персони?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int personMapChoise = sc.nextInt();
+        if (personMapChoise == 1) {
+            logRep.infoLog("Початок роботи в блоці створення Map, де key = email, a values = Ім'я та прізвище персони в мейні");
+            PersonService.mapWithEmailAndName(personList());
+        } else if (personMapChoise == 2) {
+            System.out.println("Переходимо до наступного етапу");
+            logRep.infoLog("Кінець роботи в блоці створення Map, де key = email, a values = Ім'я та прізвище персони в мейні");
+        }
+
+        System.out.println("""
+                Бажаєте вивести емейли студентів в окремий файл в натуральному порядку?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int emailInNaturalOrderChoise = sc.nextInt();
+        if (emailInNaturalOrderChoise == 1) {
+            logRep.infoLog("Початок роботи в блоці виведення емейлів студентів в окремий файл в натуральному порядку в мейні");
+            Stream<Students> studentStream = studentsList().stream();
+            Stream<String> emailStream = studentStream.map(Students::getEmail);
+            Stream<String> sortedEmailStream = emailStream.sorted();
+
+            try {
+                Files.write(Paths.get("emails.txt"), (Iterable<String>) sortedEmailStream::iterator);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (emailInNaturalOrderChoise == 2) {
+            System.out.println("Переходимо до наступного етапу");
+            logRep.infoLog("Кінець роботи в блоці виведення емейлів студентів в окремий файл в натуральному порядку в мейні");
+
+        }
 
         System.out.println("""
                 Бажаєте створити нову персону?
@@ -34,7 +98,7 @@ public class Main {
         int newPersonchoise = sc.nextInt();
         if (newPersonchoise == 1) {
             logRep.infoLog("Початок створення персони в мейні");
-            Optional<Person> personService = PersonService.createNewPersonByUsers();
+            PersonService.createNewPersonByUsers();
         } else if (newPersonchoise == 2) {
             System.out.println("Переходимо до наступного етапу");
             logRep.infoLog("Кінець роботи в блоці створення персони в мейні");
@@ -50,7 +114,7 @@ public class Main {
             logRep.infoLog("Початок роботи в блоці виведення лекції на екран ," +
                     " котра створена раніше всіх та з найбільшою кількістю додаткових матеріалів в мейні");
             Lecture lectureService = LectureService.getMaxLecture(lecturesList());
-            Lecture lectureService1 = LectureService.getTheEarliestLecture(lecturesList());
+            LectureService.getTheEarliestLecture(lecturesList());
             System.out.println(lectureService);
         } else if (lectureChoise == 2) {
             logRep.infoLog("Закінчення роботи в блоці виведення лекції на екран ," +
@@ -311,7 +375,7 @@ public class Main {
 
     }
 
-    public static void shuffleArray(int[] arr) {
+    public static void shuffleArray(int @NotNull [] arr) {
         Random rand = new Random();
         for (int i = arr.length - 1; i > 0; i--) {
             int index = rand.nextInt(i + 1);
@@ -321,7 +385,7 @@ public class Main {
         }
     }
 
-    public static List<Teachers> teachersList() {
+    public static @NotNull List<Teachers> teachersList() {
         ArrayList<Teachers> teacherListExample = new ArrayList<>();
         teacherListExample.add(new Teachers("Bob", "Dilan"));
         teacherListExample.add(new Teachers("Naruto", "Uzumaki"));
@@ -332,12 +396,11 @@ public class Main {
         return teacherListExample;
     }
 
-    public static void teachersLastnameBeforeN(ArrayList<Teachers> teachersList) {
+    public static void teachersLastnameBeforeN(@NotNull ArrayList<Teachers> teachersList) {
         teachersList.stream()
                 .filter(t -> t.getTeacherSecondName().charAt(0) < 'N')
                 .forEach(t -> System.out.println(t.getTeacherSecondName()));
     }
-
 
     public static void resultCountOfLogJournal(File logFile) {
         try {
@@ -348,7 +411,7 @@ public class Main {
         }
     }
 
-    public static List<Lecture> lecturesList() {
+    public static @NotNull List<Lecture> lecturesList() {
         Person person = new Person("", "", "", "");
 
         ArrayList<AddMaterials> addMatForLectures = new ArrayList<>();
@@ -365,5 +428,55 @@ public class Main {
         lectureArrayList.add(new Lecture("", "", person, addMatForLectures, homeWorkForLectures));
         lectureArrayList.add(new Lecture("1", "2", person, addMatForLectures, homeWorkForLectures));
         return lectureArrayList;
+    }
+
+    public static @NotNull List<AddMaterials> addMatList() {
+        ArrayList<AddMaterials> addMatForLectures = new ArrayList<>();
+        addMatForLectures.add(new AddMaterials("1", 3, ResourseType.URL));
+        addMatForLectures.add(new AddMaterials("2", 2, ResourseType.VIDEO));
+        addMatForLectures.add(new AddMaterials("3", 1, ResourseType.BOOK));
+        addMatForLectures.add(new AddMaterials("5", 4, ResourseType.URL));
+        return addMatForLectures;
+    }
+
+    public static @NotNull List<Lecture> lecturesListWithTeachers() {
+        ArrayList<HomeWork> homeWorkForLectures = new ArrayList<>();
+        homeWorkForLectures.add(new HomeWork());
+        homeWorkForLectures.add(new HomeWork());
+
+        ArrayList<Lecture> lectureArrayList = new ArrayList<>();
+        lectureArrayList.add(new Lecture("Децентралізація обробки даних", "Як створити один мега - комп'ютер, зі ста Пентіум перших"
+                , new Teachers("Jhon", "Week"), addMatList(), homeWorkForLectures));
+        lectureArrayList.add(new Lecture("Нові комп'ютерні технології в Занзібарі", "Вивчимо як створюють комп'ютер в Африці",
+                new Teachers("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
+        lectureArrayList.add(new Lecture("Колекції в джава", "Нарешті дізнаємось , що ж це таке",
+                new Teachers("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
+        lectureArrayList.add(new Lecture("Прогнозування, як функція", "Чи зможе наш ПК стати екстрасенсом?"
+                , new Teachers("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
+
+        return lectureArrayList;
+    }
+
+    public static @NotNull List<Person> personList() {
+        ArrayList<Person> personArrayList = new ArrayList<>();
+        personArrayList.add(new Person("Mihaylo", "Kocubinskiy", "+380999999999", "MishaYbiyca@gmail.com"));
+        personArrayList.add(new Person("Oleg", "Striychenko", "+380633333333", "OlegDoter@ukr.net"));
+        personArrayList.add(new Person("Vasil`", "Dontsov", "+380737777777", "VasyaKryaKrya@yahoo.com"));
+        personArrayList.add(new Person("Baba", "Galya", "0463071718", "BabaGalya1934@gmail.com"));
+        personArrayList.add(new Person("Larysa", "Kosach", "+380935555555", "LarIsa@ukr.net"));
+        personArrayList.add(new Person("Oksana", "Ksanax", "+30551111111", "Ok@gmail.com"));
+        personArrayList.add(new Person("Mykola", "Saint", "+380672222222", "St.Mykola@rambler.net"));
+        return personArrayList;
+    }
+
+    public static @NotNull List<Students> studentsList() {
+        ArrayList<Students> studlist = new ArrayList<>();
+        studlist.add(new Students("Tom", "Cat", "catTom@gmail.com"));
+        studlist.add(new Students("Mike", "Tyson", "TYson@gmail.com"));
+        studlist.add(new Students("Satosi", "Kon", "KonGenialno@gmeil.com"));
+        studlist.add(new Students("Nobuhiko", "Tokado", "Nt@gmail.com"));
+        studlist.add(new Students("Leo", "Messi", "LeoMessi@gmail.com"));
+        studlist.add(new Students("Serhii", "Mashkovets", "SM@gmail.com"));
+        return studlist;
     }
 }

@@ -4,11 +4,14 @@ import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.AddMaterials;
 import onlineSchool.models.Lecture;
+import onlineSchool.models.Teachers;
 import onlineSchool.repository.AddMaterialsRepository;
 import onlineSchool.repository.LectureRepository;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class LectureService {
     private static LoggingRepository logRep = new LoggingRepository(LectureService.class.getName());
@@ -49,14 +52,14 @@ public class LectureService {
     }
 
 
-    public static Lecture getMaxLecture(List<Lecture> lectures) {
+    public static Lecture getMaxLecture(@NotNull List<Lecture> lectures) {
         return lectures.stream()
                 .max(Comparator.comparingInt(lecture -> lecture.getAddMaterials().size()))
                 .orElseThrow(() -> new IllegalStateException("Лекції не знайдено"));
     }
 
 
-    public static Lecture getTheEarliestLecture(List<Lecture> lectures) {
+    public static @NotNull Lecture getTheEarliestLecture(@NotNull List<Lecture> lectures) {
         Lecture earliestLecture = lectures.stream()
                 .min(Comparator.comparing(Lecture::getCreatedAt))
                 .orElseThrow(() -> new IllegalStateException("Лекції не знайдено"));
@@ -64,6 +67,18 @@ public class LectureService {
         System.out.println("Лекція, котра була створена найраніше: " + earliestLecture.getCreatedAt());
         return earliestLecture;
     }
+
+
+    public static void groupedLecturesByTeacher(@NotNull List<Lecture> lectures) {
+        Map<Teachers, List<Lecture>> lecturesByTeacher = lectures.stream()
+                .collect(Collectors.groupingBy(Lecture::getTeacherOfLecture));
+
+        lecturesByTeacher.forEach((teacher, lectureList) -> {
+            System.out.println(teacher.getTeacherName() + ":");
+            lectureList.forEach(lecture -> System.out.println("\t" + lecture.getLectureName()));
+        });
+    }
+
 
     public int getId() {
         return id;

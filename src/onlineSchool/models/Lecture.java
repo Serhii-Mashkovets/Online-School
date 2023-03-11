@@ -14,7 +14,6 @@ public class Lecture extends ParentingClassForModels implements Serializable {
     private List<HomeWork> homeWorks;
     private static int lectureID;
     private String lectureName;
-    private static String teacherName;
     private String mainBookToLearning;
     private static int lectureCounter;
     private static Optional<Integer> courseLectureId;
@@ -27,6 +26,7 @@ public class Lecture extends ParentingClassForModels implements Serializable {
 
     private Person person;
 
+    private Teachers teacherOfLecture;
 
     public Lecture(String lectureTopic, String description,
                    Person person, List<AddMaterials> addMaterials,
@@ -40,15 +40,25 @@ public class Lecture extends ParentingClassForModels implements Serializable {
     }
 
 
+    public Lecture(String lectureTopic, String description,
+                   Teachers teacherOfLecture, List<AddMaterials> addMaterials,
+                   List<HomeWork> homeWorks) {
+        this.lectureName = lectureTopic;
+        this.description = description;
+        this.setTeacherOfLecture(teacherOfLecture);
+        this.setHomeWorks(homeWorks);
+        this.setAddMaterials(addMaterials);
+        this.setDateTimeLecture(LocalDateTime.now());
+    }
+
     @Override
     public String toString() {
         return "Lecture{" +
                 "homeWorks=" + homeWorks +
                 ", lectureName='" + lectureName + '\'' +
-                ", teacherName='" + teacherName + '\'' +
                 ", description='" + description + '\'' +
-                ", dateTimeLecture=" + getDateTimeLecture() +
-                ", addMaterials=" + getAddMaterials() +
+                ", addMaterials=" + addMaterials +
+                ", teacherOfLecture=" + teacherOfLecture +
                 '}';
     }
 
@@ -101,14 +111,6 @@ public class Lecture extends ParentingClassForModels implements Serializable {
 
     public void setLectureName(String lectureName) {
         this.lectureName = lectureName;
-    }
-
-    public String getTeacherName() {
-        return teacherName;
-    }
-
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
     }
 
     public String getMainBookToLearning() {
@@ -196,6 +198,14 @@ public class Lecture extends ParentingClassForModels implements Serializable {
 
     public static LocalDateTime getDateTimeLecture() {
         return dateTimeLecture;
+    }
+
+    public Teachers getTeacherOfLecture() {
+        return teacherOfLecture;
+    }
+
+    public void setTeacherOfLecture(Teachers teacherOfLecture) {
+        this.teacherOfLecture = teacherOfLecture;
     }
 }
 
