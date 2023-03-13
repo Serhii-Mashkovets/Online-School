@@ -11,8 +11,7 @@ import java.util.stream.Stream;
 
 public class LoggingService {
 
-    private static final String FILELOG = "C:\\Users\\finep\\IdeaProjects\\onlineSchool\\src" +
-            "\\onlineSchool\\loggingJournal\\Logging registration journal.txt";
+    private static final String FILELOG = "C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\Logging registration journal.txt";
 
 
     protected static void logToWrite(@NotNull Log log) {
@@ -27,7 +26,7 @@ public class LoggingService {
 
     public static void writeLevelConfig(LevelOfLogging level) {
         String string = level.name();
-        File file = new File("src/onlineSchool/loggingJournal/config.txt");
+        File file = new File("C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\config.txt");
         try (FileWriter writer = new FileWriter(file)) {
             writer.write("Рівень = " + string);
         } catch (IOException e) {

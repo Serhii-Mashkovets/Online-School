@@ -1,7 +1,7 @@
 package onlineSchool.services;
 
-import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.models.ParentingClassForModels;
+import onlineSchool.exceptions.EntityNotFoundException;
 
 public class SimpleIterator<E extends ParentingClassForModels> {
     private Integer index;

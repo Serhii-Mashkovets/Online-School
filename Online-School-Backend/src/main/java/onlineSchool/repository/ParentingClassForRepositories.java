@@ -1,8 +1,6 @@
 package onlineSchool.repository;
 
 
-import onlineSchool.models.Lecture;
-
 import java.util.List;
 import java.util.Optional;
 

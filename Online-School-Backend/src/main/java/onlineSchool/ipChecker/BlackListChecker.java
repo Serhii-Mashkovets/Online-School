@@ -1,7 +1,6 @@
 package onlineSchool.ipChecker;
 
 import onlineSchool.loggingJournal.LoggingRepository;
-import onlineSchool.repository.CourseRepository;
 
 import java.io.IOException;
 import java.nio.file.*;

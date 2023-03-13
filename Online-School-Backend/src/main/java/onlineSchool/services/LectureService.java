@@ -2,14 +2,10 @@ package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
-import onlineSchool.models.AddMaterials;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.Teachers;
-import onlineSchool.repository.AddMaterialsRepository;
-import onlineSchool.repository.LectureRepository;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 

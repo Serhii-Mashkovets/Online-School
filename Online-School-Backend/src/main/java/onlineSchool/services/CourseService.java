@@ -1,6 +1,7 @@
 package onlineSchool.services;
 
 import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.models.Course;
 import onlineSchool.models.*;
 import onlineSchool.repository.*;
 

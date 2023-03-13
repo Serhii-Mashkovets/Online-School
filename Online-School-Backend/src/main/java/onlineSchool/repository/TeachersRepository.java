@@ -1,8 +1,7 @@
 package onlineSchool.repository;
 
-import onlineSchool.exceptions.EntityNotFoundException;
-import onlineSchool.models.Lecture;
 import onlineSchool.models.Teachers;
+import onlineSchool.exceptions.EntityNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;

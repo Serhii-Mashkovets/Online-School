@@ -1,6 +1,5 @@
 package onlineSchool.repository;
 
-import onlineSchool.models.Lecture;
 import onlineSchool.models.ParentingClassForModels;
 import onlineSchool.models.Person;
 

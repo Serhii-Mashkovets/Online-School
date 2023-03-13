@@ -2,6 +2,7 @@ package onlineSchool.loggingJournal;
 
 import onlineSchool.Main;
 
+
 import java.io.IOException;
 import java.nio.file.*;
 
@@ -10,7 +11,7 @@ public class LevelWatcher implements Runnable {
 
     public void watcherlvl() throws InterruptedException, IOException {
         WatchService watchService = FileSystems.getDefault().newWatchService();
-        Path path = Paths.get("src/onlineSchool/loggingJournal/");
+        Path path = Paths.get("src/main/java/onlineSchool/loggingJournal/");
         path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 
         WatchKey key;

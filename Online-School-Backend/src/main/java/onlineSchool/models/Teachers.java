@@ -1,7 +1,5 @@
 package onlineSchool.models;
 
-import onlineSchool.exceptions.EntityNotFoundException;
-
 import java.io.Serial;
 import java.io.Serializable;
 
