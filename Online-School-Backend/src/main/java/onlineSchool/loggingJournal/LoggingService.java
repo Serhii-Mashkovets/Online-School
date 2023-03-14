@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class LoggingService {
 
-    private static final String FILELOG = "C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\Logging registration journal.txt";
+    public static String FILELOG = "C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\Logging registration journal.txt";
 
 
     protected static void logToWrite(@NotNull Log log) {

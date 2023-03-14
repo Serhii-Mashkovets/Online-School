@@ -1,0 +1,3 @@
+INFO: Test message
+WARNING: Test message
+INFO: Test message
