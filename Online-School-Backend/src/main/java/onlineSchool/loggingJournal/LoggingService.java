@@ -24,7 +24,7 @@ public class LoggingService {
         }
     }
 
-    public static void writeLevelConfig(LevelOfLogging level) {
+    public static void writeLevelConfig(@NotNull LevelOfLogging level) {
         String string = level.name();
         File file = new File("C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\config.txt");
         try (FileWriter writer = new FileWriter(file)) {
@@ -64,7 +64,7 @@ public class LoggingService {
 
 
 
-    public static long countLogs(File logFile) throws IOException {
+    public static long countLogs(@NotNull File logFile) throws IOException {
         Path path = logFile.toPath();
         long totalLines = Files.lines(path).count();
 
