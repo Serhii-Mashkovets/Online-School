@@ -53,7 +53,7 @@ public class AddMaterialService {
 
 
 
-    public AddMaterials createNewAddMaterial() {
+    public static AddMaterials createNewAddMaterial() {
         logRep.debugLog("Створення додаткових матеріалів");
         Scanner sc = new Scanner(System.in);
         int type;
