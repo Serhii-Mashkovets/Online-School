@@ -236,3 +236,93 @@ FROM students
 GROUP BY students.student_id
 HAVING num_courses = 1 OR num_courses = 2 OR num_courses >= 3
 ORDER BY student_surname;
+
+
+
+
+
+
+// Створюю нову табличку в базі даних де можна вказати який викладач веде яку лекцію
+
+CREATE TABLE teacher_lecture (
+    teacher_id INT,
+    lecture_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id),
+    FOREIGN KEY (lecture_id) REFERENCES lectures(lecture_id)
+);
+
+// заповнимо табличку значеннями
+INSERT INTO teacher_lecture (teacher_id, lecture_id)
+VALUES
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (2, 2),
+    (2, 4),
+    (3, 3),
+    (3, 5),
+    (3, 6);
+
+
+// виведемо назву лекції та прізвище і ім'я вчителя, відсортовані за датою лекції
+SELECT lectures.lecture_topic, teachers.teacher_surname, teachers.teacher_name
+FROM lectures
+         JOIN teacher_lecture ON lectures.lecture_id = teacher_lecture.lecture_id
+         JOIN teachers ON teacher_lecture.teacher_id = teachers.teacher_id
+ORDER BY lectures.date;
+
+//виведемо прізвище і ім'я вчителя та кількість лекцій , які він викладає
+SELECT teachers.teacher_surname, teachers.teacher_name, COUNT(*) as lecture_count
+FROM teachers
+         JOIN teacher_lecture ON teachers.teacher_id = teacher_lecture.teacher_id
+GROUP BY teachers.teacher_id
+
+// виведемо назви всіх лекцій та їх дати для вчителя з id 3, відсортованих за датою
+SELECT lectures.lecture_topic, lectures.date
+FROM lectures
+INNER JOIN teacher_lecture ON lectures.lecture_id = teacher_lecture.lecture_id
+INNER JOIN teachers ON teacher_lecture.teacher_id = teachers.teacher_id
+WHERE teachers.teacher_id = 3
+ORDER BY lectures.date;
+
+//виведемо назву місяця та кількість лекій за цей період
+SELECT DATE_FORMAT(lectures.date, '%M') AS month, COUNT(*) AS num_lectures
+FROM lectures
+INNER JOIN teacher_lecture ON lectures.lecture_id = teacher_lecture.lecture_id
+WHERE lectures.date BETWEEN '
+1970-01-01
+' AND '2023-03-31
+'
+GROUP BY month, lectures.date
+ORDER BY MONTH(lectures.date);
+
+
+// виведемо назву курсу , кількість лекцій, кількість вчителів, студентів, кількість додаткових матеріалів та домашніх завдань
+SELECT
+    courses.course_name,
+    COUNT(DISTINCT lectures.lecture_id) AS num_lectures,
+    COUNT(DISTINCT teachers.teacher_id) AS num_teachers,
+    COUNT(DISTINCT student_courses.student_id) AS num_students,
+    COUNT(DISTINCT additional_materials.add_materials_id) AS num_add_materials,
+    COUNT(DISTINCT homeworks.homework_id) AS num_homeworks
+FROM courses
+LEFT JOIN lectures ON courses.course_id = lectures.course_id
+LEFT JOIN teacher_lecture ON lectures.lecture_id = teacher_lecture.lecture_id
+LEFT JOIN teachers ON teacher_lecture.teacher_id = teachers.teacher_id
+LEFT JOIN student_courses ON courses.course_id = student_courses.course_id
+LEFT JOIN additional_materials ON lectures.lecture_id = additional_materials.lecture_id
+LEFT JOIN homeworks ON lectures.lecture_id = homeworks.lecture_id
+GROUP BY courses.course_name;
+
+// виведемо на екран назву даних, яких більше, та їх кількість, порівнюючи кількість домашніх завдань та додаткові матеріали
+SELECT
+  CASE
+    WHEN COUNT(homeworks.homework_id) > COUNT(additional_materials.add_materials_id) THEN 'homeworks'
+    WHEN COUNT(homeworks.homework_id) < COUNT(additional_materials.add_materials_id) THEN 'additional materials'
+    ELSE 'equal'
+  END AS more_data,
+  COUNT(*) AS data_count
+FROM
+  lectures
+  LEFT JOIN homeworks ON lectures.lecture_id = homeworks.lecture_id
+  LEFT JOIN additional_materials ON lectures.lecture_id = additional_materials.lecture_id;
