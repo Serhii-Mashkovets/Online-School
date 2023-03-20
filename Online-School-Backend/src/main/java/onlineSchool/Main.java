@@ -1,14 +1,19 @@
 package onlineSchool;
 
 import onlineSchool.controlWork.StudentThread;
+import onlineSchool.databases.SchemaConnection;
 import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.ipChecker.Client;
 import onlineSchool.ipChecker.Server;
 import onlineSchool.loggingJournal.*;
+import onlineSchool.loggingJournal.LevelOfLogging;
+import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.loggingJournal.LoggingService;
 import onlineSchool.models.*;
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.serialization.SerializationForCourse;
 import onlineSchool.services.*;
+import onlineSchool.services.PersonService;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -29,6 +34,8 @@ public class Main {
         levelWatcher.start();
 
         Scanner sc = new Scanner(System.in);
+
+
 
         System.out.println("""
                 Бажаєте згрупувати лекції за викладачем?

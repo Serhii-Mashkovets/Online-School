@@ -28,9 +28,8 @@
     </dependencies>
 
     <build>
-        <plugins>
-
-        </plugins>
+        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+        <testSourceDirectory>${basedir}/src/test</testSourceDirectory>
     </build>
 
 </project>
