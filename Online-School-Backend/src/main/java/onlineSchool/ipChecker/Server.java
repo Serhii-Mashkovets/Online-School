@@ -87,12 +87,13 @@ public class Server implements Runnable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } finally {
+
                 try {
                     client.close();
-                    System.out.println("Сесію клієнта завершено.");
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
                 }
+                System.out.println("Сесію клієнта завершено.");
+
             }
         }
     }

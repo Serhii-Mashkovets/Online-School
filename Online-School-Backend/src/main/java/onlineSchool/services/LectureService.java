@@ -3,7 +3,7 @@ package onlineSchool.services;
 import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Lecture;
-import onlineSchool.models.Teachers;
+import onlineSchool.models.Teacher;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -44,7 +44,7 @@ public class LectureService {
         System.out.println("Опис: ");
         String discription = sc.nextLine();
         sc.close();
-        return Optional.ofNullable(new Lecture(lectureName, discription));
+        return Optional.of(new Lecture(lectureName, discription));
     }
 
 
@@ -66,7 +66,7 @@ public class LectureService {
 
 
     public static void groupedLecturesByTeacher(@NotNull List<Lecture> lectures) {
-        Map<Teachers, List<Lecture>> lecturesByTeacher = lectures.stream()
+        Map<Teacher, List<Lecture>> lecturesByTeacher = lectures.stream()
                 .collect(Collectors.groupingBy(Lecture::getTeacherOfLecture));
 
         lecturesByTeacher.forEach((teacher, lectureList) -> {

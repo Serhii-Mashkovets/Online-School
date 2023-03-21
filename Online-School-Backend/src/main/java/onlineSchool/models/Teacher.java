@@ -3,7 +3,7 @@ package onlineSchool.models;
 import java.io.Serial;
 import java.io.Serializable;
 
-public class Teachers extends ParentingClassForModels implements Serializable {
+public class Teacher extends ParentingClassForModels implements Serializable {
 
     @Serial
     private static final long serialazibleNumID = Long.MAX_VALUE;
@@ -12,14 +12,14 @@ public class Teachers extends ParentingClassForModels implements Serializable {
 
     private int courseId;
 
-    public Teachers(String teacherName, String teacherSecondName) {
+    public Teacher(String teacherName, String teacherSecondName) {
         this.teacherName = teacherName;
         this.teacherSecondName = teacherSecondName;
     }
 
     @Override
     public String toString() {
-        return "Teachers{" +
+        return "Teacher{" +
                 "teacherName='" + teacherName + '\'' +
                 ", teacherSecondName='" + teacherSecondName + '\'' +
                 '}';

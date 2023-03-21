@@ -26,7 +26,7 @@ public class LectureRepository extends ParentingClassForRepositories<Lecture> {
     public List<Optional<Lecture>> usingCourseId(int courseID) throws EntityNotFoundException {
         List<Optional<Lecture>> lecturesOfCourse = new ArrayList<>();
         for (Optional<Lecture> lecture : lectureArray) {
-            if (lecture == null) continue;
+            if (lecture.isEmpty()) continue;
             Optional<Lecture> optionalLecture = lecture.map(l -> l.getCourseLectureId().equals(courseID) ? l : null);
             if (optionalLecture.isPresent()) lecturesOfCourse.add(optionalLecture);
         }

@@ -1,11 +1,11 @@
 package onlineSchool.controlWork;
 
-import onlineSchool.models.Students;
+import onlineSchool.models.Student;
 
 import java.util.Random;
 
 public class StudentThread extends Thread {
-    private Students student;
+    private Student student;
     private int taskNumber;
     private int executionTime;
     private boolean isFinished;
@@ -14,7 +14,7 @@ public class StudentThread extends Thread {
         return student.getStudentName() + " " + student.getStudentLastName();
     }
 
-    public StudentThread(Students student, int taskNumber) {
+    public StudentThread(Student student, int taskNumber) {
         this.student = student;
         this.setTaskNumber(taskNumber);
         this.isFinished = false;

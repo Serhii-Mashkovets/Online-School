@@ -97,8 +97,8 @@ public class Main {
         int emailInNaturalOrderChoise = sc.nextInt();
         if (emailInNaturalOrderChoise == 1) {
             logRep.infoLog("Початок роботи в блоці виведення емейлів студентів в окремий файл в натуральному порядку в мейні");
-            Stream<Students> studentStream = studentsList().stream();
-            Stream<String> emailStream = studentStream.map(Students::getEmail);
+            Stream<Student> studentStream = studentsList().stream();
+            Stream<String> emailStream = studentStream.map(Student::getEmail);
             Stream<String> sortedEmailStream = emailStream.sorted();
 
             try {
@@ -164,7 +164,7 @@ public class Main {
         int choiseTN = sc.nextInt();
         if (choiseTN == 1) {
             logRep.infoLog("Початок порівняння прізвищ викладачів в мейні");
-            teachersLastnameBeforeN((ArrayList<Teachers>) teachersList());
+            teachersLastnameBeforeN((ArrayList<Teacher>) teachersList());
         } else if (choiseTN == 2) {
             System.out.println("Порівняння проведено не буде");
             logRep.infoLog("Кінець роботи в блоці порівняння прізвищ в мейні");
@@ -222,7 +222,7 @@ public class Main {
                 Бажаєте створити новий курс?
                 Введіть 1, якщо так
                 Введіть 2, якщо ні""");
-        int crtOfCourse = 0;
+        int crtOfCourse = sc.nextInt();
 
         logRep.debugLog("Створення курсу в Мейні");
         try {
@@ -325,17 +325,17 @@ public class Main {
 
     public static void controlWork() {
 
-        Students[] students = new Students[10];
-        students[0] = new Students("Ernest", "Heminguey");
-        students[1] = new Students("Erih Maria", "Remark");
-        students[2] = new Students("Lesya", "Ukrainka");
-        students[3] = new Students("Willyam", "Shekspear");
-        students[4] = new Students("Charls", "Bukovski");
-        students[5] = new Students("Frederik", "Begbeder");
-        students[6] = new Students("Taras", "Shevchenko");
-        students[7] = new Students("Den", "Braun");
-        students[8] = new Students("Sun", "Dzi");
-        students[9] = new Students("Ivan", "Franko");
+        Student[] students = new Student[10];
+        students[0] = new Student("Ernest", "Heminguey");
+        students[1] = new Student("Erih Maria", "Remark");
+        students[2] = new Student("Lesya", "Ukrainka");
+        students[3] = new Student("Willyam", "Shekspear");
+        students[4] = new Student("Charls", "Bukovski");
+        students[5] = new Student("Frederik", "Begbeder");
+        students[6] = new Student("Taras", "Shevchenko");
+        students[7] = new Student("Den", "Braun");
+        students[8] = new Student("Sun", "Dzi");
+        students[9] = new Student("Ivan", "Franko");
 
         int[] tasks = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
@@ -379,15 +379,15 @@ public class Main {
             }
         }
         System.out.println("Результати:");
-        for (int i = 0; i < finishedThreads.length; i++) {
-            System.out.println(finishedThreads[i].fullName() + " закінчив за "
-                    + finishedThreads[i].getExecutionTime() + " секунд");
+        for (StudentThread finishedThread : finishedThreads) {
+            System.out.println(finishedThread.fullName() + " закінчив за "
+                    + finishedThread.getExecutionTime() + " секунд");
         }
 
 
-        for (int i = 0; i < threads.length; i++) {
-            if (!threads[i].isFinished()) {
-                System.out.println(threads[i].fullName() + " не встиг виконати завдання вчасно");
+        for (StudentThread thread : threads) {
+            if (!thread.isFinished()) {
+                System.out.println(thread.fullName() + " не встиг виконати завдання вчасно");
             }
 
 
@@ -406,19 +406,19 @@ public class Main {
         }
     }
 
-    public static @NotNull List<Teachers> teachersList() {
-        ArrayList<Teachers> teacherListExample = new ArrayList<>();
-        teacherListExample.add(new Teachers("Bob", "Dilan"));
-        teacherListExample.add(new Teachers("Naruto", "Uzumaki"));
-        teacherListExample.add(new Teachers("Stepan", "Giga"));
-        teacherListExample.add(new Teachers("Mikola", "Gogol"));
-        teacherListExample.add(new Teachers("John", "Doe"));
-        teacherListExample.add(new Teachers("Almera", "Nissan"));
+    public static @NotNull List<Teacher> teachersList() {
+        ArrayList<Teacher> teacherListExample = new ArrayList<>();
+        teacherListExample.add(new Teacher("Bob", "Dilan"));
+        teacherListExample.add(new Teacher("Naruto", "Uzumaki"));
+        teacherListExample.add(new Teacher("Stepan", "Giga"));
+        teacherListExample.add(new Teacher("Mikola", "Gogol"));
+        teacherListExample.add(new Teacher("John", "Doe"));
+        teacherListExample.add(new Teacher("Almera", "Nissan"));
         return teacherListExample;
     }
 
-    public static void teachersLastnameBeforeN(@NotNull ArrayList<Teachers> teachersList) {
-        teachersList.stream()
+    public static void teachersLastnameBeforeN(@NotNull ArrayList<Teacher> teacherList) {
+        teacherList.stream()
                 .filter(t -> t.getTeacherSecondName().charAt(0) < 'N')
                 .forEach(t -> System.out.println(t.getTeacherSecondName()));
     }
@@ -467,13 +467,13 @@ public class Main {
 
         ArrayList<Lecture> lectureArrayList = new ArrayList<>();
         lectureArrayList.add(new Lecture("Децентралізація обробки даних", "Як створити один мега - комп'ютер, зі ста Пентіум перших"
-                , new Teachers("Jhon", "Week"), addMatList(), homeWorkForLectures));
+                , new Teacher("Jhon", "Week"), addMatList(), homeWorkForLectures));
         lectureArrayList.add(new Lecture("Нові комп'ютерні технології в Занзібарі", "Вивчимо як створюють комп'ютер в Африці",
-                new Teachers("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
+                new Teacher("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
         lectureArrayList.add(new Lecture("Колекції в джава", "Нарешті дізнаємось , що ж це таке",
-                new Teachers("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
+                new Teacher("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
         lectureArrayList.add(new Lecture("Прогнозування, як функція", "Чи зможе наш ПК стати екстрасенсом?"
-                , new Teachers("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
+                , new Teacher("Tanjiro", "Hamada"), addMatList(), homeWorkForLectures));
 
         return lectureArrayList;
     }
@@ -490,21 +490,21 @@ public class Main {
         return personArrayList;
     }
 
-    public static @NotNull List<Students> studentsList() {
-        ArrayList<Students> studlist = new ArrayList<>();
-        studlist.add(new Students("Tom", "Cat", "catTom@gmail.com"));
-        studlist.add(new Students("Mike", "Tyson", "TYson@gmail.com"));
-        studlist.add(new Students("Satosi", "Kon", "KonGenialno@gmeil.com"));
-        studlist.add(new Students("Nobuhiko", "Tokado", "Nt@gmail.com"));
-        studlist.add(new Students("Leo", "Messi", "LeoMessi@gmail.com"));
-        studlist.add(new Students("Serhii", "Mashkovets", "SM@gmail.com"));
+    public static @NotNull List<Student> studentsList() {
+        ArrayList<Student> studlist = new ArrayList<>();
+        studlist.add(new Student("Tom", "Cat", "catTom@gmail.com"));
+        studlist.add(new Student("Mike", "Tyson", "TYson@gmail.com"));
+        studlist.add(new Student("Satosi", "Kon", "KonGenialno@gmeil.com"));
+        studlist.add(new Student("Nobuhiko", "Tokado", "Nt@gmail.com"));
+        studlist.add(new Student("Leo", "Messi", "LeoMessi@gmail.com"));
+        studlist.add(new Student("Serhii", "Mashkovets", "SM@gmail.com"));
         return studlist;
     }
 
     public static void studentFromDB() throws SQLException {
         StudentsRepository studentsRepository = new StudentsRepository();
         try {
-            studentsRepository.add(new Students("Bib", "Bob", "bib@gmail.com"));
+            studentsRepository.add(new Student("Bib", "Bob", "bib@gmail.com"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

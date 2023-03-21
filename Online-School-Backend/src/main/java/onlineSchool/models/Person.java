@@ -9,9 +9,7 @@ public class Person extends ParentingClassForModels implements Serializable {
     private String firstName;
     private String lastName;
     private static int courseId;
-    private int personID;
     private String lectureName;
-    private Role role;
     private String phone;
     private String email;
 
@@ -40,14 +38,6 @@ public class Person extends ParentingClassForModels implements Serializable {
 
     public static void setCourseId(int courseId) {
         Person.courseId = courseId;
-    }
-
-    public int getPersonID() {
-        return personID;
-    }
-
-    public Role getRole() {
-        return role;
     }
 
     public String getPhone() {

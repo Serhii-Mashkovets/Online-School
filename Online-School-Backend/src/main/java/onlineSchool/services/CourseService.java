@@ -14,12 +14,12 @@ public class CourseService {
 
     AddMaterialsRepository addMaterialsRepository = AddMaterialsRepository.getNewExample();
     HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
-    LectureRepository lectureRepository = LectureRepository.getNewExample();
-    StudentsRepository studentsRepository = StudentsRepository.getNewExample();
-    TeachersRepository teachersRepository = TeachersRepository.getNewExample();
+    public LectureRepository lectureRepository = LectureRepository.getNewExample();
+    public StudentsRepository studentsRepository = StudentsRepository.getNewExample();
+    public TeachersRepository teachersRepository = TeachersRepository.getNewExample();
 
     public Course createNewCourse(String courseName,
-                                  Optional<Lecture> lectureName, Optional<Teachers> teacherOne, Optional<Students> studentOne) {
+                                  Optional<Lecture> lectureName, Optional<Teacher> teacherOne, Optional<Student> studentOne) {
         return new Course(courseName, lectureName, teacherOne, studentOne);
     }
 
@@ -36,11 +36,11 @@ public class CourseService {
         logRep.debugLog("Лекція створена");
         lectureRepository.add(lecture);
         logRep.debugLog("Лекція додана");
-        Optional<Teachers> teacher = TeachersService.createNewTeacherByUsers();
+        Optional<Teacher> teacher = TeachersService.createNewTeacherByUsers();
         logRep.debugLog("Викладач створений");
         teachersRepository.add(teacher);
         logRep.debugLog("Викладач доданий");
-        Optional<Students> student = StudentsService.createNewStudentByUsers();
+        Optional<Student> student = StudentsService.createNewStudentByUsers();
         logRep.debugLog("Студент створений");
         studentsRepository.add(student);
         logRep.debugLog("Студент доданий");

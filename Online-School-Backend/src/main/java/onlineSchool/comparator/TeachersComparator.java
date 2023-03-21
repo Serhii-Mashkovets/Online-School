@@ -1,12 +1,12 @@
 package onlineSchool.comparator;
 
-import onlineSchool.models.Teachers;
+import onlineSchool.models.Teacher;
 
 import java.util.Comparator;
 
-public class TeachersComparator implements Comparator<Teachers> {
+public class TeachersComparator implements Comparator<Teacher> {
     @Override
-    public int compare(Teachers o1, Teachers o2) {
+    public int compare(Teacher o1, Teacher o2) {
         return o1.getTeacherSecondName().compareToIgnoreCase(o2.getTeacherSecondName());
     }
 }

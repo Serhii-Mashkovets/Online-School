@@ -1,6 +1,7 @@
-package onlineSchool.services;
+package java.onlineSchool.services;
 
-import onlineSchool.models.Students;
+import onlineSchool.models.Student;
+import onlineSchool.services.StudentsService;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StudentsServiceTest {
+class StudentServiceTest {
 
     @Test
     void testCreateNewStudentByUsers() {
@@ -17,7 +18,7 @@ class StudentsServiceTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        Optional<Students> student = StudentsService.createNewStudentByUsers();
+        Optional<Student> student = StudentsService.createNewStudentByUsers();
         assertTrue(student.isPresent());
         assertEquals("John", student.get().getStudentName());
         assertEquals("Doe", student.get().getStudentLastName());
@@ -30,7 +31,7 @@ class StudentsServiceTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        Optional<Students> student = StudentsService.createNewStudentByUsers();
+        Optional<Student> student = StudentsService.createNewStudentByUsers();
         assertFalse(student.isPresent());
     }
 }

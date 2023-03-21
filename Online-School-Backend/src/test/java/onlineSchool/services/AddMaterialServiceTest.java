@@ -1,8 +1,9 @@
-package onlineSchool.services;
+package java.onlineSchool.services;
 
 import onlineSchool.models.AddMaterials;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.ResourseType;
+import onlineSchool.services.AddMaterialService;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

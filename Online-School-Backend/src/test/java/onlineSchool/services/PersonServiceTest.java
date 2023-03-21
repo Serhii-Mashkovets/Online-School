@@ -1,8 +1,9 @@
-package onlineSchool.services;
+package java.onlineSchool.services;
 
 import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.models.Person;
 import onlineSchool.repository.PersonRepository;
+import onlineSchool.services.PersonService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

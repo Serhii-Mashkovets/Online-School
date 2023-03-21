@@ -4,6 +4,7 @@ import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Person;
 import onlineSchool.repository.PersonRepository;
+import org.jetbrains.annotations.NotNull;
 
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class PersonService {
     private int personId;
 
 
-    public static boolean isEmailDuplicate(String email) throws DuplicateEmailException {
+    public static void isEmailDuplicate(@NotNull String email) throws DuplicateEmailException {
         List<Person> persons = PersonRepository.getAllPersons();
 
         boolean isDuplicate = persons.stream()
@@ -31,7 +32,6 @@ public class PersonService {
             throw new DuplicateEmailException("Email вже існує: " + email);
         }
 
-        return false;
     }
 
 

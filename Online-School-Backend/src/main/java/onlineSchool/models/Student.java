@@ -2,9 +2,8 @@ package onlineSchool.models;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Optional;
 
-public class Students extends ParentingClassForModels implements Serializable {
+public class Student extends ParentingClassForModels implements Serializable {
     @Serial
     private static final long serialazibleNumID = Long.MAX_VALUE;
     private String studentLastName;
@@ -17,13 +16,13 @@ public class Students extends ParentingClassForModels implements Serializable {
 
     private int courseId;
 
-    public Students(String studentName, String studentLastName) {
+    public Student(String studentName, String studentLastName) {
         this.setStudentName(studentName);
         this.setStudentLastName(studentLastName);
     }
 
 
-    public Students(String studentName, String studentLastName, String Email) {
+    public Student(String studentName, String studentLastName, String Email) {
         this.setStudentName(studentName);
         this.setStudentLastName(studentLastName);
         this.setEmail(Email);
@@ -31,7 +30,7 @@ public class Students extends ParentingClassForModels implements Serializable {
 
     @Override
     public String toString() {
-        return "Students{" +
+        return "Student{" +
                 "studentLastName='" + studentLastName + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", Email='" + Email + '\'' +

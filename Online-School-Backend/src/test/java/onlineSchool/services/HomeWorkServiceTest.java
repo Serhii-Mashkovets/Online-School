@@ -1,6 +1,7 @@
-package onlineSchool.services;
+package java.onlineSchool.services;
 
 import onlineSchool.models.HomeWork;
+import onlineSchool.services.HomeWorkService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

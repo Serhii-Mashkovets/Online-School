@@ -1,7 +1,7 @@
 package onlineSchool.repository;
 
 import onlineSchool.exceptions.EntityNotFoundException;
-import onlineSchool.models.Students;
+import onlineSchool.models.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -31,8 +31,8 @@ public class StudentsRepository extends ParentingClassForRepositories {
         return newExample;
     }
 
-    public List<Optional<Students>> usingStudentsByCourseId(int courseId) throws EntityNotFoundException, SQLException {
-        List<Optional<Students>> studentsOfCourse = new ArrayList<>();
+    public List<Optional<Student>> usingStudentsByCourseId(int courseId) throws EntityNotFoundException, SQLException {
+        List<Optional<Student>> studentsOfCourse = new ArrayList<>();
         String sql = "SELECT * FROM students INNER JOIN student_courses ON students.student_id = student_courses.student_id WHERE student_courses.course_id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, courseId);
@@ -42,14 +42,14 @@ public class StudentsRepository extends ParentingClassForRepositories {
             String studentName = resultSet.getString("student_name");
             String studentSurname = resultSet.getString("student_surname");
             String studentEmail = resultSet.getString("student_email");
-            Students student = new Students(studentName, studentSurname, studentEmail);
+            Student student = new Student(studentName, studentSurname, studentEmail);
             studentsOfCourse.add(Optional.of(student));
         }
         if (studentsOfCourse.isEmpty()) throw new EntityNotFoundException("Не існує студента з таким айді");
         else return studentsOfCourse;
     }
 
-    public Optional<Students> usingStudentById(int studentId) throws SQLException {
+    public Optional<Student> usingStudentById(int studentId) throws SQLException {
         String sql = "SELECT * FROM students WHERE student_id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, studentId);
@@ -58,14 +58,14 @@ public class StudentsRepository extends ParentingClassForRepositories {
             String studentName = resultSet.getString("student_name");
             String studentSurname = resultSet.getString("student_surname");
             String studentEmail = resultSet.getString("student_email");
-            Students student = new Students(studentName, studentSurname, studentEmail);
+            Student student = new Student(studentName, studentSurname, studentEmail);
             return Optional.of(student);
         } else {
             return Optional.empty();
         }
     }
 
-    public void add(Students student) throws SQLException {
+    public void add(Student student) throws SQLException {
         String sql = "INSERT INTO students (student_name, student_surname, student_email) VALUES (?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, student.getStudentName());

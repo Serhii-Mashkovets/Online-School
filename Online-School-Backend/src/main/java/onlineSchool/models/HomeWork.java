@@ -10,23 +10,21 @@ public class HomeWork extends ParentingClassForModels implements Serializable {
     private static int counterNew = 0;
     private static Integer id;
     private int lectureId;
-    private String task;
 
 
     public String HomeWork(int numberOfHW) {
         return "The number of home work is: " + numberOfHW;
     }
 
-    public HomeWork() {
+    public void homeWork() {
         setCounterNew(getCounterNew() + 1);
     }
 
     @Override
     public String toString() {
-        return "HomeWork{" +
+        return "homeWork{" +
                 "numberOfHW=" + numberOfHW +
                 ", lectureId=" + lectureId +
-                ", task='" + task + '\'' +
                 '}';
     }
 
@@ -66,14 +64,6 @@ public class HomeWork extends ParentingClassForModels implements Serializable {
 
     public void setLectureId(int lecterId) {
         this.lectureId = lecterId;
-    }
-
-    public String getTask() {
-        return task;
-    }
-
-    public void setTask(String task) {
-        this.task = task;
     }
 
     public static long getSerialazibleNumID() {

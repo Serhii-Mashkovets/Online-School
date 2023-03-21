@@ -39,7 +39,7 @@ public class HomeWorkRepository extends ParentingClassForRepositories {
     public List<HomeWork> usingHomeWorkWithCourseId(int courseId) throws EntityNotFoundException {
         List<HomeWork> homeworksOfCourse = new ArrayList<>();
         for (Optional<Lecture> lecture : LectureRepository.getNewExample().usingCourseId(courseId)) {
-            if (lecture == null) continue;
+            if (lecture.isEmpty()) continue;
             try {
                 List<HomeWork> homeworksOfThisLecture = usingHomeWorkWithLectureId(Lecture.getId());
                 homeworksOfCourse.addAll(homeworksOfThisLecture);

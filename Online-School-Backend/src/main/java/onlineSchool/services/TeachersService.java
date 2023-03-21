@@ -2,7 +2,7 @@ package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
-import onlineSchool.models.Teachers;
+import onlineSchool.models.Teacher;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ public class TeachersService {
     private static LoggingRepository logRep = new LoggingRepository(TeachersService.class.getName());
     private Integer id;
 
-    public Teachers createNewTeacher(String teacherName, String teacherSecondName) {
+    public Teacher createNewTeacher(String teacherName, String teacherSecondName) {
         if (teacherName == null || teacherName.equals("") || teacherName.equals("empty")) {
             try {
                 throw new ValidationExceptions("Name can not be empty");
@@ -28,10 +28,10 @@ public class TeachersService {
                 System.err.println(String.valueOf(e));
             }
         }
-        return new Teachers(teacherName, teacherSecondName);
+        return new Teacher(teacherName, teacherSecondName);
     }
 
-    public static Optional<Teachers> createNewTeacherByUsers() {
+    public static Optional<Teacher> createNewTeacherByUsers() {
         logRep.debugLog("Створення студента");
         try {
             Scanner sc2 = new Scanner(System.in);
@@ -44,7 +44,7 @@ public class TeachersService {
                 System.out.println("Прізвище: ");
                 String teacherSecondName = sc2.next();
                 sc2.close();
-                return Optional.ofNullable(new Teachers(teacherName, teacherSecondName));
+                return Optional.of(new Teacher(teacherName, teacherSecondName));
             }
         } catch (Exception e) {
             logRep.warningLog("Помилка: ", e);

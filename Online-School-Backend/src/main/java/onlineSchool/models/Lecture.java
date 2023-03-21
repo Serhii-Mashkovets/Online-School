@@ -26,7 +26,7 @@ public class Lecture extends ParentingClassForModels implements Serializable {
 
     private Person person;
 
-    private Teachers teacherOfLecture;
+    private Teacher teacherOfLecture;
 
     public Lecture(String lectureTopic, String description,
                    Person person, List<AddMaterials> addMaterials,
@@ -41,7 +41,7 @@ public class Lecture extends ParentingClassForModels implements Serializable {
 
 
     public Lecture(String lectureTopic, String description,
-                   Teachers teacherOfLecture, List<AddMaterials> addMaterials,
+                   Teacher teacherOfLecture, List<AddMaterials> addMaterials,
                    List<HomeWork> homeWorks) {
         this.lectureName = lectureTopic;
         this.description = description;
@@ -200,11 +200,11 @@ public class Lecture extends ParentingClassForModels implements Serializable {
         return dateTimeLecture;
     }
 
-    public Teachers getTeacherOfLecture() {
+    public Teacher getTeacherOfLecture() {
         return teacherOfLecture;
     }
 
-    public void setTeacherOfLecture(Teachers teacherOfLecture) {
+    public void setTeacherOfLecture(Teacher teacherOfLecture) {
         this.teacherOfLecture = teacherOfLecture;
     }
 }
