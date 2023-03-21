@@ -1,18 +1,27 @@
 package onlineSchool.repository;
 
-import onlineSchool.models.Students;
 import onlineSchool.exceptions.EntityNotFoundException;
+import onlineSchool.models.Students;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class StudentsRepository extends ParentingClassForRepositories {
     private static StudentsRepository newExample;
-    private static List<Optional<Students>> studentsArray;
+    private static Connection connection;
+
+    static {
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/onlineschool", "Serhii Mashkovets",
+                    "Mashkovets");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public StudentsRepository() {
-        studentsArray = new ArrayList<Optional<Students>>();
     }
 
     public static StudentsRepository getNewExample() {
@@ -22,52 +31,58 @@ public class StudentsRepository extends ParentingClassForRepositories {
         return newExample;
     }
 
-
-    public List<Optional<Students>> usingStudentsByCourseId(int courseId) throws EntityNotFoundException {
+    public List<Optional<Students>> usingStudentsByCourseId(int courseId) throws EntityNotFoundException, SQLException {
         List<Optional<Students>> studentsOfCourse = new ArrayList<>();
-        for (Optional<Students> student : studentsArray) {
-            if (student == null) continue;
-            Optional<Students> optionalStudent = student.map(s -> s.getCourseId().equals(courseId) ? s : null);
-            if (optionalStudent.isPresent()) studentsOfCourse.add(optionalStudent);
+        String sql = "SELECT * FROM students INNER JOIN student_courses ON students.student_id = student_courses.student_id WHERE student_courses.course_id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, courseId);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            int studentId = resultSet.getInt("student_id");
+            String studentName = resultSet.getString("student_name");
+            String studentSurname = resultSet.getString("student_surname");
+            String studentEmail = resultSet.getString("student_email");
+            Students student = new Students(studentName, studentSurname, studentEmail);
+            studentsOfCourse.add(Optional.of(student));
         }
         if (studentsOfCourse.isEmpty()) throw new EntityNotFoundException("Не існує студента з таким айді");
         else return studentsOfCourse;
     }
 
+    public Optional<Students> usingStudentById(int studentId) throws SQLException {
+        String sql = "SELECT * FROM students WHERE student_id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, studentId);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            String studentName = resultSet.getString("student_name");
+            String studentSurname = resultSet.getString("student_surname");
+            String studentEmail = resultSet.getString("student_email");
+            Students student = new Students(studentName, studentSurname, studentEmail);
+            return Optional.of(student);
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public void add(Students student) throws SQLException {
+        String sql = "INSERT INTO students (student_name, student_surname, student_email) VALUES (?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, student.getStudentName());
+        statement.setString(2, student.getStudentLastName());
+        statement.setString(3, student.getEmail());
+        statement.executeUpdate();
+    }
+
+    public void removeById(int studentId) throws SQLException {
+        String sql = "DELETE FROM students WHERE student_id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, studentId);
+        statement.executeUpdate();
+    }
 
     @Override
     public long size() {
-        return studentsArray.size();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return studentsArray.isEmpty();
-    }
-
-    @Override
-    public Optional<Optional<Students>> get(int index) {
-        return Optional.ofNullable(studentsArray.get(index));
-    }
-
-    public void add(Optional<Students> element) {
-        studentsArray.add(element);
-    }
-
-    public void add(int index, Students element) {
-        studentsArray.add(index, Optional.ofNullable((Students) element));
-    }
-
-    @Override
-    public void remove(int index) {
-        studentsArray.remove(index);
-    }
-
-    public static List<Optional<Students>> getStudentsArray() {
-        return studentsArray;
-    }
-
-    public static void setStudentsArray(List<Optional<Students>> studentsArray) {
-        StudentsRepository.studentsArray = studentsArray;
+        return 0;
     }
 }

@@ -1,7 +1,6 @@
 package onlineSchool;
 
 import onlineSchool.controlWork.StudentThread;
-import onlineSchool.databases.SchemaConnection;
 import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.ipChecker.Client;
 import onlineSchool.ipChecker.Server;
@@ -11,6 +10,7 @@ import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.loggingJournal.LoggingService;
 import onlineSchool.models.*;
 import onlineSchool.repository.CourseRepository;
+import onlineSchool.repository.StudentsRepository;
 import onlineSchool.serialization.SerializationForCourse;
 import onlineSchool.services.*;
 import onlineSchool.services.PersonService;
@@ -21,6 +21,7 @@ import java.io.IOException;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -35,8 +36,6 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-
-
         System.out.println("""
                 Бажаєте згрупувати лекції за викладачем?
                 Введіть 1, якщо так
@@ -48,6 +47,21 @@ public class Main {
         } else if (techerLectureChoise == 2) {
             System.out.println("Переходимо до наступного етапу");
             logRep.infoLog("Кінець роботи в блоці сортування лекцій за викладачем в мейні");
+        }
+
+        System.out.println("""
+                Бажаєте створити студента?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int crtOfStudDB = sc.nextInt();
+        if (crtOfStudDB == 1) {
+            try {
+                studentFromDB();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else if (crtOfStudDB == 2) {
+            System.out.println("Переходимо до наступного етапу");
         }
 
         System.out.println("""
@@ -485,5 +499,14 @@ public class Main {
         studlist.add(new Students("Leo", "Messi", "LeoMessi@gmail.com"));
         studlist.add(new Students("Serhii", "Mashkovets", "SM@gmail.com"));
         return studlist;
+    }
+
+    public static void studentFromDB() throws SQLException {
+        StudentsRepository studentsRepository = new StudentsRepository();
+        try {
+            studentsRepository.add(new Students("Bib", "Bob", "bib@gmail.com"));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

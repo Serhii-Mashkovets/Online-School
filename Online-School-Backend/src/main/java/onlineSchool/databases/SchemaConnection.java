@@ -40,7 +40,7 @@ public class SchemaConnection {
                         String name = result.getString("student_name");
                         String surname = result.getString("student_surname");
                         String email = result.getString("student_email");
-                        System.out.println("id: " + id + ", name: " + name + "surname: " + surname + "email: " + email);
+                        System.out.println("id: " + id + ", name: " + name + ", surname: " + surname + ", email: " + email);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();

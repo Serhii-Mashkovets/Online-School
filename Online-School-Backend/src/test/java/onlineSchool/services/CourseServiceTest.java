@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.mockito.Mockito;
 
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -31,7 +32,7 @@ class CourseServiceTest {
         }
 
         @Test
-        public void testCreateNewCourseByUsers() {
+        public void testCreateNewCourseByUsers() throws SQLException {
             // given
             LectureService lectureServiceMock = Mockito.mock(LectureService.class);
             Mockito.when(lectureServiceMock.createNewLectureByUsers()).thenReturn(Optional.of(new Lecture("1", "Test lecture")));

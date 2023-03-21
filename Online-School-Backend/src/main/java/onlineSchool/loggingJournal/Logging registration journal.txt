@@ -13,3 +13,122 @@ Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03
 Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
 Вихід із LevelWatcher через перерване виключення: ', date=2023-03-20T22:28:17.039585300, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
 Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-20T22:28:17.069566800, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T12:48:50.448523100, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T12:48:50.487501500, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T12:48:50.503492600, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T12:48:50.520503, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T12:48:59.930357400, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в блоці сортування додаткових матеріаліз за лекціями в мейні', date=2023-03-21T12:49:07.346464600, level=INFO}
+Log{name='onlineSchool.services.AddMaterialService', message='Початок роботи в блоці створення Map, де key = email, a values = Ім'я та прізвище персони в мейні', date=2023-03-21T12:49:12.389888500, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Кінець роботи в блоці виведення емейлів студентів в окремий файл в натуральному порядку в мейні', date=2023-03-21T12:49:18.245198800, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Початок створення персони в мейні', date=2023-03-21T12:49:23.025709200, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Створення персони в персон PersonService', date=2023-03-21T12:49:23.025709200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T12:49:55.777281600, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T12:49:55.817259, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T12:49:55.826253800, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T12:49:55.867230300, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T12:50:00.265545300, level=INFO}
+Log{name='onlineSchool.services.LectureService', message='Початок роботи в блоці сортування додаткових матеріаліз за лекціями в мейні', date=2023-03-21T12:50:14.737643600, level=INFO}
+Log{name='onlineSchool.services.AddMaterialService', message='Початок роботи в блоці створення Map, де key = email, a values = Ім'я та прізвище персони в мейні', date=2023-03-21T12:50:31.862825100, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Кінець роботи в блоці виведення емейлів студентів в окремий файл в натуральному порядку в мейні', date=2023-03-21T12:50:39.283977500, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Кінець роботи в блоці створення персони в мейні', date=2023-03-21T12:50:41.872355700, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Початок роботи в блоці виведення лекції на екран , котра створена раніше всіх та з найбільшою кількістю додаткових матеріалів в мейні', date=2023-03-21T12:50:46.543707, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Початок роботи в блоці виведення логів з рівнем інфо з середини файлу в мейні', date=2023-03-21T12:50:56.239537800, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Початок порівняння прізвищ викладачів в мейні', date=2023-03-21T12:51:04.468972200, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Початок роботи перед контрольною роботою та створенням курсу', date=2023-03-21T12:51:04.479946900, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-03-21T12:51:12.663954600, level=INFO}
+Log{name='onlineSchool.services.StudentsService', message='Кінець роботи в блоці сервер в мейні', date=2023-03-21T12:51:16.530304, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Створення курсу в Мейні', date=2023-03-21T12:51:16.531287300, level=DEBUG}
+Log{name='onlineSchool.services.StudentsService', message='Програма закінчила роботу!', date=2023-03-21T12:51:16.531287300, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T12:54:33.054013800, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T12:54:33.107983600, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T12:54:33.118977700, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T12:54:33.167949100, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T12:57:25.108258500, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T12:57:25.144237200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T12:57:25.150233300, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T12:57:25.175220700, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T12:57:29.022005800, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T13:35:22.706072, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T13:35:22.747050800, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T13:35:22.755044800, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T13:35:22.775033700, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T13:35:26.288861700, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T13:38:50.678811100, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T13:38:50.711792, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T13:38:50.716789100, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T13:38:50.746772500, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T13:38:53.954133600, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування додаткових матеріаліз за лекціями в мейні', date=2023-03-21T13:39:05.464176700, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T13:41:40.122610100, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T13:41:40.162587600, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T13:41:40.169583400, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T13:41:40.197567300, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T13:41:44.738468500, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування додаткових матеріаліз за лекціями в мейні', date=2023-03-21T13:41:49.716651500, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці створення Map, де key = email, a values = Ім'я та прізвище персони в мейні', date=2023-03-21T13:41:51.460188400, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці виведення емейлів студентів в окремий файл в натуральному порядку в мейні', date=2023-03-21T13:41:52.389883400, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці створення персони в мейні', date=2023-03-21T13:41:53.232290600, level=INFO}
+Log{name='onlineSchool.Main', message='Закінчення роботи в блоці виведення лекції на екран , котра створена раніше всіх та з найбільшою кількістю додаткових матеріалів в мейні', date=2023-03-21T13:41:53.975882900, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці виведення логів з рівнем інфо з середини файлу в мейні', date=2023-03-21T13:41:54.707731100, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці порівняння прізвищ в мейні', date=2023-03-21T13:41:55.441962200, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи перед контрольною роботою та створенням курсу', date=2023-03-21T13:41:55.458951100, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці Контрольна робота в мейні', date=2023-03-21T13:41:57.650577800, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сервер в мейні', date=2023-03-21T13:41:58.543074200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Створення курсу в Мейні', date=2023-03-21T13:41:58.544077300, level=DEBUG}
+Log{name='onlineSchool.Main', message='Програма закінчила роботу!', date=2023-03-21T13:41:58.545074100, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T13:56:10.696809900, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T13:56:10.743783500, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T13:56:10.748781200, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T13:56:10.774765600, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T13:56:16.886239800, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T13:57:51.290727800, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T13:57:51.327704100, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T13:57:51.334699900, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T13:57:51.362684600, level=DEBUG}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T13:57:54.037959, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T13:57:54.076937100, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T13:57:54.082935400, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T13:57:54.104927700, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T13:57:58.704859600, level=INFO}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування додаткових матеріаліз за лекціями в мейні', date=2023-03-21T13:58:16.641066200, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T13:58:41.213873500, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T13:58:41.253850200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T13:58:41.268842100, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T13:58:41.299823100, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T13:58:46.069493700, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T14:00:58.573487600, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T14:00:58.609466800, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T14:00:58.617462400, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T14:00:58.648444200, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T14:01:04.196480400, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T14:01:49.471588700, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T14:01:49.508568900, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T14:01:49.513566400, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T14:01:49.573530800, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T14:01:52.315564800, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T14:02:26.473035400, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T14:02:26.508015500, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T14:02:26.514012100, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T14:02:26.537999600, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T14:02:28.794388900, level=INFO}
+Log{name='onlineSchool.Main', message='Початок роботи в мейні', date=2023-03-21T14:04:51.417776, level=INFO}
+Log{name='onlineSchool.Main', message='Запуск LevelWatcher.', date=2023-03-21T14:04:51.454757300, level=DEBUG}
+Log{name='onlineSchool.Main', message='Можливе некоректне завершення методу. 
+Вихід із LevelWatcher через перерване виключення: ', date=2023-03-21T14:04:51.460751200, stacktrace='[java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), java.base/sun.nio.fs.WindowsException.asIOException(WindowsException.java:112), java.base/sun.nio.fs.WindowsWatchService$Poller.implRegister(WindowsWatchService.java:366), java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:266), java.base/sun.nio.fs.WindowsWatchService$Poller.run(WindowsWatchService.java:596), java.base/java.lang.Thread.run(Thread.java:833)]', level=WARNING}
+Log{name='onlineSchool.Main', message='Вихід із LevelWatcher.', date=2023-03-21T14:04:51.485737, level=DEBUG}
+Log{name='onlineSchool.Main', message='Кінець роботи в блоці сортування лекцій за викладачем в мейні', date=2023-03-21T14:04:58.443819100, level=INFO}

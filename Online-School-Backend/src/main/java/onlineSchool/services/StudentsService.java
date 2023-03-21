@@ -44,9 +44,9 @@ public class StudentsService {
             System.out.println("Прізвище: ");
             String studentLastName = sc2.next();
             sc2.close();
-            return Optional.ofNullable(new Students(studentName, studentLastName));
+            return Optional.of(new Students(studentName, studentLastName));
         }
-        return null;
+        return Optional.empty();
     }
 
     public int getId() {

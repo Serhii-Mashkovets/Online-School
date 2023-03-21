@@ -15,7 +15,7 @@ public class Students extends ParentingClassForModels implements Serializable {
 
     private String Email;
 
-    private Optional<Integer> courseId;
+    private int courseId;
 
     public Students(String studentName, String studentLastName) {
         this.setStudentName(studentName);
@@ -74,12 +74,12 @@ public class Students extends ParentingClassForModels implements Serializable {
         return serialazibleNumID;
     }
 
-    public Optional<Integer> getCourseId() {
+    public int getCourseId() {
         return courseId;
     }
 
     public void setCourseId(int courseId) {
-        this.courseId = Optional.of(courseId);
+        this.courseId = courseId;
     }
 
     public String getEmail() {
