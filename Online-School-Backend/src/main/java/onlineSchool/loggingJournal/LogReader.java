@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class LogReader {
 
-    private static final String FILELOG = "src/main/java/onlineSchool/loggingJournal/Logging registration journal.txt";
+    private static final String FILELOG = "C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\Logging registration journal.txt";
 
     public void readDataFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILELOG))) {

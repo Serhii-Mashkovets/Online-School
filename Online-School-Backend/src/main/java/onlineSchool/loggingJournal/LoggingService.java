@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class LoggingService {
 
-    public static String FILELOG = "src/main/java/onlineSchool/loggingJournal/Logging registration journal.txt";
+    public static String FILELOG = "C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\Logging registration journal.txt";
 
 
     protected static void logToWrite(@NotNull Log log) {
@@ -26,7 +26,7 @@ public class LoggingService {
 
     public static void writeLevelConfig(@NotNull LevelOfLogging level) {
         String string = level.name();
-        File file = new File("src/main/java/onlineSchool/loggingJournal/config.txt");
+        File file = new File("C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\config.txt");
         try (FileWriter writer = new FileWriter(file)) {
             writer.write("Рівень = " + string);
         } catch (IOException e) {
@@ -35,7 +35,7 @@ public class LoggingService {
     }
 
     public static LevelOfLogging readLevelConfig() {
-        Path path = Path.of("src/onlineSchool/loggingJournal/config.txt");
+        Path path = Path.of("C:\\Users\\finep\\IdeaProjects\\onlineSchool\\Online-School-Backend\\src\\main\\java\\onlineSchool\\loggingJournal\\config.txt");
         LevelOfLogging level = LevelOfLogging.DEBUG;
         try (BufferedReader br = Files.newBufferedReader(path)) {
             String lvl = br.readLine();

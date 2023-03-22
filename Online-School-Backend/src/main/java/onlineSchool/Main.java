@@ -1,6 +1,7 @@
 package onlineSchool;
 
 import onlineSchool.controlWork.StudentThread;
+import onlineSchool.databases.AllInfoFromATableInDB;
 import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.ipChecker.Client;
 import onlineSchool.ipChecker.Server;
@@ -62,6 +63,25 @@ public class Main {
             }
         } else if (crtOfStudDB == 2) {
             System.out.println("Переходимо до наступного етапу");
+        }
+
+
+        System.out.println("""
+                Бажаєте вивести всі дані з певної таблички бази даних ?
+                Введіть 1, якщо так
+                Введіть 2, якщо ні""");
+        int dbChoise = sc.nextInt();
+        if (dbChoise == 1) {
+            System.out.println("Введіть назву таблички: ");
+            String nameOfTable = sc.next();
+            AllInfoFromATableInDB allInfoFromATableInDB = new AllInfoFromATableInDB();
+            try {
+                System.out.println(allInfoFromATableInDB.getTableData(nameOfTable));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else if (dbChoise == 2) {
+            System.out.println("Переходимо до наступного етапу.");
         }
 
         System.out.println("""
@@ -504,7 +524,10 @@ public class Main {
     public static void studentFromDB() throws SQLException {
         StudentsRepository studentsRepository = new StudentsRepository();
         try {
-            studentsRepository.add(new Student("Bib", "Bob", "bib@gmail.com"));
+            studentsRepository.add(new Student("Boby12345", "Doe12345", "boyboby12345@gmail.com"));
+            System.out.println(studentsRepository.usingStudentById(1));
+            System.out.println("Загальна кількість студентів = " + studentsRepository.sizeCount());
+            System.out.println("Виведемо всіх студентів на екран: " + studentsRepository.getAllStudents());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

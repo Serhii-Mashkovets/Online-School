@@ -10,7 +10,7 @@ public class Student extends ParentingClassForModels implements Serializable {
     private String studentName;
     private int studentAge;
 
-    private Integer id;
+    private int studentId;
 
     private String Email;
 
@@ -87,6 +87,14 @@ public class Student extends ParentingClassForModels implements Serializable {
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 }
 

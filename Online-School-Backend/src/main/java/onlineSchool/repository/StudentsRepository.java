@@ -81,8 +81,33 @@ public class StudentsRepository extends ParentingClassForRepositories {
         statement.executeUpdate();
     }
 
-    @Override
-    public long size() {
-        return 0;
+    public int sizeCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS count FROM students";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            return resultSet.getInt("count");
+        } else {
+            return 0;
+        }
     }
+
+    public List<Student> getAllStudents() throws SQLException {
+        List<Student> students = new ArrayList<>();
+        String sql = "SELECT * FROM students";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            int studentId = resultSet.getInt("student_id");
+            String studentName = resultSet.getString("student_name");
+            String studentSurname = resultSet.getString("student_surname");
+            String studentEmail = resultSet.getString("student_email");
+            Student student = new Student(studentName, studentSurname, studentEmail);
+            student.setStudentId(studentId);
+            students.add(student);
+        }
+        return students;
+    }
+
+
 }
