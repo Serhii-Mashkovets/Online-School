@@ -8,12 +8,23 @@
     <artifactId>onlineSchool</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
 
 
     <modules>
-        <module>Online-School-API</module>
         <module>Online-School-Backend</module>
         <module>Online-School-Frontend</module>
+        <module>web-api</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -28,14 +39,14 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.1</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>3.11.2</version>
+            <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -45,6 +56,12 @@
             <version>8.0.32</version>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 
