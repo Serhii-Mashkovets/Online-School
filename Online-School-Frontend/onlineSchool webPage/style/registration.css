@@ -1,0 +1,65 @@
+section {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-bottom: 3px solid rgb(240, 236, 236);
+}
+
+.btn {
+    margin-bottom: 25px;
+}
+
+.btn {
+    animation: myAnim 7s ease 0s infinite normal forwards;
+  }
+  
+  @keyframes myAnim {
+    0% {
+      transform: translate(0);
+    }
+  
+    10% {
+      transform: translate(-2px, -2px);
+    }
+  
+    20% {
+      transform: translate(2px, -2px);
+    }
+  
+    30% {
+      transform: translate(-2px, 2px);
+    }
+  
+    40% {
+      transform: translate(2px, 2px);
+    }
+  
+    50% {
+      transform: translate(-2px, -2px);
+    }
+  
+    60% {
+      transform: translate(2px, -2px);
+    }
+  
+    70% {
+      transform: translate(-2px, 2px);
+    }
+  
+    80% {
+      transform: translate(-2px, -2px);
+    }
+  
+    90% {
+      transform: translate(2px, -2px);
+    }
+  
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }

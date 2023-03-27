@@ -1,0 +1,48 @@
+#video-bg {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    z-index: -1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .Video {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: -50;
+    left: 0;
+  }
+
+  .card {
+    margin: 70px;
+    box-shadow: 5px 5px 10px 1px #000;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(70, 70, 70);
+  }
+
+  footer {
+    border-top: 3px solid rgb(240, 236, 236);
+    background-color: rgb(244, 244, 244);
+    color: rgb(106, 106, 106);
+  }
+
+  header {
+    border-bottom: 3px solid rgb(240, 236, 236);
+  }
+
+  .socialMediaLogo {
+    max-width: 50px;
+    max-height: 2em;
+    margin: 10px;
+    object-fit: contain;
+  }
+
+
