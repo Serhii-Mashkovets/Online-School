@@ -10,7 +10,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="style/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="style/history.css">
+    <link rel="stylesheet" type="text/css" href="style/teachers.css">
 
     <title>Online School History</title>
 
@@ -50,12 +50,11 @@
                                 Дивитись сутності
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="add%20materials.html">Додоткові матеріали</a></li>
-                                <li><a class="dropdown-item" href="homeworks.html">Домашня робота</a></li>
+                                <li><a class="dropdown-item" href="add materials.html">Додоткові матеріали</a></li>
+                                <li><a class="dropdown-item" href="homeworks.html">Домашні роботи</a></li>
                                 <li><a class="dropdown-item" href="courses.html">Курси</a></li>
                                 <li><a class="dropdown-item" href="lectures.html">Лекції</a></li>
                                 <li><a class="dropdown-item" href="students.html">Студенти</a></li>
-                                <li><a class="dropdown-item" href="teachers.html">Викладачі</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -80,78 +79,30 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Ім'я студента</th>
-                                <th scope="col">Прізвище студента</th>
-                                <th scope="col">Номер курсу</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Sponge</td>
-                                    <td>Bob</td>
-                                    <td>2</td>
-                                   
-                                </tr>
-                            </table>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td> Bibbop</td>
-                                    <td>Cowboy</td>
-                                    <td>1</td>
-                                 
-                                </tr>
-                            </table>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Bob</td>
-                                    <td>Dilan</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Bob</td>
-                                    <td>Dob</td>
-                                    <td>2</td>
-                                </tr>
-                            </table>
-
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Bobby</td>
-                                    <td>Fisher</td>
-                                    <td>2</td>
-                                </tr>
-                            </table>
-
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Bob</td>
-                                    <td>Marley</td>
-                                    <td>3</td>
-                                </tr>
-                            </table>
-                        </tbody>
-
-                    </table>
-
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Введіть ім'я викладача</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Використовуйте Українську або англійську мови.</div>
+                        </div>
+                        <label for="exampleInputEmail1" class="form-label">Введіть прізвище викладача</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Використовуйте Українську або англійську мови.</div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Введіть номер курсу</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Позначте, який курс буде викладати даний вчитель.</div>
+                        </div>
                 </div>
-                <div class="col-lg-1"></div>
+                <button type="submit" class="btn btn-light btn-lg">Підтвердити</button>
+                </form>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
 
-
+        </div>
 
 
     </section>
