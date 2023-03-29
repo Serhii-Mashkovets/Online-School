@@ -10,9 +10,9 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="style/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="style/history.css">
+    <link rel="stylesheet" type="text/css" href="style/registration.css">
 
-    <title>Online School History</title>
+    <title>Online School Registration</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="resource/IconLogo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="resource/IconLogo/favicon-32x32.png">
@@ -42,7 +42,7 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Головна сторінка</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="registration.html">Зареєструватись</a>
+                            <a class="nav-link" href="history.html">Історія перегляду</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -50,7 +50,7 @@
                                 Дивитись сутності
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="add materials.html">Додоткові матеріали</a></li>
+                                <li><a class="dropdown-item" href="add%20materials.html">Додоткові матеріали</a></li>
                                 <li><a class="dropdown-item" href="homeworks.html">Домашня робота</a></li>
                                 <li><a class="dropdown-item" href="courses.html">Курси</a></li>
                                 <li><a class="dropdown-item" href="lectures.html">Лекції</a></li>
@@ -73,80 +73,34 @@
     </div>
 
     <section>
-
         <div class="container-fluid">
             <div class="row">
 
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Назва лекції</th>
-                                <th scope="col">Кількість додаткових матеріалів</th>
-                                <th scope="col">Дата</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <table class="table table-striped">
-                                <tr>
-
-                                    <th scope="row">1</th>
-                                    <td> Mob App Lecture 1</td>
-                                    <td>2</td>
-                                    <td>2001-01-01</td>
-
-                                   
-                                   
-                                </tr>
-                            </table>
-                            <table class="table table-striped">
-                                <tr>
-                                   
-                                    <th scope="row">2</th>
-                                    <td>SQL Lecture 2</td>
-                                    <td>2</td>
-                                    <td>2016-08-19</td>
-                                </tr>
-                            </table>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>SQL Lecture 1</td>
-                                    <td>1</td>
-                                    <td>2019-07-01</td>
-                                </tr>
-                            </table>
-                        
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Java Lecture 1</td>
-                                    <td>1</td>
-                                    <td>2020-10-10</td>
-                                </tr>
-                            </table>
-
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Java Lecture 2</td>
-                                    <td>3</td>
-                                    <td>2021-11-28</td>
-                                </tr>
-                            </table>
-
-                        </tbody>
-
-                    </table>
-
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email адреса</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Ми нікому не повідомляємо ваш email.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Запам'ятати мене</label>
+                        </div>
+                        <button type="submit" class="btn btn-light btn-lg">Підтвердити</button>
+                    </form>
                 </div>
                 <div class="col-lg-1"></div>
+            </div>
 
-
+        </div>
 
 
     </section>

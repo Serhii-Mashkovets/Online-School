@@ -10,9 +10,9 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="style/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="style/registration.css">
+    <link rel="stylesheet" type="text/css" href="style/lectures.css">
 
-    <title>Online School Registration</title>
+    <title>Online School History</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="resource/IconLogo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="resource/IconLogo/favicon-32x32.png">
@@ -42,7 +42,7 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Головна сторінка</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="history.html">Історія перегляду</a>
+                            <a class="nav-link" href="registration.html">Зареєструватись</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -50,10 +50,9 @@
                                 Дивитись сутності
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="add materials.html">Додоткові матеріали</a></li>
-                                <li><a class="dropdown-item" href="homeworks.html">Домашня робота</a></li>
+                                <li><a class="dropdown-item" href="add%20materials.html">Додоткові матеріали</a></li>
+                                <li><a class="dropdown-item" href="homeworks.html">Домашні роботи</a></li>
                                 <li><a class="dropdown-item" href="courses.html">Курси</a></li>
-                                <li><a class="dropdown-item" href="lectures.html">Лекції</a></li>
                                 <li><a class="dropdown-item" href="students.html">Студенти</a></li>
                                 <li><a class="dropdown-item" href="teachers.html">Викладачі</a></li>
                             </ul>
@@ -73,6 +72,7 @@
     </div>
 
     <section>
+
         <div class="container-fluid">
             <div class="row">
 
@@ -81,24 +81,32 @@
 
                     <form>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email адреса</label>
+                            <label for="exampleInputEmail1" class="form-label">Тема лекції</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">Ми нікому не повідомляємо ваш email.</div>
+                            <div id="emailHelp" class="form-text">Використовуйте Українську або англійську мови.</div>
+                        </div>
+                        <label for="exampleInputEmail1" class="form-label">Опис лекції</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Додайте пояснення для кращого розуміння.</div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Введіть курс</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Введіть номер курсу, до якого відноситься лекція.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <label for="exampleInputEmail1" class="form-label">Введіть дату лекції</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Використовуйте наступний паттерн вводу: "рік-місяць-день".</div>
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Запам'ятати мене</label>
-                        </div>
-                        <button type="submit" class="btn btn-light btn-lg">Підтвердити</button>
-                    </form>
                 </div>
-                <div class="col-lg-1"></div>
+                <button type="submit" class="btn btn-light btn-lg">Підтвердити</button>
+                </form>
             </div>
+            <div class="col-lg-1"></div>
+        </div>
 
         </div>
 

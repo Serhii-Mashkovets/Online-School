@@ -10,9 +10,9 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="style/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="style/history.css">
+    <link rel="stylesheet" type="text/css" href="style/students.css">
 
-    <title>Online School History</title>
+    <title>Online School </title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="resource/IconLogo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="resource/IconLogo/favicon-32x32.png">
@@ -50,11 +50,10 @@
                                 Дивитись сутності
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="add materials.html">Додоткові матеріали</a></li>
-                                <li><a class="dropdown-item" href="homeworks.html">Домашня робота</a></li>
+                                <li><a class="dropdown-item" href="add%20materials.html">Додоткові матеріали</a></li>
+                                <li><a class="dropdown-item" href="homeworks.html">Домашні роботи</a></li>
                                 <li><a class="dropdown-item" href="courses.html">Курси</a></li>
                                 <li><a class="dropdown-item" href="lectures.html">Лекції</a></li>
-                                <li><a class="dropdown-item" href="students.html">Студенти</a></li>
                                 <li><a class="dropdown-item" href="teachers.html">Викладачі</a></li>
                             </ul>
                         </li>
@@ -80,35 +79,30 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Назва лекії </th>
-                                <th scope="col">Кількість додаткових матеріалів </th>
-                                <th scope="col">Дата створення </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Дуже правдоподібна назва лекції </td>
-                                    <td>4</td>
-                                    <td>1970-01-01</td>
-                                   
-                                </tr>
-                            </table>
-                           
-                        </tbody>
-
-                    </table>
-
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Введіть ім'я студента</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Використовуйте Українську або англійську мови.</div>
+                        </div>
+                        <label for="exampleInputEmail1" class="form-label">Введіть прізвище студента</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Використовуйте Українську або англійську мови.</div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Введіть email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Використовуйте тільки англійську мову.</div>
+                        </div>
                 </div>
-                <div class="col-lg-1"></div>
+                <button type="submit" class="btn btn-light btn-lg">Підтвердити</button>
+                </form>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
 
-
+        </div>
 
 
     </section>

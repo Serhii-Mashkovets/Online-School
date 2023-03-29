@@ -10,8 +10,9 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="style/mainStyle.css">
+    <link rel="stylesheet" type="text/css" href="style/history.css">
 
-    <title>Online School</title>
+    <title>Online School History</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="resource/IconLogo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="resource/IconLogo/favicon-32x32.png">
@@ -43,16 +44,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="registration.html">Зареєструватись</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="history.html">Історія перегляду</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Дивитись сутності
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="add materials.html">Додоткові матеріали</a></li>
+                                <li><a class="dropdown-item" href="add%20materials.html">Додоткові матеріали</a></li>
                                 <li><a class="dropdown-item" href="homeworks.html">Домашня робота</a></li>
                                 <li><a class="dropdown-item" href="courses.html">Курси</a></li>
                                 <li><a class="dropdown-item" href="lectures.html">Лекції</a></li>
@@ -75,86 +73,42 @@
     </div>
 
     <section>
-        <div class="conteiner-fluid">
+
+        <div class="container-fluid">
             <div class="row">
 
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
 
-                <div class="col1 col-lg-4">
-                    <a href="studentsLastNameByNaturalOrder.html">
-                        <div class="card" style="width: 18rem;">
-                            <img src="resource/DALL·E 2023-03-27 13.33.28 - students in aquamarine painting style.png"
-                                class="card-img-top" alt="students">
-                            <div class="card-body">
-                                <p class="card-text">Дані про студентів відсортовані за прізвищем.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="lecturesBefore2023.html">
-                        <div class="card" style="width: 18rem;">
-                            <img src="resource/DALL·E 2023-03-27 13.34.31 - lection in school in aquamarine painting style.png"
-                                class="card-img-top" alt="lection">
-                            <div class="card-body">
-                                <p class="card-text">Інформація про лекції, та кількість матеріалів, які вони містять,
-                                    відсортовані за датою та які проходили до 2023 року.</p>
-                            </div>
-                        </div>
-                    </a>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Назва лекії </th>
+                                <th scope="col">Кількість додаткових матеріалів </th>
+                                <th scope="col">Дата створення </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <table class="table table-striped">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Дуже правдоподібна назва лекції </td>
+                                    <td>4</td>
+                                    <td>1970-01-01</td>
+                                   
+                                </tr>
+                            </table>
+                           
+                        </tbody>
+
+                    </table>
 
                 </div>
+                <div class="col-lg-1"></div>
 
 
-                <div class="col2 col-lg-4">
-                    <a href="theFirstLectureWithaddMatt.html">
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="resource/DALL·E 2023-03-27 13.34.51 - lection in school in aquamarine painting style.png"
-                                class="card-img-top" alt="lection">
-                            <div class="card-body">
-                                <p class="card-text">Інформація про лекцію, яка містить найбільшу кількість домашніх
-                                    завдань та яка була створена раніше за всіх.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="addMatByResourceType.html">
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="resource/DALL·E 2023-03-27 13.35.51 - books in school in  painting style.png"
-                                class="card-img-top" alt="add materials">
-                            <div class="card-body">
-                                <p class="card-text">Кількість додаткових матеріалів по кожній категорії.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-
-                <div class="col3 col-lg-4">
-                    <a href="teachersLastnameBeforeN.html">
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="resource/DALL·E 2023-03-27 13.36.39 - teachers in school in aquamarine painting style.png"
-                                class="card-img-top" alt="teachers">
-                            <div class="card-body">
-                                <p class="card-text">Список вчителів, прізвища яких починаються з літер, які стоять до
-                                    англійської "N" , або української "Н".</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="studentsInOneTWoThreeCourses.html">
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="resource/DALL·E 2023-03-27 13.37.08 - students in school in aquamarine painting style.png"
-                                class="card-img-top" alt="students">
-                            <div class="card-body">
-                                <p class="card-text">Інформація про студентів, які записані тільки на один, на два, три
-                                    або більше курси, відсортована за прізвищем.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>>
-
-            </div>
 
 
     </section>

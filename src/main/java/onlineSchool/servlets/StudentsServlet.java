@@ -13,8 +13,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet ("/studentsServlet")
-public class studentsServlet extends HttpServlet {
+@WebServlet ("/StudentsServlet")
+public class StudentsServlet extends HttpServlet {
     private final StudentsRepository studentRepository = new StudentsRepository();
 
     @Override
@@ -43,4 +43,6 @@ public class studentsServlet extends HttpServlet {
         request.setAttribute("student", student);
         request.getRequestDispatcher("/student.jsp").forward(request, response);
     }
+
+
 }
