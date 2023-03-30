@@ -92,7 +92,7 @@ public class StudentsRepository extends ParentingClassForRepositories {
         }
     }
 
-    public List<Student> getAllStudents() throws SQLException {
+    public static List<Student> getAllStudents() throws SQLException {
         List<Student> students = new ArrayList<>();
         String sql = "SELECT * FROM students";
         PreparedStatement statement = connection.prepareStatement(sql);

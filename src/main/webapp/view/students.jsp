@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="uk">
 
@@ -72,39 +73,27 @@
     </div>
 
     <section>
-
         <div class="container-fluid">
             <div class="row">
 
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
 
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Введіть ім'я студента</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">Використовуйте Українську або англійську мови.</div>
-                        </div>
-                        <label for="exampleInputEmail1" class="form-label">Введіть прізвище студента</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">Використовуйте Українську або англійську мови.</div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Введіть email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">Використовуйте тільки англійську мову.</div>
-                        </div>
-                </div>
-                <button type="submit" class="btn btn-light btn-lg">Підтвердити</button>
-                </form>
+                    <div class="container">
+                        <form method="post" action="${pageContext.request.contextPath}/onlineSchool/servlets/AddStudentServlet">
+                            <h1>Dodamo studenta</h1>>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name"><br>
+                            <label for="surname">Surname:</label>
+                            <input type="text" id="surname" name="surname"><br>
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email"><br>
+                            <input type="submit" value="Add">
+                        </form>
             </div>
             <div class="col-lg-1"></div>
         </div>
-
         </div>
-
-
     </section>
 
 

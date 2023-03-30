@@ -57,7 +57,7 @@
                             <li><a class="dropdown-item" href="view/homeworks.html">Домашня робота</a></li>
                             <li><a class="dropdown-item" href="view/courses.html">Курси</a></li>
                             <li><a class="dropdown-item" href="view/lectures.html">Лекції</a></li>
-                            <li><a class="dropdown-item" href="view/getAllStudents.html">Студенти</a></li>
+                            <li><a class="dropdown-item" href="view/getAllStudents.jsp">Студенти</a></li>
                             <li><a class="dropdown-item" href="view/teachers.html">Викладачі</a></li>
                         </ul>
                     </li>
@@ -68,10 +68,10 @@
                             Дз по Томкету
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="view/students.html">Додати студента</a></li>
-                            <li><a class="dropdown-item" href="view/getAllStudents.html">Дивитись всіх студентів</a></li>
-                            <li><a class="dropdown-item" href="view/getTheOneStudent.html">Обрати конкретного студента</a></li>
-                            <li><a class="dropdown-item" href="view/deleteTheOneStudent.html">Видалити конкретного студента</a></li>
+                            <li><a class="dropdown-item" href="view/students.jsp">Додати студента</a></li>
+                            <li><a class="dropdown-item" href="view/getAllStudents.jsp">Дивитись всіх студентів</a></li>
+                            <li><a class="dropdown-item" href="view/getTheOneStudent.jsp">Обрати конкретного студента</a></li>
+                            <li><a class="dropdown-item" href="view/deleteTheOneStudent.jsp">Видалити конкретного студента</a></li>
 
                         </ul>
                     </li>

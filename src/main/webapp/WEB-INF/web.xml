@@ -6,6 +6,18 @@
 
 <display-name>onlineSchool</display-name>
 
+
+  <servlet>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <servlet-class>onlineSchool.servlets.AddStudentServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <url-pattern>/onlineSchool/servlets/AddStudentServlet</url-pattern>
+  </servlet-mapping>
+
+
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
