@@ -1,6 +1,8 @@
 <%@ page import="onlineSchool.repository.StudentsRepository" %>
 <%@ page import="onlineSchool.models.Student" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.Optional" %>
+<%@ page import="onlineSchool.exceptions.EntityNotFoundException" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,35 +16,37 @@
 
 <form method="get">
   <label for="studentId">ID студента:</label>
-  <input type="text" id="studentId" name="studentId">
+  <input type="text" id="studentId" name="id">
   <button type="submit">Підтвердити</button>
 </form>
 
-<% String studentIdParam = request.getParameter("studentId"); %>
+<% String studentIdParam = request.getParameter("id"); %>
 
 <% if (studentIdParam != null && !studentIdParam.isEmpty()) { %>
 <% int studentId = Integer.parseInt(studentIdParam); %>
 
-<% StudentsRepository studentsRepository = new StudentsRepository(); %>
-<% Student student = null;
-  try {
-    student = studentsRepository.usingStudentById(studentId).orElse(null);
-  } catch (SQLException e) {
-    throw new RuntimeException(e);
-  } %>
+<% StudentsRepository studentsRepository = StudentsRepository.getNewExample(); %>
+<% try {
+  Optional<Student> student = studentsRepository.usingStudentById(studentId);
+  if (student.isPresent()) { %>
 
-<% if (student != null) { %>
+<p>Ім'я: <%= student.get().getStudentName() %></p>
+<p>Прізвище: <%= student.get().getStudentLastName() %></p>
+<p>Email: <%= student.get().getEmail() %></p>
 
-<p>Ім'я: <%= student.getStudentName() %></p>
-<p>Прізвище: <%= student.getStudentLastName() %></p>
-<p>Email: <%= student.getEmail() %></p>
+<%  } else {
+  throw new EntityNotFoundException("Студент з таким id не знайдено");
+}
+} catch (NumberFormatException | SQLException | EntityNotFoundException e) {
+  request.setAttribute("error", e.getMessage());
+}
+%>
+
 <% } else { %>
 
-<p>Студент з id <%= studentId %> не знайдено</p>
-<% } %>
-<% } else { %>
+<p>Не передано параметр id</p>
 
-<p>Не передано параметр studentId</p>
 <% } %>
+
 </body>
 </html>

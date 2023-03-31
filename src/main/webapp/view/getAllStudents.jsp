@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +20,10 @@
     <tbody>
     <c:forEach var="student" items="${students}">
         <tr>
-            <td>${student.studentId}</td>
-            <td>${student.studentName}</td>
-            <td>${student.studentLastName}</td>
-            <td>${student.email}</td>
+            <td>${student.getStudentId()}</td>
+            <td>${student.getStudentName()}</td>
+            <td>${student.getStudentLastName()}</td>
+            <td>${student.getEmail()}</td>
         </tr>
     </c:forEach>
     </tbody>

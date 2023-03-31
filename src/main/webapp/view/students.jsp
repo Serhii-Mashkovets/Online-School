@@ -1,157 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="uk">
-
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="style/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="style/students.css">
-
-    <title>Online School </title>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="resource/IconLogo/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="resource/IconLogo/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="resource/IconLogo/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <title>Add Student</title>
 </head>
-
-
-
-
-
 <body>
-
-    <header>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Online School</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Головна сторінка</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="registration.html">Зареєструватись</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Дивитись сутності
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="add%20materials.html">Додоткові матеріали</a></li>
-                                <li><a class="dropdown-item" href="homeworks.html">Домашні роботи</a></li>
-                                <li><a class="dropdown-item" href="courses.html">Курси</a></li>
-                                <li><a class="dropdown-item" href="lectures.html">Лекції</a></li>
-                                <li><a class="dropdown-item" href="teachers.html">Викладачі</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-    </header>
-
-
-    <div class="Video">
-        <video autoplay muted loop playsinline id="video-bg">
-            <source src="resource/STG_flash.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10">
-
-                    <div class="container">
-                        <form method="post" action="${pageContext.request.contextPath}/onlineSchool/servlets/AddStudentServlet">
-                            <h1>Dodamo studenta</h1>>
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name"><br>
-                            <label for="surname">Surname:</label>
-                            <input type="text" id="surname" name="surname"><br>
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email"><br>
-                            <input type="submit" value="Add">
-                        </form>
-            </div>
-            <div class="col-lg-1"></div>
+<div class="container">
+    <h1>Add Student</h1>
+    <form action="${pageContext.request.contextPath}/addStudent" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
         </div>
+        <div class="form-group">
+            <label for="surname">Surname:</label>
+            <input type="text" class="form-control" id="surname" name="surname" required>
         </div>
-    </section>
-
-
-
-    <footer>
-        <div class="conteiner-fluid">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 footer-text text-center">
-                    <p>
-                        Всі права захищено
-                        <img style="width: 30px;" src="resource/Copyright-Symbol.png" alt="Copyright-Symbol">
-                    </p>
-                    <div class="textCity">
-                        <p>Ніжин - Київ, 2023</p>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-12 footer-text text-center">
-                    <a href="#">
-
-                        <img style="width: 25px;" src="resource/contact-phone-icon-4.png" alt="contact img"> Контакти
-                        <br>
-
-                    </a>
-                    <a href="#">
-
-                        <img style="width: 25px;" src="resource/png-transparent-handshake-cooperation.png"
-                            alt="cooperation img"> Співпраця з нами <br>
-                    </a>
-                    <a href="#">
-
-                        <img style="width: 25px;" src="resource/team-icon-24.png" alt="our team img"> Наша команда
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-12 media-links">
-                    Наші сторінки:
-
-                    <a href="https://t.me/Serhii_Mshkvts" target="_blank">
-                        <img class="socialMediaLogo" src="resource/Telegram_logo.svg.png" alt="telegram logo">
-                    </a>
-                    <a href="https://www.instagram.com/serhii_mshkvts/" target="_blank">
-                        <img class="socialMediaLogo" src="resource/640px-Instagram_icon.png" alt="insta logo">
-                    </a>
-                    <a href="https://github.com/Serhii-Mashkovets" target="_blank">
-                        <img class="socialMediaLogo" src="resource/25231.png" alt="github logo">
-                    </a>
-
-
-                </div>
-            </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
         </div>
-    </footer>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+    <a href="${pageContext.request.contextPath}/students">Back to Students</a>
+</div>
 </body>
-
 </html>

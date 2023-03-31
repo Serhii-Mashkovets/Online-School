@@ -17,21 +17,19 @@
   <input type="submit" value="Delete">
 </form>
 <%
-  String studentIdParam = request.getParameter("studentId");
-  if (studentIdParam != null) {
-    try {
-      int studentId = Integer.parseInt(studentIdParam);
+    String studentIdParam = request.getParameter("studentId");
+    if (studentIdParam != null) {
+      try {
+        int studentId = Integer.parseInt(studentIdParam);
+        StudentsRepository.getNewExample().removeById(studentId);
+        response.sendRedirect(request.getContextPath() + "/view/students.jsp");
 
-      StudentsRepository.getNewExample().removeById(studentId);
-
-
-      out.println("<p>Student with ID " + studentId + " has been successfully deleted</p>");
-    } catch (NumberFormatException e) {
-      out.println("<p>Invalid student ID</p>");
-    } catch (SQLException e) {
-      out.println("<p>Failed to delete student. Error message: " + e.getMessage() + "</p>");
+      } catch (NumberFormatException e) {
+        out.println("<p>Invalid student ID</p>");
+      } catch (SQLException e) {
+        out.println("<p>Failed to delete student. Error message: " + e.getMessage() + "</p>");
+      }
     }
-  }
 %>
 
 <p><a href="getAllStudents.jsp">Back to student list</a></p>
