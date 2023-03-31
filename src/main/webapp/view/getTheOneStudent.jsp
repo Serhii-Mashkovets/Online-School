@@ -14,7 +14,7 @@
 <body>
 <h1>Інформація про студента</h1>
 
-<form method="get">
+<form action="${pageContext.request.contextPath}/OneStudentServlet" method="post">
   <label for="studentId">ID студента:</label>
   <input type="text" id="studentId" name="id">
   <button type="submit">Підтвердити</button>

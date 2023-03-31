@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Delete Student</h1>
-<form action="DeleteStudentServlet" method="post">
+<form action="${pageContext.request.contextPath}/DeleteStudentServlet" method="post">
   <label for="studentId">Enter Student ID:</label>
   <input type="text" id="studentId" name="studentId"><br><br>
   <input type="submit" value="Delete">

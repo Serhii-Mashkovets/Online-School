@@ -7,6 +7,7 @@
     <title>All Students</title>
 </head>
 <body>
+<form action="${pageContext.request.contextPath}/AllStudentsServlet" method="post">
 <h1>All Students</h1>
 <table>
     <thead>
@@ -20,10 +21,10 @@
     <tbody>
     <c:forEach var="student" items="${students}">
         <tr>
-            <td>${student.getStudentId()}</td>
-            <td>${student.getStudentName()}</td>
-            <td>${student.getStudentLastName()}</td>
-            <td>${student.getEmail()}</td>
+            <td>${student.studentId}</td>
+            <td>${student.studentName}</td>
+            <td>${student.studentLastName}</td>
+            <td>${student.Email}</td>
         </tr>
     </c:forEach>
     </tbody>
