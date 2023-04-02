@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h1>Add Student</h1>
-    <form action="${pageContext.request.contextPath}/addStudent" method="get">
+    <form action="${pageContext.request.contextPath}/AddStudent" method="get">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" name="name" required>

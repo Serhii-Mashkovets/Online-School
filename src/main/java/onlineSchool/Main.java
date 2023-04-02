@@ -30,6 +30,7 @@ public class Main {
     private static final LoggingRepository logRep = new LoggingRepository(Main.class.getName());
 
     public static void main(String[] args) throws DuplicateEmailException {
+
         logRep.infoLog("Початок роботи в мейні");
         LoggingService.writeLevelConfig(LevelOfLogging.OFF);
         Thread levelWatcher = new Thread(new LevelWatcher(), "LevelWatcher");
