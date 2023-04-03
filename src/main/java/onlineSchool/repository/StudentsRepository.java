@@ -14,8 +14,10 @@ public class StudentsRepository extends ParentingClassForRepositories {
 
     static {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/onlineschool", "Serhii Mashkovets",
-                    "Mashkovets");
+            Driver driver = new com.mysql.cj.jdbc.Driver();
+            DriverManager.registerDriver(driver);
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/onlineschool",
+                    "Serhii Mashkovets", "Mashkovets");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

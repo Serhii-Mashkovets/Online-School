@@ -10,23 +10,32 @@ import onlineSchool.models.Student;
 import onlineSchool.repository.StudentsRepository;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 import java.util.List;
+
 
 @WebServlet("/AllStudentsServlet")
 public class AllStudentsServlet extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Student> students;
+
+    private StudentsRepository studentsRepository;
+
+    public void init() {
+        studentsRepository = new StudentsRepository();
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Student> students = null;
         try {
-            students = StudentsRepository.getAllStudents();
-            System.out.println("students = " + students);
-            request.setAttribute("students", students);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/view/getAllStudents.jsp");
-            dispatcher.forward(request, response);
+            students = studentsRepository.getAllStudents();
         } catch (SQLException e) {
-            throw new ServletException(e);
+            throw new RuntimeException(e);
         }
+        request.setAttribute("students", students);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/getAllStudents.jsp");
+        dispatcher.forward(request, response);
     }
 }
+

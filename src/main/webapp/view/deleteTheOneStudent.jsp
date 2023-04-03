@@ -22,7 +22,7 @@
       try {
         int studentId = Integer.parseInt(studentIdParam);
         StudentsRepository.getNewExample().removeById(studentId);
-        response.sendRedirect(request.getContextPath() + "/view/students.jsp");
+        response.sendRedirect(request.getContextPath() + "/view/getAllStudents.jsp");
 
       } catch (NumberFormatException e) {
         out.println("<p>Invalid student ID</p>");

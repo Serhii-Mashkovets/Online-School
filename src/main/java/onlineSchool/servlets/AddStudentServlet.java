@@ -24,7 +24,7 @@ public class AddStudentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/view/students.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/students.jsp").forward(request, response);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class AddStudentServlet extends HttpServlet {
 
         try {
             repository.add(student);
-            resp.sendRedirect(req.getContextPath() + "/WEB-INF/view/students.jsp");
+            resp.sendRedirect(req.getContextPath() + "/view/students.jsp");
         } catch (SQLException e) {
             throw new ServletException(e);
         }

@@ -1,34 +1,54 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="onlineSchool.repository.StudentsRepository" %>
+<%@ page import="onlineSchool.models.Student" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>All Students</title>
+    <title>Список студентів</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/AllStudentsServlet" method="post">
-<h1>All Students</h1>
-<table>
+<h1>Список студентів</h1>
+
+<% StudentsRepository studentsRepository = StudentsRepository.getNewExample(); %>
+<% try {
+    List<Student> students = studentsRepository.getAllStudents();
+    if (students.isEmpty()) {
+%>
+
+<p>Не знайдено жодного студента</p>
+
+<% } else { %>
+
+<table border="2">
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Surname</th>
+
+        <th>Ім'я</th>
+        <th>Прізвище</th>
         <th>Email</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="student" items="${students}">
-        <tr>
-            <td>${student.studentId}</td>
-            <td>${student.studentName}</td>
-            <td>${student.studentLastName}</td>
-            <td>${student.Email}</td>
-        </tr>
-    </c:forEach>
+    <% for (Student student : students) { %>
+    <tr>
+
+        <td><%= student.getStudentName() %></td>
+        <td><%= student.getStudentLastName() %></td>
+        <td><%= student.getEmail() %></td>
+    </tr>
+    <% } %>
     </tbody>
 </table>
+
+<% }
+} catch (SQLException e) {
+    request.setAttribute("error", e.getMessage());
+}
+%>
+
 </body>
 </html>

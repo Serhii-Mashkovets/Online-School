@@ -85,8 +85,8 @@ public class Student extends ParentingClassForModels implements Serializable {
         return Email;
     }
 
-    public void setEmail(String email) {
-        Email = email;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
     public int getStudentId() {

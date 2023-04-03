@@ -9,7 +9,15 @@
 <body>
 <div class="container">
     <h1>Add Student</h1>
-    <form action="${pageContext.request.contextPath}/AddStudent" method="get">
+
+    <c:if test="${not empty errorMsg}">
+        <div class="alert alert-danger">${errorMsg}</div>
+    </c:if>
+
+    <c:if test="${not empty successMsg}">
+        <div class="alert alert-success">${successMsg}</div>
+    </c:if>
+    <form action="${pageContext.request.contextPath}/AddStudent" method="post">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" name="name" required>
@@ -24,7 +32,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
-    <a href="${pageContext.request.contextPath}/students">Back to Students</a>
+    <a href="${pageContext.request.contextPath}/view/getAllStudents.jsp">Back to Students</a>
 </div>
 </body>
 </html>
