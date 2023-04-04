@@ -4,13 +4,19 @@ import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Student;
 
-
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+
+@Service
 public class StudentsService {
 
-    private static LoggingRepository logRep = new LoggingRepository(StudentsService.class.getName());
+    @Autowired
+    private static LoggingRepository logRep;
+
     private Integer id;
 
     public Student createNewStudent(String studentName, String studentLastName) {
@@ -27,11 +33,13 @@ public class StudentsService {
                 throw new ValidationExceptions("Second name can not be empty");
             } catch (ValidationExceptions e) {
                 System.out.println(String.valueOf(e));
+                logRep.warningLog("Помилка валідації: ", e);
             }
         }
         return new Student(studentName, studentLastName);
     }
 
+    @Bean
     public static Optional<Student> createNewStudentByUsers() {
         logRep.debugLog("Створення студента");
         Scanner sc2 = new Scanner(System.in);

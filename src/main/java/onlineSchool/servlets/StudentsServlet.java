@@ -29,7 +29,7 @@ public class StudentsServlet extends HttpServlet {
             try {
                 studentsRepository.removeById(studentId);
                 resp.sendRedirect("/view/getAllStudents.jsp");
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 throw new ServletException(e);
             }
         } else if (uri.equals("/view/getAllStudents.jsp")) {
@@ -64,7 +64,7 @@ public class StudentsServlet extends HttpServlet {
             try {
                 studentsRepository.removeById(studentId);
                 resp.sendRedirect("/view/getAllStudents.jsp");
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 throw new ServletException(e);
             }
         }

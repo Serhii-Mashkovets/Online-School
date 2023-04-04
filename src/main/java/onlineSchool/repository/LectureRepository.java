@@ -2,14 +2,25 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Lecture;
 import onlineSchool.exceptions.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+@Repository
 public class LectureRepository extends ParentingClassForRepositories<Lecture> {
     private static LectureRepository newExample;
     private static List<Optional<Lecture>> lectureArray;
+
+
+    @Autowired
+    public LectureRepository() {
+        lectureArray = new ArrayList<Optional<Lecture>>();
+    }
+
 
     public static LectureRepository getNewExample() {
         if (newExample == null) {
@@ -35,21 +46,17 @@ public class LectureRepository extends ParentingClassForRepositories<Lecture> {
     }
 
 
-    public LectureRepository() {
-        lectureArray = new ArrayList<Optional<Lecture>>();
-    }
 
-    @Override
     public long size() {
         return lectureArray.size();
     }
 
-    @Override
+
     public boolean isEmpty() {
         return lectureArray.isEmpty();
     }
 
-    @Override
+
     public Optional<Lecture> get(int index) {
         return lectureArray.get(index);
     }
@@ -58,12 +65,12 @@ public class LectureRepository extends ParentingClassForRepositories<Lecture> {
         lectureArray.add(element);
     }
 
-    @Override
+
     public void add(int index, Lecture element) {
         lectureArray.add(index, Optional.ofNullable(element));
     }
 
-    @Override
+
     public void remove(int index) {
         lectureArray.remove(index);
     }

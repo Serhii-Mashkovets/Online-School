@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class PersonRepository extends ParentingClassForRepositories {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class PersonRepository extends ParentingClassForRepositories<Person> {
     private static PersonRepository newExample;
     private static List<Person> personArray;
 
@@ -41,12 +44,14 @@ public class PersonRepository extends ParentingClassForRepositories {
         return Optional.ofNullable(personArray.get(index));
     }
 
-    public void add(ParentingClassForModels element) {
-        personArray.add((Person) element);
+    @Override
+    public void add(Person element) {
+        personArray.add(element);
     }
 
-    public void add(int index, ParentingClassForModels element) {
-        personArray.add(index, (Person) element);
+    @Override
+    public void add(int index, Person element) {
+        personArray.add(index, element);
     }
 
     @Override

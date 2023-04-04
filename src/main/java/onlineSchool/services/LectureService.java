@@ -7,7 +7,10 @@ import onlineSchool.models.Teacher;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class LectureService {
     private static LoggingRepository logRep = new LoggingRepository(LectureService.class.getName());
     private Integer id;
@@ -31,7 +34,6 @@ public class LectureService {
         return new Lecture(lectureName, discription);
     }
 
-
     public static Optional<Lecture> createNewLectureByUsers() {
         logRep.debugLog("Створення лекції");
         System.out.println("""
@@ -46,13 +48,11 @@ public class LectureService {
         return Optional.of(new Lecture(lectureName, discription));
     }
 
-
     public static Lecture getMaxLecture(List<Lecture> lectures) {
         return lectures.stream()
                 .max(Comparator.comparingInt(lecture -> lecture.getAddMaterials().size()))
                 .orElseThrow(() -> new IllegalStateException("Лекції не знайдено"));
     }
-
 
     public static Lecture getTheEarliestLecture(List<Lecture> lectures) {
         Lecture earliestLecture = lectures.stream()
@@ -63,8 +63,7 @@ public class LectureService {
         return earliestLecture;
     }
 
-
-    public static void groupedLecturesByTeacher( List<Lecture> lectures) {
+    public static void groupedLecturesByTeacher(List<Lecture> lectures) {
         Map<Teacher, List<Lecture>> lecturesByTeacher = lectures.stream()
                 .collect(Collectors.groupingBy(Lecture::getTeacherOfLecture));
 
@@ -74,12 +73,12 @@ public class LectureService {
         });
     }
 
+    @Autowired
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

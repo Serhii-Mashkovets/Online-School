@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="addMaterialService" class="onlineSchool.services.AddMaterialService"/>
+    <bean id="homeWorkService" class="onlineSchool.services.HomeWorkService"/>
+    <bean id="courseService" class="onlineSchool.services.CourseService"/>
+    <bean id="lectureService" class="onlineSchool.services.LectureService"/>
+    <bean id="personService" class="onlineSchool.services.PersonService"/>
+    <bean id="studentService" class="onlineSchool.services.StudentsService"/>
+    <bean id="teachersService" class="onlineSchool.services.TeachersService"/>
+
+</beans>

@@ -2,11 +2,14 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Course;
 import onlineSchool.models.ParentingClassForModels;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+@Repository
 public class CourseRepository extends ParentingClassForRepositories {
     private static CourseRepository newExample;
 

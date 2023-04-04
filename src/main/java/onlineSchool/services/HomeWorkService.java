@@ -3,13 +3,18 @@ package onlineSchool.services;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.HomeWork;
 import onlineSchool.repository.HomeWorkRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class HomeWorkService {
 
     private static LoggingRepository logRep = new LoggingRepository(HomeWorkService.class.getName());
-    HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
+
+    @Autowired
+    HomeWorkRepository homeWorkRepository;
 
     public HomeWork createHw () {
         logRep.debugLog("Створення домашньої роботи");

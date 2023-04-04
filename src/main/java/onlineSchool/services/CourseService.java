@@ -8,27 +8,40 @@ import onlineSchool.repository.*;
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
 public class CourseService {
 
     private static LoggingRepository logRep = new LoggingRepository(CourseService.class.getName());
 
-    AddMaterialsRepository addMaterialsRepository = AddMaterialsRepository.getNewExample();
-    HomeWorkRepository homeWorkRepository = HomeWorkRepository.getNewExample();
-    public LectureRepository lectureRepository = LectureRepository.getNewExample();
-    public StudentsRepository studentsRepository = StudentsRepository.getNewExample();
-    public TeachersRepository teachersRepository = TeachersRepository.getNewExample();
+    @Autowired
+    AddMaterialsRepository addMaterialsRepository;
 
+    @Autowired
+    HomeWorkRepository homeWorkRepository;
+
+    @Autowired
+    LectureRepository lectureRepository;
+
+    @Autowired
+    StudentsRepository studentsRepository;
+
+    @Autowired
+    TeachersRepository teachersRepository;
+
+    @Transactional
     public Course createNewCourse(String courseName,
                                   Optional<Lecture> lectureName, Optional<Teacher> teacherOne, Optional<Student> studentOne) {
         return new Course(courseName, lectureName, teacherOne, studentOne);
     }
 
+    @Transactional
     public Course createNewCourseByUsers() {
         logRep.debugLog("Створення нового курсу");
         System.out.println("Створіть новий курс");
-        LectureRepository lectureRepository = LectureRepository.getNewExample();
-        TeachersRepository teachersRepository = TeachersRepository.getNewExample();
-        StudentsRepository studentsRepository = StudentsRepository.getNewExample();
         Scanner sc = new Scanner(System.in);
         System.out.println("Введіть назву курсу: ");
         String courseName = sc.nextLine();
@@ -48,6 +61,6 @@ public class CourseService {
         return new Course(courseName, lecture, teacher, student);
     }
 
-    CourseRepository courseRepository = CourseRepository.getNewExample();
+    @Autowired
+    CourseRepository courseRepository;
 }
-

@@ -6,18 +6,24 @@ import onlineSchool.models.ResourseType;
 import onlineSchool.models.AddMaterials;
 import onlineSchool.repository.AddMaterialsRepository;
 
-
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
 public class AddMaterialService {
+
+    @Autowired
+    private AddMaterialsRepository addMaterialsRepository;
+
     private static LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
     private Integer id;
-
-
 
     public static void groupAddMatByLectures ( List <AddMaterials> materials, List <Lecture> lecture) {
         Map<Integer, List<AddMaterials>> materialsByLecture = materials.stream()
@@ -29,13 +35,10 @@ public class AddMaterialService {
         });
     }
 
-
-
     public Map<Lecture, List<AddMaterials>> getAddMaterialsGroupedByLecture() {
-        return AddMaterialsRepository.getAll().stream()
+        return addMaterialsRepository.getAll().stream()
                 .collect(Collectors.groupingBy(AddMaterials::getLecture));
     }
-
 
     Consumer<Map<Integer, List<AddMaterials>>> fullInfo = integerListMap ->
             integerListMap.forEach((key, value) -> {
@@ -49,9 +52,6 @@ public class AddMaterialService {
     public void printGroupedByLectures(Map<Integer, List<AddMaterials>> AddmaterialsMap){
         fullInfo.accept(AddmaterialsMap);
     }
-
-
-
 
     public static AddMaterials createNewAddMaterial() {
         logRep.debugLog("Створення додаткових матеріалів");
@@ -79,32 +79,8 @@ public class AddMaterialService {
         return new AddMaterials(addMatName, AddMaterials.getId(), resourseType);
     }
 
-    AddMaterialsRepository addMaterialsRepository = AddMaterialsRepository.getNewExample();
-
-    public void showAllNewAddMatList(List<AddMaterials> list) {
-        System.out.println("""
-                Повна інформація про: 
-                Додаткові матеріали
-                """);
-        for (AddMaterials addMaterial : list) {
-            if (addMaterial == null) continue;
-            System.out.println("Додаткові матеріали: " + addMaterial.getName() + ", ID = " + addMaterial.getId());
-        }
-    }
-
-    public void findAllNewAddMatList(List<AddMaterials> list) {
-        System.out.println("""
-                "Знайти повну інформацію про: 
-                Додаткові матеріали
-                """);
-        if (addMaterialsRepository.isEmpty()) System.out.println("Жодного елементу не знайдено!");
-        for (AddMaterials addMaterial : list) {
-            if (addMaterial == null) continue;
-            System.out.println(addMaterial);
-        }
-    }
-
-    public void showAllAddmat() {
+    @Transactional
+    public void showAllNewAddMatList() {
         addMaterialsRepository.showAllelementsAddMat();
     }
 

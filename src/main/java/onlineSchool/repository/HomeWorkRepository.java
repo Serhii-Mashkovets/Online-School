@@ -4,20 +4,29 @@ import onlineSchool.models.HomeWork;
 import onlineSchool.models.Lecture;
 import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.loggingJournal.LoggingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+
+@Repository
 public class HomeWorkRepository extends ParentingClassForRepositories {
     private static final LoggingRepository logRep = new LoggingRepository(AddMaterialsRepository.class.getName());
     private static HomeWorkRepository newExample;
     private static Map<Integer, List<HomeWork>> homeworks;
 
+    @Autowired
+    public HomeWorkRepository(Map<Integer, List<HomeWork>> homeworks) {
+        this.homeworks = homeworks;
+    }
+
     public static HomeWorkRepository getNewExample() {
         if (newExample == null) {
-            newExample = new HomeWorkRepository();
+            newExample = new HomeWorkRepository(homeworks);
         }
         return newExample;
     }

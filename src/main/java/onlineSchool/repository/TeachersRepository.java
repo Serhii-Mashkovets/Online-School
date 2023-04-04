@@ -2,13 +2,19 @@ package onlineSchool.repository;
 
 import onlineSchool.models.Teacher;
 import onlineSchool.exceptions.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class TeachersRepository extends ParentingClassForRepositories {
     private static TeachersRepository newExample;
+
+    @Autowired
     private List<Optional<Teacher>> teacherArray;
 
     public TeachersRepository() {
@@ -34,7 +40,6 @@ public class TeachersRepository extends ParentingClassForRepositories {
         else return teachersOfCourse;
     }
 
-
     @Override
     public long size() {
         return teacherArray.size();
@@ -44,7 +49,6 @@ public class TeachersRepository extends ParentingClassForRepositories {
     public boolean isEmpty() {
         return teacherArray.isEmpty();
     }
-
 
     public Optional<Optional<Teacher>> get(int index) {
         return Optional.ofNullable(teacherArray.get(index));

@@ -2,7 +2,9 @@ package onlineSchool.services;
 
 import onlineSchool.models.ParentingClassForModels;
 import onlineSchool.exceptions.EntityNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SimpleIterator<E extends ParentingClassForModels> {
     private Integer index;
 

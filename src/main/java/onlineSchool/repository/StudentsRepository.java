@@ -8,108 +8,61 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class StudentsRepository extends ParentingClassForRepositories {
-    private static StudentsRepository newExample;
-    private static Connection connection;
 
-    static {
-        try {
-            Driver driver = new com.mysql.cj.jdbc.Driver();
-            DriverManager.registerDriver(driver);
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/onlineschool",
-                    "Serhii Mashkovets", "Mashkovets");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public StudentsRepository() {
-    }
-
-    public static StudentsRepository getNewExample() {
-        if (newExample == null) {
-            newExample = new StudentsRepository();
-        }
-        return newExample;
-    }
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     public List<Optional<Student>> usingStudentsByCourseId(int courseId) throws EntityNotFoundException, SQLException {
         List<Optional<Student>> studentsOfCourse = new ArrayList<>();
         String sql = "SELECT * FROM students INNER JOIN student_courses ON students.student_id = student_courses.student_id WHERE student_courses.course_id = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, courseId);
-        ResultSet resultSet = statement.executeQuery();
-        while (resultSet.next()) {
-            int studentId = resultSet.getInt("student_id");
-            String studentName = resultSet.getString("student_name");
-            String studentSurname = resultSet.getString("student_surname");
-            String studentEmail = resultSet.getString("student_email");
-            Student student = new Student(studentName, studentSurname, studentEmail);
-            studentsOfCourse.add(Optional.of(student));
-        }
+        List<Student> students = jdbcTemplate.query(sql, new Object[]{courseId}, (rs, rowNum) -> {
+            Student student = new Student(rs.getString("student_name"), rs.getString("student_surname"), rs.getString("student_email"));
+            student.setStudentId(rs.getInt("student_id"));
+            return student;
+        });
+        students.forEach(student -> studentsOfCourse.add(Optional.of(student)));
         if (studentsOfCourse.isEmpty()) throw new EntityNotFoundException("Не існує студента з таким айді");
         else return studentsOfCourse;
     }
 
     public Optional<Student> usingStudentById(int studentId) throws SQLException {
         String sql = "SELECT * FROM students WHERE student_id = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, studentId);
-        ResultSet resultSet = statement.executeQuery();
-        if (resultSet.next()) {
-            String studentName = resultSet.getString("student_name");
-            String studentSurname = resultSet.getString("student_surname");
-            String studentEmail = resultSet.getString("student_email");
-            Student student = new Student(studentName, studentSurname, studentEmail);
-            return Optional.of(student);
-        } else {
-            return Optional.empty();
-        }
+        Student student = jdbcTemplate.queryForObject(sql, new Object[]{studentId}, (rs, rowNum) -> {
+            Student s = new Student(rs.getString("student_name"), rs.getString("student_surname"), rs.getString("student_email"));
+            s.setStudentId(rs.getInt("student_id"));
+            return s;
+        });
+        return Optional.ofNullable(student);
     }
 
     public void add(Student student) throws SQLException {
         String sql = "INSERT INTO students (student_name, student_surname, student_email) VALUES (?, ?, ?)";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, student.getStudentName());
-        statement.setString(2, student.getStudentLastName());
-        statement.setString(3, student.getEmail());
-        statement.executeUpdate();
+        jdbcTemplate.update(sql, student.getStudentName(), student.getStudentLastName(), student.getEmail());
     }
 
-    public void removeById(int studentId) throws SQLException {
+    public void removeById(int studentId) {
         String sql = "DELETE FROM students WHERE student_id = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, studentId);
-        statement.executeUpdate();
+        jdbcTemplate.update(sql, studentId);
     }
 
     public int sizeCount() throws SQLException {
         String sql = "SELECT COUNT(*) AS count FROM students";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery();
-        if (resultSet.next()) {
-            return resultSet.getInt("count");
-        } else {
-            return 0;
-        }
+        return jdbcTemplate.queryForObject(sql, Integer.class);
     }
 
-    public static List<Student> getAllStudents() throws SQLException {
-        List<Student> students = new ArrayList<>();
+    public List<Student> getAllStudents() throws SQLException {
         String sql = "SELECT * FROM students";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery();
-        while (resultSet.next()) {
-            int studentId = resultSet.getInt("student_id");
-            String studentName = resultSet.getString("student_name");
-            String studentSurname = resultSet.getString("student_surname");
-            String studentEmail = resultSet.getString("student_email");
-            Student student = new Student(studentName, studentSurname, studentEmail);
-            student.setStudentId(studentId);
-            students.add(student);
-        }
-        return students;
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            Student student = new Student(rs.getString("student_name"), rs.getString("student_surname"), rs.getString("student_email"));
+            student.setStudentId(rs.getInt("student_id"));
+            return student;
+        });
     }
-
 
 }

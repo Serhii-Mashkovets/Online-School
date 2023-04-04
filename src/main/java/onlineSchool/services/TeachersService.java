@@ -4,11 +4,17 @@ import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Teacher;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Optional;
 import java.util.Scanner;
 
+@Service
 public class TeachersService {
-    private static LoggingRepository logRep = new LoggingRepository(TeachersService.class.getName());
+    @Autowired
+    private static LoggingRepository logRep;
+
     private Integer id;
 
     public Teacher createNewTeacher(String teacherName, String teacherSecondName) {

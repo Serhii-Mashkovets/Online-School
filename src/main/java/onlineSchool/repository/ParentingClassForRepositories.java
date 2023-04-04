@@ -1,9 +1,13 @@
 package onlineSchool.repository;
 
 
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 
+
+@Repository
 public class ParentingClassForRepositories<ParentingClassForModels> {
     private static ParentingClassForRepositories newExample;
 
@@ -47,5 +51,8 @@ public class ParentingClassForRepositories<ParentingClassForModels> {
 
     public void setElements(List<ParentingClassForModels> elements) {
         this.elements = elements;
+    }
+
+    public void removeById(int studentId) {
     }
 }

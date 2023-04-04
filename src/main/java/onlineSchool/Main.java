@@ -15,6 +15,8 @@ import onlineSchool.repository.StudentsRepository;
 import onlineSchool.serialization.SerializationForCourse;
 import onlineSchool.services.*;
 import onlineSchool.services.PersonService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 import java.io.File;
@@ -32,6 +34,18 @@ public class Main {
     public static void main(String[] args) throws DuplicateEmailException {
 
         logRep.infoLog("Початок роботи в мейні");
+
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AddMaterialService addMaterialService = context.getBean(AddMaterialService.class);
+        HomeWorkService homeWorkService = context.getBean(HomeWorkService.class);
+        CourseService courseService = context.getBean(CourseService.class);
+        LectureService lectureService = context.getBean(LectureService.class);
+        PersonService personService = context.getBean(PersonService.class);
+        StudentsService studentsService = context.getBean(StudentsService.class);
+        TeachersService teachersService = context.getBean(TeachersService.class);
+
+
         LoggingService.writeLevelConfig(LevelOfLogging.OFF);
         Thread levelWatcher = new Thread(new LevelWatcher(), "LevelWatcher");
         levelWatcher.start();
@@ -140,7 +154,7 @@ public class Main {
         int newPersonchoise = sc.nextInt();
         if (newPersonchoise == 1) {
             logRep.infoLog("Початок створення персони в мейні");
-            PersonService.createNewPersonByUsers();
+            personService.createNewPersonByUsers();
         } else if (newPersonchoise == 2) {
             System.out.println("Переходимо до наступного етапу");
             logRep.infoLog("Кінець роботи в блоці створення персони в мейні");
@@ -155,7 +169,7 @@ public class Main {
         if (lectureChoise == 1) {
             logRep.infoLog("Початок роботи в блоці виведення лекції на екран ," +
                     " котра створена раніше всіх та з найбільшою кількістю додаткових матеріалів в мейні");
-            Lecture lectureService = LectureService.getMaxLecture(lecturesList());
+            LectureService.getMaxLecture(lecturesList());
             LectureService.getTheEarliestLecture(lecturesList());
             System.out.println(lectureService);
         } else if (lectureChoise == 2) {
@@ -268,7 +282,6 @@ public class Main {
                 try {
                     logRep.debugLog("Створення додаткових матеріалів в мейні");
                     if (addmatCrt == 1) {
-                        AddMaterialService addMaterialService = new AddMaterialService();
                         addMaterialService.createNewAddMaterial();
                         System.out.println("""
                                 Бажаєте відсортувати додаткові матеріали до курсу?
@@ -292,7 +305,7 @@ public class Main {
                         int showAddMat = sc.nextInt();
                         if (showAddMat == 1) {
                             try {
-                                addMaterialService.showAllAddmat();
+                                addMaterialService.showAllNewAddMatList();
                                 System.out.println(addMaterialService);
                             } catch (IllegalArgumentException e) {
                                 logRep.warningLog("Помилка невірного аргументу додаткових матеріалів в мейні: ", e);
@@ -316,7 +329,6 @@ public class Main {
                 logRep.debugLog("Створення домашніх завдань в мейні");
                 if (hw == 1) {
                     try {
-                        HomeWorkService homeWorkService = new HomeWorkService();
                         homeWorkService.createHw();
                     } catch (IllegalArgumentException e) {
                         logRep.warningLog("Помилка невірного аргументу домашніх завдань в мейні: ", e);
@@ -417,7 +429,7 @@ public class Main {
 
     }
 
-    public static void shuffleArray(int [] arr) {
+    public static void shuffleArray(int[] arr) {
         Random rand = new Random();
         for (int i = arr.length - 1; i > 0; i--) {
             int index = rand.nextInt(i + 1);

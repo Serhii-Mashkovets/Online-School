@@ -19,16 +19,17 @@ class PersonServiceTest {
 
     @Test
     public void testCreateNewPersonByUsers() throws DuplicateEmailException {
-        // Arrange
+
         List<Person> persons = new ArrayList<>();
         Mockito.when(PersonRepository.getAllPersons()).thenReturn(persons);
         String input = "John Doe\nDoe\n123456789\njohndoe@example.com\n";
         System.setIn(new java.io.ByteArrayInputStream(input.getBytes()));
 
-        // Act
-        Optional<Person> result = PersonService.createNewPersonByUsers();
 
-        // Assert
+        PersonService personService = new PersonService();
+        Optional<Person> result = personService.createNewPersonByUsers();
+
+
         Assertions.assertTrue(result.isPresent());
         Person person = result.get();
         Assertions.assertEquals("John", person.getFirstName());
@@ -39,15 +40,16 @@ class PersonServiceTest {
 
     @Test
     public void testCreateNewPersonByUsers_WithDuplicateEmail() {
-        // Arrange
+
         List<Person> persons = new ArrayList<>();
         Person person = new Person("Jane", "Doe", "987654321", "janedoe@example.com");
         persons.add(person);
         Mockito.when(PersonRepository.getAllPersons()).thenReturn(persons);
         String input = "John Doe\nDoe\n123456789\njanedoe@example.com\n";
         System.setIn(new java.io.ByteArrayInputStream(input.getBytes()));
+        PersonService personService = new PersonService(); // створюємо екземпляр класу
 
-        // Act + Assert
-        Assertions.assertThrows(DuplicateEmailException.class, () -> PersonService.createNewPersonByUsers());
+        Assertions.assertThrows(DuplicateEmailException.class, () -> personService.createNewPersonByUsers());
     }
+
 }

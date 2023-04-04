@@ -4,7 +4,9 @@ import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Person;
 import onlineSchool.repository.PersonRepository;
-
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -13,6 +15,8 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+
+@Service
 public class PersonService {
 
 
@@ -20,8 +24,8 @@ public class PersonService {
 
     private int personId;
 
-
-    public static void isEmailDuplicate( String email) throws DuplicateEmailException {
+    @Transactional
+    public static void isEmailDuplicate(String email) throws DuplicateEmailException {
         List<Person> persons = PersonRepository.getAllPersons();
 
         boolean isDuplicate = persons.stream()
@@ -34,8 +38,8 @@ public class PersonService {
 
     }
 
-
-    public static Optional<Person> createNewPersonByUsers() throws DuplicateEmailException {
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public Optional<Person> createNewPersonByUsers() throws DuplicateEmailException {
         logRep.debugLog("Створення персони в персон PersonService");
         Scanner sc2 = new Scanner(System.in);
         System.out.println("""

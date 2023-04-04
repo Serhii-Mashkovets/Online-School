@@ -5,10 +5,11 @@ import onlineSchool.models.AddMaterials;
 import onlineSchool.models.Lecture;
 import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.loggingJournal.LoggingRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-
+@Repository
 public class AddMaterialsRepository extends ParentingClassForRepositories {
     private static final LoggingRepository logRep = new LoggingRepository(AddMaterialsRepository.class.getName());
 

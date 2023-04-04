@@ -21,7 +21,7 @@ public class OneStudentServlet extends HttpServlet {
         try {
 
             int studentId = Integer.parseInt(req.getParameter("id"));
-            StudentsRepository studentsRepository = StudentsRepository.getNewExample();
+            StudentsRepository studentsRepository = (StudentsRepository) StudentsRepository.getNewExample();
 
             Optional<Student> student = studentsRepository.usingStudentById(studentId);
             if (student.isPresent()) {
