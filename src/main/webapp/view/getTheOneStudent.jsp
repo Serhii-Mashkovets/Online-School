@@ -25,7 +25,7 @@
 <% if (studentIdParam != null && !studentIdParam.isEmpty()) { %>
 <% int studentId = Integer.parseInt(studentIdParam); %>
 
-<% StudentsRepository studentsRepository = StudentsRepository.getNewExample(); %>
+<% StudentsRepository studentsRepository = new StudentsRepository(); %>
 <% try {
   Optional<Student> student = studentsRepository.usingStudentById(studentId);
   if (student.isPresent()) { %>

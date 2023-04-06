@@ -9,9 +9,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import onlineSchool.models.Student;
 import onlineSchool.repository.StudentsRepository;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 
-import java.sql.SQLException;
+
 import java.util.List;
 
 
@@ -30,7 +31,7 @@ public class AllStudentsServlet extends HttpServlet {
         List<Student> students = null;
         try {
             students = studentsRepository.getAllStudents();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         request.setAttribute("students", students);

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class HomeWorkService {
-
+    @Autowired
     private static LoggingRepository logRep = new LoggingRepository(HomeWorkService.class.getName());
 
     @Autowired

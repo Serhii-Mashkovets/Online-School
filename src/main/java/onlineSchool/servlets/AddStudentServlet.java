@@ -37,7 +37,7 @@ public class AddStudentServlet extends HttpServlet {
         try {
             repository.add(student);
             resp.sendRedirect(req.getContextPath() + "/view/students.jsp");
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServletException(e);
         }
     }

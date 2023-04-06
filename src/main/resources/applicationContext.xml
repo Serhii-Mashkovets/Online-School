@@ -3,6 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="addMaterialsRepository" class="onlineSchool.repository.AddMaterialsRepository"/>
+    <bean id="homeWorkRepository" class="onlineSchool.repository.HomeWorkRepository"/>
+    <bean id="courseRepository" class="onlineSchool.repository.CourseRepository"/>
+    <bean id="lectureRepository" class="onlineSchool.repository.LectureRepository"/>
+    <bean id="personRepository" class="onlineSchool.repository.PersonRepository"/>
+    <bean id="studentsRepository" class="onlineSchool.repository.StudentsRepository"/>
+    <bean id="teachersRepository" class="onlineSchool.repository.TeachersRepository"/>
+
     <bean id="addMaterialService" class="onlineSchool.services.AddMaterialService"/>
     <bean id="homeWorkService" class="onlineSchool.services.HomeWorkService"/>
     <bean id="courseService" class="onlineSchool.services.CourseService"/>
@@ -10,5 +18,8 @@
     <bean id="personService" class="onlineSchool.services.PersonService"/>
     <bean id="studentService" class="onlineSchool.services.StudentsService"/>
     <bean id="teachersService" class="onlineSchool.services.TeachersService"/>
+
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
 
 </beans>

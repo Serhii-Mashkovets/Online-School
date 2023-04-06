@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CourseService {
-
+    @Autowired
     private static LoggingRepository logRep = new LoggingRepository(CourseService.class.getName());
 
     @Autowired

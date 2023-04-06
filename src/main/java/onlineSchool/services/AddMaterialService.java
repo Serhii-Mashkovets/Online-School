@@ -21,7 +21,7 @@ public class AddMaterialService {
 
     @Autowired
     private AddMaterialsRepository addMaterialsRepository;
-
+    @Autowired
     private static LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
     private Integer id;
 

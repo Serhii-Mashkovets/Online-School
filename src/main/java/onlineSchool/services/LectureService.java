@@ -8,11 +8,15 @@ import onlineSchool.models.Teacher;
 import java.util.*;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LectureService {
+    @Autowired
     private static LoggingRepository logRep = new LoggingRepository(LectureService.class.getName());
+
+
     private Integer id;
 
     public Lecture createNewLecture(String lectureName, String discription) {
@@ -73,7 +77,7 @@ public class LectureService {
         });
     }
 
-    @Autowired
+
     public void setId(int id) {
         this.id = id;
     }

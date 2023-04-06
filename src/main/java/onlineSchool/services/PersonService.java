@@ -4,6 +4,7 @@ import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.models.Person;
 import onlineSchool.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,13 +20,13 @@ import java.util.stream.Collectors;
 @Service
 public class PersonService {
 
-
+    @Autowired
     private static LoggingRepository logRep = new LoggingRepository(StudentsService.class.getName());
 
     private int personId;
 
     @Transactional
-    public static void isEmailDuplicate(String email) throws DuplicateEmailException {
+    public void isEmailDuplicate(String email) throws DuplicateEmailException {
         List<Person> persons = PersonRepository.getAllPersons();
 
         boolean isDuplicate = persons.stream()

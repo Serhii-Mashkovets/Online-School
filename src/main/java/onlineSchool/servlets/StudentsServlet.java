@@ -37,7 +37,7 @@ public class StudentsServlet extends HttpServlet {
                 List<Student> students = studentsRepository.getAllStudents();
                 req.setAttribute("students", students);
                 req.getRequestDispatcher("/WEB-INF/jsp/students.jsp").forward(req, resp);
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 throw new ServletException(e);
             }
         } else if (uri.equals("/view/getTheOneStudent.jsp")) {
@@ -50,7 +50,7 @@ public class StudentsServlet extends HttpServlet {
                 } else {
                     resp.sendRedirect("/view/getAllStudents.jsp");
                 }
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 throw new ServletException(e);
             }
         }

@@ -21,12 +21,13 @@
     if (studentIdParam != null) {
       try {
         int studentId = Integer.parseInt(studentIdParam);
-        StudentsRepository.getNewExample().removeById(studentId);
+        StudentsRepository studentsRepository = new StudentsRepository();
+        studentsRepository.removeById(studentId);
         response.sendRedirect(request.getContextPath() + "/view/getAllStudents.jsp");
 
       } catch (NumberFormatException e) {
         out.println("<p>Invalid student ID</p>");
-      } catch (SQLException e) {
+      } catch (Exception e) {
         out.println("<p>Failed to delete student. Error message: " + e.getMessage() + "</p>");
       }
     }

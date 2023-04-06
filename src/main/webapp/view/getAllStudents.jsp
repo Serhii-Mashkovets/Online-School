@@ -13,7 +13,7 @@
 <body>
 <h1>Список студентів</h1>
 
-<% StudentsRepository studentsRepository = StudentsRepository.getNewExample(); %>
+<% StudentsRepository studentsRepository = new StudentsRepository(); %>
 <% try {
     List<Student> students = studentsRepository.getAllStudents();
     if (students.isEmpty()) {

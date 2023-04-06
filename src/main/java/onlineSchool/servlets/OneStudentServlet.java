@@ -32,7 +32,7 @@ public class OneStudentServlet extends HttpServlet {
 
                 throw new EntityNotFoundException("Студент з таким id не знайдено");
             }
-        } catch (NumberFormatException | SQLException | EntityNotFoundException e) {
+        } catch (Exception e) {
             req.setAttribute("error", e.getMessage());
         }
     }

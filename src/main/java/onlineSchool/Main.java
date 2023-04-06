@@ -541,7 +541,7 @@ public class Main {
             System.out.println(studentsRepository.usingStudentById(1));
             System.out.println("Загальна кількість студентів = " + studentsRepository.sizeCount());
             System.out.println("Виведемо всіх студентів на екран: " + studentsRepository.getAllStudents());
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
