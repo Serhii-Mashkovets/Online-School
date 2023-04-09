@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/onlineschool"</property>
+        <property name="hibernate.connection.username">Serhii Mashkovets</property>
+        <property name="hibernate.connection.password">Mashkovets</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <mapping class="onlineSchool.models.AddMaterials"/>
+        <mapping class="onlineSchool.models.Course"/>
+        <mapping class="onlineSchool.models.HomeWork"/>
+        <mapping class="onlineSchool.models.Lecture"/>
+        <mapping class="onlineSchool.models.Person"/>
+        <mapping class="onlineSchool.models.Student"/>
+        <mapping class="onlineSchool.models.Teacher"/>
+    </session-factory>
+</hibernate-configuration>

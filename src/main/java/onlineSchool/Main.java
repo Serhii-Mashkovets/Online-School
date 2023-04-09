@@ -3,6 +3,7 @@ package onlineSchool;
 import onlineSchool.controlWork.StudentThread;
 import onlineSchool.databases.AllInfoFromATableInDB;
 import onlineSchool.exceptions.DuplicateEmailException;
+import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.ipChecker.Client;
 import onlineSchool.ipChecker.Server;
 import onlineSchool.loggingJournal.*;
@@ -34,6 +35,8 @@ public class Main {
     public static void main(String[] args) throws DuplicateEmailException {
 
         logRep.infoLog("Початок роботи в мейні");
+
+
 
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
