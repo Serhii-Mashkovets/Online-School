@@ -1,7 +1,6 @@
 <%@ page import="onlineSchool.repository.StudentsRepository" %>
 <%@ page import="onlineSchool.models.Student" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -45,7 +44,7 @@
 </table>
 
 <% }
-} catch (SQLException e) {
+} catch (Exception e) {
     request.setAttribute("error", e.getMessage());
 }
 %>

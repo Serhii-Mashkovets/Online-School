@@ -2,6 +2,8 @@ package onlineSchool.persistanceObjects;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +16,10 @@ public class CoursesEntity {
     @Basic
     @Column(name = "course_name")
     private String courseName;
+
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentCoursesEntity> students = new ArrayList<>();
 
     public int getCourseId() {
         return courseId;
@@ -42,5 +48,13 @@ public class CoursesEntity {
     @Override
     public int hashCode() {
         return Objects.hash(courseId, courseName);
+    }
+
+    public List<StudentCoursesEntity> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<StudentCoursesEntity> students) {
+        this.students = students;
     }
 }

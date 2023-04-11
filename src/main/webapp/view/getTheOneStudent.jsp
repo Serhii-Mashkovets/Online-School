@@ -37,7 +37,7 @@
 <%  } else {
   throw new EntityNotFoundException("Студент з таким id не знайдено");
 }
-} catch (NumberFormatException | SQLException | EntityNotFoundException e) {
+} catch ( Exception e) {
   request.setAttribute("error", e.getMessage());
 }
 %>

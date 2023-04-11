@@ -72,8 +72,8 @@ public class StudentsRepository extends ParentingClassForRepositories {
 
     public List<Student> getAllStudents() {
         try (var session = HibernateUtil.getSessionFactory().openSession()) {
-            String sql = "FROM StudentsEntity";
-            List<StudentsEntity> studentsEntities = session.createQuery(sql, StudentsEntity.class).getResultList();
+            String hql = "FROM StudentsEntity";
+            List<StudentsEntity> studentsEntities = session.createQuery(hql, StudentsEntity.class).getResultList();
             List<Student> students = new ArrayList<>();
             for (StudentsEntity studentEntity : studentsEntities) {
                 students.add(new Student( studentEntity.getStudentName(),
