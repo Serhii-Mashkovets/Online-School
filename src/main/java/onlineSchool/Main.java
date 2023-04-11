@@ -37,6 +37,11 @@ public class Main {
         logRep.infoLog("Початок роботи в мейні");
 
 
+        StudentsRepository studentsRepository = new StudentsRepository();
+        System.out.println("The list of all students: " + studentsRepository.getAllStudents());
+        System.out.println("the first student is : " +  studentsRepository.usingStudentById(1));
+
+
 
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");

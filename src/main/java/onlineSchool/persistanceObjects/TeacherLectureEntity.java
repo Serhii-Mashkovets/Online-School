@@ -1,15 +1,16 @@
 package onlineSchool.persistanceObjects;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
 @Table(name = "teacher_lecture", schema = "onlineschool", catalog = "")
 public class TeacherLectureEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "teacher_lecture_id")
+    private Integer teacherLectureId;
     @Basic
     @Column(name = "teacher_id")
     private Integer teacherId;

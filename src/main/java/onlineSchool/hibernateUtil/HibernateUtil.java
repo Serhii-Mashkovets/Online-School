@@ -5,11 +5,16 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
-    private static SessionFactory sessionFactory = buildSessionFactory();
+    private static SessionFactory sessionFactory =
+            new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    private static Configuration configuration;
 
     private static SessionFactory buildSessionFactory() {
         try {
-            return new Configuration().configure().buildSessionFactory();
+            configuration = new Configuration().configure();
+            configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+
+            return configuration.buildSessionFactory();
         }
         catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
@@ -21,4 +26,3 @@ public class HibernateUtil {
         return sessionFactory;
     }
 }
-

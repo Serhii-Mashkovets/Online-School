@@ -3,8 +3,8 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/onlineschool"</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/onlineschool</property>
         <property name="hibernate.connection.username">Serhii Mashkovets</property>
         <property name="hibernate.connection.password">Mashkovets</property>
         <property name="hibernate.show_sql">true</property>
@@ -16,5 +16,15 @@
         <mapping class="onlineSchool.models.Person"/>
         <mapping class="onlineSchool.models.Student"/>
         <mapping class="onlineSchool.models.Teacher"/>
+
+        <mapping class="onlineSchool.persistanceObjects.AdditionalMaterialsEntity"/>
+        <mapping class="onlineSchool.persistanceObjects.CoursesEntity"/>
+        <mapping class="onlineSchool.persistanceObjects.HomeworksEntity"/>
+        <mapping class="onlineSchool.persistanceObjects.LecturesEntity"/>
+        <mapping class="onlineSchool.persistanceObjects.StudentCoursesEntity"/>
+        <mapping class="onlineSchool.persistanceObjects.StudentCoursesEntityPK"/>
+        <mapping class="onlineSchool.persistanceObjects.StudentsEntity"/>
+        <mapping class="onlineSchool.persistanceObjects.TeacherLectureEntity"/>
+        <mapping class="onlineSchool.persistanceObjects.TeachersEntity"/>
     </session-factory>
 </hibernate-configuration>
