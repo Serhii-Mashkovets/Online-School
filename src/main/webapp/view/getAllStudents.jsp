@@ -1,8 +1,7 @@
 <%@ page import="onlineSchool.repository.StudentsRepository" %>
 <%@ page import="onlineSchool.models.Student" %>
 <%@ page import="java.util.List" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +11,11 @@
 <body>
 <h1>Список студентів</h1>
 
-<% StudentsRepository studentsRepository = new StudentsRepository(); %>
-<% try {
-    List<Student> students = studentsRepository.getAllStudents();
-    if (students.isEmpty()) {
+<%
+    StudentsRepository studentsRepository = new StudentsRepository();
+    try {
+        List<Student> students = studentsRepository.getAllStudents();
+        if (students.isEmpty()) {
 %>
 
 <p>Не знайдено жодного студента</p>

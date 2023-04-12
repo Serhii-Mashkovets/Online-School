@@ -1,7 +1,9 @@
 package onlineSchool.persistanceObjects;
 
-import jakarta.persistence.*;
 
+import onlineSchool.models.ResourseType;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -17,9 +19,9 @@ public class AdditionalMaterialsEntity {
     @Basic
     @Column(name = "lecture_id")
     private Integer lectureId;
-    @Basic
+    @Enumerated(EnumType.STRING)
     @Column(name = "resource_type")
-    private Object resourceType;
+    private ResourseType resourceType;
 
     public int getAddMaterialsId() {
         return addMaterialsId;
@@ -50,7 +52,7 @@ public class AdditionalMaterialsEntity {
     }
 
     public void setResourceType(Object resourceType) {
-        this.resourceType = resourceType;
+        this.resourceType = (ResourseType) resourceType;
     }
 
     @Override

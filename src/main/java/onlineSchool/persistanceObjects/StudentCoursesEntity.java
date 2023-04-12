@@ -1,11 +1,11 @@
 package onlineSchool.persistanceObjects;
 
-import jakarta.persistence.*;
 
-import java.util.Objects;
+
+import javax.persistence.*;
 
 @Entity
-@Table(name = "student_courses", schema = "onlineschool", catalog = "")
+@Table(name = "student_courses")
 public class StudentCoursesEntity {
 
     @EmbeddedId
@@ -45,4 +45,3 @@ public class StudentCoursesEntity {
         this.student = student;
     }
 }
-

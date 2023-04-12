@@ -10,7 +10,7 @@ import onlineSchool.repository.StudentsRepository;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 @WebServlet("/AddStudent")
 public class AddStudentServlet extends HttpServlet {

@@ -1,7 +1,8 @@
 package onlineSchool.persistanceObjects;
 
-import jakarta.persistence.*;
 
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -10,13 +11,11 @@ public class StudentCoursesEntityPK implements Serializable {
     @Column(name = "student_id")
     private int studentId;
 
-    @Column(name = "course_id")
+    @Column(name = "course_id" )
     private int courseId;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("courseId")
-    private CoursesEntity course;
+
 
     public int getStudentId() {
         return studentId;
@@ -47,11 +46,5 @@ public class StudentCoursesEntityPK implements Serializable {
         return Objects.hash(studentId, courseId);
     }
 
-    public CoursesEntity getCourse() {
-        return course;
-    }
 
-    public void setCourse(CoursesEntity course) {
-        this.course = course;
-    }
 }

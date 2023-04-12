@@ -1,7 +1,8 @@
 package onlineSchool.persistanceObjects;
 
-import jakarta.persistence.*;
 
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,8 +28,7 @@ public class StudentsEntity {
     private String studentEmail;
 
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<StudentCoursesEntity> courses = new ArrayList<>();
+
 
 
     public int getStudentId() {

@@ -38,10 +38,16 @@ public class Main {
 
 
         StudentsRepository studentsRepository = new StudentsRepository();
+
         System.out.println("The list of all students: " + studentsRepository.getAllStudents());
+
         System.out.println("the first student is : " +  studentsRepository.usingStudentById(1));
 
+        System.out.println("Adding a new student: ");
+        studentsRepository.add(new Student("Rgfhdnd", "ughfhgfhgfhreer", "fghgfhgfueg@ukr.net"));
 
+        System.out.println("Deleting a student: ");
+        studentsRepository.removeById(20);
 
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
