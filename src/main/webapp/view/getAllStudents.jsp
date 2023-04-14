@@ -14,7 +14,8 @@
 <%
     StudentsRepository studentsRepository = new StudentsRepository();
     try {
-        List<Student> students = studentsRepository.getAllStudents();
+        List<Student> students;
+        students = studentsRepository.getAllStudents();
         if (students.isEmpty()) {
 %>
 

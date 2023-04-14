@@ -12,6 +12,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StudentsRepository extends ParentingClassForRepositories {
+    public StudentsRepository() {
+    }
+
     public List<Optional<Student>> getStudentsByCourseId(int courseId) throws EntityNotFoundException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT s FROM StudentsEntity s "
