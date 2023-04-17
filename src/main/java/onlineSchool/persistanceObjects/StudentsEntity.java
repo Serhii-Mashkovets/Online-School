@@ -2,11 +2,14 @@ package onlineSchool.persistanceObjects;
 
 
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name = "students", schema = "onlineschool", catalog = "")
 public class StudentsEntity {
@@ -29,6 +32,8 @@ public class StudentsEntity {
 
 
 
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "students")
+    private List<CoursesEntity> courses;
 
 
     public int getStudentId() {

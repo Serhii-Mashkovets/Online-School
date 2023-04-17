@@ -9,6 +9,11 @@
         <property name="hibernate.connection.password">Mashkovets</property>
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">true</property>
+
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>
+
         <mapping class="onlineSchool.models.AddMaterials"/>
         <mapping class="onlineSchool.models.Course"/>
         <mapping class="onlineSchool.models.HomeWork"/>
@@ -27,4 +32,9 @@
         <mapping class="onlineSchool.persistanceObjects.TeacherLectureEntity"/>
         <mapping class="onlineSchool.persistanceObjects.TeachersEntity"/>
     </session-factory>
+
+
+
+
+
 </hibernate-configuration>

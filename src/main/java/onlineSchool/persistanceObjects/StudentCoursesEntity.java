@@ -44,4 +44,7 @@ public class StudentCoursesEntity {
     public void setStudent(StudentsEntity student) {
         this.student = student;
     }
+
+    public void setStudentCoursesEntityPK(StudentCoursesEntityPK studentCoursesEntityPK) {
+    }
 }

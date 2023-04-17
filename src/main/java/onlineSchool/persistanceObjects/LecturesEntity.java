@@ -1,10 +1,15 @@
 package onlineSchool.persistanceObjects;
 
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 
+
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name = "lectures", schema = "onlineschool", catalog = "")
 public class LecturesEntity {

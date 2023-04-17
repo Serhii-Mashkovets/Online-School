@@ -2,10 +2,14 @@ package onlineSchool.persistanceObjects;
 
 
 import onlineSchool.models.ResourseType;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.util.Objects;
 
+
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name = "additional_materials", schema = "onlineschool", catalog = "")
 public class AdditionalMaterialsEntity {

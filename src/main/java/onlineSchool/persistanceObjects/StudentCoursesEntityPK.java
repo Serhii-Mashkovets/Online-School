@@ -14,7 +14,12 @@ public class StudentCoursesEntityPK implements Serializable {
     @Column(name = "course_id" )
     private int courseId;
 
+    public StudentCoursesEntityPK(int studentId, int courseId) {
+    }
 
+    public StudentCoursesEntityPK() {
+
+    }
 
 
     public int getStudentId() {
