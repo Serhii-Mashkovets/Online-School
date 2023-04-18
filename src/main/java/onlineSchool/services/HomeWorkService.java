@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -18,6 +19,8 @@ public class HomeWorkService {
     @Autowired
     HomeWorkRepository homeWorkRepository;
 
+
+    private final ArrayList <HomeWork> homeWorks = new ArrayList<>();
     public HomeWork createHw () {
         logRep.debugLog("Створення домашньої роботи");
         return new HomeWork();
@@ -34,16 +37,40 @@ public class HomeWorkService {
         }
     }
 
-    public void findAllNewHomeWorkList(List<HomeWork> list) {
-        System.out.println("""
-                "Знайти повну інформацію про: 
-                Домашню роботу 
-                """);
-        if (homeWorkRepository.isEmpty()) System.out.println("Жодного елементу не знайдено!");
-        for (HomeWork homeWork : list) {
-            if (homeWork == null) continue;
-            System.out.println(homeWork);
-        }
+    public Integer getSize() {
+        return homeWorks.size();
     }
 
+    public boolean isEmpty() {
+        return homeWorks.isEmpty();
+    }
+
+    public HomeWork getById(Integer id) {
+        return id < homeWorks.size() ? homeWorks.get(id) : null;
+    }
+
+
+    public void add (HomeWork homeWork) {
+        homeWorks.add(homeWork);
+    }
+
+    public void save (HomeWork homeWork) {
+        homeWorkRepository.save(homeWork);
+    }
+
+    public List<HomeWork> getAll() {
+        Iterable<HomeWork> iterable = homeWorkRepository.findAll();
+
+        List<HomeWork> list = new ArrayList<>();
+        for (HomeWork homeWork : iterable) {
+            list.add(homeWork);
+        }
+
+        return list;
+    }
+
+
+    public void deleteById(Integer id) {
+        homeWorkRepository.deleteById(id);
+    }
 }

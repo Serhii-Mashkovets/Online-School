@@ -49,9 +49,9 @@ class CourseServiceTest {
             Mockito.when(scannerMock.nextLine()).thenReturn("Test course");
 
             CourseService courseService = new CourseService();
-            courseService.lectureRepository = new LectureRepository();
-            courseService.teachersRepository = new TeachersRepository();
-            courseService.studentsRepository = new StudentsRepository();
+            courseService.lectureRepository.findAll();
+            courseService.teachersRepository.findAll();
+            courseService.studentsRepository.findAll();
 
             // when
             Course actualCourse = courseService.createNewCourseByUsers();

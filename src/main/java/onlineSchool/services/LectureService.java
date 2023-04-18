@@ -2,11 +2,14 @@ package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.models.HomeWork;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.Teacher;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import onlineSchool.repository.LectureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -17,6 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class LectureService {
     @Autowired
     private static LoggingRepository logRep = new LoggingRepository(LectureService.class.getName());
+
+private LectureRepository lectureRepository;
+    private final ArrayList <Lecture> lectures = new ArrayList<>();
 
 
     private Integer id;
@@ -78,6 +84,44 @@ public class LectureService {
             lectureList.forEach(lecture -> System.out.println("\t" + lecture.getLectureName()));
         });
     }
+
+    public Integer getSize() {
+        return lectures.size();
+    }
+
+    public boolean isEmpty() {
+        return lectures.isEmpty();
+    }
+
+    public Lecture getById(Integer id) {
+        return id < lectures.size() ? lectures.get(id) : null;
+    }
+
+
+    public void add (Lecture lecture) {
+        lectures.add(lecture);
+    }
+
+    public void save (Lecture lecture) {
+        lectureRepository.save(lecture);
+    }
+
+    public List<Lecture> getAll() {
+        Iterable<Lecture> iterable = lectureRepository.findAll();
+
+        List<Lecture> list = new ArrayList<>();
+        for (Lecture lecture : iterable) {
+            list.add(lecture);
+        }
+
+        return list;
+    }
+
+
+    public void deleteById(Integer id) {
+        lectureRepository.deleteById(Long.valueOf(id));
+    }
+
 
 
     public void setId(int id) {

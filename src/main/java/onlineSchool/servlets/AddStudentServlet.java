@@ -1,44 +1,39 @@
 package onlineSchool.servlets;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import onlineSchool.models.Student;
 import onlineSchool.repository.StudentsRepository;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.io.IOException;
 
+@Controller
+@RequestMapping("/AddStudent")
+public class AddStudentServlet {
+    private final StudentsRepository repository;
 
-@WebServlet("/AddStudent")
-public class AddStudentServlet extends HttpServlet {
-    private StudentsRepository repository;
-
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        repository = new StudentsRepository();
+    @Autowired
+    public AddStudentServlet(StudentsRepository repository) {
+        this.repository = repository;
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/view/students.jsp").forward(request, response);
+    @RequestMapping(method = RequestMethod.GET)
+    protected String doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        return "students";
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @RequestMapping(method = RequestMethod.POST)
+    protected String doPost(HttpServletRequest req) {
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
         String email = req.getParameter("email");
         Student student = new Student(name, surname, email);
-
-        try {
-            repository.add(student);
-            resp.sendRedirect(req.getContextPath() + "/view/students.jsp");
-        } catch (Exception e) {
-            throw new ServletException(e);
-        }
+        repository.save(student);
+        return "redirect:/view/students.jsp";
     }
 }

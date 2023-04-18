@@ -2,6 +2,7 @@ package onlineSchool.services;
 
 import onlineSchool.exceptions.DuplicateEmailException;
 import onlineSchool.loggingJournal.LoggingRepository;
+
 import onlineSchool.models.Person;
 import onlineSchool.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Transactional
@@ -23,11 +21,15 @@ public class PersonService {
     @Autowired
     private static LoggingRepository logRep = new LoggingRepository(StudentsService.class.getName());
 
+    PersonRepository personRepository;
+
+    private final ArrayList <Person> persons = new ArrayList<>();
+
     private int personId;
 
     @Transactional
     public void isEmailDuplicate(String email) throws DuplicateEmailException {
-        List<Person> persons = PersonRepository.getAllPersons();
+        List<Person> persons = (List<Person>) personRepository.findAll();
 
         boolean isDuplicate = persons.stream()
                 .map(Person::getEmail)
@@ -70,6 +72,47 @@ public class PersonService {
 
         emailToNameMap.forEach((email, name) -> System.out.println(email + " -> " + name));
     }
+
+    public Integer getSize() {
+        return persons.size();
+    }
+
+    public boolean isEmpty() {
+        return persons.isEmpty();
+    }
+
+    public Person getById(Integer id) {
+        return id < persons.size() ? persons.get(id) : null;
+    }
+
+
+    public void add (Person person) {
+        persons.add(person);
+    }
+
+    public void save (Person person) {
+        personRepository.save(person);
+    }
+
+    public List<Person> getAll() {
+        Iterable<Person> iterable = personRepository.findAll();
+
+        List<Person> list = new ArrayList<>();
+        for (Person person : iterable) {
+            list.add(person);
+        }
+
+        return list;
+    }
+
+
+    public void deleteById(Integer id) {
+        personRepository.deleteById(Long.valueOf(id));
+    }
+
+
+
+
 
     public int getPersonId() {
         return personId;

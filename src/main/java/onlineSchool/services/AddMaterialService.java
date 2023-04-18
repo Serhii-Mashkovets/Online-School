@@ -1,14 +1,12 @@
 package onlineSchool.services;
 
 import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.models.AddMaterials;
 import onlineSchool.models.Lecture;
 import onlineSchool.models.ResourseType;
-import onlineSchool.models.AddMaterials;
 import onlineSchool.repository.AddMaterialsRepository;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -20,24 +18,35 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class AddMaterialService {
 
-    @Autowired
-    private AddMaterialsRepository addMaterialsRepository;
-    @Autowired
-    private static LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
+    private final AddMaterialsRepository addMaterialsRepository;
+    private static final LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
     private Integer id;
 
-    public static void groupAddMatByLectures ( List <AddMaterials> materials, List <Lecture> lecture) {
+    @Autowired
+    public AddMaterialService(AddMaterialsRepository addMaterialsRepository) {
+        this.addMaterialsRepository = addMaterialsRepository;
+    }
+
+    public static void groupAddMatByLectures(List<AddMaterials> materials, List<Lecture> lectures) {
         Map<Integer, List<AddMaterials>> materialsByLecture = materials.stream()
                 .collect(Collectors.groupingBy(AddMaterials::getLectureId));
 
-        materialsByLecture.forEach((getLectureId, materialList) -> {
-            System.out.println(lecture + ":");
-            materialList.forEach(material -> System.out.println("\t" + material.getName()));
+        materialsByLecture.forEach((lectureId, materialList) -> {
+            Lecture lecture = lectures.stream()
+                    .filter(l -> l.getId().equals(lectureId))
+                    .findFirst()
+                    .orElse(null);
+            if (lecture == null) {
+                System.out.println("Лекцію з id " + lectureId + " не знайдено!");
+            } else {
+                System.out.println(lecture.getLectureName() + ":");
+                materialList.forEach(material -> System.out.println("\t" + material.getName()));
+            }
         });
     }
 
     public Map<Lecture, List<AddMaterials>> getAddMaterialsGroupedByLecture() {
-        return addMaterialsRepository.getAll().stream()
+        return addMaterialsRepository.findAll().stream()
                 .collect(Collectors.groupingBy(AddMaterials::getLecture));
     }
 
@@ -75,21 +84,64 @@ public class AddMaterialService {
                 case 3 -> resourseType = ResourseType.BOOK;
                 default -> System.out.println("Такий тип не знайдено!");
             }
-        } while (type < 1 || type > 3);
+        } while (type < 1 || type >
+                3);
         sc.close();
         return new AddMaterials(addMatName, AddMaterials.getId(), resourseType);
     }
 
     @Transactional
     public void showAllNewAddMatList() {
-        addMaterialsRepository.showAllelementsAddMat();
+        addMaterialsRepository.findAll();
     }
 
-    public AddMaterialsRepository sortAddMat () {
-            AddMaterialsRepository addMaterialsRepository1 = AddMaterialsRepository.getNewExample();
-            addMaterialsRepository1.sortAddMatt();
-            return addMaterialsRepository1;
+    public void saveAddMaterial(Integer addMaterialId, String newName, ResourseType newType) {
+        AddMaterials addMaterial = addMaterialsRepository.getById(addMaterialId);
+        if (addMaterial == null) {
+            System.out.println("Додатковий матеріал з id " + addMaterialId + " не знайдено!");
+            return;
         }
+        addMaterial.setName(newName);
+        addMaterial.setResourseType(newType);
+        addMaterialsRepository.save(addMaterial);
+    }
+
+    public void deleteAddMaterial(Integer addMaterialId) {
+        AddMaterials addMaterial = addMaterialsRepository.getById(addMaterialId);
+        if (addMaterial == null) {
+            System.out.println("Додатковий матеріал з id " + addMaterialId + " не знайдено!");
+            return;
+        }
+        addMaterialsRepository.delete(addMaterial);
+    }
+
+
+    private final ArrayList<AddMaterials> addMaterials = new ArrayList<>();
+
+    public Integer getSize() {
+        return addMaterials.size();
+    }
+
+    public boolean isEmpty() {
+        return addMaterials.isEmpty();
+    }
+
+    public void add(AddMaterials addMaterial) {
+        addMaterials.add(addMaterial);
+    }
+
+    public List<AddMaterials> getAll() {
+        return this.addMaterials;
+    }
+
+    public void delete (AddMaterials addMaterials) {
+        addMaterialsRepository.delete(addMaterials);
+    }
+
+
+    public Optional<AddMaterials> findById (Integer id) {
+       return addMaterialsRepository.findById(id);
+    }
 
     public Integer getId() {
         return id;

@@ -13,7 +13,7 @@ public class Course extends ParentingClassForModels implements Serializable {
     private String courseNameOne;
     private static int counterOfCourse;
     private static Integer id;
-    private Teacher teaherNameOne;
+    private Optional<Teacher> teaherNameOne;
     private Student studentNameOne;
 
     public Course(String courseName, Optional<Lecture> lectureName, Optional<Teacher> teacherOne, Optional<Student> studentOne) {
@@ -107,11 +107,11 @@ public class Course extends ParentingClassForModels implements Serializable {
         return serialazibleNumID;
     }
 
-    public Teacher getTeaherNameOne() {
+    public Optional<Teacher> getTeaherNameOne() {
         return teaherNameOne;
     }
 
-    public void setTeaherNameOne(Teacher teaherNameOne) {
+    public void setTeaherNameOne(Optional<Teacher> teaherNameOne) {
         this.teaherNameOne = teaherNameOne;
     }
 
@@ -121,6 +121,14 @@ public class Course extends ParentingClassForModels implements Serializable {
 
     public void setStudentNameOne(Student studentNameOne) {
         this.studentNameOne = studentNameOne;
+    }
+
+    public void setTeacherNameOne(Optional<Teacher> teacher) {
+        this.teaherNameOne = teacher;
+    }
+
+    public void setStudentOne(Student student) {
+        this.studentNameOne = student;
     }
 }
 

@@ -13,10 +13,12 @@ import java.sql.SQLException;
 
 @WebServlet("/DeleteStudentServlet")
 public class DeleteStudentServlet extends HttpServlet {
+
+    StudentsRepository studentsRepository;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         int studentId = Integer.parseInt(request.getParameter("studentId"));
         try {
-            StudentsRepository.getNewExample().removeById(studentId);
+            studentsRepository.deleteById(studentId);
             response.sendRedirect(request.getContextPath() + "/view/getAllStudents.jsp");
         } catch (Exception e) {
             throw new ServletException(e);

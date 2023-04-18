@@ -19,9 +19,9 @@ public class OneStudentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             int studentId = Integer.parseInt(req.getParameter("id"));
-            StudentsRepository studentsRepository = new StudentsRepository();
+            StudentsRepository studentsRepository = null;
 
-            Optional<Student> student = studentsRepository.usingStudentById(studentId);
+            Optional<Student> student = studentsRepository.findById(studentId);
             if (student.isPresent()) {
                 req.setAttribute("student", student.get());
                 req.getRequestDispatcher("/view/getTheOneStudent.jsp").forward(req, resp);

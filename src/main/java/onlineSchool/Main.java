@@ -1,9 +1,10 @@
 package onlineSchool;
 
+import onlineSchool.appConfig.ApplicationConfig;
 import onlineSchool.controlWork.StudentThread;
 import onlineSchool.databases.AllInfoFromATableInDB;
 import onlineSchool.exceptions.DuplicateEmailException;
-import onlineSchool.exceptions.EntityNotFoundException;
+
 import onlineSchool.ipChecker.Client;
 import onlineSchool.ipChecker.Server;
 import onlineSchool.loggingJournal.*;
@@ -11,12 +12,14 @@ import onlineSchool.loggingJournal.LevelOfLogging;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.loggingJournal.LoggingService;
 import onlineSchool.models.*;
+import onlineSchool.persistanceObjects.StudentsEntity;
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.repository.StudentsRepository;
 import onlineSchool.serialization.SerializationForCourse;
 import onlineSchool.services.*;
 import onlineSchool.services.PersonService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
@@ -37,20 +40,8 @@ public class Main {
         logRep.infoLog("Початок роботи в мейні");
 
 
-        StudentsRepository studentsRepository = new StudentsRepository();
 
-        System.out.println("The list of all students: " + studentsRepository.getAllStudents());
-
-        System.out.println("the first student is : " +  studentsRepository.usingStudentById(1));
-
-        System.out.println("Adding a new student: ");
-        studentsRepository.add(new Student("Rgfhdnd", "ughfhgfhgfhreer", "fghgfhgfueg@ukr.net"));
-
-        System.out.println("Deleting a student: ");
-        studentsRepository.removeById(20);
-
-
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         AddMaterialService addMaterialService = context.getBean(AddMaterialService.class);
         HomeWorkService homeWorkService = context.getBean(HomeWorkService.class);
         CourseService courseService = context.getBean(CourseService.class);
@@ -278,8 +269,8 @@ public class Main {
             if (crtOfCourse == 1) {
                 CourseService course = new CourseService();
                 SerializationForCourse.serializeFile(course.createNewCourseByUsers());
-                CourseRepository courseRepository = CourseRepository.getNewExample();
-                Collections.sort(courseRepository.getElements());
+                CourseRepository courseRepository = null;
+
                 System.out.println(course);
                 logRep.debugLog("Закінчення створення курсу в Мейні");
 
@@ -304,7 +295,7 @@ public class Main {
                         int sortAddMat = sc.nextInt();
                         try {
                             if (sortAddMat == 1) {
-                                addMaterialService.sortAddMat();
+
                             } else if (sortAddMat == 2) {
                                 System.exit(0);
                             }
@@ -549,12 +540,13 @@ public class Main {
     }
 
     public static void studentFromDB() throws SQLException {
-        StudentsRepository studentsRepository = new StudentsRepository();
+        StudentsRepository studentsRepository = null;
+
         try {
-            studentsRepository.add(new Student("Boby12345", "Doe12345", "boyboby12345@gmail.com"));
-            System.out.println(studentsRepository.usingStudentById(1));
-            System.out.println("Загальна кількість студентів = " + studentsRepository.sizeCount());
-            System.out.println("Виведемо всіх студентів на екран: " + studentsRepository.getAllStudents());
+            studentsRepository.save(new Student("25883","dhdhjhg","ehsnn@gmail.com"));
+            System.out.println(studentsRepository.findById(1));
+            System.out.println("Загальна кількість студентів = " + studentsRepository.count());
+            System.out.println("Виведемо всіх студентів на екран: " + studentsRepository.findAll());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

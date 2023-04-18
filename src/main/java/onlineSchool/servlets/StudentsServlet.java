@@ -27,14 +27,14 @@ public class StudentsServlet extends HttpServlet {
         if (uri.equals("/view/deleteTheOneStudent.jsp")) {
             int studentId = Integer.parseInt(req.getParameter("id"));
             try {
-                studentsRepository.removeById(studentId);
+                studentsRepository.deleteById(studentId);
                 resp.sendRedirect("/view/getAllStudents.jsp");
             } catch (Exception e) {
                 throw new ServletException(e);
             }
         } else if (uri.equals("/view/getAllStudents.jsp")) {
             try {
-                List<Student> students = studentsRepository.getAllStudents();
+                List<Student> students = (List<Student>) studentsRepository.findAll();
                 req.setAttribute("students", students);
                 req.getRequestDispatcher("/WEB-INF/jsp/students.jsp").forward(req, resp);
             } catch (Exception e) {
@@ -43,7 +43,7 @@ public class StudentsServlet extends HttpServlet {
         } else if (uri.equals("/view/getTheOneStudent.jsp")) {
             int studentId = Integer.parseInt(req.getParameter("id"));
             try {
-                Optional<Student> optionalStudent = studentsRepository.usingStudentById(studentId);
+                Optional<Student> optionalStudent = studentsRepository.findById(studentId);
                 if (optionalStudent.isPresent()) {
                     req.setAttribute("student", optionalStudent.get());
                     req.getRequestDispatcher("/WEB-INF/jsp/student.jsp").forward(req, resp);
@@ -62,7 +62,7 @@ public class StudentsServlet extends HttpServlet {
         if (uri.equals("//view/deleteTheOneStudent.jsp")) {
             int studentId = Integer.parseInt(req.getParameter("id"));
             try {
-                studentsRepository.removeById(studentId);
+                studentsRepository.deleteById(studentId);
                 resp.sendRedirect("/view/getAllStudents.jsp");
             } catch (Exception e) {
                 throw new ServletException(e);

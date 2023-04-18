@@ -1,20 +1,34 @@
 package onlineSchool.appConfig;
 
 
+import onlineSchool.repository.AddMaterialsRepository;
+import onlineSchool.repository.StudentsRepository;
 import onlineSchool.services.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
 
 import javax.sql.DataSource;
+import java.util.Properties;
+import java.util.Scanner;
 
 @Configuration
 @ComponentScan ("onlineSchool")
 @PropertySource("classpath:application.properties")
 public class ApplicationConfig {
+
+    @Autowired
+    private Environment env;
 
 
     @Value("${spring.datasource.url}")
@@ -27,19 +41,16 @@ public class ApplicationConfig {
     private String password;
 
 
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl(databaseUrl);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        return dataSource;
-    }
+
+    @Autowired
+    AddMaterialsRepository addMaterialsRepository;
+
+    @Autowired
+    StudentsRepository studentsRepository;
 
     @Bean
     public AddMaterialService addMaterialService() {
-        return new AddMaterialService();
+        return new AddMaterialService(addMaterialsRepository);
     }
 
     @Bean
@@ -69,11 +80,57 @@ public class ApplicationConfig {
 
     @Bean
     public StudentsService studentsService() {
-        return new StudentsService();
+        return new StudentsService(studentsRepository, scanner ());
+    }
+
+    @Bean
+    public Scanner scanner() {
+        return new Scanner(System.in);
     }
 
 
 
+    @Bean
+    public DataSource dataSource() {
+        final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(env.getProperty("spring.datasource.driverClassName"));
+        dataSource.setUrl(env.getProperty("jdbc.url"));
+        dataSource.setUsername(env.getProperty("jdbc.user"));
+        dataSource.setPassword(env.getProperty("jdbc.pass"));
+        return dataSource;
+    }
 
+
+
+    @Bean
+    public Properties getHibernateProperties() {
+        Properties properties = new Properties();
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        properties.setProperty("hibernate.show_sql", "true");
+
+        return properties;
+    }
+
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean =
+                new LocalContainerEntityManagerFactoryBean();
+        entityManagerFactoryBean.setDataSource(dataSource());
+        entityManagerFactoryBean.setPackagesToScan(
+                env.getRequiredProperty("onlineSchool.persistanceObjects"));
+        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        entityManagerFactoryBean.setJpaProperties(getHibernateProperties());
+        return entityManagerFactoryBean;
+    }
+
+
+    @Bean
+    public JpaTransactionManager transactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+
+        return transactionManager;
+    }
 
 }

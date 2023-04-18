@@ -20,8 +20,10 @@ class PersonServiceTest {
     @Test
     public void testCreateNewPersonByUsers() throws DuplicateEmailException {
 
+        PersonRepository personRepository = null;
+
         List<Person> persons = new ArrayList<>();
-        Mockito.when(PersonRepository.getAllPersons()).thenReturn(persons);
+        Mockito.when(personRepository.findAll()).thenReturn(persons);
         String input = "John Doe\nDoe\n123456789\njohndoe@example.com\n";
         System.setIn(new java.io.ByteArrayInputStream(input.getBytes()));
 
@@ -40,11 +42,12 @@ class PersonServiceTest {
 
     @Test
     public void testCreateNewPersonByUsers_WithDuplicateEmail() {
+        PersonRepository personRepository = null;
 
         List<Person> persons = new ArrayList<>();
         Person person = new Person("Jane", "Doe", "987654321", "janedoe@example.com");
         persons.add(person);
-        Mockito.when(PersonRepository.getAllPersons()).thenReturn(persons);
+        Mockito.when(personRepository.findAll()).thenReturn(persons);
         String input = "John Doe\nDoe\n123456789\njanedoe@example.com\n";
         System.setIn(new java.io.ByteArrayInputStream(input.getBytes()));
         PersonService personService = new PersonService(); // створюємо екземпляр класу

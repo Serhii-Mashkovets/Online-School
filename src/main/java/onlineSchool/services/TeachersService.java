@@ -2,12 +2,16 @@ package onlineSchool.services;
 
 import onlineSchool.exceptions.ValidationExceptions;
 import onlineSchool.loggingJournal.LoggingRepository;
+import onlineSchool.models.Lecture;
 import onlineSchool.models.Teacher;
 
+import onlineSchool.repository.TeachersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -18,6 +22,10 @@ public class TeachersService {
     @Autowired
     private static LoggingRepository logRep;
 
+
+    TeachersRepository teachersRepository;
+
+    private List<Teacher> teacherList;
     private Integer id;
 
     public Teacher createNewTeacher(String teacherName, String teacherSecondName) {
@@ -61,6 +69,47 @@ public class TeachersService {
         }
         return null;
     }
+
+
+
+    public Integer getSize() {
+        return teacherList.size();
+    }
+
+    public boolean isEmpty() {
+        return teacherList.isEmpty();
+    }
+
+    public Teacher getById(Integer id) {
+        return id < teacherList.size() ?teacherList.get(id) : null;
+    }
+
+
+    public void add (Teacher teacher) {
+        teacherList.add(teacher);
+    }
+
+    public void save (Teacher teacher) {
+        teachersRepository.save(teacher);
+    }
+
+    public List<Teacher> getAll() {
+        Iterable<Teacher> iterable = teachersRepository.findAll();
+
+        List<Teacher> list = new ArrayList<>();
+        for (Teacher teacher : iterable) {
+            list.add(teacher);
+        }
+
+        return list;
+    }
+
+
+    public void deleteById(Integer id) {
+        teachersRepository.deleteById(id);
+    }
+
+
 
     public int getId() {
         return id;
