@@ -39,8 +39,6 @@ public class Main {
 
         logRep.infoLog("Початок роботи в мейні");
 
-
-
         ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         AddMaterialService addMaterialService = context.getBean(AddMaterialService.class);
         HomeWorkService homeWorkService = context.getBean(HomeWorkService.class);
