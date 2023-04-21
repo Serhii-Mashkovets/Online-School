@@ -16,6 +16,8 @@ public class Student extends ParentingClassForModels implements Serializable {
 
     private int courseId;
 
+    public Student () {}
+
     public Student(String studentName, String studentLastName) {
         this.setStudentName(studentName);
         this.setStudentLastName(studentLastName);

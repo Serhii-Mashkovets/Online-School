@@ -1,7 +1,4 @@
-<%@ page import="onlineSchool.repository.StudentsRepository" %>
-<%@ page import="onlineSchool.models.Student" %>
-<%@ page import="java.util.List" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,44 +8,30 @@
 <body>
 <h1>Список студентів</h1>
 
-<%
-    StudentsRepository studentsRepository = new StudentsRepository();
-    try {
-        List<Student> students;
-        students = studentsRepository.getAllStudents();
-        if (students.isEmpty()) {
-%>
+<c:if test="${not empty errorMessage}">
+    <p>${errorMessage}</p>
+</c:if>
 
-<p>Не знайдено жодного студента</p>
-
-<% } else { %>
-
-<table border="2">
-    <thead>
-    <tr>
-
-        <th>Ім'я</th>
-        <th>Прізвище</th>
-        <th>Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for (Student student : students) { %>
-    <tr>
-
-        <td><%= student.getStudentName() %></td>
-        <td><%= student.getStudentLastName() %></td>
-        <td><%= student.getEmail() %></td>
-    </tr>
-    <% } %>
-    </tbody>
-</table>
-
-<% }
-} catch (Exception e) {
-    request.setAttribute("error", e.getMessage());
-}
-%>
+<c:if test="${not empty students}">
+    <table border="2">
+        <thead>
+        <tr>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="student" items="${students}">
+            <tr>
+                <td>${student.studentName}</td>
+                <td>${student.studentLastName}</td>
+                <td>${student.email}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</c:if>
 
 </body>
 </html>

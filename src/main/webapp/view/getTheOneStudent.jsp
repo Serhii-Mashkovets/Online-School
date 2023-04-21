@@ -22,9 +22,9 @@
   String studentIdParam = request.getParameter("id");
   if (studentIdParam != null && !studentIdParam.isEmpty()) {
     int studentId = Integer.parseInt(studentIdParam);
-    StudentsRepository studentsRepository = new StudentsRepository();
+    StudentsRepository studentsRepository = null;
     try {
-      Optional<Student> student = studentsRepository.usingStudentById(studentId);
+      Optional<Student> student = studentsRepository.findById(studentId);
       if (student.isPresent()) { %>
 
 <p>Ім'я: <%= student.get().getStudentName() %></p>

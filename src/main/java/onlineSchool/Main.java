@@ -12,7 +12,7 @@ import onlineSchool.loggingJournal.LevelOfLogging;
 import onlineSchool.loggingJournal.LoggingRepository;
 import onlineSchool.loggingJournal.LoggingService;
 import onlineSchool.models.*;
-import onlineSchool.persistanceObjects.StudentsEntity;
+
 import onlineSchool.repository.CourseRepository;
 import onlineSchool.repository.StudentsRepository;
 import onlineSchool.serialization.SerializationForCourse;
@@ -20,7 +20,7 @@ import onlineSchool.services.*;
 import onlineSchool.services.PersonService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 
 import java.io.File;

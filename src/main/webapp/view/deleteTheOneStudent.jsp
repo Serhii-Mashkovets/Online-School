@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="onlineSchool.models.Student" %>
+
 <%@ page import="onlineSchool.repository.StudentsRepository" %>
-<%@ page import="java.sql.SQLException" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -21,8 +21,8 @@
     if (studentIdParam != null) {
       try {
         int studentId = Integer.parseInt(studentIdParam);
-        StudentsRepository studentsRepository = new StudentsRepository();
-        studentsRepository.removeById(studentId);
+       StudentsRepository studentsRepository = null;
+        studentsRepository.deleteById(studentId);
         response.sendRedirect(request.getContextPath() + "/view/getAllStudents.jsp");
 
       } catch (NumberFormatException e) {
