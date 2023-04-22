@@ -3,14 +3,15 @@ package onlineSchool.controller;
 import onlineSchool.exceptions.EntityNotFoundException;
 import onlineSchool.models.Student;
 import onlineSchool.repository.StudentsRepository;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-@Controller
+@RestController
 public class OneStudentController {
 
     private final StudentsRepository studentsRepository;

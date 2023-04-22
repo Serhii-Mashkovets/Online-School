@@ -4,13 +4,14 @@ package onlineSchool.controller;
 import onlineSchool.models.Student;
 import onlineSchool.repository.StudentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class StudentsController {
 
     @Autowired
