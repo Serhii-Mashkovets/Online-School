@@ -4,18 +4,24 @@ import onlineSchool.models.Student;
 import onlineSchool.repository.StudentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController
+@Validated
 public class AddStudentController {
 
     @Autowired
     private StudentsRepository studentsRepository;
+
 
     @GetMapping("/students")
     public String showAddStudentForm(Model model) {
@@ -24,7 +30,7 @@ public class AddStudentController {
     }
 
     @PostMapping("/students")
-    public String addStudent(@ModelAttribute("student") Student student, BindingResult result, Model model) {
+    public String addStudent(@ModelAttribute("student") @Validated Student student, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("errorMsg", "Помилка валідації введених даних");
             return "students";
@@ -38,4 +44,3 @@ public class AddStudentController {
         return "students";
     }
 }
-

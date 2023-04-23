@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+import jakarta.validation.constraints.NotNull;
+
 @RestController
 public class OneStudentController {
 
@@ -21,7 +23,7 @@ public class OneStudentController {
     }
 
     @GetMapping("/getTheOneStudent")
-    public String getStudentInfo(@RequestParam("id") Integer studentId, Model model) {
+    public String getStudentInfo(@RequestParam("id") @NotNull Integer studentId, Model model) {
         try {
             Optional<Student> student = studentsRepository.findById(studentId);
             if (student.isPresent()) {

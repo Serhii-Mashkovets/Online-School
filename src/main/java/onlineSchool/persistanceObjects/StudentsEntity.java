@@ -2,6 +2,9 @@ package onlineSchool.persistanceObjects;
 
 
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import java.util.List;
@@ -44,6 +47,10 @@ public class StudentsEntity {
         this.studentId = studentId;
     }
 
+
+@NotBlank(message = "students.name.invalid.blank.message")
+@Size(message = "student.name.invalid.size.message")
+@Pattern(regexp = "", message = "student.name.invalid.message")
     public String getStudentName() {
         return studentName;
     }
@@ -52,6 +59,10 @@ public class StudentsEntity {
         this.studentName = studentName;
     }
 
+
+    @NotBlank(message = "students.lastName.invalid.blank.message")
+    @Size(message = "students.lastName.invalid.size.message")
+    @Pattern(regexp = "", message = "student.lastName.invalid.message")
     public String getStudentSurname() {
         return studentSurname;
     }
@@ -60,6 +71,10 @@ public class StudentsEntity {
         this.studentSurname = studentSurname;
     }
 
+
+    @NotBlank(message = "students.email.invalid.blank.message")
+    @Size(message = "students.email.invalid.size.message")
+    @Pattern(regexp = "BilGates@gmail.com", message = "student.email.invalid.form.message")
     public String getStudentEmail() {
         return studentEmail;
     }
