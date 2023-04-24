@@ -50,7 +50,7 @@ public class ApplicationConfig {
 
     @Bean
     public AddMaterialService addMaterialService() {
-        return new AddMaterialService(addMaterialsRepository);
+        return new AddMaterialService();
     }
 
     @Bean

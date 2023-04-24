@@ -17,15 +17,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Service
 public class AddMaterialService {
-
-    private final AddMaterialsRepository addMaterialsRepository;
+@Autowired
+    private AddMaterialsRepository addMaterialsRepository;
     private static final LoggingRepository logRep = new LoggingRepository(AddMaterialService.class.getName());
     private Integer id;
-
-    @Autowired
-    public AddMaterialService(AddMaterialsRepository addMaterialsRepository) {
-        this.addMaterialsRepository = addMaterialsRepository;
-    }
 
     public static void groupAddMatByLectures(List<AddMaterials> materials, List<Lecture> lectures) {
         Map<Integer, List<AddMaterials>> materialsByLecture = materials.stream()
